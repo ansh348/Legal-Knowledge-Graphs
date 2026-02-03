@@ -1,0 +1,50 @@
+{
+  "total_cases": 50,
+  "valid_cases": 50,
+  "error_cases": 0,
+  "quality_score_distribution": {
+    "6": 2,
+    "7": 7,
+    "8": 30,
+    "9": 11
+  },
+  "average_metrics": {
+    "edge_validity_rate": 0.9611,
+    "connectivity_rate": 0.5788,
+    "issues_resolved_rate": 0.8265,
+    "holdings_connected_rate": 0.9123,
+    "quality_score": 8.474
+  },
+  "most_common_invalid_edge_patterns": [
+    {
+      "pattern": "a->h:rebuts",
+      "count": 50
+    },
+    {
+      "pattern": "a->h:grounds",
+      "count": 46
+    },
+    {
+      "pattern": "c->h:enables",
+      "count": 9
+    },
+    {
+      "pattern": "a->h:undercuts",
+      "count": 2
+    },
+    {
+      "pattern": "h->u:resolves",
+      "count": 1
+    }
+  ],
+  "cases_needing_attention": [
+    "1952_33",
+    "2007_946"
+  ],
+  "recommendations": [
+    "Review edge relation validation for pattern 'a->h:rebuts' (50 occurrences)",
+    "Review edge relation validation for pattern 'a->h:grounds' (46 occurrences)",
+    "Review edge relation validation for pattern 'c->h:enables' (9 occurrences)",
+    "Many graphs have orphan nodes - review node extraction"
+  ]
+}
