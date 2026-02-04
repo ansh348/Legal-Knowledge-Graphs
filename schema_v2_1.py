@@ -325,7 +325,7 @@ class ConceptNode:
     """A legal concept applied in the case."""
     id: str
     concept_id: str
-    anchor: Anchor
+    anchor: Optional[Anchor]  # Can be None if anchor creation failed
     relevance: Relevance
     kind: Optional[ConceptKind] = None
     interpretation: Optional[str] = None
@@ -340,7 +340,7 @@ class ConceptNode:
             "id": self.id,
             "type": NodeType.CONCEPT.value,
             "concept_id": self.concept_id,
-            "anchor": self.anchor.to_dict(),
+            "anchor": self.anchor.to_dict() if self.anchor else None,
             "relevance": self.relevance.value,
             "kind": self.kind.value if self.kind else None,
             "interpretation": self.interpretation,
@@ -357,7 +357,7 @@ class IssueNode:
     """A legal question the court addresses."""
     id: str
     text: str
-    anchor: Anchor
+    anchor: Optional[Anchor]  # Can be None if anchor creation failed
     issue_number: Optional[int] = None
     framed_by: ActorType = ActorType.COURT
     primary_concepts: List[str] = field(default_factory=list)
@@ -370,7 +370,7 @@ class IssueNode:
             "id": self.id,
             "type": NodeType.ISSUE.value,
             "text": self.text,
-            "anchor": self.anchor.to_dict(),
+            "anchor": self.anchor.to_dict() if self.anchor else None,
             "issue_number": self.issue_number,
             "framed_by": self.framed_by.value,
             "primary_concepts": self.primary_concepts,
@@ -385,7 +385,7 @@ class ArgumentNode:
     """An argument made by a party or the court."""
     id: str
     claim: str
-    anchor: Anchor
+    anchor: Optional[Anchor]  # Can be None if anchor creation failed
     actor: ActorType
     schemes: List[ArgumentScheme]
     qualifiers: Optional[str] = None
@@ -400,7 +400,7 @@ class ArgumentNode:
             "id": self.id,
             "type": NodeType.ARGUMENT.value,
             "claim": self.claim,
-            "anchor": self.anchor.to_dict(),
+            "anchor": self.anchor.to_dict() if self.anchor else None,
             "actor": self.actor.value,
             "schemes": [s.value for s in self.schemes],
             "qualifiers": self.qualifiers,
@@ -417,7 +417,7 @@ class HoldingNode:
     """A legal determination by the court."""
     id: str
     text: str
-    anchor: Anchor
+    anchor: Optional[Anchor]  # Can be None if anchor creation failed
     resolves_issue: Optional[str] = None
     is_ratio: bool = True
     novel: bool = False
@@ -431,7 +431,7 @@ class HoldingNode:
             "id": self.id,
             "type": NodeType.HOLDING.value,
             "text": self.text,
-            "anchor": self.anchor.to_dict(),
+            "anchor": self.anchor.to_dict() if self.anchor else None,
             "resolves_issue": self.resolves_issue,
             "is_ratio": self.is_ratio,
             "novel": self.novel,
@@ -447,7 +447,7 @@ class PrecedentNode:
     """A cited precedent case."""
     id: str
     citation: str
-    anchor: Anchor
+    anchor: Optional[Anchor]  # Can be None if anchor creation failed
     case_name: Optional[str] = None
     case_year: Optional[int] = None
     cited_case_id: Optional[str] = None
@@ -463,7 +463,7 @@ class PrecedentNode:
             "id": self.id,
             "type": NodeType.PRECEDENT.value,
             "citation": self.citation,
-            "anchor": self.anchor.to_dict(),
+            "anchor": self.anchor.to_dict() if self.anchor else None,
             "case_name": self.case_name,
             "case_year": self.case_year,
             "cited_case_id": self.cited_case_id,
@@ -480,7 +480,7 @@ class PrecedentNode:
 class OutcomeNode:
     """The final outcome/disposition of the case."""
     disposition: Disposition
-    anchor: Anchor
+    anchor: Optional[Anchor]  # Can be None if anchor creation failed
     binary: Literal["accepted", "rejected"]
     id: str = "outcome"
     relief_summary: Optional[str] = None
@@ -493,7 +493,7 @@ class OutcomeNode:
             "id": self.id,
             "type": NodeType.OUTCOME.value,
             "disposition": self.disposition.value,
-            "anchor": self.anchor.to_dict(),
+            "anchor": self.anchor.to_dict() if self.anchor else None,
             "binary": self.binary,
             "relief_summary": self.relief_summary,
             "costs": self.costs,
@@ -613,6 +613,12 @@ class LegalReasoningGraph:
     retry_attempts: int = 0
     validation_warnings: List[str] = field(default_factory=list)
 
+    # Fix 8: Store cluster membership for debugging
+    # Maps node_id -> list of cluster concept_ids the node belongs to
+    cluster_membership: Dict[str, List[str]] = field(default_factory=dict)
+    # Summarized cluster info: concept_id -> {facts: [...], concepts: [...], ...}
+    cluster_summary: Dict[str, Dict[str, List[str]]] = field(default_factory=dict)
+
     def validate(self) -> List[str]:
         """Validate the graph according to v2.1.1 rules."""
         warnings = []
@@ -719,7 +725,10 @@ class LegalReasoningGraph:
                 "extraction_model": self.extraction_model,
                 "extraction_timestamp": self.extraction_timestamp,
                 "retry_attempts": self.retry_attempts,
-                "validation_warnings": self.validation_warnings
+                "validation_warnings": self.validation_warnings,
+                # Fix 8: Include cluster membership for debugging
+                "cluster_membership": self.cluster_membership if self.cluster_membership else None,
+                "cluster_summary": self.cluster_summary if self.cluster_summary else None
             }
         }
 

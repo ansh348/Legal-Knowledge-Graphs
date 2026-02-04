@@ -85,10 +85,30 @@ async def extract_one(
                 case_id=case_id
             )
 
+            # Defensive: filter out any None values from node lists
+            # This can happen if node creation fails silently
+            graph.facts = [n for n in graph.facts if n is not None]
+            graph.concepts = [n for n in graph.concepts if n is not None]
+            graph.issues = [n for n in graph.issues if n is not None]
+            graph.arguments = [n for n in graph.arguments if n is not None]
+            graph.holdings = [n for n in graph.holdings if n is not None]
+            graph.precedents = [n for n in graph.precedents if n is not None]
+            graph.justification_sets = [n for n in graph.justification_sets if n is not None]
+            graph.edges = [e for e in graph.edges if e is not None]
+            graph.reasoning_chains = [rc for rc in graph.reasoning_chains if rc is not None]
+
             # Save individual graph
             output_path = OUTPUT_DIR / f"{case_id}.json"
-            with open(output_path, 'w') as f:
-                f.write(graph.to_json())
+            try:
+                json_str = graph.to_json()
+                with open(output_path, 'w') as f:
+                    f.write(json_str)
+            except Exception as ser_err:
+                return {
+                    'case_id': case_id,
+                    'success': False,
+                    'error': f"Serialization error: {str(ser_err)[:150]}"
+                }
 
             # Compute metrics
             n_facts = len(graph.facts)
@@ -102,7 +122,15 @@ async def extract_one(
             n_chains = len(graph.reasoning_chains)
 
             # Check if outcome prediction matches label
-            outcome_accepted = graph.outcome and graph.outcome.disposition.value in ['allowed', 'partly_allowed']
+            # Handle case where outcome might be None
+            if graph.outcome is None:
+                # No outcome extracted - treat as prediction failure
+                outcome_accepted = False
+                outcome_value = None
+            else:
+                outcome_value = graph.outcome.disposition.value
+                outcome_accepted = outcome_value in ['allowed', 'partly_allowed', 'set_aside', 'remanded', 'modified']
+
             label_accepted = label == 1
             outcome_correct = outcome_accepted == label_accepted
 
@@ -110,7 +138,7 @@ async def extract_one(
                 'case_id': case_id,
                 'success': True,
                 'label': label,
-                'outcome': graph.outcome.disposition.value if graph.outcome else None,
+                'outcome': outcome_value,
                 'outcome_correct': outcome_correct,
                 'quality_tier': graph.quality_tier,
                 'n_facts': n_facts,
@@ -126,10 +154,13 @@ async def extract_one(
             }
 
         except Exception as e:
+            import traceback
+            tb = traceback.format_exc()
+            # Include more context in error
             return {
                 'case_id': case_id,
                 'success': False,
-                'error': str(e)[:200]
+                'error': f"{type(e).__name__}: {str(e)[:150]}"
             }
 
 
@@ -241,7 +272,6 @@ async def run_batch(
 
             print("Interrupted. Checkpoint saved. Exiting cleanly.")
             return
-
 
         for result in results:
             if result['success']:

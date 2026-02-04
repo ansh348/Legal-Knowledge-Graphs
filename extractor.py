@@ -119,6 +119,35 @@ logging.basicConfig(
 logger = logging.getLogger("LegalExtractor")
 
 # =============================================================================
+# ANCHOR VALIDITY CONSTANTS
+# =============================================================================
+
+# SHA256 hash of empty string - indicates invalid anchor
+EMPTY_ANCHOR_HASH = "e3b0c44298fc1c14"
+
+
+def is_anchor_valid(anchor: Optional[Any]) -> bool:
+    """Check if an anchor is semantically valid (not empty/corrupt).
+
+    An anchor is invalid if:
+    - It's None
+    - text_hash equals empty string hash
+    - surface_text is empty or None
+    - start_char/end_char are invalid (negative or end <= start)
+    """
+    if anchor is None:
+        return False
+    if hasattr(anchor, 'text_hash') and anchor.text_hash == EMPTY_ANCHOR_HASH:
+        return False
+    if hasattr(anchor, 'surface_text') and not anchor.surface_text:
+        return False
+    if hasattr(anchor, 'start_char') and hasattr(anchor, 'end_char'):
+        if anchor.start_char < 0 or anchor.end_char <= anchor.start_char:
+            return False
+    return True
+
+
+# =============================================================================
 # EDGE RELATION NORMALIZATION + VALIDATION RULES
 # =============================================================================
 
@@ -164,6 +193,7 @@ _EDGE_RELATION_ALIASES: Dict[str, str] = {
     "require": "requires",
 }
 
+
 def normalize_edge_relation(relation: Any) -> str:
     """Normalize relation string to canonical schema values."""
     if relation is None:
@@ -172,6 +202,7 @@ def normalize_edge_relation(relation: Any) -> str:
     r = r.replace("-", "_").replace(" ", "_")
     r = re.sub(r"_+", "_", r)
     return _EDGE_RELATION_ALIASES.get(r, r)
+
 
 def coerce_edge_relation(relation: Any) -> str:
     """Coerce an arbitrary relation-like string into a valid EdgeRelation value.
@@ -210,6 +241,7 @@ def coerce_edge_relation(relation: Any) -> str:
     # Default: treat as generic support
     return "supports"
 
+
 _SCHEME_ALIASES: Dict[str, str] = {
     # Verbose → canonical
     "textual_interpretation": "textual",
@@ -227,6 +259,7 @@ _SCHEME_ALIASES: Dict[str, str] = {
     "audi_alteram_partem": "natural_justice",
 }
 
+
 def normalize_argument_scheme(scheme: Any) -> str:
     """Normalize a scheme label to the ArgumentScheme enum values."""
     if scheme is None:
@@ -235,6 +268,184 @@ def normalize_argument_scheme(scheme: Any) -> str:
     s = s.replace("-", "_").replace(" ", "_")
     s = re.sub(r"_+", "_", s)
     return _SCHEME_ALIASES.get(s, s)
+
+
+# =============================================================================
+# ACTOR TYPE NORMALIZATION + COERCION
+# =============================================================================
+
+# Alias mapping for common LLM outputs that don't match our ActorType enum
+_ACTOR_TYPE_ALIASES: Dict[str, str] = {
+    # Union of India / Government variants -> respondent
+    "union": "respondent",
+    "uoi": "respondent",
+    "union_of_india": "respondent",
+    "government": "respondent",
+    "govt": "respondent",
+    "state": "respondent",
+    "states": "respondent",
+    "state_government": "respondent",
+    "central_government": "respondent",
+    "central_govt": "respondent",
+    "authority": "respondent",
+    "authorities": "respondent",
+    "department": "respondent",
+    "ministry": "respondent",
+    "corporation": "respondent",
+    "public_authority": "respondent",
+
+    # Appellant/Petitioner variants
+    "appellant": "appellant",
+    "petitioner": "petitioner",
+    "applicant": "petitioner",
+    "plaintiff": "petitioner",
+    "claimant": "petitioner",
+    "writ_petitioner": "petitioner",
+
+    # Respondent variants
+    "respondent": "respondent",
+    "defendant": "respondent",
+    "opposite_party": "respondent",
+    "opp_party": "respondent",
+
+    # Criminal case actors
+    "accused": "accused",
+    "convict": "accused",
+    "prisoner": "accused",
+    "prosecution": "prosecution",
+    "public_prosecutor": "prosecution",
+    "pp": "prosecution",
+    "complainant": "complainant",
+    "informant": "complainant",
+
+    # Court variants
+    "court": "court",
+    "bench": "court",
+    "judge": "court",
+    "tribunal": "court",
+    "lower_court": "lower_court",
+    "high_court": "lower_court",
+    "trial_court": "lower_court",
+    "sessions_court": "lower_court",
+    "magistrate": "lower_court",
+    "appellate_authority": "lower_court",
+
+    # Third parties
+    "amicus": "amicus",
+    "amicus_curiae": "amicus",
+    "intervenor": "third_party",
+    "intervener": "third_party",
+    "third_party": "third_party",
+    "witness": "third_party",
+    "expert": "third_party",
+}
+
+
+def normalize_actor_type(actor: Any) -> Optional[str]:
+    """Normalize an actor string to a canonical form.
+
+    Returns None if actor is None/empty.
+    """
+    if actor is None:
+        return None
+    a = str(actor).strip().lower()
+    if not a:
+        return None
+    a = a.replace("-", "_").replace(" ", "_")
+    a = re.sub(r"_+", "_", a)
+    return _ACTOR_TYPE_ALIASES.get(a, a)
+
+
+def coerce_actor_type(actor: Any, default: Optional[str] = None) -> Optional[ActorType]:
+    """Coerce an arbitrary actor-like string into a valid ActorType enum value.
+
+    This is a safety net for noisy IL-TUR judgments and occasional LLM drift.
+    Instead of raising ValueError and dropping nodes, we map unknown actors
+    to a valid enum value (typically 'third_party' or 'respondent').
+
+    Args:
+        actor: The raw actor value from LLM extraction
+        default: Default ActorType value if actor is None/empty (as string)
+
+    Returns:
+        ActorType enum value, or None if actor is None and no default provided
+    """
+    if actor is None:
+        if default is not None:
+            try:
+                return ActorType(default)
+            except ValueError:
+                return None
+        return None
+
+    # First normalize
+    normalized = normalize_actor_type(actor)
+    if normalized is None:
+        if default is not None:
+            try:
+                return ActorType(default)
+            except ValueError:
+                return None
+        return None
+
+    # Check if it's already a valid enum value
+    valid_values = {at.value for at in ActorType}
+    if normalized in valid_values:
+        return ActorType(normalized)
+
+    # Heuristic fallbacks for unmapped values
+    a = normalized.lower()
+
+    # Government/authority patterns -> respondent
+    if any(pat in a for pat in ["gov", "union", "state", "ministry", "department",
+                                "authority", "board", "commission", "corporation",
+                                "municipal", "council", "committee"]):
+        logger.debug(f"Coerced actor '{actor}' -> respondent (government pattern)")
+        return ActorType.RESPONDENT
+
+    # Petitioner patterns
+    if any(pat in a for pat in ["petition", "applic", "plaintiff", "claim", "writ"]):
+        logger.debug(f"Coerced actor '{actor}' -> petitioner (petitioner pattern)")
+        return ActorType.PETITIONER
+
+    # Appellant patterns
+    if "appell" in a:
+        logger.debug(f"Coerced actor '{actor}' -> appellant (appellant pattern)")
+        return ActorType.APPELLANT
+
+    # Respondent patterns
+    if any(pat in a for pat in ["respond", "defend", "opposite"]):
+        logger.debug(f"Coerced actor '{actor}' -> respondent (respondent pattern)")
+        return ActorType.RESPONDENT
+
+    # Criminal patterns
+    if any(pat in a for pat in ["accuse", "convict", "prisoner"]):
+        logger.debug(f"Coerced actor '{actor}' -> accused (accused pattern)")
+        return ActorType.ACCUSED
+    if any(pat in a for pat in ["prosecu", "public_prosecutor"]):
+        logger.debug(f"Coerced actor '{actor}' -> prosecution (prosecution pattern)")
+        return ActorType.PROSECUTION
+    if any(pat in a for pat in ["complain", "inform"]):
+        logger.debug(f"Coerced actor '{actor}' -> complainant (complainant pattern)")
+        return ActorType.COMPLAINANT
+
+    # Court patterns
+    if any(pat in a for pat in ["court", "bench", "judge", "tribunal"]):
+        if any(pat in a for pat in ["lower", "trial", "session", "magistrat", "high_court"]):
+            logger.debug(f"Coerced actor '{actor}' -> lower_court (lower court pattern)")
+            return ActorType.LOWER_COURT
+        logger.debug(f"Coerced actor '{actor}' -> court (court pattern)")
+        return ActorType.COURT
+
+    # Amicus patterns
+    if "amicus" in a or "friend_of_court" in a:
+        logger.debug(f"Coerced actor '{actor}' -> amicus (amicus pattern)")
+        return ActorType.AMICUS
+
+    # Default fallback: third_party (safest generic option)
+    logger.debug(f"Coerced actor '{actor}' -> third_party (fallback)")
+    return ActorType.THIRD_PARTY
+
 
 # Maps (source_type, target_type) -> allowed relations
 # NOTE: We keep this relatively permissive to avoid dropping edges on IL-TUR.
@@ -278,6 +489,7 @@ VALID_EDGE_RELATIONS: Dict[Tuple[str, str], Set[str]] = {
     ("issue", "issue"): {"specializes", "conflicts_with", "requires"},
 }
 
+
 def get_node_type_from_id(node_id: str) -> str:
     """Infer node type from ID prefix."""
     if node_id == "outcome":
@@ -316,7 +528,9 @@ def validate_edge_relation(source_id: str, target_id: str, relation: str) -> Tup
 
     return True, ""
 
-def repair_edge_relation(source_id: str, target_id: str, relation: str) -> Tuple[Optional[str], Optional[str], Optional[str], str]:
+
+def repair_edge_relation(source_id: str, target_id: str, relation: str) -> Tuple[
+    Optional[str], Optional[str], Optional[str], str]:
     """Attempt to repair an edge relation (and sometimes direction) to satisfy VALID_EDGE_RELATIONS.
 
     Returns (new_source, new_target, new_relation, note). If no repair is possible,
@@ -400,7 +614,6 @@ def repair_edge_relation(source_id: str, target_id: str, relation: str) -> Tuple
         return None, None, None, "repair failed"
 
 
-
 # =============================================================================
 # CONFIGURATION
 
@@ -460,7 +673,70 @@ def align_quote_to_span(doc_text: str, quote: str) -> Optional[Tuple[int, int]]:
         return None
     return start, end
 
+
 # =============================================================================
+
+def build_cluster_edge_whitelist(node_types_present: Set[str], exclude_structural: bool = True) -> str:
+    """Build a per-type whitelist of allowed edge relations for a cluster.
+
+    This creates a prompt-friendly table of which relations are valid for each
+    source->target type pair present in the cluster.
+
+    Args:
+        node_types_present: Set of node types present in the cluster (e.g., {"fact", "concept", "holding"})
+        exclude_structural: If True, exclude resolves/determines (added deterministically later)
+
+    Returns:
+        A formatted string for inclusion in prompts
+    """
+    # Relations that are added deterministically, not by LLM
+    structural_relations = {"resolves", "partially_resolves", "determines", "contributes_to"}
+
+    lines = ["ALLOWED RELATIONS (use ONLY these for the specified type pairs):"]
+    lines.append("")
+
+    for (src_type, tgt_type), relations in sorted(VALID_EDGE_RELATIONS.items()):
+        # Only include if both types are present in the cluster
+        if src_type not in node_types_present or tgt_type not in node_types_present:
+            continue
+
+        # Filter out structural relations if requested
+        if exclude_structural:
+            relations = relations - structural_relations
+
+        if not relations:
+            continue
+
+        rel_str = " | ".join(sorted(relations))
+        lines.append(f"  {src_type} → {tgt_type}: {rel_str}")
+
+    lines.append("")
+    lines.append("If a type pair is NOT listed above, do NOT create an edge for that pair.")
+
+    if exclude_structural:
+        lines.append(
+            "DO NOT emit 'resolves', 'partially_resolves', 'determines', or 'contributes_to' edges - these are added automatically.")
+
+    return "\n".join(lines)
+
+
+def get_node_types_in_cluster(cluster: 'ConceptCluster') -> Set[str]:
+    """Get the set of node types present in a cluster."""
+    types = set()
+    if cluster.facts:
+        types.add("fact")
+    if cluster.concepts:
+        types.add("concept")
+    if cluster.issues:
+        types.add("issue")
+    if cluster.arguments:
+        types.add("argument")
+    if cluster.holdings:
+        types.add("holding")
+    if cluster.precedents:
+        types.add("precedent")
+    return types
+
 
 @dataclass
 class ExtractionConfig:
@@ -756,6 +1032,103 @@ def _looks_negative(text: str) -> bool:
     return any(pat in t for pat in ["without ", "no ", "not ", "denied", "refused", "failed to"])
 
 
+def normalize_ontology_requires(requires_raw: Any) -> Tuple[str, List[str]]:
+    """Normalize the 'requires' field from ontology into (logic, requirements_list).
+
+    The ontology can have 'requires' as:
+    - A list like ["[AND]", "req1", "req2"] or ["[OR]", "req1", "req2"]
+    - A plain list like ["req1", "req2"] (defaults to AND)
+    - A string like "1. req1\n2. req2" or "req1; req2"
+    - None or empty
+
+    Returns:
+        (logic, requirements_list) where logic is "and" or "or"
+    """
+    if requires_raw is None:
+        return "and", []
+
+    # Case 1: Already a list
+    if isinstance(requires_raw, list):
+        if not requires_raw:
+            return "and", []
+
+        # Check for logic marker in first element
+        logic = "and"
+        start_idx = 0
+        first = str(requires_raw[0]).strip().upper()
+        if first.startswith("["):
+            if "OR" in first:
+                logic = "or"
+            elif "AND" in first:
+                logic = "and"
+            start_idx = 1
+
+        # Extract requirements, filtering out empty strings
+        requirements = [
+            str(r).strip() for r in requires_raw[start_idx:]
+            if str(r).strip() and not str(r).strip().upper().startswith("[")
+        ]
+        return logic, requirements
+
+    # Case 2: String - need to parse
+    if isinstance(requires_raw, str):
+        text = requires_raw.strip()
+        if not text:
+            return "and", []
+
+        # Check for logic marker at start
+        logic = "and"
+        if text.upper().startswith("[OR"):
+            logic = "or"
+            # Remove the marker
+            text = re.sub(r'^\s*\[OR\]?\s*', '', text, flags=re.IGNORECASE)
+        elif text.upper().startswith("[AND"):
+            logic = "and"
+            text = re.sub(r'^\s*\[AND\]?\s*', '', text, flags=re.IGNORECASE)
+
+        # Split on common delimiters: newlines, semicolons, or numbered bullets
+        # First try numbered bullets (1. 2. etc)
+        if re.search(r'^\s*\d+[\.\)]\s*', text, re.MULTILINE):
+            parts = re.split(r'\d+[\.\)]\s*', text)
+        else:
+            # Split on newlines or semicolons
+            parts = re.split(r'[\n;]+', text)
+
+        # Clean up and filter
+        requirements = [p.strip() for p in parts if p.strip()]
+        return logic, requirements
+
+    # Fallback
+    return "and", []
+
+
+def normalize_ontology_defeaters(defeaters_raw: Any) -> List[str]:
+    """Normalize the 'defeaters' field from ontology into a list.
+
+    Similar to requires, but without logic markers.
+    """
+    if defeaters_raw is None:
+        return []
+
+    if isinstance(defeaters_raw, list):
+        return [str(d).strip() for d in defeaters_raw if str(d).strip()]
+
+    if isinstance(defeaters_raw, str):
+        text = defeaters_raw.strip()
+        if not text:
+            return []
+
+        # Split on common delimiters
+        if re.search(r'^\s*\d+[\.\)]\s*', text, re.MULTILINE):
+            parts = re.split(r'\d+[\.\)]\s*', text)
+        else:
+            parts = re.split(r'[\n;]+', text)
+
+        return [p.strip() for p in parts if p.strip()]
+
+    return []
+
+
 def cluster_nodes(
         graph: LegalReasoningGraph,
         ontology: Dict
@@ -778,24 +1151,16 @@ def cluster_nodes(
 
     # 1) Seed clusters from ontology
     for concept_id, concept_def in ontology_concepts.items():
-        requires = concept_def.get("requires") or []
-        logic = "and"
-        if requires and isinstance(requires[0], str):
-            marker = requires[0].upper()
-            if "[OR" in marker:
-                logic = "or"
-            elif "[AND" in marker:
-                logic = "and"
-            # Skip marker if present
-            if marker.startswith("["):
-                requires = requires[1:]
+        # Use normalized parsing to handle string vs list requires
+        logic, requires = normalize_ontology_requires(concept_def.get("requires"))
+        defeaters = normalize_ontology_defeaters(concept_def.get("defeaters"))
 
         clusters[concept_id] = ConceptCluster(
             concept_id=concept_id,
             concept_label=str(concept_def.get("label") or concept_id),
             logic=logic,
             requires=requires,
-            defeaters=list(concept_def.get("defeaters") or []),
+            defeaters=defeaters,
             satisfied_requirements={req: None for req in requires}
         )
 
@@ -1136,7 +1501,6 @@ class MockLLMClient(LLMClient):
         # Store a small snippet for debugging
         self.call_log.append({"prompt": prompt[:500], "system": system[:200]})
         return "{}"
-
 
 
 class AnthropicClient(LLMClient):
@@ -1571,7 +1935,6 @@ DOCUMENT (focus on reasoning sections):
 
 Respond with JSON: {{"edges": [...]}}"""
 
-
 # =============================================================================
 # v4: INTRA-CLUSTER EDGE EXTRACTION
 # =============================================================================
@@ -1593,15 +1956,17 @@ REQUIREMENTS (logic={logic}):
 DEFEATERS (what can undercut/break this doctrine):
 {defeaters_block}
 
+{edge_whitelist}
+
 NODES IN THIS CLUSTER:
 {cluster_context}
 
-EDGE FORMAT (same as global edge pass):
+EDGE FORMAT:
 {{
   "id": "e1",  
   "source": "node_id",
   "target": "node_id",
-  "relation": "triggers|negates|partially_satisfies|satisfies|claims_satisfies|supports|grounds|enables|rebuts|undercuts|addresses|concedes|requires|excludes|specializes|conflicts_with|resolves|partially_resolves|determines|contributes_to|follows|applies|distinguishes|overrules|doubts|explains|establishes|attacks|supports_arg|responds_to",
+  "relation": "<relation from whitelist above>",
   "start_char": <int> or null,
   "end_char": <int> or null,
   "explanation": "why this connection exists",
@@ -1736,15 +2101,70 @@ class ExtractionPass(ABC):
             self,
             start_char: int,
             end_char: int,
-            surface_text: Optional[str] = None
-    ) -> Anchor:
-        """Create an Anchor from char offsets."""
-        seg = self.doc.get_segment_at(start_char, end_char)
-        display = seg.display_location if seg else None
+            surface_text: Optional[str] = None,
+            quote_for_alignment: Optional[str] = None
+    ) -> Optional[Anchor]:
+        """Create an Anchor from char offsets with validation and repair.
+
+        Args:
+            start_char: Starting character offset
+            end_char: Ending character offset
+            surface_text: Optional surface text (first ~150 chars)
+            quote_for_alignment: Optional verbatim quote to use for offset repair
+
+        Returns:
+            Anchor if valid, None if completely invalid and unrepairable
+        """
+        doc_len = self.doc.char_count
+
+        # Validate basic offset sanity
+        offsets_valid = (
+                start_char is not None and
+                end_char is not None and
+                0 <= start_char < end_char <= doc_len
+        )
+
+        # If offsets invalid, try to repair via quote alignment
+        if not offsets_valid:
+            repair_quote = quote_for_alignment or surface_text
+            if repair_quote:
+                repaired = align_quote_to_span(self.doc.full_text, repair_quote)
+                if repaired:
+                    start_char, end_char = repaired
+                    offsets_valid = True
+                    logger.debug(f"Repaired anchor via quote alignment: {start_char}-{end_char}")
+
+        # If still invalid, return None
+        if not offsets_valid:
+            logger.debug(f"Invalid anchor offsets: {start_char}-{end_char} (doc_len={doc_len})")
+            return None
+
+        # Get text at these offsets
+        actual_text = self.doc.text_at(start_char, end_char)
         text_hash = self.doc.compute_text_hash(start_char, end_char)
 
+        # Check for empty hash (indicates empty text extraction)
+        if text_hash == EMPTY_ANCHOR_HASH or not actual_text.strip():
+            # Try repair via quote if available
+            repair_quote = quote_for_alignment or surface_text
+            if repair_quote:
+                repaired = align_quote_to_span(self.doc.full_text, repair_quote)
+                if repaired:
+                    start_char, end_char = repaired
+                    actual_text = self.doc.text_at(start_char, end_char)
+                    text_hash = self.doc.compute_text_hash(start_char, end_char)
+                    logger.debug(f"Repaired empty anchor via quote alignment: {start_char}-{end_char}")
+
+        # Final check - if still empty, return None
+        if text_hash == EMPTY_ANCHOR_HASH or not actual_text.strip():
+            logger.debug(f"Anchor produces empty text at {start_char}-{end_char}")
+            return None
+
+        seg = self.doc.get_segment_at(start_char, end_char)
+        display = seg.display_location if seg else None
+
         if surface_text is None:
-            surface_text = self.doc.text_at(start_char, end_char)[:150]
+            surface_text = actual_text[:150]
 
         return Anchor(
             doc_id=self.doc.doc_id,
@@ -1754,6 +2174,27 @@ class ExtractionPass(ABC):
             display_location=display,
             surface_text=surface_text
         )
+
+    def make_anchor_from_quote(self, quote: str) -> Optional[Anchor]:
+        """Create an Anchor by finding a verbatim quote in the document.
+
+        This is the preferred method for anchoring - more reliable than LLM offsets.
+
+        Args:
+            quote: Verbatim text to find in document
+
+        Returns:
+            Anchor if quote found, None otherwise
+        """
+        if not quote or not quote.strip():
+            return None
+
+        result = align_quote_to_span(self.doc.full_text, quote)
+        if result is None:
+            return None
+
+        start_char, end_char = result
+        return self.make_anchor(start_char, end_char, surface_text=quote[:150])
 
     def get_offsets_reference(self, max_paras: int = 30) -> str:
         """Get paragraph offset reference for prompts."""
@@ -1915,17 +2356,31 @@ class FactsExtractionPass(ExtractionPass):
         nodes = []
         for f in data.get("facts", []):
             try:
+                # Try to create anchor, using surface_text as repair quote
+                anchor = self.make_anchor(
+                    f.get("start_char", -1),
+                    f.get("end_char", -1),
+                    surface_text=f.get("surface_text"),
+                    quote_for_alignment=f.get("surface_text")
+                )
+
+                # Determine confidence - downgrade if anchor is invalid
+                conf = f.get("confidence") or "high"
+                if anchor is None or not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+
                 node = FactNode(
                     id=f["id"],
                     text=f["text"],
-                    anchor=self.make_anchor(f["start_char"], f["end_char"], f.get("surface_text")),
+                    anchor=anchor,
                     fact_type=FactType(f["fact_type"]),
-                    actor_source=ActorType(f["actor_source"]) if f.get("actor_source") else None,
+                    actor_source=coerce_actor_type(f.get("actor_source")),
                     date=f.get("date"),
                     date_approximate=bool(f.get("date_approximate", False)),
-                    disputed_by=ActorType(f["disputed_by"]) if f.get("disputed_by") else None,
+                    disputed_by=coerce_actor_type(f.get("disputed_by")),
                     court_finding=f.get("court_finding"),
-                    confidence=Confidence(f.get("confidence") or "high"),
+                    confidence=Confidence(conf),
                     provenance=self.provenance
                 )
                 nodes.append(node)
@@ -2016,6 +2471,7 @@ class ConceptsExtractionPass(ExtractionPass):
         nodes = []
         for c in data.get("concepts", []):
             try:
+                # Handle interpretation anchor
                 interp_anchor = None
                 if c.get("interpretation_start_char") is not None and c.get("interpretation_end_char") is not None:
                     interp_anchor = self.make_anchor(
@@ -2023,17 +2479,31 @@ class ConceptsExtractionPass(ExtractionPass):
                         c["interpretation_end_char"]
                     )
 
+                # Create main anchor with repair support
+                anchor = self.make_anchor(
+                    c.get("start_char", -1),
+                    c.get("end_char", -1),
+                    surface_text=c.get("surface_text"),
+                    quote_for_alignment=c.get("surface_text")
+                )
+
+                # Determine confidence - downgrade if anchor is invalid
+                conf = c.get("confidence") or "high"
+                if anchor is None or not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+
                 node = ConceptNode(
                     id=c["id"],
                     concept_id=c["concept_id"],
-                    anchor=self.make_anchor(c["start_char"], c["end_char"], c.get("surface_text")),
+                    anchor=anchor,
                     relevance=Relevance(c["relevance"]),
                     kind=ConceptKind(c["kind"]) if c.get("kind") else None,
                     interpretation=c.get("interpretation"),
                     interpretation_anchor=interp_anchor,
                     unlisted_label=c.get("unlisted_label"),
                     unlisted_description=c.get("unlisted_description"),
-                    confidence=Confidence(c.get("confidence") or "high"),
+                    confidence=Confidence(conf),
                     provenance=self.provenance
                 )
                 nodes.append(node)
@@ -2071,15 +2541,29 @@ class IssuesExtractionPass(ExtractionPass):
         nodes = []
         for iss in data.get("issues", []):
             try:
+                # Create anchor with repair support
+                anchor = self.make_anchor(
+                    iss.get("start_char", -1),
+                    iss.get("end_char", -1),
+                    surface_text=iss.get("surface_text"),
+                    quote_for_alignment=iss.get("surface_text")
+                )
+
+                # Determine confidence - downgrade if anchor is invalid
+                conf = iss.get("confidence") or "high"
+                if anchor is None or not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+
                 node = IssueNode(
                     id=iss["id"],
                     text=iss["text"],
-                    anchor=self.make_anchor(iss["start_char"], iss["end_char"], iss.get("surface_text")),
+                    anchor=anchor,
                     issue_number=iss.get("issue_number"),
-                    framed_by=ActorType(iss.get("framed_by") or "court"),
+                    framed_by=coerce_actor_type(iss.get("framed_by"), default="court"),
                     primary_concepts=iss.get("primary_concepts", []),
                     answer=iss.get("answer"),
-                    confidence=Confidence(iss.get("confidence") or "high"),
+                    confidence=Confidence(conf),
                     provenance=self.provenance
                 )
                 nodes.append(node)
@@ -2152,17 +2636,31 @@ class ArgumentsExtractionPass(ExtractionPass):
                     extra = "unmapped_schemes:" + ",".join(unmapped_schemes)
                     qualifiers = (qualifiers + "; " if qualifiers else "") + extra
 
+                # Create anchor with repair support
+                anchor = self.make_anchor(
+                    arg.get("start_char", -1),
+                    arg.get("end_char", -1),
+                    surface_text=arg.get("surface_text"),
+                    quote_for_alignment=arg.get("surface_text")
+                )
+
+                # Determine confidence - downgrade if anchor is invalid
+                conf = arg.get("confidence") or "high"
+                if anchor is None or not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+
                 node = ArgumentNode(
                     id=arg["id"],
                     claim=arg["claim"],
-                    anchor=self.make_anchor(arg["start_char"], arg["end_char"], arg.get("surface_text")),
-                    actor=ActorType(arg["actor"]),
+                    anchor=anchor,
+                    actor=coerce_actor_type(arg.get("actor"), default="petitioner"),
                     schemes=schemes,
                     qualifiers=qualifiers,
                     court_response=arg.get("court_response"),
                     court_response_anchor=court_anchor,
                     court_reasoning=arg.get("court_reasoning"),
-                    confidence=Confidence(arg.get("confidence") or "high"),
+                    confidence=Confidence(conf),
                     provenance=self.provenance
                 )
                 nodes.append(node)
@@ -2218,16 +2716,30 @@ class HoldingsExtractionPass(ExtractionPass):
                 if not schemes:
                     schemes = [ArgumentScheme.RULE_APPLICATION]
 
+                # Create anchor with repair support
+                anchor = self.make_anchor(
+                    h.get("start_char", -1),
+                    h.get("end_char", -1),
+                    surface_text=h.get("surface_text"),
+                    quote_for_alignment=h.get("surface_text")
+                )
+
+                # Determine confidence - downgrade if anchor is invalid
+                conf = h.get("confidence") or "high"
+                if anchor is None or not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+
                 node = HoldingNode(
                     id=h["id"],
                     text=h["text"],
-                    anchor=self.make_anchor(h["start_char"], h["end_char"], h.get("surface_text")),
+                    anchor=anchor,
                     resolves_issue=h.get("resolves_issue"),
                     is_ratio=h.get("is_ratio", True),
                     novel=h.get("novel", False),
                     reasoning_summary=h.get("reasoning_summary"),
                     schemes=schemes,
-                    confidence=Confidence(h.get("confidence") or "high"),
+                    confidence=Confidence(conf),
                     provenance=self.provenance
                 )
                 nodes.append(node)
@@ -2271,10 +2783,24 @@ class PrecedentsExtractionPass(ExtractionPass):
                     except ValueError:
                         logger.warning(f"Unknown treatment: {p['treatment']}")
 
+                # Create anchor with repair support
+                anchor = self.make_anchor(
+                    p.get("start_char", -1),
+                    p.get("end_char", -1),
+                    surface_text=p.get("surface_text"),
+                    quote_for_alignment=p.get("surface_text")
+                )
+
+                # Determine confidence - downgrade if anchor is invalid
+                conf = p.get("confidence") or "high"
+                if anchor is None or not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+
                 node = PrecedentNode(
                     id=p["id"],
                     citation=p["citation"],
-                    anchor=self.make_anchor(p["start_char"], p["end_char"], p.get("surface_text")),
+                    anchor=anchor,
                     case_name=p.get("case_name"),
                     case_year=p.get("case_year"),
                     cited_case_id=p.get("cited_case_id"),
@@ -2282,7 +2808,7 @@ class PrecedentsExtractionPass(ExtractionPass):
                     cited_holding=p.get("cited_holding"),
                     treatment=treatment,
                     relevance=Relevance(p.get("relevance") or "supporting"),
-                    confidence=Confidence(p.get("confidence") or "high"),
+                    confidence=Confidence(conf),
                     provenance=self.provenance
                 )
                 nodes.append(node)
@@ -2321,9 +2847,17 @@ class OutcomeExtractionPass(ExtractionPass):
             return None
 
         try:
+            # Create anchor with repair support
+            anchor = self.make_anchor(
+                outcome.get("start_char", -1),
+                outcome.get("end_char", -1),
+                surface_text=outcome.get("surface_text"),
+                quote_for_alignment=outcome.get("surface_text")
+            )
+
             return OutcomeNode(
                 disposition=Disposition(outcome["disposition"]),
-                anchor=self.make_anchor(outcome["start_char"], outcome["end_char"], outcome.get("surface_text")),
+                anchor=anchor,
                 binary=outcome["binary"],
                 relief_summary=outcome.get("relief_summary"),
                 costs=outcome.get("costs"),
@@ -2409,6 +2943,10 @@ class IntraClusterEdgesExtractionPass(ExtractionPass):
         defeaters_block = _format_bullets(self.cluster.defeaters)
         cluster_context = build_cluster_context(self.cluster, self.graph)
 
+        # Build per-type edge whitelist for this cluster
+        node_types = get_node_types_in_cluster(self.cluster)
+        edge_whitelist = build_cluster_edge_whitelist(node_types, exclude_structural=True)
+
         prompt = INTRA_CLUSTER_EDGES_PROMPT.format(
             concept_id=self.cluster.concept_id,
             concept_label=self.cluster.concept_label,
@@ -2416,6 +2954,7 @@ class IntraClusterEdgesExtractionPass(ExtractionPass):
             logic=self.cluster.logic,
             requires_block=requires_block,
             defeaters_block=defeaters_block,
+            edge_whitelist=edge_whitelist,
             cluster_context=cluster_context
         )
 
@@ -2493,6 +3032,14 @@ class IntraClusterEdgesExtractionPass(ExtractionPass):
                 if start is not None and end is not None:
                     anchor = self.make_anchor(start, end)
 
+                # Fix 4: Downgrade confidence if anchor is invalid (empty hash, etc.)
+                if anchor is not None and not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+                        if not explanation:
+                            explanation = "Anchor validation failed; inferred from context"
+                    anchor = None  # Don't keep invalid anchors
+
                 # Repair relation/direction to satisfy VALID_EDGE_RELATIONS
                 src = e["source"]
                 tgt = e["target"]
@@ -2511,7 +3058,8 @@ class IntraClusterEdgesExtractionPass(ExtractionPass):
                     if conf in ("high", "medium"):
                         conf = "inferred"
                 if repair_note:
-                    explanation = (explanation + f" [REPAIRED: {repair_note}]" if explanation else f"[REPAIRED: {repair_note}]")
+                    explanation = (
+                        explanation + f" [REPAIRED: {repair_note}]" if explanation else f"[REPAIRED: {repair_note}]")
                 edge = Edge(
                     id=f"{edge_id_prefix}{idx + 1}",
                     source=src,
@@ -2608,6 +3156,14 @@ class EdgesExtractionPass(ExtractionPass):
                     if not explanation:
                         explanation = "Implicit connection inferred (no explicit anchor span)."
 
+                # Fix 4: Downgrade confidence if anchor is invalid (empty hash, etc.)
+                if anchor is not None and not is_anchor_valid(anchor):
+                    if conf in ("high", "medium"):
+                        conf = "inferred"
+                        if not explanation:
+                            explanation = "Anchor validation failed; inferred from context"
+                    anchor = None  # Don't keep invalid anchors
+
                 # Repair relation/direction to satisfy VALID_EDGE_RELATIONS
                 src = e["source"]
                 tgt = e["target"]
@@ -2626,7 +3182,8 @@ class EdgesExtractionPass(ExtractionPass):
                     if conf in ("high", "medium"):
                         conf = "inferred"
                 if repair_note:
-                    explanation = (explanation + f" [REPAIRED: {repair_note}]" if explanation else f"[REPAIRED: {repair_note}]")
+                    explanation = (
+                        explanation + f" [REPAIRED: {repair_note}]" if explanation else f"[REPAIRED: {repair_note}]")
                 edge = Edge(
                     id=e["id"],
                     source=src,
@@ -2700,7 +3257,8 @@ class LinkDiscoveryPass(ExtractionPass):
 
         return len(errors) == 0, errors, warnings
 
-    def to_edges(self, data: Dict, existing_edge_ids: Set[str], node_anchors: Optional[Dict[str, Anchor]] = None) -> List[Edge]:
+    def to_edges(self, data: Dict, existing_edge_ids: Set[str], node_anchors: Optional[Dict[str, Anchor]] = None) -> \
+    List[Edge]:
         """Convert discovered edges, avoiding duplicates and anchoring evidence when possible."""
         edges: List[Edge] = []
 
@@ -3401,6 +3959,25 @@ class LegalReasoningExtractor:
             clusters, node_membership = cluster_nodes(graph, ontology)
             logger.info(f"  → {len(clusters)} non-empty clusters")
 
+            # Fix 8: Store cluster membership for debugging
+            graph.cluster_membership = node_membership
+            # Build cluster summary: concept_id -> {facts: [...], concepts: [...], ...}
+            graph.cluster_summary = {}
+            for concept_id, cluster in clusters.items():
+                # Only include non-empty clusters
+                if any([cluster.facts, cluster.concepts, cluster.issues,
+                        cluster.arguments, cluster.holdings, cluster.precedents]):
+                    graph.cluster_summary[concept_id] = {
+                        "label": cluster.concept_label,
+                        "logic": cluster.logic,
+                        "facts": cluster.facts,
+                        "concepts": cluster.concepts,
+                        "issues": cluster.issues,
+                        "arguments": cluster.arguments,
+                        "holdings": cluster.holdings,
+                        "precedents": cluster.precedents,
+                    }
+
             # Pass 8: Intra-cluster edges (LLM-local)
             logger.info("Pass 8: Extracting intra-cluster edges (v4)...")
             intra_edges: List[Edge] = []
@@ -3529,7 +4106,7 @@ async def main():
         if not api_key:
             print("Error: XAI_API_KEY not set")
             return
-        model_id = "grok-3-latest"
+        model_id = "grok-4-1-fast-reasoning"
         client = GrokClient(api_key, model_id=model_id)
     else:
         api_key = os.environ.get("ANTHROPIC_API_KEY")
