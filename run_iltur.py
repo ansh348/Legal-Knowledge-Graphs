@@ -47,19 +47,40 @@ ONTOLOGY_PATH = "ontology_compiled.json"  # Update path if needed
 # =============================================================================
 
 def load_checkpoint() -> tuple[Set[str], Dict]:
-    """Load checkpoint of completed case IDs and stats."""
+    """Load checkpoint of completed case IDs and stats.
+
+    Also scans output directory for existing .json files to recover
+    from corrupted checkpoints.
+    """
+    completed = set()
+    stats = {}
+
+    # First, scan output directory for existing extractions
+    if OUTPUT_DIR.exists():
+        for json_file in OUTPUT_DIR.glob("*.json"):
+            if json_file.name != "checkpoint.json":
+                # Case ID is the filename without extension
+                completed.add(json_file.stem)
+
+    # Then try to load checkpoint for stats (but completed already populated from files)
     if CHECKPOINT_FILE.exists():
-        with open(CHECKPOINT_FILE, 'r') as f:
-            data = json.load(f)
-            return set(data.get('completed', [])), data.get('stats', {})
-    return set(), {}
+        try:
+            with open(CHECKPOINT_FILE, 'r') as f:
+                data = json.load(f)
+                # Merge any additional completed from checkpoint
+                completed.update(data.get('completed', []))
+                stats = data.get('stats', {})
+        except (json.JSONDecodeError, Exception) as e:
+            print(f"Warning: Could not load checkpoint ({e}), using file scan instead")
+
+    return completed, stats
 
 
 def save_checkpoint(completed: Set[str], stats: Dict):
     """Save checkpoint."""
     with open(CHECKPOINT_FILE, 'w') as f:
         json.dump({
-            'completed': list(completed),
+            'completed': [str(c) for c in completed],  # Fix: ensure strings
             'stats': stats,
             'timestamp': datetime.now().isoformat()
         }, f, indent=2)
@@ -191,7 +212,7 @@ async def run_batch(
     # Create output dir
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    # Load checkpoint
+    # Load checkpoint (now also scans existing output files)
     completed, stats = load_checkpoint()
     print(f"Already completed: {len(completed)}")
 
@@ -266,9 +287,9 @@ async def run_batch(
             await asyncio.gather(*tasks, return_exceptions=True)
 
             # Best-effort: also count already-written JSONs as completed
-            existing = {p.stem for p in OUTPUT_DIR.glob("*.json")}
+            existing = {p.stem for p in OUTPUT_DIR.glob("*.json") if p.name != "checkpoint.json"}
             completed.update(existing)
-            save_checkpoint(completed, CHECKPOINT_FILE)
+            save_checkpoint(completed, stats)
 
             print("Interrupted. Checkpoint saved. Exiting cleanly.")
             return
