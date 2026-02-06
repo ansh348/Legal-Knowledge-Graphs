@@ -1,0 +1,5797 @@
+{
+  "case_id": "1953_12",
+  "case_name": null,
+  "case_year": null,
+  "court": null,
+  "judges": [],
+  "facts": [
+    {
+      "id": "f1",
+      "type": "fact",
+      "text": "This appeal comes from Bombay.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 9,
+        "end_char": 45,
+        "text_hash": "0cb1995e16b621b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "This appeal companyes from Bombay."
+      },
+      "fact_type": "procedural",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f2",
+      "type": "fact",
+      "text": "The assessee is the Shree Ram Mills Limited of Bombay.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 228,
+        "end_char": 280,
+        "text_hash": "9ebf2326a0259e39",
+        "display_location": "0:3",
+        "secondary_spans": [],
+        "surface_text": "The assessee is the Shree Ram Mills Limited of Bombay."
+      },
+      "fact_type": "background",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f3",
+      "type": "fact",
+      "text": "The assessment year is 1945-46.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 282,
+        "end_char": 311,
+        "text_hash": "976714ec0c7d3113",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The assessment year is 1945-46 and the accounting year is the calendar year 1944."
+      },
+      "fact_type": "procedural",
+      "actor_source": "court",
+      "date": "1945-01-01",
+      "date_approximate": true,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f4",
+      "type": "fact",
+      "text": "The accounting year is the calendar year 1944.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 312,
+        "end_char": 360,
+        "text_hash": "a183c421c93757f7",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The assessment year is 1945-46 and the accounting year is the calendar year 1944."
+      },
+      "fact_type": "procedural",
+      "actor_source": "court",
+      "date": "1944-01-01",
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f5",
+      "type": "fact",
+      "text": "Income-tax Officer assessed the profits for income-tax at Rs. 46,18,384 and that is not questioned.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 361,
+        "end_char": 445,
+        "text_hash": "e17c59e058b0a615",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The Income-tax Officer assessed the profits for income-tax at Rs. 46,18,384 and that is number questioned."
+      },
+      "fact_type": "material",
+      "actor_source": "lower_court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": "accepted",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f6",
+      "type": "fact",
+      "text": "Excess Profits Tax Officer computed the profits for excess profits tax purposes at Rs. 46,94,304.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 446,
+        "end_char": 525,
+        "text_hash": "5944a73a59bd6dcc",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The Excess Profits Tax Officer companyputed the profits, for excess profits tax purposes, at Rs. 46,94,304."
+      },
+      "fact_type": "material",
+      "actor_source": "lower_court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f7",
+      "type": "fact",
+      "text": "Excess Profits Tax Officer excluded certain items like money given away as presents and in charity for determining how the profits increased the capital.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 526,
+        "end_char": 685,
+        "text_hash": "c167d1cf068db3da",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "In reaching this figure he excluded certain items in the return for determining how the profits increased the capital for example, he excluded money given away as presents and in charity etc."
+      },
+      "fact_type": "material",
+      "actor_source": "lower_court",
+      "date": "1944-01-01",
+      "date_approximate": true,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f8",
+      "type": "fact",
+      "text": "The department accepted that the profits accrued at an even rate because the assessee did not rebut the presumption nor did the department attempt to do so.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1705,
+        "end_char": 1840,
+        "text_hash": "13652bbf7282e5f4",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The department has accepted in this case that the profits accrued at an even rate because the assessee has number rebutted that presumption number has the department attempted to do so."
+      },
+      "fact_type": "admitted",
+      "actor_source": "respondent",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": "accepted",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f9",
+      "type": "fact",
+      "text": "Learned counsel for the assessee contends that the words 'except so far as the contrary is shown' only govern clause (a) and not clause (b) of Rule 5.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1580,
+        "end_char": 1710,
+        "text_hash": "2097dcd4dd6af24e",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The learned companynsel for the assessee companytends that the words only govern clause  a  and number clause  b ."
+      },
+      "fact_type": "disputed",
+      "actor_source": "petitioner",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": "respondent",
+      "court_finding": "rejected",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f10",
+      "type": "fact",
+      "text": "High Court held that 'so far as the contrary is shown' applies to both clauses (a) and (b) of Rule 5.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses  a  and  b ."
+      },
+      "fact_type": "procedural",
+      "actor_source": "lower_court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": "accepted",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f11",
+      "type": "fact",
+      "text": "Supreme Court agrees with High Court that 'so far as the contrary is shown' applies to both clauses (a) and (b).",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3410,
+        "end_char": 3500,
+        "text_hash": "d4c1be559dd78ca7",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses  a  and  b ."
+      },
+      "fact_type": "procedural",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f12",
+      "type": "fact",
+      "text": "Articles of Agreement entered into between the assessee and its managing agents provided for payment of commission.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3550,
+        "end_char": 3620,
+        "text_hash": "c60e1dd441aeab80",
+        "display_location": "0:27",
+        "secondary_spans": [],
+        "surface_text": "Under the Articles of Agreement entered into between the assessee and its managing agents the agents were to be paid a certain companymission"
+      },
+      "fact_type": "background",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": true,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f13",
+      "type": "fact",
+      "text": "Managing agency commission is due yearly on the thirty-first day of December.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3700,
+        "end_char": 3820,
+        "text_hash": "a8cff9d004be86f5",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The said companymission shall be due to the said firm yearly on the thirty-first day of December in each and every year"
+      },
+      "fact_type": "material",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f14",
+      "type": "fact",
+      "text": "Managing agency commission is payable immediately after annual accounts have been passed by the shareholders.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3850,
+        "end_char": 3950,
+        "text_hash": "6f5aecb610fdf6cb",
+        "display_location": "0:28",
+        "secondary_spans": [],
+        "surface_text": "and shall be payable and be paid immediately after annual accounts of the said companypany have been passed by the shareholders of the companypany"
+      },
+      "fact_type": "material",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f15",
+      "type": "fact",
+      "text": "The managing agents left the commission lying with the assessee.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3955,
+        "end_char": 4010,
+        "text_hash": "9d0d8794fc76258a",
+        "display_location": "0:28",
+        "secondary_spans": [],
+        "surface_text": "The managing agents left the companymission lying with the assessee."
+      },
+      "fact_type": "material",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f16",
+      "type": "fact",
+      "text": "Assessee contends that the left commission constitutes a borrowing within Rule 2A of Schedule II.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4015,
+        "end_char": 4100,
+        "text_hash": "21067618dcdf7a33",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The assessee companytends that this companystitutes a borrowing within the meaning of Rule 2A of Schedule II."
+      },
+      "fact_type": "disputed",
+      "actor_source": "petitioner",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": "respondent",
+      "court_finding": "rejected",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f17",
+      "type": "fact",
+      "text": "Commissioner of Income-tax says the commission is a debt within Rule 2.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4105,
+        "end_char": 4160,
+        "text_hash": "a4df49849140e4fe",
+        "display_location": "0:29",
+        "secondary_spans": [],
+        "surface_text": "The Commissioner of Income-tax says it is a debt within the meaning of Rule 2."
+      },
+      "fact_type": "disputed",
+      "actor_source": "respondent",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": "petitioner",
+      "court_finding": "accepted",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f18",
+      "type": "fact",
+      "text": "High Court held that the managing agency commission is a debt under Rule 2 and not a borrowing under Rule 2A.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4340,
+        "text_hash": "d14bf6000143ddf1",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that this is a debt and number a borrowing."
+      },
+      "fact_type": "procedural",
+      "actor_source": "lower_court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": "accepted",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f19",
+      "type": "fact",
+      "text": "Supreme Court agrees with High Court that the commission is a debt under Rule 2 and not a borrowing under Rule 2A.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "fact_type": "procedural",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f20",
+      "type": "fact",
+      "text": "The managing agency commission is for the year 1943.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5680,
+        "text_hash": "7342d6561160a2c8",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Whether the managing agency companymission payable by the companypany to its managing agents for the year 1943 is borrowed money"
+      },
+      "fact_type": "material",
+      "actor_source": "court",
+      "date": "1943-12-31",
+      "date_approximate": true,
+      "disputed_by": null,
+      "court_finding": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    },
+    {
+      "id": "f21",
+      "type": "fact",
+      "text": "There was no proper agreement between parties to convert the commission into a loan.",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "by a proper agreement between the parties, be companyverted into a loan, but in the absence of an agreement mere inaction on the part of the managing agents cannot companyvert the money due to them"
+      },
+      "fact_type": "material",
+      "actor_source": "court",
+      "date": null,
+      "date_approximate": false,
+      "disputed_by": "petitioner",
+      "court_finding": "accepted",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:22:03.873834"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "id": "c1",
+      "type": "concept",
+      "concept_id": "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 64,
+        "end_char": 97,
+        "text_hash": "4f0a29960a893ecd",
+        "display_location": "0:2",
+        "secondary_spans": [],
+        "surface_text": "under the Excess Profits Tax Act, 1940."
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": null,
+      "interpretation_anchor": null,
+      "unlisted_label": "Excess Profits Tax Act, 1940",
+      "unlisted_description": "Governing statute for excess profits tax assessment and computation of capital employed.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c2",
+      "type": "concept",
+      "concept_id": "UNLISTED_SECTION23_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 870,
+        "end_char": 910,
+        "text_hash": "a1a0a5a728b83b75",
+        "display_location": "0:11",
+        "secondary_spans": [],
+        "surface_text": "This, under Section 2 3 , has to be the average amount of capital as computed in accordance with the second Schedule."
+      },
+      "relevance": "supporting",
+      "kind": "statute_section",
+      "interpretation": "Requires computation of average amount of capital employed in accordance with Second Schedule.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 870,
+        "end_char": 910,
+        "text_hash": "a1a0a5a728b83b75",
+        "display_location": "0:11",
+        "secondary_spans": [],
+        "surface_text": "antum of excess profits tax payable by a"
+      },
+      "unlisted_label": "Section 23, Excess Profits Tax Act",
+      "unlisted_description": "Provision for average capital computation.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c3",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE5_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 130,
+        "end_char": 175,
+        "text_hash": "19d091f2b140cc15",
+        "display_location": "0:3",
+        "secondary_spans": [],
+        "surface_text": "The first companycerns Rule 5 of schedule II of the Act"
+      },
+      "relevance": "mentioned",
+      "kind": "statute_section",
+      "interpretation": null,
+      "interpretation_anchor": null,
+      "unlisted_label": "Rule 5, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Deems profits/losses to accrue evenly and affect capital accordingly unless contrary shown.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c4",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE5_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 956,
+        "end_char": 985,
+        "text_hash": "d88670dfe466303b",
+        "display_location": "0:11",
+        "secondary_spans": [],
+        "surface_text": "That brings in the disputed rule, Rule No. 5 in Schedule II."
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": null,
+      "interpretation_anchor": null,
+      "unlisted_label": "Rule 5, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Deems profits/losses to accrue evenly and affect capital accordingly unless contrary shown.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c5",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE5_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1011,
+        "end_char": 1700,
+        "text_hash": "5fd3d03e942e9e10",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "For the purpose of ascertaining the average amount of capital employed in a business during any period, the profits or losses made in that period shall excepts so far as the companytrary is shown, be deemed -  a  to have accrued at an even rate throughout the period and  b  to have resulted, as they accrued, in a companyresponding increase or decrease, as the case may be, in the capital employed in the business."
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": null,
+      "interpretation_anchor": null,
+      "unlisted_label": "Rule 5, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Text of the rule creating deeming provisions for profits accrual and capital adjustment.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c6",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE5_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2900,
+        "end_char": 2980,
+        "text_hash": "ffa5c020e807ba7b",
+        "display_location": "0:25",
+        "secondary_spans": [],
+        "surface_text": "Whether on a true companystruction of Rule 5 of Schedule II of the Excess Profits Tax Act the expression so far as the companytrary is shown applies only to sub-clause  a  or also to sub-clause  b  ?"
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": "Words 'so far as the contrary is shown' and 'deemed' apply to both clauses (a) and (b); either presumption can be rebutted independently.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3500,
+        "text_hash": "02216b2f2f4bd3f9",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either clause doe"
+      },
+      "unlisted_label": "Rule 5, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Deems profits/losses to accrue evenly and affect capital accordingly unless contrary shown.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c7",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4015,
+        "end_char": 4070,
+        "text_hash": "4579ad402ca0bb4b",
+        "display_location": "0:28",
+        "secondary_spans": [],
+        "surface_text": "this constitutes a borrowing within the meaning of Rule 2A of Schedule II."
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": "Managing agency commission left with assessee is not a borrowing absent proper agreement converting it to loan; requires positive act of lending and acceptance.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4550,
+        "text_hash": "e37d259fb9d631de",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "t the managing agency companymission. Under the Articles of Agreement entered into between the assessee and its managing agents the agents were to be "
+      },
+      "unlisted_label": "Rule 2A, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Definition or treatment of borrowed money for capital computation.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c8",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE2_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4105,
+        "end_char": 4160,
+        "text_hash": "a4df49849140e4fe",
+        "display_location": "0:29",
+        "secondary_spans": [],
+        "surface_text": "it is a debt within the meaning of Rule 2."
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": "Unpaid managing agency commission constitutes a debt, not converted to borrowing by mere inaction.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4550,
+        "text_hash": "e37d259fb9d631de",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "t the managing agency companymission. Under the Articles of Agreement entered into between the assessee and its managing agents the agents were to be "
+      },
+      "unlisted_label": "Rule 2, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Definition or treatment of debt for capital computation.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c9",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Whether the managing agency commission payable by the company to its managing agents for the year 1943 is borrowed money for the purposes of Rule 2A or a debt for the purposes of Rule 2 of Schedule II to the Excess Profits Tax Act ?"
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": null,
+      "interpretation_anchor": null,
+      "unlisted_label": "Rule 2A, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Definition or treatment of borrowed money for capital computation.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c10",
+      "type": "concept",
+      "concept_id": "UNLISTED_RULE2_SCHEDULEII_EPTA",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Whether the managing agency commission payable by the company to its managing agents for the year 1943 is borrowed money for the purposes of Rule 2A or a debt for the purposes of Rule 2 of Schedule II to the Excess Profits Tax Act ?"
+      },
+      "relevance": "central",
+      "kind": "statute_section",
+      "interpretation": null,
+      "interpretation_anchor": null,
+      "unlisted_label": "Rule 2, Schedule II, Excess Profits Tax Act",
+      "unlisted_description": "Definition or treatment of debt for capital computation.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    },
+    {
+      "id": "c11",
+      "type": "concept",
+      "concept_id": "UNLISTED_STATUTORY_FICTION",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1841,
+        "end_char": 2200,
+        "text_hash": "f8c93a9eef940cea",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "His contention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits accrue evenly over the year even when that is not the fact. Therefore the moment either party shows that this is not the case Rule 5 falls to the ground as a whole because the artificial presumption it created has been rebutted."
+      },
+      "relevance": "supporting",
+      "kind": "doctrine",
+      "interpretation": "Rule 5 creates fictions that profits accrue evenly and result in capital changes; 'deemed' governs both; rebuttable separately.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 3280,
+        "text_hash": "524d45eab7ab8755",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "unlisted_label": "Statutory Fiction",
+      "unlisted_description": "Deeming provision creating artificial presumptions for computation.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:23:16.635278"
+      }
+    }
+  ],
+  "issues": [
+    {
+      "id": "i1",
+      "type": "issue",
+      "text": "Whether on a true companystruction of Rule 5 of Schedule II of the Excess Profits Tax Act the expression so far as the companytrary is shown applies only to sub-clause  a  or also to sub-clause  b  ?",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2900,
+        "end_char": 2980,
+        "text_hash": "ffa5c020e807ba7b",
+        "display_location": "0:25",
+        "secondary_spans": [],
+        "surface_text": "Whether on a true companystruction of Rule 5 of Schedule II of the Excess Profits Tax Act the expression so far as the companytrary is shown applies only to sub-clause  a  or also to sub-clause  b  ?"
+      },
+      "issue_number": 1,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c11"
+      ],
+      "answer": "yes",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:24:19.099161"
+      }
+    },
+    {
+      "id": "i2",
+      "type": "issue",
+      "text": "Whether the managing agency companymission payable by the companypany to its managing agents for the year 1943 is borrowed money for the purposes of Rule 2A or a debt for the purposes of Rule 2 of Schedule II to the Excess Profits Tax Act ?",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Whether the managing agency commission payable by the company to its managing agents for the year 1943 is borrowed money for the purposes of Rule 2A or a debt for the purposes of Rule 2 of Schedule II to the Excess Profits Tax Act ?"
+      },
+      "issue_number": 2,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c1",
+        "c7",
+        "c8",
+        "c9",
+        "c10"
+      ],
+      "answer": "no",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:24:19.099161"
+      }
+    }
+  ],
+  "arguments": [
+    {
+      "id": "a1",
+      "type": "argument",
+      "claim": "the words 'except so far as the contrary is shown' only govern clause (a) and not clause (b) of Rule 5",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1580,
+        "end_char": 1710,
+        "text_hash": "2097dcd4dd6af24e",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The learned counsel for the assessee contends that the words only govern clause  a  and not clause  b ."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "textual"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 3280,
+        "text_hash": "524d45eab7ab8755",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "court_reasoning": "'deemed' and 'except so far as the contrary is shown' govern both clauses independently; presumptions rebuttable separately",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a2",
+      "type": "argument",
+      "claim": "department is bound to apply clause (b) because even accrual accepted and words only govern clause (a)",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1705,
+        "end_char": 1840,
+        "text_hash": "13652bbf7282e5f4",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The department has accepted in this case that the profits accrued at an even rate because the assessee has not rebutted that presumption nor has the department attempted to do so. The learned counsel for the assessee contends that that being so, the department is bound to apply clause b"
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "rule_application",
+        "procedural"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 3280,
+        "text_hash": "524d45eab7ab8755",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "court_reasoning": "each clause independent; clause (b) rebuttable separately even if (a) accepted",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a3",
+      "type": "argument",
+      "claim": "Rule 5 creates a fiction rebutted wholly if either part shown contrary, so rule falls entirely",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1841,
+        "end_char": 2200,
+        "text_hash": "f8c93a9eef940cea",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "His contention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits accrue evenly over the year even when that is not the fact. Therefore the moment either party shows that this is not the case Rule 5 falls to the ground as a whole because the artificial presumption it created has been rebutted."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "purposive",
+        "rule_exception"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 3280,
+        "text_hash": "524d45eab7ab8755",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "court_reasoning": "fiction in two parts; 'deemed' governs both but rebuttable independently",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a4",
+      "type": "argument",
+      "claim": "clause (b) cannot have independent existence as mere corollary to clause (a)",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2100,
+        "end_char": 2200,
+        "text_hash": "d5236578a5176f8d",
+        "display_location": "0:19",
+        "secondary_spans": [],
+        "surface_text": "Clause b , he contends, cannot have any independent existence because it is a mere corollary to clause a . In the same way, he says, if clause a is accepted, then clause b lives also"
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "harmonious"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 3280,
+        "text_hash": "524d45eab7ab8755",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "court_reasoning": "clauses independent; can rebut one without other",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a5",
+      "type": "argument",
+      "claim": "'deemed' governs both clauses (a) and (b); profits deemed to accrue evenly and to affect capital",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 2500,
+        "text_hash": "1fc4016bd712c04d",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We do not agree. The word deemed clearly governs both clauses, for the fiction which the Rule creates is not only that the profits shall be deemed to have accrued at an even rate throughout the period, but further that they must be deemed to have resulted, as they accrued, in a corresponding increase or decrease in the capital."
+      },
+      "actor": "court",
+      "schemes": [
+        "textual",
+        "harmonious"
+      ],
+      "qualifiers": null,
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a6",
+      "type": "argument",
+      "claim": "'except so far as the contrary is shown' governs both clauses (a) and (b); either rebuttable independently",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2900,
+        "text_hash": "b5f12062d8ca8d12",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "In the same way, the words except so far as the contrary is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either clause does not represent the true facts. Thus, it can be shown either that the profits did not accrue at an even rate throughout the period or that the profits did not actually go to increase the capital, as for example when it was taken out of the business and handed over to charities and so forth, and if only one of the two presumptions is rebutted, the other stands."
+      },
+      "actor": "court",
+      "schemes": [
+        "textual",
+        "harmonious"
+      ],
+      "qualifiers": null,
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a7",
+      "type": "argument",
+      "claim": "'so far as the contrary is shown' applies to both clauses (a) and (b) of Rule 5",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the contrary is shown apply to both clauses  a  and  b ."
+      },
+      "actor": "lower_court",
+      "schemes": [
+        "textual"
+      ],
+      "qualifiers": null,
+      "court_response": "accepted",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3410,
+        "end_char": 3500,
+        "text_hash": "d4c1be559dd78ca7",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "at either clause does number represent the true facts. Thus, it can be shown either that t"
+      },
+      "court_reasoning": "Supreme Court agrees",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a8",
+      "type": "argument",
+      "claim": "managing agency commission left with assessee constitutes a borrowing within Rule 2A of Schedule II",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4015,
+        "end_char": 4100,
+        "text_hash": "21067618dcdf7a33",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The assessee contends that this constitutes a borrowing within the meaning of Rule 2A of Schedule II."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "rule_application",
+        "textual"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4550,
+        "text_hash": "e37d259fb9d631de",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "t the managing agency companymission. Under the Articles of Agreement entered into between the assessee and its managing agents the agents were to be "
+      },
+      "court_reasoning": "debt not borrowing; requires positive act and agreement",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a9",
+      "type": "argument",
+      "claim": "managing agency commission is a debt within Rule 2",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4105,
+        "end_char": 4160,
+        "text_hash": "a4df49849140e4fe",
+        "display_location": "0:29",
+        "secondary_spans": [],
+        "surface_text": "The Commissioner of Income-tax says it is a debt within the meaning of Rule 2."
+      },
+      "actor": "respondent",
+      "schemes": [
+        "rule_application",
+        "textual"
+      ],
+      "qualifiers": null,
+      "court_response": "accepted",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4550,
+        "text_hash": "e37d259fb9d631de",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "t the managing agency companymission. Under the Articles of Agreement entered into between the assessee and its managing agents the agents were to be "
+      },
+      "court_reasoning": "unpaid commission is debt; mere inaction does not convert to loan",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a10",
+      "type": "argument",
+      "claim": "managing agency commission is a debt under Rule 2 and not a borrowing under Rule 2A",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4340,
+        "text_hash": "d14bf6000143ddf1",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that this is a debt and not a borrowing."
+      },
+      "actor": "lower_court",
+      "schemes": [
+        "rule_application"
+      ],
+      "qualifiers": null,
+      "court_response": "accepted",
+      "court_response_anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "court_reasoning": "Supreme Court agrees",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a11",
+      "type": "argument",
+      "claim": "commission left could be converted to loan by proper agreement, but mere inaction cannot convert debt to loan",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "Of course, money so, left could, by a proper agreement between the parties, be converted into a loan, but in the absence of an agreement mere inaction on the part of the managing agents cannot convert the money due to them, and not withdrawn, into a loan."
+      },
+      "actor": "court",
+      "schemes": [
+        "rule_application",
+        "textual"
+      ],
+      "qualifiers": null,
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a12",
+      "type": "argument",
+      "claim": "loan requires positive act of lending coupled with acceptance; borrower-lender not by mere inaction",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4551,
+        "end_char": 4800,
+        "text_hash": "e3eb3e567e0d0ed8",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "A loan imports a positive act of lending coupled with an acceptance by the other side of the money as a loan. The relationship of borrower and lender cannot ordinarily come about by mere inaction."
+      },
+      "actor": "court",
+      "schemes": [
+        "textual",
+        "purposive"
+      ],
+      "qualifiers": "ordinarily",
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a13",
+      "type": "argument",
+      "claim": "Articles clause merely gives right to receive commission at certain time; if not paid, lies as debt",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4801,
+        "end_char": 5200,
+        "text_hash": "ef0fe29b04655107",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. We are unable to construe the provisions in that way. They merely give the managing agents a right to receive their commission at a certain time. If the money is not paid in time it lies with the assessee as a debt due to the agents."
+      },
+      "actor": "court",
+      "schemes": [
+        "textual",
+        "rule_application"
+      ],
+      "qualifiers": null,
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    },
+    {
+      "id": "a14",
+      "type": "argument",
+      "claim": "managing agency commission is debt under Rule 2 not borrowing under Rule 2A",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that it is a debt under Rule 2 and not a borrowing under Rule 2A."
+      },
+      "actor": "court",
+      "schemes": [
+        "rule_application"
+      ],
+      "qualifiers": null,
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:00.721275"
+      }
+    }
+  ],
+  "holdings": [
+    {
+      "id": "h1",
+      "type": "holding",
+      "text": "The word deemed clearly governs both clauses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 2500,
+        "text_hash": "1fc4016bd712c04d",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We do number agree. The word deemed clearly governs both clauses, for the fiction which the Rule creates is number only that the profits shall be deemed to have accrued at an even rate throughout the period, but further that they must be deemed to have resulted, as they accrued, in a companyresponding increase or decrease in the capital."
+      },
+      "resolves_issue": "i1",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Rejects petitioner's view that rule is single fiction; identifies two fictions created by 'deemed' applying to both accrual evenness and capital effect.",
+      "schemes": [
+        "textual",
+        "harmonious"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    },
+    {
+      "id": "h2",
+      "type": "holding",
+      "text": "the words except so far as the contrary is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either clause does not represent the true facts",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2900,
+        "text_hash": "b5f12062d8ca8d12",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "In the same way, the words except so far as the companytrary is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either clause does number represent the true facts. Thus, it can be shown either that the profits did number accrue at an even rate throughout the period or that the profits did number actually go to increase the capital, as for example when it was taken out of the business and handed over to charities and so forth, and if only one of the two presumptions is rebutted, the other stands."
+      },
+      "resolves_issue": "i1",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Exception phrase applies equally to both clauses allowing independent rebuttal of accrual presumption or capital effect presumption.",
+      "schemes": [
+        "textual",
+        "harmonious",
+        "rule_application"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    },
+    {
+      "id": "h3",
+      "type": "holding",
+      "text": "the words so far as the contrary is shown apply to both clauses a and b",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses  a  and  b ."
+      },
+      "resolves_issue": "i1",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Agrees with High Court's interpretation after textual analysis confirming independent application to both subclauses.",
+      "schemes": [
+        "precedent_following",
+        "textual"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    },
+    {
+      "id": "h4",
+      "type": "holding",
+      "text": "this is a debt and not a borrowing",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4340,
+        "text_hash": "d14bf6000143ddf1",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that this is a debt and number a borrowing."
+      },
+      "resolves_issue": "i2",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Agrees with High Court preliminarily before detailing that unpaid commission remains debt absent conversion to loan.",
+      "schemes": [
+        "precedent_following"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    },
+    {
+      "id": "h5",
+      "type": "holding",
+      "text": "in the absence of an agreement mere inaction on the part of the managing agents cannot convert the money due to them, and not withdrawn, into a loan",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "Of companyrse, money so, left companyld, by a proper agreement between the parties, be companyverted into a loan, but in the absence of an agreement mere inaction on the part of the managing agents cannot companyvert the money due to them, and number withdrawn, into a loan."
+      },
+      "resolves_issue": "i2",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Requires explicit agreement to convert due commission (debt) into loan; inaction insufficient.",
+      "schemes": [
+        "rule_application",
+        "textual"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    },
+    {
+      "id": "h6",
+      "type": "holding",
+      "text": "A loan imports a positive act of lending coupled with an acceptance by the other side of the money as a loan. The relationship of borrower and lender cannot ordinarily come about by mere inaction",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4551,
+        "end_char": 4800,
+        "text_hash": "e3eb3e567e0d0ed8",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "A loan imports a positive act of lending companypled with an acceptance by the other side of the money as a loan. The relationship of borrower and lender cannot ordinarily companye about by mere inaction."
+      },
+      "resolves_issue": "i2",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Defines loan by positive acts of lending and borrowing acceptance, not passive retention.",
+      "schemes": [
+        "textual",
+        "purposive"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    },
+    {
+      "id": "h7",
+      "type": "holding",
+      "text": "They merely give the managing agents a right to receive their commission at a certain time. If the money is not paid in time it lies with the assessee as a debt due to the agents",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4801,
+        "end_char": 5200,
+        "text_hash": "ef0fe29b04655107",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. We are unable to companystrue the provisions in that way. They merely give the managing agents a right to receive their companymission at a certain time. If the money is number paid in time it lies with the assessee as a debt due to the agents."
+      },
+      "resolves_issue": "i2",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Interprets contract clause as fixing payment timing, non-payment creates debt, not implied loan agreement.",
+      "schemes": [
+        "textual",
+        "other"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    },
+    {
+      "id": "h8",
+      "type": "holding",
+      "text": "it is a debt under Rule 2 and not a borrowing under Rule 2A",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "resolves_issue": "i2",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "After fact analysis and definitions, confirms High Court classification under specific rules.",
+      "schemes": [
+        "precedent_following",
+        "rule_application"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:25:36.080895"
+      }
+    }
+  ],
+  "precedents": [],
+  "justification_sets": [
+    {
+      "id": "js1",
+      "type": "justification_set",
+      "target_id": "h1",
+      "logic": "and",
+      "label": "Rule 5, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js2",
+      "type": "justification_set",
+      "target_id": "h2",
+      "logic": "and",
+      "label": "Rule 5, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js3",
+      "type": "justification_set",
+      "target_id": "h3",
+      "logic": "and",
+      "label": "Rule 5, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js4",
+      "type": "justification_set",
+      "target_id": "h4",
+      "logic": "and",
+      "label": "Rule 2A, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js5",
+      "type": "justification_set",
+      "target_id": "h5",
+      "logic": "and",
+      "label": "Rule 2A, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js6",
+      "type": "justification_set",
+      "target_id": "h6",
+      "logic": "and",
+      "label": "Rule 2A, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js7",
+      "type": "justification_set",
+      "target_id": "h7",
+      "logic": "and",
+      "label": "Rule 2A, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js8",
+      "type": "justification_set",
+      "target_id": "h8",
+      "logic": "and",
+      "label": "Rule 2A, Schedule II, Excess Profits Tax Act support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    }
+  ],
+  "outcome": {
+    "id": "outcome",
+    "type": "outcome",
+    "disposition": "dismissed",
+    "anchor": {
+      "doc_id": "sha256:2ec1e3949337",
+      "start_char": 3449,
+      "end_char": 5370,
+      "text_hash": "a6c78ce46010db70",
+      "display_location": "0",
+      "secondary_spans": [],
+      "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+    },
+    "binary": "rejected",
+    "relief_summary": "High Court answers upheld on both questions: 'so far as the contrary is shown' applies to both clauses (a) and (b) of Rule 5; managing agency commission is debt under Rule 2, not borrowing under Rule 2A",
+    "costs": null,
+    "directions": [],
+    "provenance": {
+      "extraction_method": "llm",
+      "model_id": "grok-4-1-fast-reasoning",
+      "prompt_id": null,
+      "run_id": null,
+      "temperature": 0.1,
+      "timestamp": "2026-02-04T15:26:15.311661"
+    }
+  },
+  "edges": [
+    {
+      "id": "e_d417cfdc_14",
+      "source": "a1",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Argument a1 contending words govern only clause (a) addresses issue i1 on scope of phrase",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_0f4081da_6",
+      "source": "a10",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4340,
+        "text_hash": "d14bf6000143ddf1",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "t the managing agency companymission. Under the Articles of Agreement entered into between"
+      },
+      "explanation": "Argument a10 that commission is debt under Rule 2 not borrowing and Supreme Court agrees supports h4 holding.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_20",
+      "source": "a10",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Argument a10 on debt not borrowing addresses i2.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_26",
+      "source": "a11",
+      "target": "a8",
+      "relation": "attacks",
+      "anchor": null,
+      "explanation": "a11 that inaction cannot convert attacks a8 claim of borrowing by leaving commission",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_7",
+      "source": "a11",
+      "target": "h5",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "paid a certain companymission and the articles provided - The said companymission shall be due to the said firm yearly on the thirty-first day of Dece"
+      },
+      "explanation": "Argument on need for agreement and inaction not converting grounds the holding h5",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js5"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_29",
+      "source": "a11",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Argument a11 on conversion addresses i2",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_27",
+      "source": "a12",
+      "target": "a8",
+      "relation": "attacks",
+      "anchor": null,
+      "explanation": "a12 requiring positive act attacks a8 mere leaving as borrowing",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_8",
+      "source": "a12",
+      "target": "h6",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4551,
+        "end_char": 4800,
+        "text_hash": "e3eb3e567e0d0ed8",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "ber in each and every year during the companytinuance of this agreement and shall be payable and be paid immediately after annual accounts of the said"
+      },
+      "explanation": "Argument that loan requires positive act grounds holding h6 on same",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js6"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_30",
+      "source": "a12",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "a12 on loan definition addresses i2",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_0f4081da_7",
+      "source": "a13",
+      "target": "h7",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4801,
+        "end_char": 5200,
+        "text_hash": "ef0fe29b04655107",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mpanymission lying with the assessee. The assessee companytends that this companystitutes a borrowing within the meaning of Rule 2A of Schedule II. Th"
+      },
+      "explanation": "Argument a13 that articles give right to commission and if not paid lies as debt grounds h7 holding that it lies as debt due to agents.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js7"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_11",
+      "source": "a14",
+      "target": "c10",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "explanation": "Argument a14 supports c10 by asserting debt under Rule 2.",
+      "confidence": "high",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_9",
+      "source": "a14",
+      "target": "h8",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "explanation": "Argument a14 that commission is debt under Rule 2 not borrowing supports h8.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_21",
+      "source": "a14",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "naction. The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. W"
+      },
+      "explanation": "Argument a14 addresses i2 issue directly within the range.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_5a601855_3",
+      "source": "a5",
+      "target": "c11",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 2500,
+        "text_hash": "1fc4016bd712c04d",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "explanation": "a5 that 'deemed' governs both and profits accrue evenly supports c11's statutory fictions of even accrual and capital changes governed by 'deemed'.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:34:25.159141"
+      }
+    },
+    {
+      "id": "e_5a601855_1",
+      "source": "a5",
+      "target": "h1",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 2500,
+        "text_hash": "1fc4016bd712c04d",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "explanation": "a5 argues that 'deemed' governs both clauses (a) and (b), directly supporting the holding h1 that 'The word deemed clearly governs both clauses'.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js1"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:34:25.159141"
+      }
+    },
+    {
+      "id": "e_d417cfdc_9",
+      "source": "a6",
+      "target": "a1",
+      "relation": "attacks",
+      "anchor": null,
+      "explanation": "Argument a6 that words govern both clauses and rebuttable independently directly attacks a1's claim that words govern only clause (a)",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_d417cfdc_13",
+      "source": "a6",
+      "target": "c6",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2980,
+        "text_hash": "b2fe367c7a905563",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " ground as a whole because the artificial presumption it created has been rebutted. Clause  b , he companytends, cannot have any independent existence"
+      },
+      "explanation": "Argument a6 that words govern both and rebuttable independently supports concept c6's interpretation",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_d417cfdc_15",
+      "source": "a7",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Argument a7 that phrase applies to both clauses addresses issue i1",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_3",
+      "source": "a8",
+      "target": "c7",
+      "relation": "claims_satisfies",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4015,
+        "end_char": 4070,
+        "text_hash": "4579ad402ca0bb4b",
+        "display_location": "0:28",
+        "secondary_spans": [],
+        "surface_text": "s shown applies only to sub-clause  a  or also to sub-c"
+      },
+      "explanation": "Argument a8 claims the commission left constitutes borrowing under Rule 2A of c7",
+      "confidence": "high",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_28",
+      "source": "a8",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Assessee argument a8 addresses the issue i2 on whether borrowing",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_0f4081da_3",
+      "source": "a9",
+      "target": "c8",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4105,
+        "end_char": 4160,
+        "text_hash": "a4df49849140e4fe",
+        "display_location": "0:29",
+        "secondary_spans": [],
+        "surface_text": "r given by the High Court, namely that the words so far"
+      },
+      "explanation": "Argument a9 that commission is debt under Rule 2 and unpaid commission remains debt supports c8's concept.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_19",
+      "source": "a9",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Argument a9 on commission as debt addresses i2 issue of whether debt or borrowed money.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_fda2a026_12",
+      "source": "c1",
+      "target": "h4",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Holdings interpret rules under the Act (c1), which grounds the debt/borrowing distinction",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_fda2a026_13",
+      "source": "c1",
+      "target": "h8",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "h8 refers to Rules 2 and 2A under the Act (c1), grounded by c1",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_fda2a026_11",
+      "source": "c1",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Issue i2 concerns rules under Excess Profits Tax Act, 1940 (c1)",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_0f4081da_25",
+      "source": "c10",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "naction. The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. W"
+      },
+      "explanation": "c10 Rule 2 concept addresses i2 issue in same span.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_3ef18142_5",
+      "source": "c2",
+      "target": "i1",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Section 23 requires computation per Second Schedule, necessitating construction of Rule 5 therein.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_0f4081da_16",
+      "source": "c8",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "c8 concept of Rule 2 debt supports h4 holding that it is debt not borrowing.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_17",
+      "source": "c8",
+      "target": "h7",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "c8 grounds h7 by providing the Rule 2 basis for unpaid commission as debt.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js7"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_18",
+      "source": "c8",
+      "target": "h8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "c8 supports h8 holding of debt under Rule 2.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_24",
+      "source": "c8",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "c8 Rule 2 concept addresses whether commission is debt under Rule 2 in i2.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_d417cfdc_3",
+      "source": "f10",
+      "target": "a7",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either "
+      },
+      "explanation": "f10 states High Court held the phrase applies to both clauses, grounding a7's argument including Supreme Court agreement",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_d417cfdc_5",
+      "source": "f10",
+      "target": "h3",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either "
+      },
+      "explanation": "f10 states High Court holding that words apply to both clauses (a) and (b), grounding holding h3",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js3"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_d417cfdc_4",
+      "source": "f11",
+      "target": "a7",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3410,
+        "end_char": 3500,
+        "text_hash": "d4c1be559dd78ca7",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "at either clause does number represent the true facts. Thus, it can be shown either that t"
+      },
+      "explanation": "f11 states Supreme Court agrees with High Court on application to both clauses, supporting a7",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_d417cfdc_6",
+      "source": "f11",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3410,
+        "end_char": 3500,
+        "text_hash": "d4c1be559dd78ca7",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "at either clause does number represent the true facts. Thus, it can be shown either that t"
+      },
+      "explanation": "f11 states Supreme Court agrees with High Court, supporting holding h3 that words apply to both clauses",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js3"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_9",
+      "source": "f12",
+      "target": "h7",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3550,
+        "end_char": 5200,
+        "text_hash": "e5ed5d4aeef8f100",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ghout the period or that the profits did number actually go to increase the capital, as for example when it was taken out of the business and handed o"
+      },
+      "explanation": "Articles providing for commission payment grounds holding that articles give right to receive commission",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js7"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_10",
+      "source": "f13",
+      "target": "h7",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3700,
+        "end_char": 5200,
+        "text_hash": "9f4c9ed2a6cb8879",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ver to charities and so forth, and if only one of the two presumptions is rebutted, the other stands. The High Court resettled the first question we a"
+      },
+      "explanation": "Commission due date grounds holding on right to receive at certain time",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js7"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_11",
+      "source": "f14",
+      "target": "h7",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3850,
+        "end_char": 5200,
+        "text_hash": "acf5b088a3c49192",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "re asked to answer as follows - Whether on a true companystruction of Rule 5 of Schedule II of the Excess Profits Tax Act the expression so far as the"
+      },
+      "explanation": "Payable after accounts passed grounds holding on timing of right to commission",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js7"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_4",
+      "source": "f15",
+      "target": "a8",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3955,
+        "end_char": 4100,
+        "text_hash": "070a5dc9efa87769",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " Profits Tax Act the expression so far as the companytrary is shown applies only to sub-clause  a  or also to sub-clause  b  ? We agree with the "
+      },
+      "explanation": "Fact that agents left commission lying grounds the argument that it constitutes borrowing",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_1",
+      "source": "f16",
+      "target": "a8",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4015,
+        "end_char": 4100,
+        "text_hash": "21067618dcdf7a33",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "s shown applies only to sub-clause  a  or also to sub-clause  b  ? We agree with the "
+      },
+      "explanation": "Fact of assessee contending commission is borrowing directly grounds the argument a8 on that contention",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_2",
+      "source": "f16",
+      "target": "c7",
+      "relation": "claims_satisfies",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4015,
+        "end_char": 4070,
+        "text_hash": "4579ad402ca0bb4b",
+        "display_location": "0:28",
+        "secondary_spans": [],
+        "surface_text": "s shown applies only to sub-clause  a  or also to sub-c"
+      },
+      "explanation": "Assessee's contention that commission constitutes borrowing claims to satisfy Rule 2A in c7",
+      "confidence": "high",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_0f4081da_2",
+      "source": "f17",
+      "target": "a9",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4105,
+        "end_char": 4160,
+        "text_hash": "a4df49849140e4fe",
+        "display_location": "0:29",
+        "secondary_spans": [],
+        "surface_text": "r given by the High Court, namely that the words so far"
+      },
+      "explanation": "Commissioner's statement that commission is debt under Rule 2 grounds the argument a9 that it is a debt and inaction does not convert to loan.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_1",
+      "source": "f17",
+      "target": "c8",
+      "relation": "claims_satisfies",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4105,
+        "end_char": 4160,
+        "text_hash": "a4df49849140e4fe",
+        "display_location": "0:29",
+        "secondary_spans": [],
+        "surface_text": "r given by the High Court, namely that the words so far"
+      },
+      "explanation": "Commissioner of Income-tax asserts the commission is a debt within Rule 2, directly matching c8's definition of Rule 2 where unpaid commission is a debt.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_5",
+      "source": "f18",
+      "target": "c8",
+      "relation": "satisfies",
+      "anchor": null,
+      "explanation": "High Court held commission is debt under Rule 2, satisfying c8's definition of debt under Rule 2.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_4",
+      "source": "f18",
+      "target": "h4",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4340,
+        "text_hash": "d14bf6000143ddf1",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "t the managing agency companymission. Under the Articles of Agreement entered into between"
+      },
+      "explanation": "High Court holding that commission is debt under Rule 2 not borrowing grounds h4 that it is a debt and not a borrowing.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_10",
+      "source": "f19",
+      "target": "c10",
+      "relation": "satisfies",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "explanation": "Supreme Court finding satisfies Rule 2 concept in c10 by confirming commission is debt under Rule 2.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_29",
+      "source": "f19",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Supreme Court agreement supports High Court holding h4.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_0f4081da_8",
+      "source": "f19",
+      "target": "h8",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "explanation": "Supreme Court agrees with High Court that commission is debt under Rule 2 not borrowing grounds h8 holding.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_12",
+      "source": "f20",
+      "target": "i2",
+      "relation": "triggers",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5680,
+        "text_hash": "7342d6561160a2c8",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "naction. The clause in the Articles of Agreement quoted above was reli"
+      },
+      "explanation": "Commission for 1943 triggers the issue i2 on whether it is borrowing under Rule 2A",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_5",
+      "source": "f21",
+      "target": "a11",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "paid a certain companymission and the articles provided - The said companymission shall be due to the said firm yearly on the thirty-first day of Dece"
+      },
+      "explanation": "No proper agreement fact grounds argument that mere inaction cannot convert to loan",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_25",
+      "source": "f21",
+      "target": "a8",
+      "relation": "undercuts",
+      "anchor": null,
+      "explanation": "No agreement undercuts assessee's argument a8 that it constitutes borrowing",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_16",
+      "source": "f21",
+      "target": "c7",
+      "relation": "satisfies",
+      "anchor": null,
+      "explanation": "No proper agreement satisfies the condition in c7 that absent agreement it is not borrowing",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_6",
+      "source": "f21",
+      "target": "h5",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "paid a certain companymission and the articles provided - The said companymission shall be due to the said firm yearly on the thirty-first day of Dece"
+      },
+      "explanation": "Absence of agreement grounds holding that inaction cannot convert money due into loan",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js5"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_fda2a026_14",
+      "source": "f6",
+      "target": "c1",
+      "relation": "triggers",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 446,
+        "end_char": 525,
+        "text_hash": "5944a73a59bd6dcc",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Officer assessed the profits for income-tax at Rs. 46,18,384 and that is number"
+      },
+      "explanation": "Computation by Excess Profits Tax Officer under the Act triggers c1",
+      "confidence": "high",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_fda2a026_15",
+      "source": "f6",
+      "target": "i2",
+      "relation": "triggers",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 446,
+        "end_char": 525,
+        "text_hash": "5944a73a59bd6dcc",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Officer assessed the profits for income-tax at Rs. 46,18,384 and that is number"
+      },
+      "explanation": "Profit computation for excess profits tax triggers issue about commission treatment under rules",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_3ef18142_9",
+      "source": "f7",
+      "target": "c2",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Officer's exclusion of items in determining profits' increase to capital triggers computation under Section 23 and Second Schedule.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_3ef18142_10",
+      "source": "f7",
+      "target": "i1",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Officer's computation method triggers dispute over construction of Rule 5 phrase application.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_d417cfdc_2",
+      "source": "f8",
+      "target": "a2",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1705,
+        "end_char": 1840,
+        "text_hash": "13652bbf7282e5f4",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "s round the words we have underlined. The learned companynsel for the assessee companytends that the words only govern clause  a  and n"
+      },
+      "explanation": "f8 states the department accepted even accrual due to no rebuttal of presumption, grounding a2's argument that department is bound to apply clause (b)",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_d417cfdc_1",
+      "source": "f9",
+      "target": "a1",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 1580,
+        "end_char": 1710,
+        "text_hash": "2097dcd4dd6af24e",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " in a companyresponding increase or decrease, as the case may be, in the capital employed in the business. The dispute centers rou"
+      },
+      "explanation": "f9 explicitly states the learned counsel for the assessee's contention that the words only govern clause (a), which grounds argument a1",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_5a601855_2",
+      "source": "h1",
+      "target": "c11",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 2500,
+        "text_hash": "1fc4016bd712c04d",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "explanation": "h1 that 'deemed' governs both clauses supports c11's description of statutory fiction where 'deemed' governs both.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:34:25.159141"
+      }
+    },
+    {
+      "id": "e_3ef18142_8",
+      "source": "h1",
+      "target": "c2",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Interpretation that 'deemed' governs both clauses grounds Section 23's schedule computation.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_d417cfdc_10",
+      "source": "h1",
+      "target": "h2",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 2900,
+        "text_hash": "2c5b85b028c6e908",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ly govern clause  a  and number clause  b . His companytention is that Rule 5 is an artificial rule which creates a fiction, namely that the profits a"
+      },
+      "explanation": "Holding h1 that 'deemed' governs both clauses supports h2 that 'except so far as contrary shown' also governs both",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js2"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_3ef18142_2",
+      "source": "h1",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Holding that 'deemed' governs both clauses addresses the issue of whether phrases apply only to sub-clause (a) or both.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_h1_resolves_i1",
+      "source": "h1",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2201,
+        "end_char": 2500,
+        "text_hash": "1fc4016bd712c04d",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We do number agree. The word deemed clearly governs both clauses, for the fiction which the Rule creates is number only that the profits shall be deemed to have accrued at an even rate throughout the period, but further that they must be deemed to have resulted, as they accrued, in a companyresponding increase or decrease in the capital."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h1_determines_outcome",
+      "source": "h1",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_5a601855_5",
+      "source": "h2",
+      "target": "c11",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2900,
+        "text_hash": "b5f12062d8ca8d12",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " ground as a whole because the artificial presumption it created has been rebutted. Clause  b , he companytends, cannot have any independent existence"
+      },
+      "explanation": "h2 that 'contrary is shown' governs both and presumptions are rebuttable supports c11's statutory fiction being 'rebuttable separately'.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:34:25.159141"
+      }
+    },
+    {
+      "id": "e_3ef18142_6",
+      "source": "h2",
+      "target": "c2",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Interpretation that phrases govern both clauses grounds the computational requirement under Section 23.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_d417cfdc_11",
+      "source": "h2",
+      "target": "c6",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2980,
+        "text_hash": "b2fe367c7a905563",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " ground as a whole because the artificial presumption it created has been rebutted. Clause  b , he companytends, cannot have any independent existence"
+      },
+      "explanation": "Holding h2 that words govern both clauses supports concept c6 stating words and 'deemed' apply to both clauses",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_3ef18142_12",
+      "source": "h2",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Elaborate holding on rebuttable presumption supports later affirmation of phrase application to both clauses.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js3"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_5a601855_4",
+      "source": "h2",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2900,
+        "text_hash": "b5f12062d8ca8d12",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " ground as a whole because the artificial presumption it created has been rebutted. Clause  b , he companytends, cannot have any independent existence"
+      },
+      "explanation": "h2 holds that 'except so far as the contrary is shown' govern both clauses, directly addressing i1's question of whether it applies only to sub-clause (a) or also others.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:34:25.159141"
+      }
+    },
+    {
+      "id": "e_h2_resolves_i1",
+      "source": "h2",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2900,
+        "text_hash": "b5f12062d8ca8d12",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "In the same way, the words except so far as the companytrary is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either clause does number represent the true facts. Thus, it can be shown either that the profits did number accrue at an even rate throughout the period or that the profits did number actually go to increase the capital, as for example when it was taken out of the business and handed over to charities and so forth, and if only one of the two presumptions is rebutted, the other stands."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h2_determines_outcome",
+      "source": "h2",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_5a601855_7",
+      "source": "h3",
+      "target": "c11",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either "
+      },
+      "explanation": "h3 that 'contrary is shown' applies to both supports c11's description of the fiction as rebuttable separately.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:34:25.159141"
+      }
+    },
+    {
+      "id": "e_3ef18142_7",
+      "source": "h3",
+      "target": "c2",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Interpretation applying phrase to both clauses grounds meaning and application of Section 23.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_5a601855_6",
+      "source": "h3",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "is shown govern both clauses and it is open to either side to rebut the artificial presumptions created by that Rule by showing that either "
+      },
+      "explanation": "h3 holds that 'so far as the contrary is shown' apply to both clauses (a) and (b), directly addressing i1's question of application only to (a) or also.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:34:25.159141"
+      }
+    },
+    {
+      "id": "e_h3_resolves_i1",
+      "source": "h3",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3280,
+        "end_char": 3420,
+        "text_hash": "e4b8ee42cb119c0f",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses  a  and  b ."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h3_determines_outcome",
+      "source": "h3",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_4bfbfff5_19",
+      "source": "h4",
+      "target": "c7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h4 that it is debt not borrowing supports c7 concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_23",
+      "source": "h4",
+      "target": "h8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "h4 debt not borrowing supports h8 specific conclusion",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_fda2a026_1",
+      "source": "h4",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4340,
+        "text_hash": "d14bf6000143ddf1",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "t the managing agency companymission. Under the Articles of Agreement entered into between"
+      },
+      "explanation": "Holding h4 directly states 'this is a debt and not a borrowing', addressing the core question in issue i2 about whether commission is borrowed money or debt",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_h4_resolves_i2",
+      "source": "h4",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4250,
+        "end_char": 4340,
+        "text_hash": "d14bf6000143ddf1",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that this is a debt and number a borrowing."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h4_determines_outcome",
+      "source": "h4",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_4bfbfff5_17",
+      "source": "h5",
+      "target": "c7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h5 on inaction not converting supports c7 interpretation requiring agreement",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_0f4081da_14",
+      "source": "h5",
+      "target": "c8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h5 that mere inaction cannot convert to loan supports c8 that debt is not converted to borrowing by inaction.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_fda2a026_7",
+      "source": "h5",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "paid a certain companymission and the articles provided - The said companymission shall be due to the said firm yearly on the thirty-first day of Dece"
+      },
+      "explanation": "h5's reasoning on inaction not creating loan supports h4's conclusion that it is debt not borrowing",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_21",
+      "source": "h5",
+      "target": "h8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Reasoning in h5 supports conclusion in h8 that not borrowing under 2A",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_fda2a026_2",
+      "source": "h5",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "paid a certain companymission and the articles provided - The said companymission shall be due to the said firm yearly on the thirty-first day of Dece"
+      },
+      "explanation": "Holding h5 explains why inaction does not convert commission into a loan, addressing why it is not borrowed money under Rule 2A in i2",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_h5_resolves_i2",
+      "source": "h5",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4400,
+        "end_char": 4550,
+        "text_hash": "51638c67ed355fa9",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "Of companyrse, money so, left companyld, by a proper agreement between the parties, be companyverted into a loan, but in the absence of an agreement mere inaction on the part of the managing agents cannot companyvert the money due to them, and number withdrawn, into a loan."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h5_determines_outcome",
+      "source": "h5",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_4bfbfff5_18",
+      "source": "h6",
+      "target": "c7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h6 on positive act required supports c7 that mere leaving is not borrowing",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_0f4081da_15",
+      "source": "h6",
+      "target": "c8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h6 defining loan as requiring positive act supports c8 by distinguishing debt from borrowing.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_fda2a026_9",
+      "source": "h6",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "h6's loan definition supports h4 by showing no borrowing occurred",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_fda2a026_6",
+      "source": "h6",
+      "target": "h5",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4551,
+        "end_char": 4800,
+        "text_hash": "e3eb3e567e0d0ed8",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "ber in each and every year during the companytinuance of this agreement and shall be payable and be paid immediately after annual accounts of the said"
+      },
+      "explanation": "h6's definition of loan requiring positive act supports h5's conclusion that mere inaction cannot convert to loan",
+      "confidence": "high",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js5"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_22",
+      "source": "h6",
+      "target": "h8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "h6 on loan requiring positive act supports h8 conclusion",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_fda2a026_3",
+      "source": "h6",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4551,
+        "end_char": 4800,
+        "text_hash": "e3eb3e567e0d0ed8",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "ber in each and every year during the companytinuance of this agreement and shall be payable and be paid immediately after annual accounts of the said"
+      },
+      "explanation": "Holding h6 defines loan as requiring positive act of lending and acceptance, addressing why commission is not a borrowing in i2",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_h6_resolves_i2",
+      "source": "h6",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4551,
+        "end_char": 4800,
+        "text_hash": "e3eb3e567e0d0ed8",
+        "display_location": "0:31",
+        "secondary_spans": [],
+        "surface_text": "A loan imports a positive act of lending companypled with an acceptance by the other side of the money as a loan. The relationship of borrower and lender cannot ordinarily companye about by mere inaction."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h6_determines_outcome",
+      "source": "h6",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_4bfbfff5_20",
+      "source": "h7",
+      "target": "c7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h7 that unpaid commission is debt supports c7 not borrowing",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_0f4081da_13",
+      "source": "h7",
+      "target": "c8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h7 that unpaid commission lies as debt supports c8 that unpaid commission constitutes a debt.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_fda2a026_8",
+      "source": "h7",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4801,
+        "end_char": 5200,
+        "text_hash": "ef0fe29b04655107",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mpanymission lying with the assessee. The assessee companytends that this companystitutes a borrowing within the meaning of Rule 2A of Schedule II. Th"
+      },
+      "explanation": "h7's explanation that unpaid commission is debt due supports h4's debt conclusion",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_24",
+      "source": "h7",
+      "target": "h8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "h7 on unpaid as debt supports h8",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js8"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_fda2a026_4",
+      "source": "h7",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4801,
+        "end_char": 5200,
+        "text_hash": "ef0fe29b04655107",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mpanymission lying with the assessee. The assessee companytends that this companystitutes a borrowing within the meaning of Rule 2A of Schedule II. Th"
+      },
+      "explanation": "Holding h7 states unpaid commission becomes a debt due, addressing why it is a debt not borrowed money in i2",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_h7_resolves_i2",
+      "source": "h7",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 4801,
+        "end_char": 5200,
+        "text_hash": "ef0fe29b04655107",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. We are unable to companystrue the provisions in that way. They merely give the managing agents a right to receive their companymission at a certain time. If the money is number paid in time it lies with the assessee as a debt due to the agents."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h7_determines_outcome",
+      "source": "h7",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_0f4081da_12",
+      "source": "h8",
+      "target": "c10",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "explanation": "Holding h8 that it is debt under Rule 2 supports c10 concept.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_fda2a026_10",
+      "source": "h8",
+      "target": "h4",
+      "relation": "specializes",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "explanation": "h8 specifies rules 2 and 2A, specializing the general debt/not borrowing in h4",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_0f4081da_32",
+      "source": "h8",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Supreme Court h8 supports High Court h4 as agreement.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_fda2a026_5",
+      "source": "h8",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ed on for the purpose of showing that there was such an agreement in the case. We are unab"
+      },
+      "explanation": "Holding h8 explicitly concludes 'it is a debt under Rule 2 and not a borrowing under Rule 2A', directly addressing i2",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_h8_resolves_i2",
+      "source": "h8",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5680,
+        "end_char": 5770,
+        "text_hash": "d34dd0e416d45e9f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h8_determines_outcome",
+      "source": "h8",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 3449,
+        "end_char": 5370,
+        "text_hash": "a6c78ce46010db70",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "We agree with the answer given by the High Court, namely that the words so far as the companytrary is shown apply to both clauses a and b . The next question is about the managing agency companymission...We agree with the High Court that it is a debt under Rule 2 and number a borrowing under Rule 2A."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_3ef18142_1",
+      "source": "i1",
+      "target": "c2",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Issue concerns true construction of Rule 5 of Schedule II of Excess Profits Tax Act, directly addressing Section 23's requirement to compute capital per Second Schedule.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:28:47.318435"
+      }
+    },
+    {
+      "id": "e_d417cfdc_7",
+      "source": "i1",
+      "target": "c6",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2900,
+        "end_char": 2980,
+        "text_hash": "ffa5c020e807ba7b",
+        "display_location": "0:25",
+        "secondary_spans": [],
+        "surface_text": "he word deemed clearly governs both clauses, for the fiction which the Rule crea"
+      },
+      "explanation": "Issue i1 on true construction of Rule 5 and scope of phrase directly addresses concept c6's interpretation that words and 'deemed' apply to both clauses",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_d417cfdc_8",
+      "source": "i1",
+      "target": "h2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 2501,
+        "end_char": 2980,
+        "text_hash": "b2fe367c7a905563",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " ground as a whole because the artificial presumption it created has been rebutted. Clause  b , he companytends, cannot have any independent existence"
+      },
+      "explanation": "Issue i1 on scope of phrase to clause (a) or both is addressed by holding h2 that words govern both clauses and rebuttable independently",
+      "confidence": "medium",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:29:45.633078"
+      }
+    },
+    {
+      "id": "e_fda2a026_16",
+      "source": "i2",
+      "target": "c1",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "i2 addresses application of rules under Excess Profits Tax Act, 1940 (c1)",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:27:54.287935"
+      }
+    },
+    {
+      "id": "e_0f4081da_26",
+      "source": "i2",
+      "target": "c10",
+      "relation": "requires",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "naction. The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. W"
+      },
+      "explanation": "Issue i2 on Rule 2 vs 2A requires application of Rule 2 concept c10.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:32:03.894037"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_31",
+      "source": "i2",
+      "target": "c7",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Issue i2 addresses Rule 2A interpretation in c7",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_13",
+      "source": "i2",
+      "target": "c9",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "naction. The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. W"
+      },
+      "explanation": "Issue i2 directly addresses Rule 2A concept in c9",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_4bfbfff5_14",
+      "source": "i2",
+      "target": "h8",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:2ec1e3949337",
+        "start_char": 5610,
+        "end_char": 5770,
+        "text_hash": "4202b5b79b0fc34f",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "naction. The clause in the Articles of Agreement quoted above was relied on for the purpose of showing that there was such an agreement in the case. W"
+      },
+      "explanation": "Issue i2 on borrowing vs debt is addressed by holding h8",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-04T15:31:02.155613"
+      }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "c4",
+      "target": "c6",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=15.0, concept->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:43.797450"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "c4",
+      "target": "c3",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=14.5, concept->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:43.797464"
+      }
+    },
+    {
+      "id": "e_repair_3",
+      "source": "c5",
+      "target": "c4",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=6.5, concept->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:43.798110"
+      }
+    },
+    {
+      "id": "e_repair_4",
+      "source": "c5",
+      "target": "c3",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=6.0, concept->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:43.798118"
+      }
+    },
+    {
+      "id": "e_repair_5",
+      "source": "f3",
+      "target": "c1",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=3.5, fact->concept",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:43.798985"
+      }
+    },
+    {
+      "id": "e_repair_6",
+      "source": "f5",
+      "target": "c3",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=3.5, fact->concept",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:43.800142"
+      }
+    }
+  ],
+  "reasoning_chains": [
+    {
+      "id": "rc_i1_h1",
+      "issue_id": "i1",
+      "fact_ids": [],
+      "concept_ids": [],
+      "argument_ids": [
+        "a5"
+      ],
+      "holding_id": "h1",
+      "edge_ids": [
+        "e_5a601855_1"
+      ],
+      "justification_set_id": "js1",
+      "critical_nodes": [
+        "a5"
+      ],
+      "narrative": "Issue i1 resolved by holding h1. Arguments: a5."
+    },
+    {
+      "id": "rc_i1_h2",
+      "issue_id": "i1",
+      "fact_ids": [
+        "f7",
+        "f9",
+        "f10",
+        "f11"
+      ],
+      "concept_ids": [
+        "c2"
+      ],
+      "argument_ids": [
+        "a5",
+        "a1",
+        "a7",
+        "a6"
+      ],
+      "holding_id": "h2",
+      "edge_ids": [
+        "e_d417cfdc_10",
+        "e_d417cfdc_8",
+        "e_5a601855_1",
+        "e_d417cfdc_14",
+        "e_d417cfdc_15",
+        "e_3ef18142_5",
+        "e_3ef18142_10",
+        "e_3ef18142_2",
+        "e_5a601855_4",
+        "e_5a601855_6",
+        "e_d417cfdc_9",
+        "e_d417cfdc_1",
+        "e_d417cfdc_3",
+        "e_d417cfdc_4",
+        "e_3ef18142_9",
+        "e_3ef18142_8",
+        "e_3ef18142_6",
+        "e_3ef18142_7",
+        "e_3ef18142_1",
+        "e_d417cfdc_5",
+        "e_d417cfdc_6",
+        "e_3ef18142_12"
+      ],
+      "justification_set_id": "js2",
+      "critical_nodes": [
+        "h1",
+        "i1",
+        "a5",
+        "c2",
+        "h2",
+        "h3",
+        "a6",
+        "f9",
+        "f10",
+        "f11"
+      ],
+      "narrative": "Issue i1 resolved by holding h2. Facts: f7, f9, f10, f11. Concepts: c2. Arguments: a5, a1, a7, a6."
+    },
+    {
+      "id": "rc_i1_h3",
+      "issue_id": "i1",
+      "fact_ids": [
+        "f10",
+        "f11",
+        "f7",
+        "f9"
+      ],
+      "concept_ids": [
+        "c2"
+      ],
+      "argument_ids": [
+        "a5",
+        "a1",
+        "a7",
+        "a6"
+      ],
+      "holding_id": "h3",
+      "edge_ids": [
+        "e_d417cfdc_5",
+        "e_d417cfdc_6",
+        "e_3ef18142_12",
+        "e_d417cfdc_10",
+        "e_d417cfdc_8",
+        "e_5a601855_1",
+        "e_d417cfdc_14",
+        "e_d417cfdc_15",
+        "e_3ef18142_5",
+        "e_3ef18142_10",
+        "e_3ef18142_2",
+        "e_5a601855_4",
+        "e_5a601855_6",
+        "e_d417cfdc_9",
+        "e_d417cfdc_1",
+        "e_d417cfdc_3",
+        "e_d417cfdc_4",
+        "e_3ef18142_9",
+        "e_3ef18142_8",
+        "e_3ef18142_6",
+        "e_3ef18142_7",
+        "e_3ef18142_1"
+      ],
+      "justification_set_id": "js3",
+      "critical_nodes": [
+        "f10",
+        "f11",
+        "h1",
+        "i1",
+        "a5",
+        "c2",
+        "h2",
+        "h3",
+        "a6",
+        "f9"
+      ],
+      "narrative": "Issue i1 resolved by holding h3. Facts: f10, f11, f7, f9. Concepts: c2. Arguments: a5, a1, a7, a6."
+    },
+    {
+      "id": "rc_i2_h4",
+      "issue_id": "i2",
+      "fact_ids": [
+        "f18",
+        "f19",
+        "f6",
+        "f17",
+        "f21",
+        "f12",
+        "f13",
+        "f14",
+        "f20",
+        "f15",
+        "f16"
+      ],
+      "concept_ids": [
+        "c1",
+        "c8",
+        "c10"
+      ],
+      "argument_ids": [
+        "a10",
+        "a9",
+        "a11",
+        "a12",
+        "a13",
+        "a14",
+        "a8"
+      ],
+      "holding_id": "h4",
+      "edge_ids": [
+        "e_0f4081da_6",
+        "e_fda2a026_12",
+        "e_0f4081da_16",
+        "e_0f4081da_4",
+        "e_0f4081da_29",
+        "e_fda2a026_7",
+        "e_fda2a026_9",
+        "e_fda2a026_8",
+        "e_fda2a026_10",
+        "e_0f4081da_32",
+        "e_fda2a026_14",
+        "e_fda2a026_16",
+        "e_0f4081da_3",
+        "e_0f4081da_1",
+        "e_0f4081da_5",
+        "e_0f4081da_14",
+        "e_0f4081da_15",
+        "e_0f4081da_13",
+        "e_4bfbfff5_7",
+        "e_4bfbfff5_6",
+        "e_fda2a026_6",
+        "e_4bfbfff5_8",
+        "e_0f4081da_7",
+        "e_0f4081da_17",
+        "e_4bfbfff5_9",
+        "e_4bfbfff5_10",
+        "e_4bfbfff5_11",
+        "e_0f4081da_9",
+        "e_fda2a026_13",
+        "e_0f4081da_18",
+        "e_0f4081da_8",
+        "e_4bfbfff5_23",
+        "e_4bfbfff5_21",
+        "e_4bfbfff5_22",
+        "e_4bfbfff5_24",
+        "e_4bfbfff5_14",
+        "e_0f4081da_20",
+        "e_4bfbfff5_29",
+        "e_4bfbfff5_30",
+        "e_0f4081da_21",
+        "e_4bfbfff5_28",
+        "e_0f4081da_19",
+        "e_fda2a026_11",
+        "e_0f4081da_25",
+        "e_0f4081da_24",
+        "e_4bfbfff5_12",
+        "e_fda2a026_15",
+        "e_fda2a026_1",
+        "e_fda2a026_2",
+        "e_fda2a026_3",
+        "e_fda2a026_4",
+        "e_fda2a026_5",
+        "e_0f4081da_2",
+        "e_4bfbfff5_5",
+        "e_4bfbfff5_26",
+        "e_4bfbfff5_27",
+        "e_4bfbfff5_4",
+        "e_4bfbfff5_1",
+        "e_4bfbfff5_25",
+        "e_0f4081da_11",
+        "e_0f4081da_10",
+        "e_0f4081da_12",
+        "e_0f4081da_26"
+      ],
+      "justification_set_id": "js4",
+      "critical_nodes": [
+        "c1",
+        "f18",
+        "h8",
+        "i2",
+        "a9",
+        "f17",
+        "h5",
+        "h7",
+        "a11",
+        "f21",
+        "a12",
+        "a13",
+        "f12",
+        "f19",
+        "c10",
+        "f20",
+        "h4",
+        "h6",
+        "f16"
+      ],
+      "narrative": "Issue i2 resolved by holding h4. Facts: f18, f19, f6, f17, f21, f12, f13, f14, f20, f15, f16. Concepts: c1, c8, c10. Arguments: a10, a9, a11, a12, a13, a14, a8."
+    },
+    {
+      "id": "rc_i2_h5",
+      "issue_id": "i2",
+      "fact_ids": [
+        "f21"
+      ],
+      "concept_ids": [],
+      "argument_ids": [
+        "a11",
+        "a12"
+      ],
+      "holding_id": "h5",
+      "edge_ids": [
+        "e_4bfbfff5_7",
+        "e_4bfbfff5_6",
+        "e_fda2a026_6",
+        "e_4bfbfff5_5",
+        "e_4bfbfff5_8"
+      ],
+      "justification_set_id": "js5",
+      "critical_nodes": [
+        "a11",
+        "f21",
+        "a12"
+      ],
+      "narrative": "Issue i2 resolved by holding h5. Facts: f21. Arguments: a11, a12."
+    },
+    {
+      "id": "rc_i2_h6",
+      "issue_id": "i2",
+      "fact_ids": [],
+      "concept_ids": [],
+      "argument_ids": [
+        "a12"
+      ],
+      "holding_id": "h6",
+      "edge_ids": [
+        "e_4bfbfff5_8"
+      ],
+      "justification_set_id": "js6",
+      "critical_nodes": [
+        "a12"
+      ],
+      "narrative": "Issue i2 resolved by holding h6. Arguments: a12."
+    },
+    {
+      "id": "rc_i2_h7",
+      "issue_id": "i2",
+      "fact_ids": [
+        "f12",
+        "f13",
+        "f14",
+        "f17",
+        "f18",
+        "f21"
+      ],
+      "concept_ids": [
+        "c8"
+      ],
+      "argument_ids": [
+        "a13",
+        "a9",
+        "a11",
+        "a12"
+      ],
+      "holding_id": "h7",
+      "edge_ids": [
+        "e_0f4081da_7",
+        "e_0f4081da_17",
+        "e_4bfbfff5_9",
+        "e_4bfbfff5_10",
+        "e_4bfbfff5_11",
+        "e_0f4081da_3",
+        "e_0f4081da_1",
+        "e_0f4081da_5",
+        "e_0f4081da_14",
+        "e_0f4081da_15",
+        "e_0f4081da_13",
+        "e_0f4081da_2",
+        "e_4bfbfff5_7",
+        "e_4bfbfff5_6",
+        "e_fda2a026_6",
+        "e_4bfbfff5_8",
+        "e_4bfbfff5_5"
+      ],
+      "justification_set_id": "js7",
+      "critical_nodes": [
+        "a13",
+        "f12",
+        "a9",
+        "f17",
+        "h5",
+        "h7",
+        "a11",
+        "f21",
+        "a12"
+      ],
+      "narrative": "Issue i2 resolved by holding h7. Facts: f12, f13, f14, f17, f18, f21. Concepts: c8. Arguments: a13, a9, a11, a12."
+    },
+    {
+      "id": "rc_i2_h8",
+      "issue_id": "i2",
+      "fact_ids": [
+        "f19",
+        "f6",
+        "f17",
+        "f18",
+        "f21",
+        "f12",
+        "f13",
+        "f14",
+        "f20",
+        "f15",
+        "f16"
+      ],
+      "concept_ids": [
+        "c1",
+        "c8",
+        "c10"
+      ],
+      "argument_ids": [
+        "a14",
+        "a9",
+        "a10",
+        "a11",
+        "a12",
+        "a13",
+        "a8"
+      ],
+      "holding_id": "h8",
+      "edge_ids": [
+        "e_0f4081da_9",
+        "e_fda2a026_13",
+        "e_0f4081da_18",
+        "e_0f4081da_8",
+        "e_4bfbfff5_23",
+        "e_4bfbfff5_21",
+        "e_4bfbfff5_22",
+        "e_4bfbfff5_24",
+        "e_4bfbfff5_14",
+        "e_fda2a026_14",
+        "e_fda2a026_16",
+        "e_0f4081da_3",
+        "e_0f4081da_1",
+        "e_0f4081da_5",
+        "e_0f4081da_14",
+        "e_0f4081da_15",
+        "e_0f4081da_13",
+        "e_0f4081da_6",
+        "e_fda2a026_12",
+        "e_0f4081da_16",
+        "e_0f4081da_4",
+        "e_0f4081da_29",
+        "e_fda2a026_7",
+        "e_fda2a026_9",
+        "e_fda2a026_8",
+        "e_fda2a026_10",
+        "e_0f4081da_32",
+        "e_4bfbfff5_7",
+        "e_4bfbfff5_6",
+        "e_fda2a026_6",
+        "e_4bfbfff5_8",
+        "e_0f4081da_7",
+        "e_0f4081da_17",
+        "e_4bfbfff5_9",
+        "e_4bfbfff5_10",
+        "e_4bfbfff5_11",
+        "e_0f4081da_20",
+        "e_4bfbfff5_29",
+        "e_4bfbfff5_30",
+        "e_0f4081da_21",
+        "e_4bfbfff5_28",
+        "e_0f4081da_19",
+        "e_fda2a026_11",
+        "e_0f4081da_25",
+        "e_0f4081da_24",
+        "e_4bfbfff5_12",
+        "e_fda2a026_15",
+        "e_fda2a026_1",
+        "e_fda2a026_2",
+        "e_fda2a026_3",
+        "e_fda2a026_4",
+        "e_fda2a026_5",
+        "e_0f4081da_2",
+        "e_4bfbfff5_5",
+        "e_4bfbfff5_26",
+        "e_4bfbfff5_27",
+        "e_4bfbfff5_4",
+        "e_4bfbfff5_1",
+        "e_4bfbfff5_25",
+        "e_0f4081da_11",
+        "e_0f4081da_10",
+        "e_0f4081da_12",
+        "e_0f4081da_26"
+      ],
+      "justification_set_id": "js8",
+      "critical_nodes": [
+        "c1",
+        "f19",
+        "i2",
+        "a9",
+        "f17",
+        "h5",
+        "h7",
+        "f18",
+        "h8",
+        "a11",
+        "f21",
+        "a12",
+        "a13",
+        "f12",
+        "c10",
+        "f20",
+        "h4",
+        "h6",
+        "f16"
+      ],
+      "narrative": "Issue i2 resolved by holding h8. Facts: f19, f6, f17, f18, f21, f12, f13, f14, f20, f15, f16. Concepts: c1, c8, c10. Arguments: a14, a9, a10, a11, a12, a13, a8."
+    }
+  ],
+  "_meta": {
+    "schema_version": "2.1.2",
+    "quality_tier": "gold",
+    "extraction_model": "grok-4-1-fast-reasoning",
+    "extraction_timestamp": "2026-02-04T15:22:03.873760",
+    "retry_attempts": 0,
+    "validation_warnings": [
+      "Edge e28: No valid relations defined for fact -> fact",
+      "repair_orphans: added 6 edges for 4 orphan nodes"
+    ],
+    "cluster_membership": {
+      "c1": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940"
+      ],
+      "c2": [
+        "UNLISTED_SECTION23_EPTA"
+      ],
+      "c3": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "c4": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "c5": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "c6": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "c7": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "c8": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "c9": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "c10": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "c11": [
+        "UNLISTED_STATUTORY_FICTION"
+      ],
+      "i1": [
+        "UNLISTED_SECTION23_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_STATUTORY_FICTION"
+      ],
+      "i2": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "h1": [
+        "UNLISTED_SECTION23_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_STATUTORY_FICTION"
+      ],
+      "h2": [
+        "UNLISTED_SECTION23_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_STATUTORY_FICTION"
+      ],
+      "h3": [
+        "UNLISTED_SECTION23_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_RULE5_SCHEDULEII_EPTA",
+        "UNLISTED_STATUTORY_FICTION"
+      ],
+      "h4": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "h5": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "h6": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "h7": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "h8": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA",
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "f6": [
+        "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940"
+      ],
+      "f7": [
+        "UNLISTED_SECTION23_EPTA"
+      ],
+      "f8": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "f9": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "f10": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "f11": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "f12": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "f13": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "f14": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "f15": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "f16": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "f17": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "f18": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "f19": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "f20": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "f21": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "a1": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "a2": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "a3": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "a5": [
+        "UNLISTED_STATUTORY_FICTION"
+      ],
+      "a6": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "a7": [
+        "UNLISTED_RULE5_SCHEDULEII_EPTA"
+      ],
+      "a8": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "a9": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "a10": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "a11": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "a12": [
+        "UNLISTED_RULE2A_SCHEDULEII_EPTA"
+      ],
+      "a13": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ],
+      "a14": [
+        "UNLISTED_RULE2_SCHEDULEII_EPTA"
+      ]
+    },
+    "cluster_summary": {
+      "UNLISTED_EXCESS_PROFITS_TAX_ACT_1940": {
+        "label": "Excess Profits Tax Act, 1940",
+        "logic": "and",
+        "facts": [
+          "f6"
+        ],
+        "concepts": [
+          "c1"
+        ],
+        "issues": [
+          "i2"
+        ],
+        "arguments": [],
+        "holdings": [
+          "h4",
+          "h5",
+          "h6",
+          "h7",
+          "h8"
+        ],
+        "precedents": []
+      },
+      "UNLISTED_SECTION23_EPTA": {
+        "label": "Section 23, Excess Profits Tax Act",
+        "logic": "and",
+        "facts": [
+          "f7"
+        ],
+        "concepts": [
+          "c2"
+        ],
+        "issues": [
+          "i1"
+        ],
+        "arguments": [],
+        "holdings": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "precedents": []
+      },
+      "UNLISTED_RULE5_SCHEDULEII_EPTA": {
+        "label": "Rule 5, Schedule II, Excess Profits Tax Act",
+        "logic": "and",
+        "facts": [
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "concepts": [
+          "c3",
+          "c4",
+          "c5",
+          "c6"
+        ],
+        "issues": [
+          "i1",
+          "i1",
+          "i1",
+          "i1"
+        ],
+        "arguments": [
+          "a1",
+          "a2",
+          "a3",
+          "a6",
+          "a7"
+        ],
+        "holdings": [
+          "h1",
+          "h1",
+          "h1",
+          "h1",
+          "h2",
+          "h2",
+          "h2",
+          "h2",
+          "h3",
+          "h3",
+          "h3",
+          "h3"
+        ],
+        "precedents": []
+      },
+      "UNLISTED_RULE2A_SCHEDULEII_EPTA": {
+        "label": "Rule 2A, Schedule II, Excess Profits Tax Act",
+        "logic": "and",
+        "facts": [
+          "f12",
+          "f13",
+          "f14",
+          "f15",
+          "f16",
+          "f20",
+          "f21"
+        ],
+        "concepts": [
+          "c7",
+          "c9"
+        ],
+        "issues": [
+          "i2",
+          "i2"
+        ],
+        "arguments": [
+          "a8",
+          "a11",
+          "a12"
+        ],
+        "holdings": [
+          "h4",
+          "h4",
+          "h5",
+          "h5",
+          "h6",
+          "h6",
+          "h7",
+          "h7",
+          "h8",
+          "h8"
+        ],
+        "precedents": []
+      },
+      "UNLISTED_RULE2_SCHEDULEII_EPTA": {
+        "label": "Rule 2, Schedule II, Excess Profits Tax Act",
+        "logic": "and",
+        "facts": [
+          "f17",
+          "f18",
+          "f19"
+        ],
+        "concepts": [
+          "c8",
+          "c10"
+        ],
+        "issues": [
+          "i2",
+          "i2"
+        ],
+        "arguments": [
+          "a9",
+          "a10",
+          "a13",
+          "a14"
+        ],
+        "holdings": [
+          "h4",
+          "h4",
+          "h5",
+          "h5",
+          "h6",
+          "h6",
+          "h7",
+          "h7",
+          "h8",
+          "h8"
+        ],
+        "precedents": []
+      },
+      "UNLISTED_STATUTORY_FICTION": {
+        "label": "Statutory Fiction",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c11"
+        ],
+        "issues": [
+          "i1"
+        ],
+        "arguments": [
+          "a5"
+        ],
+        "holdings": [
+          "h1",
+          "h2",
+          "h3"
+        ],
+        "precedents": []
+      }
+    }
+  }
+}
