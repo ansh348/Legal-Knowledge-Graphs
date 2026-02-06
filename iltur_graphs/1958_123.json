@@ -1,0 +1,4947 @@
+{
+  "case_id": "1958_123",
+  "case_name": null,
+  "case_year": null,
+  "court": null,
+  "judges": [],
+  "facts": [],
+  "concepts": [
+    {
+      "id": "c1",
+      "type": "concept",
+      "concept_id": "CONST_ART136",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 5391,
+        "end_char": 5401,
+        "text_hash": "808fd921b56dbe9e",
+        "display_location": "0:51",
+        "secondary_spans": [],
+        "surface_text": "under Art. 136."
+      },
+      "relevance": "mentioned",
+      "kind": "statute_article",
+      "interpretation": null,
+      "interpretation_anchor": null,
+      "unlisted_label": null,
+      "unlisted_description": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c2",
+      "type": "concept",
+      "concept_id": "UNLISTED_DIVISION_IN_STATUS",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12630,
+        "text_hash": "c6f658378541fa98",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that a division in status takes place when he expresses his intention to become separate unequivocally and unambiguously, that the filing of a suit for partition is a clear expression of such an intention, and that, in consequence,"
+      },
+      "relevance": "central",
+      "kind": "doctrine",
+      "interpretation": "Division in status occurs upon filing of partition suit as unequivocal intention to separate, even if suit dismissed.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "are, should he make a demand for it. The view was at one time held that there companyld be numberpartition, unless all the companya"
+      },
+      "unlisted_label": "Division in Status",
+      "unlisted_description": "Severance of joint family status upon expression of intention to separate via partition suit",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c3",
+      "type": "concept",
+      "concept_id": "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Under the Mitakshara law, the right, of a coparcener to share in the joint family properties arises on his birth, and that right carries with it the right to be maintained out of those properties suitably to the status of the family so long as the family is joint and to have a partition and separate possession of his share, should he make a demand for it."
+      },
+      "relevance": "central",
+      "kind": "right",
+      "interpretation": "Minor coparcener has same right to partition as major, exercisable through next friend subject to court satisfaction of benefit.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 13320,
+        "end_char": 13450,
+        "text_hash": "e85594d8f4afb126",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ar expression of such an intention, and that, in companysequence,  1   1917  I.L.R. 41 Mad. 442.  2   1933  I.L.R. 57 Mad. 95. I.L"
+      },
+      "unlisted_label": "Minor Coparcener Right to Partition",
+      "unlisted_description": "Right of minor member of joint Hindu family under Mitakshara to demand partition",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c4",
+      "type": "concept",
+      "concept_id": "UNLISTED_BENEFIT_TO_MINOR",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 769,
+        "end_char": 850,
+        "text_hash": "acb93e778a9acd26",
+        "display_location": "0:22",
+        "secondary_spans": [],
+        "surface_text": "Both the District Munsif and the Subordinate Judge on appeal, held that this had not been established, and no further notice need be taken of it."
+      },
+      "relevance": "central",
+      "kind": "test",
+      "interpretation": "Court must be satisfied that partition suit instituted on behalf of minor is for his benefit; if so, severance relates back to suit filing.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 13320,
+        "end_char": 13480,
+        "text_hash": "06737cca9b67cf8a",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "ar expression of such an intention, and that, in companysequence,  1   1917  I.L.R. 41 Mad. 442.  2   1933  I.L.R. 57 Mad. 95. I.L.R. 1947 Nag. 848.  "
+      },
+      "unlisted_label": "Benefit to Minor Test",
+      "unlisted_description": "Requirement for court approval that partition suit by minor's next friend is beneficial to minor",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c5",
+      "type": "concept",
+      "concept_id": "UNLISTED_PARENS_PATRIAE",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 20045,
+        "end_char": 20150,
+        "text_hash": "347c61e1973db61b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "the theory is that the Sovereign as parens patriae has the power, and is indeed under a duty to protect the interests of minors, and that function has devolved on the courts. In the discharge of that function, therefore, they have the power to control all proceedings before them wherein minors are concerned."
+      },
+      "relevance": "supporting",
+      "kind": "doctrine",
+      "interpretation": "Courts exercise parens patriae to oversee minor's suits, including partition, to ensure benefit.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 20045,
+        "end_char": 20300,
+        "text_hash": "de5bee8a793ead65",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "himself in Bammangouda v. Shankargouda  6 , the point number under companysideration did number really arise for decision in that case, and the  1   1"
+      },
+      "unlisted_label": "Parens Patriae",
+      "unlisted_description": "Sovereign/court jurisdiction to protect minors' interests",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c6",
+      "type": "concept",
+      "concept_id": "UNLISTED_ACTIO_PERSONALIS_MORITUR_CUM_PERSONA",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "the suit must abate on the principle of the maxim, actio personalis moritur cum persona. But that maxim has application only when the action is one for damages for a personal wrong, and as a suit for partition is a suit for property, the rule in question has no application to it."
+      },
+      "relevance": "mentioned",
+      "kind": "doctrine",
+      "interpretation": "Does not apply to partition suits which are proprietary, not personal.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "unlisted_label": "Actio Personalis Moritur Cum Persona",
+      "unlisted_description": "Personal actions die with the person",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c7",
+      "type": "concept",
+      "concept_id": "UNLISTED_MITAKSHARA_LAW",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 11920,
+        "text_hash": "b61b43639a50a475",
+        "display_location": "0:96",
+        "secondary_spans": [],
+        "surface_text": "Under the Mitakshara law, the right, of a coparcener to share in the joint family properties arises on his birth,"
+      },
+      "relevance": "supporting",
+      "kind": "doctrine",
+      "interpretation": "Governs coparcenary rights including birth-right to share and partition.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "unlisted_label": "Mitakshara Law",
+      "unlisted_description": "School of Hindu law applicable to joint family property rights",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c8",
+      "type": "concept",
+      "concept_id": "UNLISTED_SECOND_APPEAL_INTERFERENCE",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 8800,
+        "text_hash": "f029a75409b15f0b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that it is a pure question of fact whether the institution of a suit is for the benefit of a minor or not, and that a finding of the courts below on that question is not liable to be interfered with in second appeal. But it must be observed that the finding of the Subordinate Judge was only that as the impugned sale and purchases were made before the minor plaintiff was born, no cause of action for partition could be founded by him thereon, and that, in our opinion, is a clear misdirection."
+      },
+      "relevance": "supporting",
+      "kind": "standard",
+      "interpretation": "High Court can interfere in second appeal if lower courts misdirect on benefit issue.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "unlisted_label": "Second Appeal Interference on Misdirection",
+      "unlisted_description": "Power to reverse concurrent findings if based on misdirection",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c9",
+      "type": "concept",
+      "concept_id": "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "when a minor plaintiff dies before the court adjudicates on the question of benefit to him, he dies an undivided coparcener and his interest survives to the other coparceners and does not devolve on his heirs by inheritance."
+      },
+      "relevance": "central",
+      "kind": "doctrine",
+      "interpretation": "Partition suit by minor does not abate on his death; legal reps can continue and prove benefit, with severance from suit date.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 24400,
+        "end_char": 24600,
+        "text_hash": "2d0129ed205a870a",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "of the, suit should number be held to be a proper declaration on behalf of the minor to become divided so as to cause a severance in status? In our ju"
+      },
+      "unlisted_label": "Non-Abatement of Minor's Partition Suit",
+      "unlisted_description": "Continuation by legal representatives post minor's death",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    },
+    {
+      "id": "c10",
+      "type": "concept",
+      "concept_id": "UNLISTED_NEXT_FRIEND_AUTHORITY",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 13300,
+        "end_char": 13400,
+        "text_hash": "634265ca06f74e5f",
+        "display_location": "0:101",
+        "secondary_spans": [],
+        "surface_text": "a suit for partition on behalf of a minor coparcener is maintainable in the same manner as one filed by an adult coparcener, with this difference that when the plaintiff is a minor the court has to be satisfied that the action has been instituted for his benefit."
+      },
+      "relevance": "supporting",
+      "kind": "doctrine",
+      "interpretation": "Next friend can institute partition suit on minor's behalf, effecting severance conditional on court approval of benefit.",
+      "interpretation_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 13300,
+        "end_char": 19000,
+        "text_hash": "5f4dff59d570dc54",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "r partition is a clear expression of such an intention, and that, in companysequence,  1   1917  I.L.R. 41 Mad. 442.  2   1933  I.L.R. 57 Mad. 95. I.L"
+      },
+      "unlisted_label": "Next Friend Authority in Partition Suit",
+      "unlisted_description": "Power of next friend to express minor's intention to separate",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:05.286212"
+      }
+    }
+  ],
+  "issues": [
+    {
+      "id": "i1",
+      "type": "issue",
+      "text": "Whether there was a concurrent finding by the courts below that the suit was not instituted for the benefit of the minor, and whether the High Court had power to reverse it in second appeal",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that it is a pure question of fact whether the institution of a suit is for the benefit of a minor or not, and that a finding of the courts below on that question is not liable to be interfered with in second appeal. But it must be observed that the finding of the Subordinate Judge was only that as the impugned sale and purchases were made before the minor plaintiff was born, no cause of action for partition could be founded by him thereon, and that, in our opinion, is a clear misdirection."
+      },
+      "issue_number": 1,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c4",
+        "c8"
+      ],
+      "answer": "no",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:46.085443"
+      }
+    },
+    {
+      "id": "i2",
+      "type": "issue",
+      "text": "Whether the suit for partition abated by reason of the death of the minor plaintiff before the court decided whether the institution of the suit was for his benefit",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "when a minor plaintiff dies before the court adjudicates on the question of benefit to him, he dies an undivided coparcener and his interest survives to the other coparceners and does not devolve on his heirs by inheritance."
+      },
+      "issue_number": 2,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c9"
+      ],
+      "answer": "no",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:46.085443"
+      }
+    },
+    {
+      "id": "i3",
+      "type": "issue",
+      "text": "Whether the institution of a suit for partition on behalf of a minor coparcener effects a division in status from the date of the suit conditional on the court finding it beneficial to the minor",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that a division in status takes place when he expresses his intention to become separate unequivocally and unambiguously, that the filing of a suit for partition is a clear expression of such an intention, and that, in consequence,"
+      },
+      "issue_number": null,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c2",
+        "c3",
+        "c4",
+        "c10"
+      ],
+      "answer": "yes",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:46.085443"
+      }
+    },
+    {
+      "id": "i4",
+      "type": "issue",
+      "text": "Whether a minor coparcener under Mitakshara law has the right to demand partition through a next friend subject to court satisfaction of benefit",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Under the Mitakshara law, the right, of a coparcener to share in the joint family properties arises on his birth, and that right carries with it the right to be maintained out of those properties suitably to the status of the family so long as the family is joint and to have a partition and separate possession of his share, should he make a demand for it."
+      },
+      "issue_number": null,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c3",
+        "c7",
+        "c10"
+      ],
+      "answer": "yes",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:46.085443"
+      }
+    },
+    {
+      "id": "i5",
+      "type": "issue",
+      "text": "Whether the maxim actio personalis moritur cum persona applies to a suit for partition causing abatement on the minor plaintiff's death",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "the suit must abate on the principle of the maxim, actio personalis moritur cum persona. But that maxim has application only when the action is one for damages for a personal wrong, and as a suit for partition is a suit for property, the rule in question has no application to it."
+      },
+      "issue_number": null,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c6"
+      ],
+      "answer": "no",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:46.085443"
+      }
+    },
+    {
+      "id": "i6",
+      "type": "issue",
+      "text": "Whether the court's jurisdiction to require satisfaction of benefit to minor in partition suit derives from parens patriae doctrine",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 20045,
+        "end_char": 20150,
+        "text_hash": "347c61e1973db61b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "the theory is that the Sovereign as parens patriae has the power, and is indeed under a duty to protect the interests of minors, and that function has devolved on the courts. In the discharge of that function, therefore, they have the power to control all proceedings before them wherein minors are concerned."
+      },
+      "issue_number": null,
+      "framed_by": "court",
+      "primary_concepts": [
+        "c5"
+      ],
+      "answer": "yes",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:42:46.085443"
+      }
+    }
+  ],
+  "arguments": [
+    {
+      "id": "a1",
+      "type": "argument",
+      "claim": "There was a concurrent finding by both the courts below that the suit was not instituted for the benefit of the minor, and that the High Court had no power to reverse it in second appeal",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that it is a pure question of fact whether the institution of a suit is for the benefit of a minor or not, and that a finding of the courts below on that question is not liable to be interfered with in second appeal. But it must be observed that the finding of the Subordinate Judge was only that as the impugned sale and purchases were made before the minor plaintiff was born, no cause of action for partition could be founded by him thereon, and that, in our opinion, is a clear misdirection."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "procedural",
+        "evidence_sufficiency"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "court_reasoning": "Finding was based on misdirection; transactions showed adverse conduct post-birth via false claims in WS; High Court could interfere.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a2",
+      "type": "argument",
+      "claim": "As the minor plaintiff died before the court could decide whether the institution of the suit was for his benefit, the action abated and could not be continued by his mother as legal representative",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "when a minor plaintiff dies before the court adjudicates on the question of benefit to him, he dies an undivided coparcener and his interest survives to the other coparceners and does not devolve on his heirs by inheritance."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "rule_application",
+        "precedent_following"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 24400,
+        "end_char": 24600,
+        "text_hash": "2d0129ed205a870a",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "of the, suit should number be held to be a proper declaration on behalf of the minor to become divided so as to cause a severance in status? In our ju"
+      },
+      "court_reasoning": "Severance from suit date by next friend; suit continues; non-abatement doctrine applies; follows Rangasayi etc.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a3",
+      "type": "argument",
+      "claim": "Suit for partition on behalf of minor stands on same footing as adult coparcener; severance from suit date conditional on court finding beneficial",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that a division in status takes place when he expresses his intention to become separate unequivocally and unambiguously, that the filing of a suit for partition is a clear expression of such an intention, and that, in consequence,"
+      },
+      "actor": "respondent",
+      "schemes": [
+        "rule_application",
+        "precedent_analogy"
+      ],
+      "qualifiers": null,
+      "court_response": "accepted",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "are, should he make a demand for it. The view was at one time held that there companyld be numberpartition, unless all the companya"
+      },
+      "court_reasoning": "Agrees; minor rights same as adult under Mitakshara; next friend expresses intention; court approves benefit.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a4",
+      "type": "argument",
+      "claim": "Transactions prior to minor's birth mean no cause of action for partition or benefit",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 769,
+        "end_char": 850,
+        "text_hash": "acb93e778a9acd26",
+        "display_location": "0:22",
+        "secondary_spans": [],
+        "surface_text": "Both the District Munsif and the Subordinate Judge on appeal, held that this had not been established, and no further notice need be taken of it."
+      },
+      "actor": "lower_court",
+      "schemes": [
+        "rule_application",
+        "evidence_sufficiency"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "court_reasoning": "Misdirection; focus on post-birth adverse claims in WS denying title, false debt claims.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a5",
+      "type": "argument",
+      "claim": "Defendants falsely claimed items 2 & 11 as separate properties and family debts; adverse interest justifies partition as beneficial",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1252,
+        "end_char": 1350,
+        "text_hash": "79eb3b0856512724",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The second plaintiff took the matter in second appeal to the High Court of Madras, and that was heard by Satyanarayana Rao J. who held that as the defendants had falsely claimed that items 2 and 11 were the separate properties of the second and third defendants, their interest was adverse to that of the minor and that the suit for partition was clearly beneficial to him."
+      },
+      "actor": "court",
+      "schemes": [
+        "evidence_credibility",
+        "balancing"
+      ],
+      "qualifiers": null,
+      "court_response": "accepted",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1252,
+        "end_char": 1350,
+        "text_hash": "79eb3b0856512724",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " is the daugther of the first defendant by the fourth defendant. In the plaint, three grounds were"
+      },
+      "court_reasoning": "SC accepts High Court finding on benefit.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a6",
+      "type": "argument",
+      "claim": "Minor coparcener has birth-right to partition under Mitakshara; suit by next friend maintainable if beneficial",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Under the Mitakshara law, the right, of a coparcener to share in the joint family properties arises on his birth, and that right carries with it the right to be maintained out of those properties suitably to the status of the family so long as the family is joint and to have a partition and separate possession of his share, should he make a demand for it."
+      },
+      "actor": "court",
+      "schemes": [
+        "rule_application",
+        "precedent_following"
+      ],
+      "qualifiers": null,
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a7",
+      "type": "argument",
+      "claim": "Division in status only when court decides beneficial; no severance by suit institution for minor; abates on death",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "the suit must abate on the principle of the maxim, actio personalis moritur cum persona. But that maxim has application only when the action is one for damages for a personal wrong, and as a suit for partition is a suit for property, the rule in question has no application to it."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "precedent_following",
+        "rule_exception"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "court_reasoning": "Court does not create volition; next friend does; parens patriae approves; partition proprietary not personal.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a8",
+      "type": "argument",
+      "claim": "Court's power to require benefit satisfaction derives from parens patriae; approves next friend's action",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 20045,
+        "end_char": 20150,
+        "text_hash": "347c61e1973db61b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "the theory is that the Sovereign as parens patriae has the power, and is indeed under a duty to protect the interests of minors, and that function has devolved on the courts. In the discharge of that function, therefore, they have the power to control all proceedings before them wherein minors are concerned."
+      },
+      "actor": "court",
+      "schemes": [
+        "rule_application",
+        "purposive"
+      ],
+      "qualifiers": null,
+      "court_response": null,
+      "court_response_anchor": null,
+      "court_reasoning": null,
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a9",
+      "type": "argument",
+      "claim": "Actio personalis moritur cum persona applies causing abatement",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "the suit must abate on the principle of the maxim, actio personalis moritur cum persona. But that maxim has application only when the action is one for damages for a personal wrong, and as a suit for partition is a suit for property, the rule in question has no application to it."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "precedent_following",
+        "rule_application"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "court_reasoning": "Maxim for personal wrongs/damages; partition is proprietary.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a10",
+      "type": "argument",
+      "claim": "Chelimi Chetty etc.: no severance till court decree; abates on death",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1255,
+        "end_char": 1300,
+        "text_hash": "9de31369588bfaf9",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "While the decisions in Chelimi Chetty v. Subbamma 1 , Lalta Prasad v. Sri Mahadeoji Birajman Temple 2 and Hari Singh Pritam Singh 3 , hold that when a suit for partition is filed on behalf of a minor plaintiff there is a division in status only if and when the Court decides that it is for his benefit and passes a decree"
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "precedent_following"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1259,
+        "end_char": 1261,
+        "text_hash": "a26bdd6b8bf91a68",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": " d"
+      },
+      "court_reasoning": "Erroneous; court approves next friend's volition, does not create it; extra-court partitions by relations valid.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a11",
+      "type": "argument",
+      "claim": "Rangasayi etc.: severance relates back to suit date if beneficial; no abatement",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1255,
+        "end_char": 1300,
+        "text_hash": "9de31369588bfaf9",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "the decisions in Rangasayi v. Nagarathnamma 4 , Ramsing v. Fakira 5 and Mandliprasad v. Ramcharanlal 6 , lay down that when such a suit is decreed, the severance in status relates back to the date of the institution of the suit."
+      },
+      "actor": "respondent",
+      "schemes": [
+        "precedent_following",
+        "precedent_analogy"
+      ],
+      "qualifiers": null,
+      "court_response": "accepted",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1261,
+        "end_char": 1262,
+        "text_hash": "ca978112ca1bbdca",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "a"
+      },
+      "court_reasoning": "Agrees; logical extension of Girja Bai; next friend acts for minor.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a12",
+      "type": "argument",
+      "claim": "Purchases of items 2 & 11 with separate funds; family debts exist",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1250,
+        "end_char": 1260,
+        "text_hash": "bdc318052eb393a0",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "On June 20, 1942, the defendants filed their written statements, wherein they claimed that the purchase of items 2 and 11 had been made with the separate funds of the second and third defendants, and that the joint family had no title to them. They further alleged that the family had debts to the extent of Rs. 2,600."
+      },
+      "actor": "respondent",
+      "schemes": [
+        "evidence_sufficiency"
+      ],
+      "qualifiers": null,
+      "court_response": "rejected",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1252,
+        "end_char": 1350,
+        "text_hash": "79eb3b0856512724",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": " is the daugther of the first defendant by the fourth defendant. In the plaint, three grounds were"
+      },
+      "court_reasoning": "Lower courts found joint family property, no debts.",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    },
+    {
+      "id": "a13",
+      "type": "argument",
+      "claim": "Sale to Akkul Venkatasubba Reddi without necessity to injure plaintiff; purchases with joint funds in D2/D3 names to diminish assets",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1250,
+        "end_char": 1260,
+        "text_hash": "bdc318052eb393a0",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "In the plaint, three grounds were put forward as to why the minor plaintiff should have partition 1 It was said that the mother of the plaintiff was ill-treated... 2 It was then said that there had been a sale of the family properties to one Akkul Venkatasubba Reddi for Rs. 2,300... 3 Lastly, it was alleged that item 2 had been purchased..."
+      },
+      "actor": "petitioner",
+      "schemes": [
+        "evidence_credibility",
+        "rule_application"
+      ],
+      "qualifiers": null,
+      "court_response": "partly_accepted",
+      "court_response_anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 769,
+        "end_char": 850,
+        "text_hash": "acb93e778a9acd26",
+        "display_location": "0:22",
+        "secondary_spans": [],
+        "surface_text": " of joint family properties instituted on April 2, 1942, in the Court of the Dist"
+      },
+      "court_reasoning": "Ill-treatment not established; but sales/purchases showed adverse intent via later claims.",
+      "confidence": "medium",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T00:43:13.147078"
+      }
+    }
+  ],
+  "holdings": [
+    {
+      "id": "h1",
+      "type": "holding",
+      "text": "There was no concurrent finding by the courts below that the suit was not instituted for the benefit of the minor; the Subordinate Judge misdirected himself, and the High Court had power to reverse it in second appeal as it was a misdirection.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that it is a pure question of fact whether the institution of a suit is for the benefit of a minor or not, and that a finding of the courts below on that question is not liable to be interfered with in second appeal. But it must be observed that the finding of the Subordinate Judge was only that as the impugned sale and purchases were made before the minor plaintiff was born, no cause of action for partition could be founded by him thereon, and that, in our opinion, is a clear misdirection."
+      },
+      "resolves_issue": "i1",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Lower courts focused on pre-birth transactions ignoring post-birth adverse claims in written statements denying title and alleging debts; constitutes misdirection allowing interference.",
+      "schemes": [
+        "rule_application",
+        "evidence_sufficiency"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    },
+    {
+      "id": "h2",
+      "type": "holding",
+      "text": "The suit for partition does not abate on the death of the minor plaintiff before the court decides on benefit; legal representatives can continue and prove benefit, with severance from suit date.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 24600,
+        "text_hash": "f8af0b6076e7468a",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "when a minor plaintiff dies before the court adjudicates on the question of benefit to him, he dies an undivided coparcener and his interest survives to the other coparceners and does not devolve on his heirs by inheritance."
+      },
+      "resolves_issue": "i2",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Next friend institutes suit effecting conditional severance; court approves; follows Rangasayi, Ramsing, Mandliprasad; rejects Chelimi Chetty as erroneous.",
+      "schemes": [
+        "precedent_following",
+        "other"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    },
+    {
+      "id": "h3",
+      "type": "holding",
+      "text": "Institution of partition suit by next friend on behalf of minor coparcener effects division in status from date of suit, conditional upon court finding it beneficial to minor.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that a division in status takes place when he expresses his intention to become separate unequivocally and unambiguously, that the filing of a suit for partition is a clear expression of such an intention, and that, in consequence,"
+      },
+      "resolves_issue": "i3",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Extends Girja Bai and Kawal Nain to minors via next friend; court approves volition expressed by next friend, does not create it; extra-court partitions by relations valid.",
+      "schemes": [
+        "precedent_analogy",
+        "rule_application"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    },
+    {
+      "id": "h4",
+      "type": "holding",
+      "text": "Under Mitakshara law, minor coparcener has right to partition exercisable through next friend, subject to court satisfaction that suit is for his benefit.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Under the Mitakshara law, the right, of a coparcener to share in the joint family properties arises on his birth, and that right carries with it the right to be maintained out of those properties suitably to the status of the family so long as the family is joint and to have a partition and separate possession of his share, should he make a demand for it."
+      },
+      "resolves_issue": "i4",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "No distinction between major and minor coparceners' rights; suit maintainable if beneficial.",
+      "schemes": [
+        "rule_application",
+        "precedent_following"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    },
+    {
+      "id": "h5",
+      "type": "holding",
+      "text": "The maxim actio personalis moritur cum persona does not apply to partition suits, which are proprietary not personal, so no abatement on minor's death.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "the suit must abate on the principle of the maxim, actio personalis moritur cum persona. But that maxim has application only when the action is one for damages for a personal wrong, and as a suit for partition is a suit for property, the rule in question has no application to it."
+      },
+      "resolves_issue": "i5",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Maxim limited to personal wrongs/damages; partition seeks property rights.",
+      "schemes": [
+        "rule_application",
+        "rule_exception"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    },
+    {
+      "id": "h6",
+      "type": "holding",
+      "text": "Court's jurisdiction to require satisfaction of benefit in minor's partition suit derives from parens patriae doctrine to protect minors' interests.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 20045,
+        "end_char": 20300,
+        "text_hash": "de5bee8a793ead65",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "the theory is that the Sovereign as parens patriae has the power, and is indeed under a duty to protect the interests of minors, and that function has devolved on the courts. In the discharge of that function, therefore, they have the power to control all proceedings before them wherein minors are concerned."
+      },
+      "resolves_issue": "i6",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Inherent jurisdiction over minors independent of Hindu law; approves next friend's action.",
+      "schemes": [
+        "rule_application",
+        "purposive"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    },
+    {
+      "id": "h7",
+      "type": "holding",
+      "text": "Chelimi Chetty, Lalta Prasad, Hari Singh erroneous: court does not create minor's volition for severance; next friend/relation does, court approves if beneficial.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1259,
+        "end_char": 1261,
+        "text_hash": "a26bdd6b8bf91a68",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "While the decisions in Chelimi Chetty v. Subbamma 1 , Lalta Prasad v. Sri Mahadeoji Birajman Temple 2 and Hari Singh Pritam Singh 3 , hold that when a suit for partition is filed on behalf of a minor plaintiff there is a division in status only if and when the Court decides that it is for his benefit and passes a decree"
+      },
+      "resolves_issue": null,
+      "is_ratio": true,
+      "novel": true,
+      "reasoning_summary": "Ratio of those cases wrong; court recognizes next friend's declaration; analogous to extra-court partitions by guardians/relations.",
+      "schemes": [
+        "other",
+        "precedent_analogy"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    },
+    {
+      "id": "h8",
+      "type": "holding",
+      "text": "Rangasayi, Ramsing, Mandliprasad correct: severance relates back to suit institution date if beneficial.",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 1261,
+        "end_char": 1262,
+        "text_hash": "ca978112ca1bbdca",
+        "display_location": "0:26",
+        "secondary_spans": [],
+        "surface_text": "the decisions in Rangasayi v. Nagarathnamma 4 , Ramsing v. Fakira 5 and Mandliprasad v. Ramcharanlal 6 , lay down that when such a suit is decreed, the severance in status relates back to the date of the institution of the suit."
+      },
+      "resolves_issue": null,
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "Logical extension of Girja Bai to minors; agrees with Full Bench.",
+      "schemes": [
+        "precedent_following"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:51:44.951800"
+      }
+    }
+  ],
+  "precedents": [
+    {
+      "id": "p1",
+      "type": "precedent",
+      "citation": "Chelimi Chetty v. Subbamma  1",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8992,
+        "end_char": 9026,
+        "text_hash": "b91ae66302ed8fa1",
+        "display_location": "0:64",
+        "secondary_spans": [],
+        "surface_text": "Chelimi Chetty v. Subbamma  1 , Lalta Prasad v. Sri Mahadeoji Birajman Temple  2  and Hari Singh Pritam Singh 3 , hold"
+      },
+      "case_name": "Chelimi Chetty v. Subbamma",
+      "case_year": 1917,
+      "cited_case_id": null,
+      "cited_proposition": "when a suit for partition is filed on behalf of a minor plaintiff there is a division in status only if and when the Court decides that it is for his benefit and passes a decree",
+      "cited_holding": "the rule that the institution of a suit for partition effected a severance of joint status was not applicable to a suit instituted on behalf of a minor",
+      "treatment": "overruled",
+      "relevance": "central",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p2",
+      "type": "precedent",
+      "citation": "Lalta Prasad v. Sri Mahadeoji Birajman Temple  2",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 9032,
+        "end_char": 9104,
+        "text_hash": "3049f8bfc85cef4b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Lalta Prasad v. Sri Mahadeoji Birajman Temple  2  and Hari Singh Pritam Singh 3 , hold that when a suit for partition is filed on behalf of a minor plaintiff there is a division in status only if and when the Court decides that it is for his benefit and passes a decree, the decisions in"
+      },
+      "case_name": "Lalta Prasad v. Sri Mahadeoji Birajman Temple",
+      "case_year": 1920,
+      "cited_case_id": null,
+      "cited_proposition": "effect of an action brought by a minor through his next friend is not to create any alteration of status of the family because a minor cannot demand separation as of right",
+      "cited_holding": null,
+      "treatment": "overruled",
+      "relevance": "central",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p3",
+      "type": "precedent",
+      "citation": "Hari Singh Pritam Singh 3",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 9110,
+        "end_char": 9133,
+        "text_hash": "2d34d33222b24acd",
+        "display_location": "0:65",
+        "secondary_spans": [],
+        "surface_text": "Hari Singh Pritam Singh 3 , hold that when a suit for partition is filed on behalf of a minor plaintiff there is a division in status only if and when the Court decides that it is for his benefit and passes a decree, the decisions in Rangasayi v. Nagarathnamma  4"
+      },
+      "case_name": "Hari Singh v. Pritam Singh",
+      "case_year": 1936,
+      "cited_case_id": null,
+      "cited_proposition": "severance in status takes place only on the date of the decision and not when the suit was instituted",
+      "cited_holding": null,
+      "treatment": "overruled",
+      "relevance": "central",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p4",
+      "type": "precedent",
+      "citation": "Rangasayi v. Nagarathnamma  4",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 9520,
+        "end_char": 9547,
+        "text_hash": "4cf528b44eb21d87",
+        "display_location": "0:66",
+        "secondary_spans": [],
+        "surface_text": "Rangasayi v. Nagarathnamma  4 , Ramsing v. Fakira  5  and Mandliprasad v. Ramcharanlal  6 , lay down that when such a suit is decreed, the severance in status relates back to the date of the institution of the suit."
+      },
+      "case_name": "Rangasayi v. Nagarathnamma",
+      "case_year": 1933,
+      "cited_case_id": null,
+      "cited_proposition": "when a suit for partition filed on behalf of minor is decreed, severance relates back to date of suit; does not abate on minor's death",
+      "cited_holding": "the severance is effected from the date of the suit conditional on the court finding that the suit was for the benefit of the minor",
+      "treatment": "followed",
+      "relevance": "central",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p5",
+      "type": "precedent",
+      "citation": "Ramsing v. Fakira  5",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 9553,
+        "end_char": 9571,
+        "text_hash": "357c26e8c7eb8868",
+        "display_location": "0:66",
+        "secondary_spans": [],
+        "surface_text": "Ramsing v. Fakira  5  and Mandliprasad v. Ramcharanlal  6 , lay down that when such a suit is decreed, the severance in status relates back to the date of the institution of the suit. While Chelimi Chetty Subbamma  1"
+      },
+      "case_name": "Ramsing v. Fakira",
+      "case_year": 1939,
+      "cited_case_id": null,
+      "cited_proposition": "suit for partition on behalf of minor does not abate on his death before trial",
+      "cited_holding": null,
+      "treatment": "followed",
+      "relevance": "central",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p6",
+      "type": "precedent",
+      "citation": "Mandliprasad v. Ramcharanlal  6",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 9577,
+        "end_char": 9606,
+        "text_hash": "b6bcf897f5cf6144",
+        "display_location": "0:66",
+        "secondary_spans": [],
+        "surface_text": "Mandliprasad v. Ramcharanlal  6 , lay down that when such a suit is decreed, the severance in status relates back to the date of the institution of the suit."
+      },
+      "case_name": "Mandliprasad v. Ramcharanlal",
+      "case_year": 1947,
+      "cited_case_id": null,
+      "cited_proposition": "legal representatives can continue suit for partition filed on behalf of minor after his death",
+      "cited_holding": null,
+      "treatment": "followed",
+      "relevance": "central",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p7",
+      "type": "precedent",
+      "citation": "Girja Bai v. Sadashiv Dhundiraj  4",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11250,
+        "end_char": 11282,
+        "text_hash": "95cb1f55960ab60b",
+        "display_location": "0:93",
+        "secondary_spans": [],
+        "surface_text": "Girja Bai v. Sadashiv Dhundiraj  4 , wherein it was held, on a review of the original texts and adopting the observation to that effect in Suraj Narain v. lqbal Narain  5"
+      },
+      "case_name": "Girja Bai v. Sadashiv Dhundiraj",
+      "case_year": 1916,
+      "cited_case_id": null,
+      "cited_proposition": "every coparcener has a right to become divided at his own will; filing of suit for partition effects division in status",
+      "cited_holding": null,
+      "treatment": "followed",
+      "relevance": "central",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p8",
+      "type": "precedent",
+      "citation": "Suraj Narain v. lqbal Narain  5",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11300,
+        "end_char": 11328,
+        "text_hash": "ab50b5235a37e4e1",
+        "display_location": "0:94",
+        "secondary_spans": [],
+        "surface_text": "Suraj Narain v. lqbal Narain  5 , that every coparcener has got a right to become divided at his own will and option whether the other coparceners agree to it or not"
+      },
+      "case_name": "Suraj Narain v. Iqbal Narain",
+      "case_year": 1912,
+      "cited_case_id": null,
+      "cited_proposition": "coparcener can demand partition at will",
+      "cited_holding": null,
+      "treatment": "cited",
+      "relevance": "supporting",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p9",
+      "type": "precedent",
+      "citation": "Kawal Nain v. Prabhu Lal  1",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11850,
+        "end_char": 11874,
+        "text_hash": "ea8153e7a4251bcc",
+        "display_location": "0:96",
+        "secondary_spans": [],
+        "surface_text": "Kawal Nain v. Prabhu Lal  1 , that even if such a suit were to be dismissed, that would not affect the division in status which must be held to have taken place, when the action was instituted."
+      },
+      "case_name": "Kawal Nain v. Prabhu Lal",
+      "case_year": 1917,
+      "cited_case_id": null,
+      "cited_proposition": "dismissal of partition suit does not affect severance which occurs on filing",
+      "cited_holding": "A decree may be necessary for working out the result of the severance... but the status of the plaintiff as separate in estate is brought about by his assertion of his right to separate, whether he obtains consequential judgment or not.",
+      "treatment": "followed",
+      "relevance": "supporting",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p10",
+      "type": "precedent",
+      "citation": "Chhotabhai v. Dadabhai  4",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12900,
+        "end_char": 12923,
+        "text_hash": "5bcee9984a7069ac",
+        "display_location": "0:101",
+        "secondary_spans": [],
+        "surface_text": "Chhotabhai v. Dadabhai  4  Divatia J. quoted the decision in Chelimi Chetty v. Subbamma  2  with approval"
+      },
+      "case_name": "Chhotabhai v. Dadabhai",
+      "case_year": 1935,
+      "cited_case_id": null,
+      "cited_proposition": "quoted Chelimi Chetty approvingly",
+      "cited_holding": null,
+      "treatment": "cited",
+      "relevance": "mentioned",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p11",
+      "type": "precedent",
+      "citation": "Bammangouda v. Shankargouda  6",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 13050,
+        "end_char": 13080,
+        "text_hash": "aeb588677ff5acc9",
+        "display_location": "0:101",
+        "secondary_spans": [],
+        "surface_text": "Bammangouda v. Shankargouda  6 , the point not under consideration did not really arise for decision in that case, and the observations were merely obiter."
+      },
+      "case_name": "Bammangouda v. Shankargouda",
+      "case_year": 1944,
+      "cited_case_id": null,
+      "cited_proposition": "point did not arise; observations obiter",
+      "cited_holding": null,
+      "treatment": "distinguished",
+      "relevance": "mentioned",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p12",
+      "type": "precedent",
+      "citation": "Balkishen Das v. Ram Narain Sahu  1",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 13400,
+        "end_char": 13432,
+        "text_hash": "597abecec411da65",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Balkishen Das v. Ram Narain Sahu  1 . And even when the partition is set aside on the ground that it is unfair, the result will be not to annul the division in status"
+      },
+      "case_name": "Balkishen Das v. Ram Narain Sahu",
+      "case_year": 1903,
+      "cited_case_id": null,
+      "cited_proposition": "partition entered into on behalf of minor by relation is binding if not prejudicial",
+      "cited_holding": null,
+      "treatment": "applied",
+      "relevance": "supporting",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    },
+    {
+      "id": "p13",
+      "type": "precedent",
+      "citation": "Gharib- Ul-Lah v. Khalak Singh  2",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 13480,
+        "end_char": 13510,
+        "text_hash": "5f00d5fe955b8b44",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Gharib- Ul-Lah v. Khalak Singh  2  that no guardian can be appointed with reference to the coparcenary properties of a minor member in a joint family"
+      },
+      "case_name": "Gharib-Ul-Lah v. Khalak Singh",
+      "case_year": 1903,
+      "cited_case_id": null,
+      "cited_proposition": "no guardian can be appointed for coparcenary properties of minor in joint family",
+      "cited_holding": null,
+      "treatment": "distinguished",
+      "relevance": "supporting",
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:52:10.920168"
+      }
+    }
+  ],
+  "justification_sets": [
+    {
+      "id": "js1",
+      "type": "justification_set",
+      "target_id": "h1",
+      "logic": "and",
+      "label": "Maneka Gandhi Framework (Due Process) support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js2",
+      "type": "justification_set",
+      "target_id": "h2",
+      "logic": "and",
+      "label": "Non-Abatement of Minor's Partition Suit support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js3",
+      "type": "justification_set",
+      "target_id": "h2",
+      "logic": "or",
+      "label": "Non-Abatement of Minor's Partition Suit support defeaters",
+      "is_primary": false,
+      "confidence": "medium",
+      "provenance": null
+    },
+    {
+      "id": "js4",
+      "type": "justification_set",
+      "target_id": "h3",
+      "logic": "and",
+      "label": "Maneka Gandhi Framework (Due Process) support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js5",
+      "type": "justification_set",
+      "target_id": "h4",
+      "logic": "or",
+      "label": "Legitimate Expectation support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    },
+    {
+      "id": "js6",
+      "type": "justification_set",
+      "target_id": "h5",
+      "logic": "and",
+      "label": "Actio Personalis Moritur Cum Persona support",
+      "is_primary": true,
+      "confidence": "high",
+      "provenance": null
+    }
+  ],
+  "outcome": {
+    "id": "outcome",
+    "type": "outcome",
+    "disposition": "dismissed",
+    "anchor": {
+      "doc_id": "sha256:e2a2588535f5",
+      "start_char": 22347,
+      "end_char": 22530,
+      "text_hash": "e7911f5369e83940",
+      "display_location": "0",
+      "secondary_spans": [],
+      "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+    },
+    "binary": "rejected",
+    "relief_summary": "Appeal dismissed; High Court decree for preliminary partition upheld; suit does not abate on minor's death; severance of status from date of suit institution confirmed",
+    "costs": null,
+    "directions": [],
+    "provenance": {
+      "extraction_method": "llm",
+      "model_id": "grok-4-1-fast-reasoning",
+      "prompt_id": null,
+      "run_id": null,
+      "temperature": 0.1,
+      "timestamp": "2026-02-05T06:53:06.245099"
+    }
+  },
+  "edges": [
+    {
+      "id": "e_5974978e_9",
+      "source": "a1",
+      "target": "c8",
+      "relation": "rebuts",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "explanation": "Argument a1 rebuts the concept by asserting concurrent finding with no misdirection, denying basis for High Court interference.",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5974978e_6",
+      "source": "a1",
+      "target": "h1",
+      "relation": "rebuts",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "explanation": "Argument a1 claims concurrent finding and no High Court power, directly rebutting the holding's finding of no concurrent finding and presence of power due to misdirection.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5974978e_2",
+      "source": "a1",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "explanation": "Argument a1 directly takes a position on the issue, claiming concurrent finding exists and High Court lacks power.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5ee617d1_23",
+      "source": "a10",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Argument rejecting no-severance-till-decree view supports holding on division from suit date.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5131c9fc_7",
+      "source": "a11",
+      "target": "h2",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "a11 argues no abatement and severance relates back if beneficial, aligning with and supporting the holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js2"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_5",
+      "source": "a2",
+      "target": "h2",
+      "relation": "rebuts",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "roneous. When a companyrt decides that a suit for partition is beneficial to the minor, it does number itself bring about a division in status. The co"
+      },
+      "explanation": "a2 claims suit abated before benefit decision, directly opposing the holding of non-abatement",
+      "confidence": "high",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5ee617d1_13",
+      "source": "a3",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Argument equating minor and adult coparcener rights for partition supports the concept.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_10",
+      "source": "a3",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "are, should he make a demand for it. The view was at one time held that there companyld be numberpartition, unless all the companya"
+      },
+      "explanation": "Argument that minor suit stands on same footing as adult, severance conditional on benefit, supports the holding.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5974978e_10",
+      "source": "a4",
+      "target": "a1",
+      "relation": "attacks",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 769,
+        "end_char": 850,
+        "text_hash": "acb93e778a9acd26",
+        "display_location": "0:22",
+        "secondary_spans": [],
+        "surface_text": " of joint family properties instituted on April 2, 1942, in the Court of the Dist"
+      },
+      "explanation": "Argument a4 attacks a1 by countering the basis of concurrent finding on benefit through highlighting misdirection in pre-birth focus versus post-birth claims.",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5974978e_8",
+      "source": "a4",
+      "target": "c8",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 769,
+        "end_char": 850,
+        "text_hash": "acb93e778a9acd26",
+        "display_location": "0:22",
+        "secondary_spans": [],
+        "surface_text": " of joint family properties instituted on April 2, 1942, in the Court of the Dist"
+      },
+      "explanation": "Argument a4 supports the concept by providing evidence of misdirection on the benefit issue through incorrect focus on pre-birth transactions.",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5974978e_7",
+      "source": "a4",
+      "target": "h1",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 769,
+        "end_char": 850,
+        "text_hash": "acb93e778a9acd26",
+        "display_location": "0:22",
+        "secondary_spans": [],
+        "surface_text": " of joint family properties instituted on April 2, 1942, in the Court of the Dist"
+      },
+      "explanation": "Argument a4 supports the holding by identifying specific misdirection in focusing on pre-birth transactions instead of post-birth adverse claims affecting benefit.",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js1"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5974978e_4",
+      "source": "a4",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 769,
+        "end_char": 850,
+        "text_hash": "acb93e778a9acd26",
+        "display_location": "0:22",
+        "secondary_spans": [],
+        "surface_text": " of joint family properties instituted on April 2, 1942, in the Court of the Dist"
+      },
+      "explanation": "Argument a4 addresses the issue by arguing misdirection on the benefit of the minor based on timing of transactions and adverse claims.",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5ee617d1_20",
+      "source": "a5",
+      "target": "h3",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Argument on adverse interest justifying benefit grounds the conditional aspect of the holding.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_26",
+      "source": "a6",
+      "target": "a3",
+      "relation": "supports_arg",
+      "anchor": null,
+      "explanation": "Argument on minor birth-right supports argument that minor suit same as adult effecting severance.",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_6",
+      "source": "a6",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Argument articulates the birth-right and next friend mechanism, supporting the concept.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_5",
+      "source": "a6",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Argument on minor's birth-right to partition and suit maintainability if beneficial directly supports the holding.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js5"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5131c9fc_17",
+      "source": "a7",
+      "target": "h2",
+      "relation": "undercuts",
+      "anchor": null,
+      "explanation": "a7 argues suit abates on minor's death before court decision on benefit, undercutting holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js3"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5ee617d1_21",
+      "source": "a8",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Argument on parens patriae power supports holding's condition on court finding benefit.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_22",
+      "source": "a8",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Argument on parens patriae approves next friend action, supporting holding on right via next friend.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js5"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_54837402_7",
+      "source": "a9",
+      "target": "c6",
+      "relation": "rebuts",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Argument that maxim applies causing abatement rebuts concept that it does not apply to proprietary partition suits.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_54837402_8",
+      "source": "a9",
+      "target": "h5",
+      "relation": "rebuts",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Argument asserting application and abatement rebuts holding that maxim does not apply to partition suits.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_54837402_1",
+      "source": "a9",
+      "target": "i5",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Argument claims maxim applies causing abatement in partition suit, directly addressing the issue of applicability and abatement.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_5ee617d1_2",
+      "source": "c3",
+      "target": "h4",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Concept of minor coparcener right to partition grounds the specific holding on its exercise under Mitakshara law via next friend.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js5"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_8",
+      "source": "c3",
+      "target": "i4",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Concept addresses the issue of whether minor has right through next friend subject to benefit.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_3bbe976d_4",
+      "source": "c4",
+      "target": "h1",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "The Benefit to Minor Test in c4 grounds holding h1, as h1 concerns courts' findings and misdirection on whether suit was for minor's benefit under this test.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js1"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:54:11.856137"
+      }
+    },
+    {
+      "id": "e_3bbe976d_3",
+      "source": "c4",
+      "target": "h3",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "The Benefit to Minor Test in c4 grounds holding h3, as h3 states division occurs from suit date conditional on benefit finding, matching c4's requirement that court be satisfied it is for minor's benefit for severance to relate back.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:54:11.856137"
+      }
+    },
+    {
+      "id": "e_54837402_9",
+      "source": "c6",
+      "target": "a9",
+      "relation": "rebuts",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Concept excluding proprietary partition suits rebuts argument for maxim application and abatement.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_54837402_10",
+      "source": "c6",
+      "target": "h5",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Concept that maxim does not apply to proprietary suits grounds holding of no abatement on death.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js6"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_54837402_2",
+      "source": "c6",
+      "target": "i5",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Concept states maxim does not apply to proprietary partition suits, addressing the issue of its applicability to partition causing abatement.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_363888d6_2",
+      "source": "c7",
+      "target": "h4",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Holding explicitly states rights 'Under Mitakshara law', grounded in the concept's governance of coparcenary rights and partition.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js5"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:57:43.871201"
+      }
+    },
+    {
+      "id": "e_363888d6_1",
+      "source": "c7",
+      "target": "i4",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Mitakshara Law governs coparcenary rights including partition, directly addressing the issue of minor coparcener's right to demand partition under it.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:57:43.871201"
+      }
+    },
+    {
+      "id": "e_5974978e_5",
+      "source": "c8",
+      "target": "h1",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 8800,
+        "text_hash": "f029a75409b15f0b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "explanation": "The concept that High Court can interfere if lower courts misdirect on benefit issue supports the holding that there was misdirection and High Court had power.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [
+        "js1"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5974978e_3",
+      "source": "c8",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 8800,
+        "text_hash": "f029a75409b15f0b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "explanation": "The concept of High Court interference on misdirection directly addresses the issue of High Court power to reverse concurrent findings.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:02.332430"
+      }
+    },
+    {
+      "id": "e_5131c9fc_8",
+      "source": "c9",
+      "target": "a11",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Concept matches a11's position on non-abatement and continuation by legal reps",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_6",
+      "source": "c9",
+      "target": "a2",
+      "relation": "rebuts",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "roneous. When a companyrt decides that a suit for partition is beneficial to the minor, it does number itself bring about a division in status. The co"
+      },
+      "explanation": "Concept of non-abatement rebuts a2's claim of abatement on minor's death",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_18",
+      "source": "c9",
+      "target": "a7",
+      "relation": "rebuts",
+      "anchor": null,
+      "explanation": "Non-abatement concept rebuts a7's claim of abatement on death",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_3bbe976d_7",
+      "source": "h1",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding h1, by rejecting concurrent finding against benefit and allowing High Court reversal, supports applying the conditional division holding h3.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:54:11.856137"
+      }
+    },
+    {
+      "id": "e_3bbe976d_1",
+      "source": "h1",
+      "target": "i1",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "on of the death of the minor before it was heard and decided. The companytention on behalf of the appellants is that while in the case of an adult com"
+      },
+      "explanation": "Holding h1 directly addresses issue i1 by stating there was no concurrent finding that the suit was not for the minor's benefit and that the High Court had power to reverse.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:54:11.856137"
+      }
+    },
+    {
+      "id": "e_h1_resolves_i1",
+      "source": "h1",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 8600,
+        "end_char": 9300,
+        "text_hash": "9e425af7c34ec4ff",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that it is a pure question of fact whether the institution of a suit is for the benefit of a minor or not, and that a finding of the courts below on that question is not liable to be interfered with in second appeal. But it must be observed that the finding of the Subordinate Judge was only that as the impugned sale and purchases were made before the minor plaintiff was born, no cause of action for partition could be founded by him thereon, and that, in our opinion, is a clear misdirection."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h1_determines_outcome",
+      "source": "h1",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_5131c9fc_2",
+      "source": "h2",
+      "target": "c9",
+      "relation": "grounds",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "roneous. When a companyrt decides that a suit for partition is beneficial to the minor, it does number itself bring about a division in status. The co"
+      },
+      "explanation": "Holding articulates and grounds the core concept of non-abatement of minor's partition suit upon death",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_1",
+      "source": "h2",
+      "target": "i2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "roneous. When a companyrt decides that a suit for partition is beneficial to the minor, it does number itself bring about a division in status. The co"
+      },
+      "explanation": "Holding directly resolves the issue of whether the partition suit abated due to the minor plaintiff's death before benefit determination",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_h2_resolves_i2",
+      "source": "h2",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 24600,
+        "text_hash": "f8af0b6076e7468a",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "when a minor plaintiff dies before the court adjudicates on the question of benefit to him, he dies an undivided coparcener and his interest survives to the other coparceners and does not devolve on his heirs by inheritance."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h2_determines_outcome",
+      "source": "h2",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_5ee617d1_9",
+      "source": "h3",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Holding on suit effecting division in status conditional on benefit supports the broader concept of minor's partition right via suit.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_3bbe976d_2",
+      "source": "h3",
+      "target": "i3",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "are, should he make a demand for it. The view was at one time held that there companyld be numberpartition, unless all the companya"
+      },
+      "explanation": "Holding h3 directly addresses issue i3 by affirming that institution of the suit effects division conditional on court finding it beneficial.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:54:11.856137"
+      }
+    },
+    {
+      "id": "e_h3_resolves_i3",
+      "source": "h3",
+      "target": "i3",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "that a division in status takes place when he expresses his intention to become separate unequivocally and unambiguously, that the filing of a suit for partition is a clear expression of such an intention, and that, in consequence,"
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h3_determines_outcome",
+      "source": "h3",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_5ee617d1_1",
+      "source": "h4",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Holding directly defines the minor coparcener's right to partition through next friend subject to court benefit satisfaction, supporting the core concept.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_4",
+      "source": "h4",
+      "target": "i4",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Holding resolves the issue of minor coparcener's right to partition via next friend.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_h4_resolves_i4",
+      "source": "h4",
+      "target": "i4",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "Under the Mitakshara law, the right, of a coparcener to share in the joint family properties arises on his birth, and that right carries with it the right to be maintained out of those properties suitably to the status of the family so long as the family is joint and to have a partition and separate possession of his share, should he make a demand for it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h4_determines_outcome",
+      "source": "h4",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_54837402_11",
+      "source": "h5",
+      "target": "c6",
+      "relation": "supports",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Holding that maxim does not apply to partition supports concept limiting it to personal actions.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_54837402_3",
+      "source": "h5",
+      "target": "i5",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Holding rules maxim does not apply to partition suits so no abatement, directly addressing the issue.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_h5_resolves_i5",
+      "source": "h5",
+      "target": "i5",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "the suit must abate on the principle of the maxim, actio personalis moritur cum persona. But that maxim has application only when the action is one for damages for a personal wrong, and as a suit for partition is a suit for property, the rule in question has no application to it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h5_determines_outcome",
+      "source": "h5",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_h6_resolves_i6",
+      "source": "h6",
+      "target": "i6",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 20045,
+        "end_char": 20300,
+        "text_hash": "de5bee8a793ead65",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "the theory is that the Sovereign as parens patriae has the power, and is indeed under a duty to protect the interests of minors, and that function has devolved on the courts. In the discharge of that function, therefore, they have the power to control all proceedings before them wherein minors are concerned."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h6_determines_outcome",
+      "source": "h6",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_h7_determines_outcome",
+      "source": "h7",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_h8_determines_outcome",
+      "source": "h8",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 22347,
+        "end_char": 22530,
+        "text_hash": "e7911f5369e83940",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "That was the view taken in Rangasayi v. Nagarathnamma 1 at pp. 137-138 and in Mandliprasad v. Ramcharanlal 2 at p. 871, and we are in agreement with it."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_3bbe976d_6",
+      "source": "i1",
+      "target": "c4",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Issue i1 about concurrent findings on whether suit for minor's benefit addresses the Benefit to Minor Test in c4.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:54:11.856137"
+      }
+    },
+    {
+      "id": "e_5131c9fc_19",
+      "source": "i2",
+      "target": "a11",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "a11's non-abatement argument addresses the central issue",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_4",
+      "source": "i2",
+      "target": "a2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "roneous. When a companyrt decides that a suit for partition is beneficial to the minor, it does number itself bring about a division in status. The co"
+      },
+      "explanation": "Abatement argument a2 directly engages the issue of suit abatement on minor's death",
+      "confidence": "high",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_20",
+      "source": "i2",
+      "target": "a7",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "a7's abatement argument addresses the issue",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_3",
+      "source": "i2",
+      "target": "c9",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21000,
+        "end_char": 21200,
+        "text_hash": "95bf5467030f8d51",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "roneous. When a companyrt decides that a suit for partition is beneficial to the minor, it does number itself bring about a division in status. The co"
+      },
+      "explanation": "Issue centrally concerns the non-abatement concept for minor's partition suit",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5ee617d1_24",
+      "source": "i3",
+      "target": "a3",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "are, should he make a demand for it. The view was at one time held that there companyld be numberpartition, unless all the companya"
+      },
+      "explanation": "Issue on suit effect is addressed by argument equating minor and adult suits.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_719b47e0_5",
+      "source": "i3",
+      "target": "c2",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12630,
+        "text_hash": "c6f658378541fa98",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "are, should he make a demand for it. The view was at one time held that there com"
+      },
+      "explanation": "i3 questions if suit for minor 'effects a division in status', directly addressing c2's concept of 'UNLISTED_DIVISION_IN_STATUS Division in Status'",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:48.110286"
+      }
+    },
+    {
+      "id": "e_5ee617d1_14",
+      "source": "i3",
+      "target": "c3",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Issue on suit's effect addresses the concept as it pertains to exercise of partition right.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_3bbe976d_5",
+      "source": "i3",
+      "target": "c4",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Issue i3 regarding conditional division from suit date requires the Benefit to Minor Test concept c4 to determine if beneficial.",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:54:11.856137"
+      }
+    },
+    {
+      "id": "e_719b47e0_6",
+      "source": "i3",
+      "target": "h3",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 12549,
+        "end_char": 12680,
+        "text_hash": "1d03065ce4851d41",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "are, should he make a demand for it. The view was at one time held that there companyld be numberpartition, unless all the companya"
+      },
+      "explanation": "i3 and h3 share span; issue on conditional division for minor's suit is addressed by the holding stating it effects division conditionally",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:48.110286"
+      }
+    },
+    {
+      "id": "e_5ee617d1_25",
+      "source": "i4",
+      "target": "a6",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Issue on right through next friend is addressed by argument on birth-right and maintainability.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_7",
+      "source": "i4",
+      "target": "c3",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Issue on right to demand partition through next friend addresses the concept of minor coparcener right to partition.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_363888d6_4",
+      "source": "i4",
+      "target": "c7",
+      "relation": "requires",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Issue specifically asks about rights 'under Mitakshara law', requiring the concept for determination.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:57:43.871201"
+      }
+    },
+    {
+      "id": "e_5ee617d1_3",
+      "source": "i4",
+      "target": "h4",
+      "relation": "addresses",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Issue on minor's right to demand partition through next friend subject to benefit is directly addressed by the holding.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_363888d6_5",
+      "source": "i4",
+      "target": "h4",
+      "relation": "requires",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 11892,
+        "end_char": 12015,
+        "text_hash": "81c89020c800f2b3",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "mily properties would devolve on his heirs. To decide which of these two views is the companyrect one, we shall have to exa"
+      },
+      "explanation": "Resolution of the issue on minor's partition right requires the holding's affirmation under the law.",
+      "confidence": "medium",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:57:43.871201"
+      }
+    },
+    {
+      "id": "e_54837402_4",
+      "source": "i5",
+      "target": "a9",
+      "relation": "requires",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Issue on maxim's applicability to partition requires argument regarding application, personal wrongs, and proprietary nature.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_54837402_5",
+      "source": "i5",
+      "target": "c6",
+      "relation": "requires",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Issue requires engagement with concept of maxim not applying to proprietary partition suits.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_54837402_6",
+      "source": "i5",
+      "target": "h5",
+      "relation": "requires",
+      "anchor": {
+        "doc_id": "sha256:e2a2588535f5",
+        "start_char": 21750,
+        "end_char": 21880,
+        "text_hash": "9a290734977832bc",
+        "display_location": "0:195",
+        "secondary_spans": [],
+        "surface_text": "hers, the father acts on behalf of the minor son as well and the result of the partition is to effect a severance in status betwee"
+      },
+      "explanation": "Issue requires holding on whether maxim causes abatement in partition suit.",
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:56.498115"
+      }
+    },
+    {
+      "id": "e_719b47e0_3",
+      "source": "p1",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "p1 states division in status for minor's partition suit 'only if and when the Court' decides, supporting h3's holding of division 'conditional upon court finding it beneficial to minor'",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:48.110286"
+      }
+    },
+    {
+      "id": "e_5ee617d1_19",
+      "source": "p12",
+      "target": "a6",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent on binding partition by relation supports argument on next friend suit maintainability.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_16",
+      "source": "p12",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent on partition by relation binding if not prejudicial supports next friend mechanism subject to benefit.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_17",
+      "source": "p2",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent on effect of suit by next friend supports holding on division from suit date.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [
+        "js4"
+      ],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5131c9fc_16",
+      "source": "p3",
+      "target": "a7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Hari Singh on severance only at decision date aligns with a7's argument of abatement on death before decision",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_11",
+      "source": "p4",
+      "target": "a11",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "a11 explicitly references Rangasayi on no abatement and relates back severance",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_10",
+      "source": "p4",
+      "target": "c9",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent directly supports non-abatement concept for minor's partition suit",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_9",
+      "source": "p4",
+      "target": "h2",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Rangasayi precedent states suit does not abate on minor's death and severance relates back, supporting holding",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [
+        "js2"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_13",
+      "source": "p5",
+      "target": "c9",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent supports core concept of non-abatement upon minor's death",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_12",
+      "source": "p5",
+      "target": "h2",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Ramsing precedent states minor's partition suit does not abate on death before trial, supporting holding",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [
+        "js2"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_15",
+      "source": "p6",
+      "target": "c9",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent supports concept allowing legal reps to continue and prove benefit",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_5131c9fc_14",
+      "source": "p6",
+      "target": "h2",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Mandliprasad precedent allows legal reps to continue minor's partition suit after death, supporting holding",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [
+        "js2"
+      ],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:58:00.890448"
+      }
+    },
+    {
+      "id": "e_719b47e0_1",
+      "source": "p7",
+      "target": "c2",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "p7 states 'filing of suit for partition effects division in status', directly supporting c2's description that 'Division in status occurs upon filing of partition suit'",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:48.110286"
+      }
+    },
+    {
+      "id": "e_5ee617d1_18",
+      "source": "p8",
+      "target": "a6",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent on coparcener demanding at will supports argument on minor's birth-right to partition.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_5ee617d1_15",
+      "source": "p8",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Precedent that coparcener can demand partition at will supports minor coparcener having same right.",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:56:13.137488"
+      }
+    },
+    {
+      "id": "e_719b47e0_2",
+      "source": "p9",
+      "target": "c2",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "p9 states 'dismissal of partition suit does not affect severance which occurs on filing', supporting c2's point 'even if suit dismissed'",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "grok-4-1-fast-reasoning",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-02-05T06:55:48.110286"
+      }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "a13",
+      "target": "a12",
+      "relation": "responds_to",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=5.0, argument->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.028236"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "a13",
+      "target": "a1",
+      "relation": "responds_to",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=3.5, argument->argument",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.028249"
+      }
+    },
+    {
+      "id": "e_repair_3",
+      "source": "c10",
+      "target": "a3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=11.5, concept->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.029030"
+      }
+    },
+    {
+      "id": "e_repair_4",
+      "source": "c10",
+      "target": "h2",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=10.0, concept->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.029038"
+      }
+    },
+    {
+      "id": "e_repair_5",
+      "source": "c5",
+      "target": "h6",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=12.0, concept->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.029716"
+      }
+    },
+    {
+      "id": "e_repair_6",
+      "source": "c5",
+      "target": "i6",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=8.5, concept->issue",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.029722"
+      }
+    },
+    {
+      "id": "e_repair_7",
+      "source": "p13",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=5.0, precedent->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.030983"
+      }
+    },
+    {
+      "id": "e_repair_8",
+      "source": "p13",
+      "target": "c7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: keyword_overlap=5.0, precedent->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-05T13:09:50.030994"
+      }
+    }
+  ],
+  "reasoning_chains": [
+    {
+      "id": "rc_i1_h1",
+      "issue_id": "i1",
+      "fact_ids": [],
+      "concept_ids": [
+        "c4",
+        "c8",
+        "c3",
+        "c7"
+      ],
+      "argument_ids": [
+        "a1",
+        "a4",
+        "a10",
+        "a3",
+        "a5",
+        "a8",
+        "a6"
+      ],
+      "holding_id": "h1",
+      "edge_ids": [
+        "e_5974978e_6",
+        "e_5974978e_7",
+        "e_3bbe976d_4",
+        "e_5974978e_5",
+        "e_5974978e_10",
+        "e_3bbe976d_6",
+        "e_3bbe976d_5",
+        "e_5974978e_9",
+        "e_5974978e_8",
+        "e_5974978e_2",
+        "e_5974978e_4",
+        "e_5974978e_3",
+        "e_3bbe976d_1",
+        "e_3bbe976d_2",
+        "e_5ee617d1_23",
+        "e_5ee617d1_10",
+        "e_5ee617d1_20",
+        "e_5ee617d1_21",
+        "e_3bbe976d_3",
+        "e_3bbe976d_7",
+        "e_719b47e0_6",
+        "e_719b47e0_3",
+        "e_5ee617d1_17",
+        "e_5ee617d1_26",
+        "e_5ee617d1_24",
+        "e_5ee617d1_25",
+        "e_5ee617d1_19",
+        "e_5ee617d1_18",
+        "e_5ee617d1_8",
+        "e_363888d6_1",
+        "e_5ee617d1_4",
+        "e_5ee617d1_13",
+        "e_5ee617d1_6",
+        "e_5ee617d1_9",
+        "e_5ee617d1_1",
+        "e_5ee617d1_14",
+        "e_5ee617d1_7",
+        "e_5ee617d1_16",
+        "e_5ee617d1_15",
+        "e_363888d6_4",
+        "e_5ee617d1_5",
+        "e_5ee617d1_22",
+        "e_5ee617d1_2",
+        "e_363888d6_2",
+        "e_5ee617d1_3",
+        "e_363888d6_5"
+      ],
+      "justification_set_id": "js1",
+      "critical_nodes": [
+        "a1",
+        "a4",
+        "c4",
+        "c8",
+        "h1",
+        "h3",
+        "a3",
+        "p1",
+        "c3",
+        "c7",
+        "h4",
+        "a6",
+        "i4"
+      ],
+      "narrative": "Issue i1 resolved by holding h1. Concepts: c4, c8, c3, c7. Arguments: a1, a4, a10, a3, a5, a8, a6."
+    },
+    {
+      "id": "rc_i2_h2",
+      "issue_id": "i2",
+      "fact_ids": [],
+      "concept_ids": [
+        "c9"
+      ],
+      "argument_ids": [
+        "a11",
+        "a2",
+        "a7"
+      ],
+      "holding_id": "h2",
+      "edge_ids": [
+        "e_5131c9fc_7",
+        "e_5131c9fc_5",
+        "e_5131c9fc_17",
+        "e_5131c9fc_9",
+        "e_5131c9fc_12",
+        "e_5131c9fc_14",
+        "e_5131c9fc_8",
+        "e_5131c9fc_19",
+        "e_5131c9fc_11",
+        "e_5131c9fc_6",
+        "e_5131c9fc_4",
+        "e_5131c9fc_18",
+        "e_5131c9fc_20",
+        "e_5131c9fc_16",
+        "e_5131c9fc_2",
+        "e_5131c9fc_3",
+        "e_5131c9fc_10",
+        "e_5131c9fc_13",
+        "e_5131c9fc_15",
+        "e_5131c9fc_1"
+      ],
+      "justification_set_id": "js2",
+      "critical_nodes": [
+        "p4",
+        "p5",
+        "p6",
+        "c9",
+        "h2",
+        "i2"
+      ],
+      "narrative": "Issue i2 resolved by holding h2. Concepts: c9. Arguments: a11, a2, a7."
+    },
+    {
+      "id": "rc_i3_h3",
+      "issue_id": "i3",
+      "fact_ids": [],
+      "concept_ids": [
+        "c4",
+        "c8",
+        "c3",
+        "c7"
+      ],
+      "argument_ids": [
+        "a10",
+        "a3",
+        "a5",
+        "a8",
+        "a6",
+        "a1",
+        "a4"
+      ],
+      "holding_id": "h3",
+      "edge_ids": [
+        "e_5ee617d1_23",
+        "e_5ee617d1_10",
+        "e_5ee617d1_20",
+        "e_5ee617d1_21",
+        "e_3bbe976d_3",
+        "e_3bbe976d_7",
+        "e_719b47e0_6",
+        "e_719b47e0_3",
+        "e_5ee617d1_17",
+        "e_5ee617d1_26",
+        "e_5ee617d1_24",
+        "e_3bbe976d_6",
+        "e_3bbe976d_5",
+        "e_5974978e_6",
+        "e_5974978e_7",
+        "e_3bbe976d_4",
+        "e_5974978e_5",
+        "e_3bbe976d_2",
+        "e_5ee617d1_25",
+        "e_5ee617d1_19",
+        "e_5ee617d1_18",
+        "e_5974978e_2",
+        "e_5974978e_4",
+        "e_5974978e_3",
+        "e_3bbe976d_1",
+        "e_5974978e_10",
+        "e_5974978e_9",
+        "e_5974978e_8",
+        "e_5ee617d1_8",
+        "e_363888d6_1",
+        "e_5ee617d1_4",
+        "e_5ee617d1_13",
+        "e_5ee617d1_6",
+        "e_5ee617d1_9",
+        "e_5ee617d1_1",
+        "e_5ee617d1_14",
+        "e_5ee617d1_7",
+        "e_5ee617d1_16",
+        "e_5ee617d1_15",
+        "e_363888d6_4",
+        "e_5ee617d1_5",
+        "e_5ee617d1_22",
+        "e_5ee617d1_2",
+        "e_363888d6_2",
+        "e_5ee617d1_3",
+        "e_363888d6_5"
+      ],
+      "justification_set_id": "js4",
+      "critical_nodes": [
+        "a3",
+        "c4",
+        "p1",
+        "a1",
+        "a4",
+        "c8",
+        "h3",
+        "h1",
+        "c3",
+        "c7",
+        "h4",
+        "a6",
+        "i4"
+      ],
+      "narrative": "Issue i3 resolved by holding h3. Concepts: c4, c8, c3, c7. Arguments: a10, a3, a5, a8, a6, a1, a4."
+    },
+    {
+      "id": "rc_i4_h4",
+      "issue_id": "i4",
+      "fact_ids": [],
+      "concept_ids": [
+        "c3",
+        "c7",
+        "c4",
+        "c8"
+      ],
+      "argument_ids": [
+        "a6",
+        "a8",
+        "a3",
+        "a10",
+        "a5",
+        "a1",
+        "a4"
+      ],
+      "holding_id": "h4",
+      "edge_ids": [
+        "e_5ee617d1_5",
+        "e_5ee617d1_22",
+        "e_5ee617d1_2",
+        "e_363888d6_2",
+        "e_5ee617d1_3",
+        "e_363888d6_5",
+        "e_5ee617d1_25",
+        "e_5ee617d1_19",
+        "e_5ee617d1_18",
+        "e_5ee617d1_13",
+        "e_5ee617d1_6",
+        "e_5ee617d1_9",
+        "e_5ee617d1_1",
+        "e_5ee617d1_14",
+        "e_5ee617d1_7",
+        "e_5ee617d1_16",
+        "e_5ee617d1_15",
+        "e_363888d6_4",
+        "e_5ee617d1_8",
+        "e_363888d6_1",
+        "e_5ee617d1_4",
+        "e_5ee617d1_26",
+        "e_5ee617d1_24",
+        "e_5ee617d1_23",
+        "e_5ee617d1_10",
+        "e_5ee617d1_20",
+        "e_5ee617d1_21",
+        "e_3bbe976d_3",
+        "e_3bbe976d_7",
+        "e_719b47e0_6",
+        "e_719b47e0_3",
+        "e_5ee617d1_17",
+        "e_3bbe976d_2",
+        "e_3bbe976d_6",
+        "e_3bbe976d_5",
+        "e_5974978e_6",
+        "e_5974978e_7",
+        "e_3bbe976d_4",
+        "e_5974978e_5",
+        "e_5974978e_2",
+        "e_5974978e_4",
+        "e_5974978e_3",
+        "e_3bbe976d_1",
+        "e_5974978e_10",
+        "e_5974978e_9",
+        "e_5974978e_8"
+      ],
+      "justification_set_id": "js5",
+      "critical_nodes": [
+        "a6",
+        "c3",
+        "c7",
+        "i4",
+        "h3",
+        "h4",
+        "a3",
+        "c4",
+        "p1",
+        "a1",
+        "a4",
+        "c8",
+        "h1"
+      ],
+      "narrative": "Issue i4 resolved by holding h4. Concepts: c3, c7, c4, c8. Arguments: a6, a8, a3, a10, a5, a1, a4."
+    },
+    {
+      "id": "rc_i5_h5",
+      "issue_id": "i5",
+      "fact_ids": [],
+      "concept_ids": [
+        "c6"
+      ],
+      "argument_ids": [
+        "a9"
+      ],
+      "holding_id": "h5",
+      "edge_ids": [
+        "e_54837402_8",
+        "e_54837402_10",
+        "e_54837402_6",
+        "e_54837402_9",
+        "e_54837402_4",
+        "e_54837402_7",
+        "e_54837402_11",
+        "e_54837402_5",
+        "e_54837402_1",
+        "e_54837402_2",
+        "e_54837402_3"
+      ],
+      "justification_set_id": "js6",
+      "critical_nodes": [
+        "a9",
+        "c6",
+        "i5",
+        "h5"
+      ],
+      "narrative": "Issue i5 resolved by holding h5. Concepts: c6. Arguments: a9."
+    },
+    {
+      "id": "rc_i6_h6",
+      "issue_id": "i6",
+      "fact_ids": [],
+      "concept_ids": [],
+      "argument_ids": [],
+      "holding_id": "h6",
+      "edge_ids": [],
+      "justification_set_id": null,
+      "critical_nodes": [],
+      "narrative": "Issue i6 resolved by holding h6."
+    }
+  ],
+  "_meta": {
+    "schema_version": "2.1.2",
+    "quality_tier": "silver",
+    "extraction_model": "grok-4-1-fast-reasoning",
+    "extraction_timestamp": "2026-02-05T00:40:04.864892",
+    "retry_attempts": 0,
+    "validation_warnings": [
+      "JSON parse error: Unterminated string starting at: line 1 column 14788 (char 14787)",
+      "repair_orphans: added 8 edges for 4 orphan nodes"
+    ],
+    "cluster_membership": {
+      "c1": [
+        "CONST_ART136"
+      ],
+      "c2": [
+        "UNLISTED_DIVISION_IN_STATUS"
+      ],
+      "c3": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "c4": [
+        "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS"
+      ],
+      "c5": [
+        "DOCTRINE_BASIC_STRUCTURE"
+      ],
+      "c6": [
+        "UNLISTED_ACTIO_PERSONALIS_MORITUR_CUM_PERSONA"
+      ],
+      "c7": [
+        "UNLISTED_MITAKSHARA_LAW"
+      ],
+      "c8": [
+        "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM"
+      ],
+      "c9": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "c10": [
+        "DOCTRINE_LEGITIMATE_EXPECTATION"
+      ],
+      "i1": [
+        "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS",
+        "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM"
+      ],
+      "i2": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "i3": [
+        "UNLISTED_DIVISION_IN_STATUS",
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION",
+        "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS",
+        "DOCTRINE_LEGITIMATE_EXPECTATION"
+      ],
+      "i4": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION",
+        "UNLISTED_MITAKSHARA_LAW",
+        "DOCTRINE_LEGITIMATE_EXPECTATION"
+      ],
+      "i5": [
+        "UNLISTED_ACTIO_PERSONALIS_MORITUR_CUM_PERSONA"
+      ],
+      "i6": [
+        "DOCTRINE_BASIC_STRUCTURE"
+      ],
+      "h1": [
+        "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS",
+        "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM"
+      ],
+      "h2": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "h3": [
+        "UNLISTED_DIVISION_IN_STATUS",
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION",
+        "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS",
+        "DOCTRINE_LEGITIMATE_EXPECTATION"
+      ],
+      "h4": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION",
+        "UNLISTED_MITAKSHARA_LAW",
+        "DOCTRINE_LEGITIMATE_EXPECTATION"
+      ],
+      "h5": [
+        "UNLISTED_ACTIO_PERSONALIS_MORITUR_CUM_PERSONA"
+      ],
+      "h6": [
+        "DOCTRINE_BASIC_STRUCTURE"
+      ],
+      "a1": [
+        "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM"
+      ],
+      "a2": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "a3": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "a4": [
+        "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM"
+      ],
+      "a5": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "a6": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "a7": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "a8": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "a9": [
+        "UNLISTED_ACTIO_PERSONALIS_MORITUR_CUM_PERSONA"
+      ],
+      "a10": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "a11": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "a13": [
+        "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS"
+      ],
+      "p1": [
+        "UNLISTED_DIVISION_IN_STATUS"
+      ],
+      "p2": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "p3": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "p4": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "p5": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "p6": [
+        "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH"
+      ],
+      "p7": [
+        "UNLISTED_DIVISION_IN_STATUS"
+      ],
+      "p8": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ],
+      "p9": [
+        "UNLISTED_DIVISION_IN_STATUS"
+      ],
+      "p12": [
+        "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION"
+      ]
+    },
+    "cluster_summary": {
+      "DOCTRINE_BASIC_STRUCTURE": {
+        "label": "Basic Structure",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c5"
+        ],
+        "issues": [
+          "i6"
+        ],
+        "arguments": [],
+        "holdings": [
+          "h6"
+        ],
+        "precedents": []
+      },
+      "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS": {
+        "label": "Maneka Gandhi Framework (Due Process)",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c4"
+        ],
+        "issues": [
+          "i1",
+          "i3"
+        ],
+        "arguments": [
+          "a13"
+        ],
+        "holdings": [
+          "h1",
+          "h3"
+        ],
+        "precedents": []
+      },
+      "DOCTRINE_LEGITIMATE_EXPECTATION": {
+        "label": "Legitimate Expectation",
+        "logic": "or",
+        "facts": [],
+        "concepts": [
+          "c10"
+        ],
+        "issues": [
+          "i3",
+          "i4"
+        ],
+        "arguments": [],
+        "holdings": [
+          "h3",
+          "h4"
+        ],
+        "precedents": []
+      },
+      "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM": {
+        "label": "Natural Justice - Audi Alteram Partem",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c8"
+        ],
+        "issues": [
+          "i1"
+        ],
+        "arguments": [
+          "a1",
+          "a4"
+        ],
+        "holdings": [
+          "h1"
+        ],
+        "precedents": []
+      },
+      "CONST_ART136": {
+        "label": "CONST_ART136",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c1"
+        ],
+        "issues": [],
+        "arguments": [],
+        "holdings": [],
+        "precedents": []
+      },
+      "UNLISTED_DIVISION_IN_STATUS": {
+        "label": "Division in Status",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c2"
+        ],
+        "issues": [
+          "i3"
+        ],
+        "arguments": [],
+        "holdings": [
+          "h3"
+        ],
+        "precedents": [
+          "p1",
+          "p7",
+          "p9"
+        ]
+      },
+      "UNLISTED_MINOR_COPARCENER_RIGHT_TO_PARTITION": {
+        "label": "Minor Coparcener Right to Partition",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c3"
+        ],
+        "issues": [
+          "i3",
+          "i4"
+        ],
+        "arguments": [
+          "a3",
+          "a5",
+          "a6",
+          "a8",
+          "a10"
+        ],
+        "holdings": [
+          "h3",
+          "h4"
+        ],
+        "precedents": [
+          "p2",
+          "p8",
+          "p12"
+        ]
+      },
+      "UNLISTED_ACTIO_PERSONALIS_MORITUR_CUM_PERSONA": {
+        "label": "Actio Personalis Moritur Cum Persona",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c6"
+        ],
+        "issues": [
+          "i5"
+        ],
+        "arguments": [
+          "a9"
+        ],
+        "holdings": [
+          "h5"
+        ],
+        "precedents": []
+      },
+      "UNLISTED_MITAKSHARA_LAW": {
+        "label": "Mitakshara Law",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c7"
+        ],
+        "issues": [
+          "i4"
+        ],
+        "arguments": [],
+        "holdings": [
+          "h4"
+        ],
+        "precedents": []
+      },
+      "UNLISTED_SUIT_NON_ABATEMENT_MINOR_DEATH": {
+        "label": "Non-Abatement of Minor's Partition Suit",
+        "logic": "and",
+        "facts": [],
+        "concepts": [
+          "c9"
+        ],
+        "issues": [
+          "i2"
+        ],
+        "arguments": [
+          "a2",
+          "a7",
+          "a11"
+        ],
+        "holdings": [
+          "h2"
+        ],
+        "precedents": [
+          "p3",
+          "p4",
+          "p5",
+          "p6"
+        ]
+      }
+    }
+  }
+}
