@@ -5,7 +5,7 @@ run_iltur.py
 Batch extraction on IL-TUR dataset using the real extractor.py (v4 ontology-driven).
 
 Usage:
-    python run_iltur.py [--n 50] [--start 0] [--version v4] [--concurrent 5]
+    python run_iltur.py [--n 50] [--start 0] [--version v4] [--concurrent 20]
 
 Requirements:
     pip install datasets python-dotenv httpx
@@ -18,6 +18,7 @@ import os
 import json
 import asyncio
 import argparse
+import tempfile
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Set, Optional
@@ -50,17 +51,24 @@ def load_checkpoint() -> tuple[Set[str], Dict]:
     """Load checkpoint of completed case IDs and stats.
 
     Also scans output directory for existing .json files to recover
-    from corrupted checkpoints.
+    from corrupted checkpoints. Validates each JSON file and removes
+    corrupt ones so they get re-processed.
     """
     completed = set()
     stats = {}
 
-    # First, scan output directory for existing extractions
+    # First, scan output directory for existing extractions — validate each file
     if OUTPUT_DIR.exists():
         for json_file in OUTPUT_DIR.glob("*.json"):
-            if json_file.name != "checkpoint.json":
-                # Case ID is the filename without extension
+            if json_file.name == "checkpoint.json":
+                continue
+            try:
+                with open(json_file, 'r') as f:
+                    json.load(f)
                 completed.add(json_file.stem)
+            except (json.JSONDecodeError, Exception):
+                print(f"Warning: Corrupt output file {json_file.name}, removing for re-processing")
+                json_file.unlink()
 
     # Then try to load checkpoint for stats (but completed already populated from files)
     if CHECKPOINT_FILE.exists():
@@ -73,17 +81,64 @@ def load_checkpoint() -> tuple[Set[str], Dict]:
         except (json.JSONDecodeError, Exception) as e:
             print(f"Warning: Could not load checkpoint ({e}), using file scan instead")
 
+    # Reconstruct stats from output files if stats are empty but files exist
+    if completed and (not stats or stats.get('success', 0) == 0):
+        print(f"Reconstructing stats from {len(completed)} output files...")
+        stats = _reconstruct_stats_from_files(completed)
+
     return completed, stats
 
 
+def _reconstruct_stats_from_files(completed: Set[str]) -> Dict:
+    """Rebuild stats by scanning output JSON files."""
+    stats = {
+        'success': 0, 'errors': 0,
+        'total_facts': 0, 'total_concepts': 0, 'total_issues': 0,
+        'total_holdings': 0, 'total_edges': 0, 'total_chains': 0,
+        'outcome_correct': 0,
+        'quality_gold': 0, 'quality_silver': 0, 'quality_bronze': 0, 'quality_reject': 0,
+    }
+    for case_id in completed:
+        fpath = OUTPUT_DIR / f"{case_id}.json"
+        if not fpath.exists():
+            continue
+        try:
+            with open(fpath, 'r') as f:
+                data = json.load(f)
+            stats['success'] += 1
+            stats['total_facts'] += len(data.get('facts', []))
+            stats['total_concepts'] += len(data.get('concepts', []))
+            stats['total_issues'] += len(data.get('issues', []))
+            stats['total_holdings'] += len(data.get('holdings', []))
+            stats['total_edges'] += len(data.get('edges', []))
+            stats['total_chains'] += len(data.get('reasoning_chains', []))
+            tier = data.get('quality_tier', 'bronze')
+            stats[f'quality_{tier}'] = stats.get(f'quality_{tier}', 0) + 1
+        except Exception:
+            pass
+    return stats
+
+
 def save_checkpoint(completed: Set[str], stats: Dict):
-    """Save checkpoint."""
-    with open(CHECKPOINT_FILE, 'w') as f:
-        json.dump({
-            'completed': [str(c) for c in completed],  # Fix: ensure strings
-            'stats': stats,
-            'timestamp': datetime.now().isoformat()
-        }, f, indent=2)
+    """Save checkpoint atomically via temp file + os.replace()."""
+    tmp_fd, tmp_path = tempfile.mkstemp(
+        dir=OUTPUT_DIR, suffix='.tmp', prefix='checkpoint_'
+    )
+    try:
+        with os.fdopen(tmp_fd, 'w') as f:
+            json.dump({
+                'completed': [str(c) for c in completed],
+                'stats': stats,
+                'timestamp': datetime.now().isoformat()
+            }, f, indent=2)
+        os.replace(tmp_path, CHECKPOINT_FILE)
+    except Exception:
+        # Clean up temp file on failure
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
 
 
 # =============================================================================
@@ -97,17 +152,16 @@ async def extract_one(
         label: int,
         semaphore: asyncio.Semaphore
 ) -> Dict:
-    """Extract graph for one case."""
+    """Extract graph for one case with per-case timeout."""
 
     async with semaphore:
         try:
-            graph = await extractor.extract(
-                text=text,
-                case_id=case_id
+            graph = await asyncio.wait_for(
+                extractor.extract(text=text, case_id=case_id),
+                timeout=900  # 15 min per case
             )
 
             # Defensive: filter out any None values from node lists
-            # This can happen if node creation fails silently
             graph.facts = [n for n in graph.facts if n is not None]
             graph.concepts = [n for n in graph.concepts if n is not None]
             graph.issues = [n for n in graph.issues if n is not None]
@@ -118,13 +172,20 @@ async def extract_one(
             graph.edges = [e for e in graph.edges if e is not None]
             graph.reasoning_chains = [rc for rc in graph.reasoning_chains if rc is not None]
 
-            # Save individual graph
+            # Save individual graph atomically via temp file + os.replace()
             output_path = OUTPUT_DIR / f"{case_id}.json"
+            tmp_path = OUTPUT_DIR / f"{case_id}.json.tmp"
             try:
                 json_str = graph.to_json()
-                with open(output_path, 'w') as f:
+                with open(tmp_path, 'w') as f:
                     f.write(json_str)
+                os.replace(tmp_path, output_path)
             except Exception as ser_err:
+                # Clean up temp file on failure
+                try:
+                    tmp_path.unlink(missing_ok=True)
+                except OSError:
+                    pass
                 return {
                     'case_id': case_id,
                     'success': False,
@@ -203,10 +264,10 @@ async def run_batch(
         print("Error: XAI_API_KEY not set in .env")
         return
 
-    # Load dataset
+    # Load dataset (lazy — no list() materialization)
     print("\nLoading IL-TUR dataset (cjpe)...")
     ds = load_dataset("Exploration-Lab/IL-TUR", "cjpe")
-    all_cases = list(ds['single_train'])
+    all_cases = ds['single_train']
     print(f"Total cases available: {len(all_cases)}")
 
     # Create output dir
@@ -216,9 +277,11 @@ async def run_batch(
     completed, stats = load_checkpoint()
     print(f"Already completed: {len(completed)}")
 
-    # Select cases to process
+    # Select cases to process (access by index — lazy loading)
+    end_idx = min(start_idx + n_cases, len(all_cases))
     cases_to_process = []
-    for i, case in enumerate(all_cases[start_idx:start_idx + n_cases], start=start_idx):
+    for i in range(start_idx, end_idx):
+        case = all_cases[i]
         if case['id'] not in completed:
             cases_to_process.append((i, case))
 
@@ -290,6 +353,7 @@ async def run_batch(
             existing = {p.stem for p in OUTPUT_DIR.glob("*.json") if p.name != "checkpoint.json"}
             completed.update(existing)
             save_checkpoint(completed, stats)
+            await client.close()
 
             print("Interrupted. Checkpoint saved. Exiting cleanly.")
             return
@@ -327,6 +391,18 @@ async def run_batch(
         # Save checkpoint after each batch
         save_checkpoint(completed, stats)
 
+        # Log token usage per batch
+        batch_num = batch_start // max_concurrent + 1
+        total_batches = (len(cases_to_process) + max_concurrent - 1) // max_concurrent
+        print(
+            f"  [batch {batch_num}/{total_batches}] "
+            f"tokens: {client.total_prompt_tokens + client.total_completion_tokens:,} "
+            f"({client.total_requests} requests)"
+        )
+
+    # Clean up HTTP client
+    await client.close()
+
     # Final summary
     elapsed = (datetime.now() - start_time).total_seconds()
 
@@ -354,7 +430,15 @@ async def run_batch(
         print(f"\n🎯 OUTCOME PREDICTION:")
         print(f"  Correct: {stats['outcome_correct']}/{n} ({stats['outcome_correct'] / n * 100:.1f}%)")
 
+    # Token usage summary
+    print(f"\n💰 TOKEN USAGE:")
+    print(f"  Prompt tokens:     {client.total_prompt_tokens:,}")
+    print(f"  Completion tokens: {client.total_completion_tokens:,}")
+    print(f"  Total tokens:      {client.total_prompt_tokens + client.total_completion_tokens:,}")
+    print(f"  API requests:      {client.total_requests:,}")
+
     print(f"\n✅ Outputs saved to: {OUTPUT_DIR}/")
+    print(f"\n💡 Next step: run `python repair_orphans.py` to fix orphan nodes")
 
 
 # =============================================================================
@@ -366,7 +450,7 @@ def main():
     parser.add_argument("--n", type=int, default=50, help="Number of cases to process")
     parser.add_argument("--start", type=int, default=0, help="Starting index")
     parser.add_argument("--version", choices=["v3", "v4"], default="v4", help="Pipeline version")
-    parser.add_argument("--concurrent", type=int, default=5, help="Max concurrent extractions")
+    parser.add_argument("--concurrent", type=int, default=20, help="Max concurrent extractions")
 
     args = parser.parse_args()
 

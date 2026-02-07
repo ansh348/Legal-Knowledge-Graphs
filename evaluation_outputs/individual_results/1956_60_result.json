@@ -1,0 +1,45 @@
+{
+  "case_id": "1956_60",
+  "edge_validity_rate": 0.9891,
+  "invalid_edge_count": 1,
+  "invalid_edge_patterns": [
+    "c->h:constrains"
+  ],
+  "connectivity_rate": 0.8,
+  "orphan_count": 14,
+  "orphan_nodes": [
+    "f1",
+    "f6",
+    "f7",
+    "c2",
+    "f8"
+  ],
+  "issues_resolved_rate": 0.75,
+  "holdings_connected_rate": 0.7,
+  "unresolved_issues": [
+    "i4",
+    "i3"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 1,
+  "warnings": [
+    "Invalid concept_id: DOCTRINE_RES_JUDICATA"
+  ],
+  "actor_distribution": {
+    "respondent": 2,
+    "petitioner": 6,
+    "lower_court": 3,
+    "court": 4
+  },
+  "node_counts": {
+    "facts": 22,
+    "concepts": 10,
+    "issues": 8,
+    "arguments": 15,
+    "holdings": 10,
+    "precedents": 4,
+    "edges": 92,
+    "reasoning_chains": 6
+  },
+  "quality_score": 8.97
+}

@@ -69,7 +69,7 @@ def repair_file(filepath: Path, dry_run: bool = False) -> bool:
 
 def main():
     parser = argparse.ArgumentParser(description="Fix encoding in broken IL-TUR JSON files")
-    parser.add_argument("--dir", type=str, default="iltur_graphs", help="Path to graph output directory")
+    parser.add_argument("--dir", type=str, default="iltur_graph", help="Path to graph output directory")
     parser.add_argument("--dry-run", action="store_true", help="Preview without writing")
     parser.add_argument("--all", action="store_true", help="Scan ALL files, not just known broken ones")
     args = parser.parse_args()

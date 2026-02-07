@@ -532,6 +532,70 @@ async def llm_predict(api_key: str, system: str, prompt: str,
                     "reasoning": f"Error: {str(e)[:150]}"}
 
 
+def _is_anthropic_model(model: str) -> bool:
+    """Check if the model string refers to an Anthropic/Claude model."""
+    return any(tag in model.lower() for tag in ("claude", "sonnet", "haiku", "opus"))
+
+
+async def llm_predict_anthropic(api_key: str, system: str, prompt: str,
+                                model: str = "claude-sonnet-4-5-20250929",
+                                temperature: float = 0.1) -> dict:
+    """Call Anthropic Messages API and parse JSON response."""
+    import httpx
+
+    async with httpx.AsyncClient(timeout=300.0) as client:
+        try:
+            response = await client.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={
+                    "x-api-key": api_key,
+                    "anthropic-version": "2023-06-01",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": model,
+                    "system": system,
+                    "messages": [
+                        {"role": "user", "content": prompt}
+                    ],
+                    "temperature": temperature,
+                    "max_tokens": 1024,
+                }
+            )
+            response.raise_for_status()
+            data = response.json()
+
+            # Anthropic returns content as a list of blocks
+            content = ""
+            for block in data.get("content", []):
+                if block.get("type") == "text":
+                    content += block.get("text", "")
+            content = content.strip()
+
+            # Strip markdown wrapping
+            if content.startswith("```"):
+                content = re.sub(r'^```(?:json)?\s*', '', content)
+                content = re.sub(r'\s*```$', '', content)
+
+            # Handle any preamble before JSON
+            if not content.startswith("{"):
+                json_match = re.search(r'\{[^{}]*"prediction"[^{}]*\}', content)
+                if json_match:
+                    content = json_match.group(0)
+
+            result = json.loads(content)
+
+            pred = result.get("prediction")
+            if pred not in (0, 1):
+                return {"prediction": -1, "confidence": 0.0,
+                        "reasoning": f"Invalid prediction value: {pred}"}
+            return result
+
+        except Exception as e:
+            return {"prediction": -1, "confidence": 0.0,
+                    "reasoning": f"Error: {str(e)[:150]}"}
+
+
 # =============================================================================
 # EVALUATION RUNNER
 # =============================================================================
@@ -546,9 +610,19 @@ async def run_comparison(
     no_scrub: bool = False,
 ):
     api_key = os.getenv("XAI_API_KEY")
-    if not api_key:
-        print("Error: XAI_API_KEY not set in .env")
-        return None
+    anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+    use_anthropic = _is_anthropic_model(model)
+
+    if use_anthropic:
+        if not anthropic_key:
+            print("Error: ANTHROPIC_API_KEY not set in .env (needed for Claude models)")
+            return None
+        api_key = anthropic_key
+        print(f"  Using Anthropic API (model={model})")
+    else:
+        if not api_key:
+            print("Error: XAI_API_KEY not set in .env")
+            return None
 
     # Load data
     print("Loading graphs...")
@@ -678,10 +752,11 @@ async def run_comparison(
 
     async def predict_pair(case: dict, case_num: int):
         """Run both graph and raw prediction for one case."""
+        predict_fn = llm_predict_anthropic if use_anthropic else llm_predict
         async with semaphore:
-            graph_result = await llm_predict(api_key, _SYSTEM_PROMPT,
+            graph_result = await predict_fn(api_key, _SYSTEM_PROMPT,
                                              case["graph_prompt"], model=model)
-            raw_result = await llm_predict(api_key, _SYSTEM_PROMPT,
+            raw_result = await predict_fn(api_key, _SYSTEM_PROMPT,
                                            case["raw_prompt"], model=model)
 
         gp = graph_result.get("prediction", -1)

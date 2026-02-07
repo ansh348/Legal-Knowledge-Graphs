@@ -1,0 +1,46 @@
+{
+  "case_id": "2014_170",
+  "edge_validity_rate": 0.9902,
+  "invalid_edge_count": 1,
+  "invalid_edge_patterns": [
+    "c->h:enables"
+  ],
+  "connectivity_rate": 0.7887,
+  "orphan_count": 15,
+  "orphan_nodes": [
+    "f20",
+    "a8",
+    "f4",
+    "f7",
+    "f16"
+  ],
+  "issues_resolved_rate": 0.8,
+  "holdings_connected_rate": 1.0,
+  "unresolved_issues": [
+    "i1"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 3,
+  "warnings": [
+    "Invalid concept_id: CONST_ART226",
+    "Invalid concept_id: CONST_ART32",
+    "Invalid concept_id: DOCTRINE_NATURAL_JUSTICE"
+  ],
+  "actor_distribution": {
+    "court": 5,
+    "respondent": 4,
+    "lower_court": 2,
+    "petitioner": 1
+  },
+  "node_counts": {
+    "facts": 23,
+    "concepts": 10,
+    "issues": 5,
+    "arguments": 12,
+    "holdings": 5,
+    "precedents": 15,
+    "edges": 102,
+    "reasoning_chains": 4
+  },
+  "quality_score": 8.85
+}

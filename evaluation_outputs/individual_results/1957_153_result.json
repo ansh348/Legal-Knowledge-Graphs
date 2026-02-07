@@ -1,0 +1,48 @@
+{
+  "case_id": "1957_153",
+  "edge_validity_rate": 0.9889,
+  "invalid_edge_count": 1,
+  "invalid_edge_patterns": [
+    "a->h:grounds"
+  ],
+  "connectivity_rate": 0.7015,
+  "orphan_count": 20,
+  "orphan_nodes": [
+    "f2",
+    "f1",
+    "c2",
+    "f12",
+    "f15"
+  ],
+  "issues_resolved_rate": 0.8333,
+  "holdings_connected_rate": 1.0,
+  "unresolved_issues": [
+    "i5"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 5,
+  "warnings": [
+    "Invalid concept_id: IPC_S302",
+    "Invalid concept_id: IPC_S34",
+    "Invalid concept_id: CONST_ART136",
+    "Invalid concept_id: IPC_S302",
+    "Invalid concept_id: IPC_S34"
+  ],
+  "actor_distribution": {
+    "petitioner": 2,
+    "lower_court": 6,
+    "court": 7,
+    "prosecution": 1
+  },
+  "node_counts": {
+    "facts": 24,
+    "concepts": 10,
+    "issues": 6,
+    "arguments": 16,
+    "holdings": 5,
+    "precedents": 5,
+    "edges": 90,
+    "reasoning_chains": 5
+  },
+  "quality_score": 8.54
+}

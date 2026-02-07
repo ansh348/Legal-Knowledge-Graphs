@@ -1,0 +1,53 @@
+{
+  "case_id": "1956_110",
+  "edge_validity_rate": 0.9675,
+  "invalid_edge_count": 5,
+  "invalid_edge_patterns": [
+    "a->h:rebuts",
+    "a->h:grounds",
+    "a->h:grounds",
+    "c->h:enables",
+    "c->h:enables"
+  ],
+  "connectivity_rate": 0.9589,
+  "orphan_count": 3,
+  "orphan_nodes": [
+    "f11",
+    "f2",
+    "f7"
+  ],
+  "issues_resolved_rate": 0.7,
+  "holdings_connected_rate": 0.8889,
+  "unresolved_issues": [
+    "i4",
+    "i3",
+    "i10"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 7,
+  "warnings": [
+    "Invalid concept_id: CONST_ART32",
+    "Invalid concept_id: CONST_ART14",
+    "Invalid concept_id: CONST_ART19",
+    "Invalid concept_id: CONST_ART13",
+    "Invalid concept_id: DOCTRINE_NATURAL_JUSTICE",
+    "Invalid concept_id: CONST_ART226",
+    "Invalid concept_id: DOCTRINE_ESTOPPEL"
+  ],
+  "actor_distribution": {
+    "petitioner": 4,
+    "respondent": 5,
+    "court": 8
+  },
+  "node_counts": {
+    "facts": 20,
+    "concepts": 16,
+    "issues": 10,
+    "arguments": 17,
+    "holdings": 9,
+    "precedents": 0,
+    "edges": 154,
+    "reasoning_chains": 8
+  },
+  "quality_score": 8.52
+}
