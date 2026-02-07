@@ -1,0 +1,488 @@
+{
+  "config": {
+    "model": "grok-4-1-fast-reasoning",
+    "n_cases": 45,
+    "max_raw_chars": 8000,
+    "seed": 42,
+    "timestamp": "2026-02-07 03:11:37",
+    "blinding_warnings": 92
+  },
+  "summary": {
+    "graph_accuracy": 0.7333,
+    "raw_accuracy": 0.5556,
+    "accuracy_delta": 0.1778,
+    "graph_f1": 0.7,
+    "raw_f1": 0.4444,
+    "graph_macro_f1": 0.73,
+    "raw_macro_f1": 0.537,
+    "graph_precision": 0.6364,
+    "raw_precision": 0.4444,
+    "graph_recall": 0.7778,
+    "raw_recall": 0.4444,
+    "graph_brier": 0.2056,
+    "raw_brier": 0.3216,
+    "cohens_kappa_graph_raw": -0.0714,
+    "mcnemar_chi2": 2.0417,
+    "mcnemar_sig": "n.s.",
+    "bootstrap_ci_95": [
+      -0.0222,
+      0.3778
+    ],
+    "graph_only_wins": 16,
+    "raw_only_wins": 8,
+    "both_correct": 17,
+    "both_wrong": 4
+  },
+  "cases": [
+    {
+      "case_id": "1947_378",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The Supreme Court, exercising powers under Articles 142 and the doctrine of prospective overruling, is likely to mould relief to protect promotions made before November 7, 2001, under the impugned G.O.Ms, as they continued unchallenged for nearly ten years, preventing harsh reversion. While High Courts and Tribunals cannot invoke prospective overruling, the Apex Court can and often does so to safeguard past actions consistent with V. Jagannadha Rao's binding precedent on the rules' invalidity. This partial acceptance upholds the High Court's view on judicial hierarchy but grants relief to appellants (promoted employees) for complete justice.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The Supreme Court in V. Jagannadha Rao clearly held the special rules violative of the Presidential Order under Article 371-D, overruling prior decisions and emphasizing the Order's supremacy under Article 371-D(10), with no indication of prospective application. The High Court correctly set aside the Tribunal's prospective ruling, as declarations of rules ultra vires under constitutional provisions typically apply retrospectively unless specified otherwise. The current case involving similar G.O.M. No.14 reinforces the binding precedent, making it unlikely the appeal challenging the High Court's order will succeed."
+    },
+    {
+      "case_id": "1950_4",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The application under Section 36 of the Bengal Money Lenders Act to reopen the preliminary decree is not equivalent to an 'application for review' under clause 3 of Article 182 of the Limitation Act, as it is a separate statutory provision distinct from review under Order XLVII CPC, and was dismissed for default without a substantive review decision. The restoration application under Order IX Rule 9 was also dismissed for insufficient cause and lack of purpose post-final decree, not extending limitation. Thus, limitation for execution runs from the final decree date of 22nd December 1941, barring the decree holder's appeal.",
+      "raw_pred": 1,
+      "raw_conf": 0.8,
+      "raw_reasoning": "The final mortgage decree was passed on 22nd December 1941 after the dismissal of the judgment-debtor's Section 36 Bengal Money Lenders Act application, and the subsequent restoration application under Order IX Rule 9 was dismissed on merits, confirming the finality of the decree. Applications by the judgment-debtor do not extend or toll the limitation period for the decree-holder to execute the decree under Article 182 of the Limitation Act, 1908, which starts from when the decree becomes enforceable. The execution court correctly held the decree not barred by limitation, and the High Court's reversal lacks merit, warranting the Supreme Court to accept the appeal and restore the execution court's view."
+    },
+    {
+      "case_id": "1950_5",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The contract notes deviate from the prescribed official forms under Bye-laws 51-A, 65-A, 80, and 82 due to the outdated rubber stamp deposit rate (Rs. 25 instead of amended Rs. 12-8-0) and omission of Bye-law 65-A clauses, rendering the contracts void under Section 8 of the Bombay Cotton Contracts Act. Petitioner's arguments on harmonious construction and incorporation by reference fail against the Written Contract as Repository Principle and the rejection of incorporation for agent-constituent contracts regulating inter-member relations. Strict compliance with bye-laws is mandated, favoring the respondent's position that non-compliant contracts invalidate the arbitration award.",
+      "raw_pred": 1,
+      "raw_conf": 0.75,
+      "raw_reasoning": "The respondent employed the appellants as agents explicitly 'according to the rules, regulations and bye-laws' of the East India Cotton Association, demonstrating consent to the standard printed contract notes used by members for such transactions. The respondent failed to object to the form of multiple prior contract notes until after receiving an unfavorable ex parte arbitration award, suggesting waiver or estoppel. The Supreme Court is likely to prioritize substance over minor formal deviations under the Bombay Cotton Contracts Act, 1932, upholding the contracts' validity and the award, thus accepting the appellants' appeal against the High Court's reversal."
+    },
+    {
+      "case_id": "1952_105",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The petitioner's arguments are compelling under the Oudh Estates Act, as Section 14(b) read with Section 22(5) entitles the elder brother to succeed over the widow even if Dhuj Singh held an absolute interest, and Section 14 applies to transfers to persons like younger sons under Section 13-A. The will's language, providing properties 'for maintenance of the son and his heirs,' indicates a life interest rather than absolute ownership, aligning with doctrines of will construction emphasizing intent for successive heirs without alienation. Respondent's claim of unrestricted disposition ignores the Act's protective succession rules for taluqdari estates, making the appeal likely to succeed.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The plaintiff's primary statutory argument under sections 13A, 14, and 22(5) of the Oudh Estates Act is explicitly rejected by the court as unhelpful, indicating it does not apply to properties bequeathed via will to Dhuj Singh. The trial court's construction of the will\u2014granting Dhuj Singh a life interest followed by successive life estates to his personal heirs (including the widow), with remainder to the estate holder only upon extinction\u2014means the defendant widow holds a current life interest, defeating the plaintiff's claim for immediate title and possession. Lower courts consistently ruled against the plaintiff, and the will's language for 'maintenance of the son and his heirs' supports heritability to the widow under general law rather than strict primogeniture for these separated properties."
+    },
+    {
+      "case_id": "1952_14",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The respondent's arguments align with cited precedents establishing that Article 166 is directory, not mandatory, so omission of the Governor's name does not invalidate the confirmation order. Section 11(1) of the Preventive Detention Act does not require specifying a detention period, as confirmed by precedents like Makhan Singh and A.K. Gopalan, given the Act's temporary nature. All procedural requirements under Sections 3 and 7 were complied with, and no substantive violation of Article 21 is evident, favoring dismissal of the habeas corpus petition.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The petitioner's challenges are narrow technicalities: lack of specified detention period in confirmation under section 11(1) and improper form under Article 166(1). Section 11(1) grammatically separates confirmation from continuation, with detention automatically continuing post-confirmation without needing a specified period. The confirmation letter, issued by an authorized officer under Bombay's Rules of Business, satisfies Article 166, upholding the detention's procedural validity."
+    },
+    {
+      "case_id": "1952_19",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The trial court and High Court upheld the conviction under IPC Sections 302/149 after evaluating the evidence, and Supreme Court interference in criminal appeals is limited absent compelling reasons to reassess credibility. Petitioners' challenges to Section 27 Evidence Act discoveries (arguing only first accused's info admissible) are weakened by the Court's inclination toward broader admissibility for multiple distinct discoveries, providing corroboration to the eyewitness account. Recoveries of blood-stained weapons and pyjama, despite alleged suspicions, align with the facts of the brutal attack and body disposal, supporting rejection of the appeal.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The prosecution's case is bolstered by direct testimony from four eye-witnesses, including the victims' father and residents near the scene, corroborated by strong circumstantial evidence such as blood-stained clothing, wrappers recovered from an appellant's locked premises, blood-stained earth, body parts, and weapons via disclosures under Section 27 of the Evidence Act. The defense concedes the motive but merely suggests false implication without substantiating weaknesses in the eyewitness accounts or recoveries, which appear reliable. In Supreme Court appeals under Article 134(1)(c), convictions supported by such consistent direct and circumstantial evidence are typically upheld absent material contradictions."
+    },
+    {
+      "case_id": "1952_21",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.95,
+      "graph_reasoning": "The prosecution's case is exceptionally strong, with direct eyewitness testimony, immediate apprehension of the appellant with the weapon, a prompt FIR within 15 minutes, and established motive, making conviction on merits unassailable. Petitioner's procedural challenges regarding Jaswant Singh's examination and use of prior statements are curable under Sections 540, 537, and 288 CrPC, with no demonstrated prejudice, as affirmed by precedents like Sher Bahadur v The Crown and S.H. Jhabwala v Emperor. Supreme Court would prioritize substantive justice over technicalities in such a clear murder case.",
+      "raw_pred": 0,
+      "raw_conf": 0.95,
+      "raw_reasoning": "The prosecution case is strong with prompt FIR, immediate apprehension of the appellant with the pistol, unchallenged motive, and two reliable eyewitnesses believed by the lower courts. The appellant's primary contention\u2014that PW6 Jaswant Singh's testimony is inadmissible for not being examined before the committing magistrate\u2014is refuted as a curable irregularity under Sections 537 and 540 CrPC, with no objection raised at trial. The judgment excerpt dismantles technical objections, indicating the appeal lacks merit and will likely be rejected, upholding the conviction."
+    },
+    {
+      "case_id": "1952_27",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.75,
+      "graph_reasoning": "The respondents' harmonious interpretation that Section 21 limits recovery to mortgaged property, making the proviso to Section 2(9) inapplicable, is supported by the cited precedent (Ketki Kunwar v. Ram Saroop) and the protective purpose of the U.P. Debt Redemption Act for agriculturists. Petitioners' arguments challenging the Full Bench decision and agriculturist status under Section 2(3) proviso are weaker, as the decree relates to a loan and reopening from 1922 aligns with the Act's scope. The Supreme Court is likely to uphold the High Court's allowance of decree amendment under Section 8, rejecting the appeal.",
+      "raw_pred": 1,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The judgment-debtors produced unrebutted evidence, including witness testimony and college acquittance rolls, showing Sita Ram did not pay income-tax until 1932, well after the 1922 and 1931 mortgages, satisfying the agriculturist definition under the U.P. Agriculturists Relief Act, 1934 (incorporated in the 1940 Act). The decree-holders admitted the other judgment-debtors were agriculturists and failed to rebut evidence or prove the joint family bar conclusively. The 1931 mortgage constituted a fresh loan via cheque advance, entitling the applicants to scaled-down interest under sections 9-10 of the 1940 Act; the Supreme Court would allow the judgment-debtors' appeal for decree modification."
+    },
+    {
+      "case_id": "1952_33",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The externment order's irregularity in specifying Amritsar (outside the state) instead of a place within the state is conceded by the respondent but cured by the petitioner's request and acceptance to go to Kalyan, where he was escorted, showing no prejudice or voidness. Section 27(1) imposes reasonable restrictions on Article 19(1)(d) and (e) rights under Article 19(5) for public order, with procedural safeguards under Section 27(4), and lacks evidence of discrimination under Article 14. The writ petition under Article 32 seeking to quash the order is therefore unlikely to succeed and will be dismissed.",
+      "raw_pred": 1,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The externment order is conceded by respondents to not strictly conform to Section 27(1) of the Bombay Police Act, as it improperly specified Amritsar (outside the State) without precise compliance, rendering it void. Section 27(1) confers overly broad and arbitrary power on the Commissioner without procedural safeguards, hearing, or time limits, imposing unreasonable restrictions on Articles 19(1)(d) and (e), and likely violating Article 14 for discrimination. Given the early constitutional jurisprudence protecting fundamental rights, the petition under Article 32 is likely to succeed with the order quashed."
+    },
+    {
+      "case_id": "1952_35",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.75,
+      "graph_reasoning": "The strict test for section 4(1)(a) requires assessing the pamphlet as a whole for its general effect on the public mind, rather than isolated passages, and precedents like Romesh Thapar emphasize narrow restrictions only for security of the State, not general public order. While section 4(1)(a) likely falls within Article 19(2) as incitement to violence undermines state security, the respondent's argument that the pamphlet contains mere empty slogans without direct incitement to murder or cognizable violent offences is persuasive. Thus, the security demand under section 3(3) would fail, leading to rejection of the petitioner's appeal.",
+      "raw_pred": 1,
+      "raw_conf": 0.95,
+      "raw_reasoning": "The Supreme Court, through Mahajan J., explicitly endorses Shearer J.'s view that the pamphlet falls within section 4(1) of the Act and criticizes the High Court majority for erroneously invalidating section 4(1)(a) based on a misreading of Romesh Thapar and Brij Bhushan. The Court clarifies that incitement to murder or violence undermines state security and is protected under Article 19(2), making the provision constitutional. This indicates the appeal by the State of Bihar will be accepted, setting aside the High Court's order favoring the respondent."
+    },
+    {
+      "case_id": "1952_70",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.9,
+      "graph_reasoning": "Section 5(1) grants arbitrary discretion to the State Government to select specific cases for trial by Special Courts without an intelligible differentia or rational nexus to the object of speedier trials, failing the twin test under Article 14's reasonable classification doctrine. The High Court correctly identified this as violating equal protection, as the power allows discriminatory application to any offences without defined criteria. Petitioner's arguments that procedural differences are minor and classification justifiable are unpersuasive given the elimination of ordinary safeguards like committal and jury trials in Special Courts.",
+      "raw_pred": 0,
+      "raw_conf": 0.9,
+      "raw_reasoning": "Section 5(1) grants the State Government unfettered discretion to assign any individual case to a Special Court with a modified procedure that curtails standard trial safeguards, lacking intelligible differentia or guidelines for classification based on the need for speedy trial, thereby enabling arbitrary discrimination in violation of Article 14. The High Court's application of the test from prior cases, noting that powers which 'may and can' be exercised discriminatorily are invalid, is sound. The arguments fail to provide a constitutionally valid basis for upholding the provision."
+    },
+    {
+      "case_id": "1952_71",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.95,
+      "graph_reasoning": "Article 329(b) of the Constitution bars judicial interference in the election process, including nomination scrutiny by the Returning Officer, except through an election petition, as 'election' encompasses the entire process from nomination to declaration. The petitioner's arguments on textual interpretation and anomalies fail against the clear policy of exclusive statutory remedy under ROPA sections 80, 100, and the wide definition supported by precedents like Srinivasalu v Kuppuswami. Writ jurisdiction under Article 226 is ousted to prevent disruption of elections, making rejection of the appeal legally compelled.",
+      "raw_pred": 0,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The appellant challenges the High Court's ruling that Article 329(b) bars a writ of certiorari for rejected nomination papers, arguing misconstruction of the article and resultant anomalies or hardships. The judgment excerpt dismisses the anomaly argument swiftly, emphasizing that election petitions provide adequate post-election remedy and underscoring public interest in avoiding disruptions to democratic processes. This judicial lean towards non-interference pre-election under Article 329(b) indicates the appeal will be rejected, upholding the High Court's decision."
+    },
+    {
+      "case_id": "1952_8",
+      "true_label": 1,
+      "graph_pred": 0,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The arbitration award's use of 'malik mustaqil' unambiguously confers absolute ownership on Mst. Mohan Dei, as supported by precedents like Ram Gopal v. Nand Lal and Bishunath Prasad Singh v. Chandika Prasad Kumari, outweighing petitioners' contextual interpretation arguments. Even if invalid, estoppel bars the reversioners' claim due to ancestors' conduct, long uninterrupted possession from 1884 to 1941, and direct precedent in Kanhai Lal v. Brij Lal binding parties and beneficiaries. Petitioners' claims of limited estate, separate families, and arbitrator overreach lack merit against these established doctrines.",
+      "raw_pred": 1,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The core dispute hinges on interpreting the arbitration award, where the operative portion explicitly uses 'malik mustaqil,' indicating absolute ownership to Mst. Mohan Dei, supported by cited precedents like Ram Gopal v. Nand Lal. Earlier passages in the award do not unambiguously qualify this clear language, as assumptions about the arbitrator's intent cannot override the unambiguous terms. Thus, plaintiffs' claim as reversioners fails, favoring defendants' appeal against the High Court's ruling."
+    },
+    {
+      "case_id": "1952_80",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The premises belong to the Board of Trustees and later the Bombay Municipality, both local authorities under Section 4(1) of the Bombay Rents Act, 1947, which exempts such premises entirely via literal interpretation, including between lessees and sub-tenants. Ownership remains with the lessor despite the 999-year lease and building erection, as per Transfer of Property Act Sections 105 and 108, supported by precedents emphasizing protection of reversionary interests. Thus, the Act does not apply, vesting jurisdiction in the City Civil Court, favoring the petitioner's appeal.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The Bombay High Court reversed the City Civil Court's decree on grounds of lack of jurisdiction, directing return of the plaint to the proper court, implying the premises fall under the Bombay Rents, Hotel and Lodging House Rates Control Act, 1947, with ejectment suits cognizable by the Small Causes Court. The appellant's claim that the Act does not apply fails because the exemption in section 3(1)(a) for premises 'belonging to' a local authority (Municipality) does not cover sub-tenancies under a private long-term lessee like the appellant society; the respondent monthly tenant is protected. The Supreme Court is likely to uphold the High Court, as the merits favor application of the Rent Act and exclusive jurisdiction elsewhere."
+    },
+    {
+      "case_id": "1952_93",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The petitioner's appeal highlights a critical procedural irregularity in non-compliance with Section 342 CrPC, denying the accused a fair opportunity to explain material circumstances, as emphasized in the cited precedent Tara Singh v. The State, which can vitiate the trial. The High Court's reversal of the trial court's acquittal lacks compelling reasons and fails to accord due weight to the trial judge's credibility assessment, reinforcing the strong presumption of innocence post-acquittal. Absent substantial justification for overturning the acquittal, the Supreme Court is likely to set aside the High Court's order.",
+      "raw_pred": 0,
+      "raw_conf": 0.75,
+      "raw_reasoning": "The prosecution's case is supported by consistent direct evidence from three eyewitnesses (father, mother, and brother of the deceased), a prompt FIR specifically naming Ajmer Singh as the perpetrator of the fatal chest wound, and his initial absconding, indicating consciousness of guilt. While the witnesses are interested parties and the Sessions Judge acquitted due to lack of independent corroboration, such family testimony is reliable if uncontradicted, especially in a sudden brawl among relatives. The High Court's conviction under Section 304 IPC, rather than 302, appropriately reflects the sudden fight, making reversal unlikely."
+    },
+    {
+      "case_id": "1953_106",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The will's language clearly grants the widow a life estate ('till her lifetime') with the remainder vesting absolutely in the daughter and her heirs, as law favors vesting unless contrary intention is shown. No express or implied power of alienation for legal necessity was conferred on the widow, distinguishing it from a Hindu widow's estate and aligning with precedents like Pavani Subbamma indicating limited interest on gift over. Petitioner's arguments on vested interest and plaintiff's title as representative prevail over respondent's contingent remainder claim.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The will explicitly grants the widow enjoyment of the properties 'till your lifetime,' followed by absolute rights to the daughter and her heirs, indicating a limited life estate for the widow and a vested remainder in the daughter, to which the plaintiff succeeds as her heir. There are no indications of intent to confer an absolute estate or even a Hindu widow's estate with alienation powers on the widow, as the language is restrictive and the maintenance to the daughter-in-law is handled separately. The trial court's interpretation aligns with standard principles of will construction under Hindu law, prioritizing the testator's clear intention over presumptions of Hindu notions of property devolution."
+    },
+    {
+      "case_id": "1953_116",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The plaintiff's suit is governed by Article 134-B of the Limitation Act, imposing a 12-year limitation period from the death of the previous Mahant in 1920, likely rendering the suit time-barred given the post-1932 timeline. The 1932 ejectment decree against Bharamappa's heirs does not bind the defendant Jain Sabha, as it was a title suit against trespassers for invalid alienation, not a landlord-tenant eviction, and the absolute gift transfer does not qualify Sabha as a sub-lessee. Section 10 of the Limitation Act is inapplicable due to the lease being for valuable consideration, weakening the plaintiff's procedural arguments under Section 47 CPC.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The present suit was filed on 3 December 1943, over 18 years after the plaintiff became Mathadhipati on 25 November 1925, exceeding the typical 12-year limitation period under Article 134-B of the Limitation Act for recovery of possession by a spiritual head against invalid alienations. The prior suit filed in 1932 impleaded the Jain Sabha as defendant No. 23 but under a wrong name, which the lower courts held did not constitute proper impleadment to toll limitation under Section 14, a finding aligned with strict interpretation of limitation laws. The Supreme Court is likely to uphold this on merits, rejecting the appeal as the defect in party description prevents exclusion of time."
+    },
+    {
+      "case_id": "1953_119",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "Section 33 of the Industrial Disputes Act mandates employer permission for dismissal during pendency of proceedings, applying even to illegal strikes under Section 23(b), as confirmed by the amendment removing exceptions and the general scope beyond Chapter V. The Bank's failure to obtain permission or frame specific charges for subversive activities renders the dismissal wrongful, supporting the Labour Appellate Tribunal's ruling. Arguments on condonation and Chapter V placement lack merit against the protective framework for workmen.",
+      "raw_pred": 0,
+      "raw_conf": 0.8,
+      "raw_reasoning": "The Industrial Tribunal refused reinstatement solely on the ground of an illegal strike under Section 23(b) of the Industrial Disputes Act, despite the specific objections against the 150 workmen being subversive activities and objectionable conduct. This ignores the need for evidence of individual misconduct or proportionality in punishment for participation in an illegal strike, especially since the Bank reinstated most strikers following government intervention. The Labour Appellate Tribunal correctly set aside the award for lacking consideration of these factors, and the Supreme Court is likely to reject the Bank's appeal upholding labour law principles requiring justification beyond mere illegality of the strike."
+    },
+    {
+      "case_id": "1953_12",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The petitioner's argument that the 'except so far as the contrary is shown' clause applies only to Rule 5(a) and not (b) contradicts the grammatical structure where 'deemed' governs both clauses, creating independent rebuttable fictions. The managing agency commission left with the assessee is a debt under Rule 2, not a borrowing under Rule 2A, as it lacks a positive act of lending and acceptance. The respondent's position aligns with the statutory framework, making rejection of the appeal likely.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The assessee's interpretation that the exception 'except so far as the contrary is shown' modifies only clause (a) and not (b) of Rule 5 is grammatically weak, as the exception precedes and qualifies the entire deeming provision covering both clauses. The rule's structure indicates a unified fiction for even accrual and corresponding capital adjustment, allowing the department to demonstrate contrary facts for capital computation, such as excluding non-capital-increasing items like charity. The assessee's corollary argument that rebuttal of (a) voids the whole rule fails here since no rebuttal occurred for (a), but the department's adjustments align with a purposive reading favoring administrative flexibility in tax computation."
+    },
+    {
+      "case_id": "1953_20",
+      "true_label": 1,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The arbitration clause is narrowly limited to disputes over payment of the balance after valuation, not broad enough to cover general breaches, rescission, or non-compliance issues like time essence, which form the basis of the suit. Precedents cited, such as Heyman v Darwins and others, apply to comprehensive clauses covering 'any dispute arising out of the contract,' unlike the specific clause here. Under Section 34, the court must first determine if the matter falls within the agreed arbitration scope, and it does not, leading to refusal of stay; thus, the petitioner's appeal is rejected.",
+      "raw_pred": 0,
+      "raw_conf": 0.75,
+      "raw_reasoning": "The arbitration clause is narrowly confined to disputes over the differing valuations arrived at by the parties and the payment of the balance due. The company's suit alleges breach of the agreement due to the state's delay in furnishing its valuation within the stipulated timeframe, claims rescission of the entire contract, forfeiture of the advance payment, and seeks declaration of ownership and possession, which falls outside the specific scope of the arbitrable matters. Under section 34 of the Arbitration Act, since the proceedings are not in respect of any matter agreed to be referred, the lower courts correctly refused the stay, and the appeal is likely to be rejected."
+    },
+    {
+      "case_id": "1953_23",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The Inam Register (Exhibit P/3) and Archakas' statement (Exhibit D/3) conclusively identify the temple as the grantee under a Devadayam Sarvadumbala Inam, with income exceeding assessment, indicating a full grant of both melvaram and kudivaram rights, negating the presumption of lost grant or limited melvaram interest. Respondents' reliance on ancient possession and equity is outweighed by the statutory conclusiveness of the Inam records and precedents like Yelamanchili Venkatadri, which uphold full rights based on such entries. Ejectment suits turn on title proof, which favors the temple unequivocally.",
+      "raw_pred": 0,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The Inam Register (Ex. P/3) and the Archakas' own statement (Ex. D/3) from 1859-60 explicitly name the temple as the grantee and Inamdar, classifying the grant as Devadayam for the pagoda's support, sarvadumbala, and permanent, providing convincing proof that overrides any presumption of a lost grant to the Archakas. Long possession alone cannot establish title against this documentary evidence. The grant's nature as full ownership rather than mere melvaram is supported by its tax-free status and description, favoring the temple's claim for possession."
+    },
+    {
+      "case_id": "1953_31",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The trying Magistrate's order dated 9th March 1953 only directed adjournment to 11th March without any explicit remand direction, violating the mandatory requirement under Section 344 CrPC for a signed written remand order, thus invalidating the detention. The slips with endorsements 'Remanded to judicial till 11th March 1953' were not produced until 5:20 p.m. on 10th March and cannot be considered valid warrants to justify custody. On the date of the return of the writ (10th March 1953), no lawful remand order existed, rendering the petitioners' detention unlawful under habeas corpus principles.",
+      "raw_pred": 1,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The first remand order is conceded to have expired on March 9, 1953, leaving the detention reliant on the second 'alleged' remand order passed by the trying Magistrate. The Supreme Court's observation that it need not discuss other issues due to the expiration of the first order, combined with the disputed nature of the second order (passed amid a habeas petition representation), indicates likely invalidity of current detention under Article 32 habeas corpus principles. Absent a valid subsisting remand on March 12, the writ is meritorious and likely to be allowed."
+    },
+    {
+      "case_id": "1953_62",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The facts show Mukherjee obtained physical possession of the shares with the consent of the seller's agent (Paul), under the expectation of immediate payment, which aligns with Section 30(2) of the Sale of Goods Act protecting good faith pledgees. Precedents like Cahn, Folkes v King, and Pearson v Rose establish that fraud rendering a transaction voidable (not void, as in identity fraud per Lake v Simmons) does not negate consent for such protections until avoided. The appellate court's finding of no consent contradicts these authorities and the Contract Act definitions, favoring reversal in favor of the petitioner.",
+      "raw_pred": 1,
+      "raw_conf": 0.75,
+      "raw_reasoning": "Mukherjee, having agreed to buy the shares, obtained possession of them with the consent of the seller's agent (defendant bank's officer Paul), who allowed him to take them temporarily after examination upon assurance of immediate return with payment, even if deceived. Section 30(2) of the Indian Sale of Goods Act explicitly protects a good faith transferee like the plaintiff bank (appellant), who received the pledge without notice of the seller's lien. The Supreme Court is likely to rule in favor of the statutory protection for commerce, accepting the appeal and overturning the High Court's reversal of the trial court's decree."
+    },
+    {
+      "case_id": "1953_65",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.75,
+      "graph_reasoning": "Section 7 of the 1950 Amendment Act effects a deprivation of the ejectment right by authority of law under Article 31(1), without amounting to acquisition or taking possession by the State under Article 31(2), hence no compensation required. The measure qualifies as a reasonable restriction under Article 19(5) in the interests of the general public, aimed at protecting under-tenants post-revenue sale, with retrospectivity relevant but not decisive given the agrarian reform context and statement of objects. Precedents like Chiranjit Lal affirm that property rights under Articles 19(1)(f) and 31(1) are similarly protected, validating legislative deprivations by law for public purposes.",
+      "raw_pred": 1,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The High Court held section 7 unconstitutional as violating Article 19(1)(f), but the Chief Justice's preliminary reasoning in the excerpt indicates Article 19(1)(f) does not apply, as it pertains to the general right to acquire, possess, and dispose of property, not specific vested rights which fall under Article 31(1). Under Article 31(1), the deprivation of the respondent's right to evict via abatement of proceedings is authorized by law, requiring no compensation. The State's arguments, supported by recent Supreme Court precedents like Chiranjit Lal and Gopalan, and the public interest in preventing speculative evictions in urban areas, strongly favor upholding the amendment, leading to acceptance of the appeal."
+    },
+    {
+      "case_id": "1953_67",
+      "true_label": 1,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The Tribunal's holding that Sections 42(1) and (3) do not apply to income actually received in British India aligns with precedents like Burugu Nagayya v. CIT and CIT v. Diwan Bahadur Mathias, which emphasize taxation under Section 4(1)(a) for actual receipts without deeming provisions. Petitioner's reliance on apportionment under Section 42(3) for the residency test under Section 4A(c)(b) is undermined by the distinction that Section 42 applies only to deemed accrual from business connections, not actual receipt, and Ahmedbhai is distinguished as limited. The provisions are not ultra vires per Wallace Bros., supporting rejection of the appeal.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The assessee company, despite being incorporated in the UK with manufacturing in Pondicherry, derives most of its income from sales, contracts, deliveries, and payments in British India, satisfying the residency test under Section 4A(c)(b) as income arising in British India exceeds that outside. Section 42 applies exclusively to non-residents, and residency is determined prior to any apportionment under Section 42(3), making the total world income taxable under Section 4(1)(b). The High Court's rejection of the assessee's arguments aligns with the statutory framework and Privy Council precedent in Wallace Bros., supporting dismissal of the appeal."
+    },
+    {
+      "case_id": "1953_78",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "Eyewitness accounts from PW2 and PW11 credibly establish participation of all seven accused in the group assault on both victims, supporting common object under Section 149 IPC without needing specific attribution of fatal injuries. Precedent in Rameshwar v. State of Rajasthan confirms no mandatory corroboration for related witnesses absent enmity, bolstered by prompt FIR naming all accused. High Court's enhancement to death sentence is proper given the brutal double murder motive and vicarious liability under S149, with trial court's life sentence reflecting improperly exercised discretion.",
+      "raw_pred": 1,
+      "raw_conf": 0.75,
+      "raw_reasoning": "The High Court doubted the eyewitnesses' testimony and relied primarily on blood-stained clothes, which the Sessions Judge discounted, indicating weak corroboration. Medical evidence shows fatal injuries from blunt weapons, but acquitted co-accused also wielded blunt weapons, and the sheer number of injuries mismatches individual roles under Section 302/149 IPC. In a faction feud with interested witnesses and unclear motive for all appellants, the Supreme Court is likely to interfere, at least by reducing the death sentences to life imprisonment or partly allowing the appeal."
+    },
+    {
+      "case_id": "1953_85",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The facts indicate a clear change in the persons carrying on the business under Section 8 of the EPT Act upon separation of the HUFs into individual male members from 14th April 1943, discontinuing the prior HUF partnerships represented by kartas. The assessee's contention that it was always a partnership of individuals appears to be a new case inconsistent with prior admissions that it was HUFs until then, undermining its credibility. Legal principles confirm that partnerships via kartas represent HUFs, not members ipso facto, supporting the respondent's position that only the post-change deficiency of Rs. 12,804 can be carried forward.",
+      "raw_pred": 0,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The assessee's argument in the Supreme Court constitutes a new case not presented before the lower authorities, where it consistently claimed the business was carried on by two Hindu undivided families until 13th April 1943, after which eight individuals formed a new partnership, clearly indicating a change under section 8 of the Excess Profits Tax Act. Courts do not permit such shifts in stance at appellate stages. The High Court's affirmative answer aligning with the Tribunal is therefore likely upheld, rejecting the appeal."
+    },
+    {
+      "case_id": "1953_88",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The doctrine of locus poenitentiae and precedents like Mahomed Akil v. Asadunnissa Bibee establish that a signed draft is not a formal judgment until delivered in open court by living judges, which did not occur here as Bhargava J. died before delivery. Allahabad High Court Rules distinguish pronouncement and delivery, and Section 537 CrPC cures mere irregularities, not this fundamental defect lacking a valid judgment. Petitioners' argument that pronouncement and delivery are distinct supports invalidating the High Court judgment, leading to acceptance of the appeal.",
+      "raw_pred": 0,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The primary issue is the validity of the High Court judgment delivered by one judge after the other's death, which the Supreme Court analyzes by emphasizing inherent court jurisdiction to cure procedural defects, referencing Privy Council precedent and CrPC Section 537 for irregularities. The Court's discussion rejects overly technical interpretations of High Court rules, indicating it will uphold the judgment's validity. Thus, the appeal challenging the conviction on this procedural ground is likely to be rejected, affirming the High Court decision."
+    },
+    {
+      "case_id": "1953_9",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "Shebaiti right is a hereditary office governed by Article 124 of the Limitation Act, not Article 141, as it is not immovable property. Adverse possession against a Hindu widow's limited estate does not run against reversioners until her death, per post-1871 law changes recognizing reversioners' spes successionis independent of the widow. Petitioners' arguments align with established doctrines on void alienations and reversioners' rights, outweighing respondents' reliance on pre-1871 precedents and general adverse possession principles.",
+      "raw_pred": 0,
+      "raw_conf": 0.9,
+      "raw_reasoning": "Under the Dayabhaga school of Hindu law applicable in Bengal, Rajlakshmi did not succeed to Haran's shebaiti right as a widow with a limited estate; instead, it vested immediately in Haran's collateral heirs (his brothers). Her 1921 sale was void ab initio, rendering the transferees' possession adverse from that date, triggering the 12-year limitation period under Article 142 of the Limitation Act, 1908, for recovery of a hereditary office. The suit filed in 1944, more than two decades later, is time-barred, supporting the High Court's reversal of the trial court."
+    },
+    {
+      "case_id": "2000_1026",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.75,
+      "graph_reasoning": "The argument that an appointed future effective date (1st April 1985) for Explanation 2 implies prospectivity is compelling, as a truly declaratory provision clarifying past law would not require such a date. Earlier holdings in Brij Mohan (two judges) and Suwalal (three judges) deeming it declaratory are undermined by this logic and the direct doubting by Rashik Lal (two judges), regardless of obiter claims. The referral to a three-judge bench due to difficulty accepting Suwalal suggests the court will resolve in favor of prospectivity, accepting the appeal likely advanced by the assessee.",
+      "raw_pred": 0,
+      "raw_conf": 0.75,
+      "raw_reasoning": "A coordinate bench of the Supreme Court in Brij Mohan Das Laxman Das v. CIT (223 ITR 825) has already held that Explanation 2 to Section 40(b) is declaratory, establishing binding precedent. The excerpt presents no facts, arguments, or compelling reasons to overrule this settled position, making it likely that the Court will adhere to stare decisis. Consequently, any appeal seeking to treat it as prospective would be rejected."
+    },
+    {
+      "case_id": "2001_1005",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The petitioner's arguments align with the established Prejudice Test from Chittaranjan Das v. State of West Bengal, emphasizing that the charge indicated the date and place with sufficient precision, the accused raised no grievance at trial, and no prejudice to the defence is evident. The respondent's contention that a death reference is a continuation of trial justifying stricter scrutiny is outweighed by the precedent requiring proof of actual prejudice for interference. Thus, the Supreme Court is likely to accept the appeal, set aside the High Court's order, and restore the conviction and sentence.",
+      "raw_pred": 1,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The High Court's decision to set aside the conviction and remit for de novo trial due to a defect in specifying time and place in the charge is likely erroneous under CrPC Sections 215 and 464, as minor inaccuracies do not vitiate the trial absent prejudice to the accused. The prosecution correctly cites Chittaranjan Das v. State of West Bengal, affirming that such defects are curable if no objection was raised at trial, which the accused failed to do. Thus, the Supreme Court is likely to accept the appeal and restore the trial court's conviction and sentence."
+    },
+    {
+      "case_id": "2001_1100",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The payments made via debits in the personal ledger account under the self-removal procedure before classification list approval on 3-6-1985 qualify as provisional assessments per Rule 9B and Chapter VII-A rules, attracting clause (e) of Explanation B to Section 11B, where the relevant date for limitation is the date of final assessment or adjustment, such as RT-12 return assessments. Clause (f) applies to non-provisional payments, which does not fit the pre-approval clearances here. The petitioner's arguments align with the statutory scheme for small manufacturers under Notification 85/85, supporting acceptance of the appeal to allow the refund claim without strict 6-month limitation.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The duty is paid upon debit in the Personal Ledger Account (PLA) at the time of goods clearance, which qualifies as the 'date of payment' under clause (f) of the Explanation to Section 11B, starting the 6-month limitation period. The appellant's primary contention that RT-12 assessment date is the relevant date is untenable, as PLA debit constitutes effective payment. The alternative argument that self-removal under Chapter VII-A amounts to provisional payment under clause (e) is unlikely to succeed, as provisional assessment is specifically under Rule 173D and not applicable here, making the early period's claim time-barred."
+    },
+    {
+      "case_id": "2002_151",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.9,
+      "graph_reasoning": "At the time of the second marriage on 25.05.1993, the ex parte divorce decree dated 07.06.1990 was in force, meaning the first marriage was not subsisting. The setting aside of the decree on 31.03.1994 does not have retrospective effect to render the second marriage bigamous under Section 494 IPC, as the offence is determined based on the status at the time of the second marriage. The appellant's reliance on the valid decree precludes conviction, and the respondent's adultery argument from 1994 pertains to a different offence not charged under 494.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The ex parte divorce decree obtained in 1990 was set aside on 31.3.1994, indicating it was invalid ab initio due to the first wife's lack of notice, meaning the first marriage subsisted when the appellant remarried in 1993. This establishes a prima facie case under Section 494 IPC for bigamy, warranting continuation of criminal proceedings. Quashing under inherent powers is not justified as the complaint discloses an offense, so the Supreme Court is likely to reject the appeal seeking quashing."
+    },
+    {
+      "case_id": "2002_473",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The allotment granted Smt. Bachan Kaur only a life estate, which cannot convey absolute title beyond her lifetime under the no better title principle. Section 41 of the Transfer of Property Act protects bona fide purchasers from ostensible owners only during the lifetime of the limited owner, as per Mt. Phool Kuer v. Mt. Prem Kuer, and ceases upon death when title reverts to the State. Respondents' cited precedents involve different contexts like benami transactions and do not override this direct authority favoring the petitioner.",
+      "raw_pred": 1,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The allotment explicitly granted Smt. Bachan Kaur only a life estate for maintenance, prohibiting absolute alienation. The sale deed purported to transfer full ownership, exceeding her limited interest, rendering it void. Section 41 of the TPA does not apply as the government did not clothe her with ostensible authority for absolute sale, given the public record of life estate; thus, the state's suit for declaration should succeed, accepting the appeal."
+    },
+    {
+      "case_id": "2003_78",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The appointment was explicitly temporary under Rule 27 of the Rajasthan Municipal Service Rules, 1963, limited to one year without PSC concurrence and terminable upon availability of a PSC-selected candidate, which condition was fulfilled in 1988. The appellant's refusal to join despite two PSC selections undermines claims of legitimate expectation or regularization, as long service alone does not confer permanency rights for ad-hoc appointments without proper selection. Precedents on regularization are outweighed by strict adherence to statutory rules prohibiting automatic extensions or presumptions from mere continuance.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The appellant's appointment was explicitly temporary under Section 308 of the Rajasthan Municipalities Act and Rule 27 of the Rajasthan Municipal Service Rules, limited to six months or until a PSC-selected candidate was available, and could not exceed one year without PSC concurrence. Despite extensions and long service, she had no enforceable right to permanency, especially since she declined PSC selection twice in 1976 and 1982, and mere continuation does not legitimize an ad hoc appointment. Supreme Court precedents emphasize adherence to recruitment rules over length of service alone, supporting rejection of regularization claims."
+    },
+    {
+      "case_id": "2004_139",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The prosecution must prove that an offence under Section 306 IPC was committed, the appellants had knowledge or reason to believe it, and they intentionally caused evidence to disappear to screen the offender, as per precedents like Palvinder Kaur v. State of Punjab. The facts show the body was cremated after informing police and completing formalities due to decomposition, with no evidence of prior knowledge of abetment of suicide. Mere presence or family relation is insufficient, making conviction under Section 201 IPC unsustainable.",
+      "raw_pred": 0,
+      "raw_conf": 0.75,
+      "raw_reasoning": "The prosecution's case presents strong circumstantial evidence of dowry harassment leading to the wife's death, with the appellants' hasty cremation of the decomposing body without adequately waiting for or informing the father-in-law indicating intent to destroy evidence under Section 201 IPC. Claims of police formalities and decomposition do not sufficiently rebut the suspicion, especially since the body was discovered by the in-laws themselves. Both lower courts convicted based on these facts, suggesting the legal merits favor upholding the conviction on appeal."
+    },
+    {
+      "case_id": "2004_246",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The Union's arguments are stronger, supported by consistent central legislation (e.g., Oil Fields Act 1948, Petroleum Rules 1959) defining natural gas as part of petroleum/mineral oils under Entry 53 List I, indicating exclusive Union competence. Doctrines of pith and substance and harmonious construction exclude natural gas from Entry 25 List II, as precedents like Calcutta Gas Company pertain to manufactured gas, not natural gas. The Gujarat Act is ultra vires to the extent it covers natural gas, rejecting the petitioner's claim of state legislative competence.",
+      "raw_pred": 1,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The Union's arguments establish a consistent legislative practice under Entry 53 of List I, with multiple central enactments like the Oil Fields (Regulation and Development) Act, 1948, and Petroleum and Natural Gas Rules, 1959, explicitly including natural gas as a petroleum product derived from oilfields and mineral oil resources. Entry 25 of List II, 'Gas and gas works,' likely refers to manufactured or artificial gas rather than natural gas, avoiding conflict through the doctrine of pith and substance. Consequently, the State of Gujarat lacks legislative competence for the Gujarat Gas Act, 2001, rendering it ultra vires, and the reference questions will be answered affirmatively for Union exclusivity."
+    },
+    {
+      "case_id": "2004_764",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The legal framework under Section 30 of the Arbitration Act 1940 strictly limits court interference to specified grounds like misconduct, excluding reappraisal of evidence or arbitrator's discretionary orders on adjournments, especially in long-pending proceedings since 1995. The High Court's setting aside of the award solely for refusal of further opportunity after respondent's absence exceeds this jurisdiction, as supported by precedents like Arosan Enterprises and State of U.P. v. Allied Constructions emphasizing finality and non-interference. Petitioner's arguments align with these principles, while respondent's natural justice claim lacks merit given prior opportunities.",
+      "raw_pred": 1,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The High Court set aside the arbitration awards solely on the ground of denying the respondent another opportunity to lead evidence after his absence, despite the arbitrators waiting 40 minutes and the proceedings having been adjourned in his presence earlier. Under Section 30 of the Arbitration Act, 1940, such procedural decisions by arbitrators do not constitute misconduct warranting interference, as awards are not to be lightly set aside and parties are expected to attend hearings. The Supreme Court is likely to restore the awards, finding the High Court's intervention unjustified."
+    },
+    {
+      "case_id": "2005_208",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.9,
+      "graph_reasoning": "The core issue revolves around whether prior declaratory decrees in favor of the reversioner (appellant) bind subsequent proceedings despite Section 14(1) of the Hindu Succession Act enlarging Uttamdassi's limited estate to absolute ownership, as clarified in V. Tulasamma. Interpretation of Section 14 HSA is a pure question of law not barred by res judicata, especially when earlier decrees contradict prevailing statutory interpretation or changed law. Precedents like V. Tulasamma override older decisions, rendering Uttamdassi's alienations valid and the appellant's claim for possession untenable, thus the High Court's rejection of res judicata will likely be upheld.",
+      "raw_pred": 1,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The appellant obtained two final declaratory decrees holding that Uttamdassi's alienations did not bind the reversionary rights, which became binding under res judicata principles, preventing relitigation even on questions of law clarified later in V. Tulasamma. The will explicitly created a limited estate for maintenance with no alienation power and reversion to Tikami, attracting Section 14(2) of the Hindu Succession Act, making Uttamdassi's estate non-enlargeable to absolute ownership under Section 14(1). The Supreme Court, as a larger bench resolving contradictions, is likely to uphold finality of judgments and correct the lower courts' misapplication of Tulasamma, allowing the appeal for possession."
+    },
+    {
+      "case_id": "2007_946",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.95,
+      "graph_reasoning": "The central issue is whether courts can direct regularization and creation of tractor driver posts absent any sanctioned post, which contravenes doctrines of judicial restraint, separation of powers, and the rule that regularization is only against sanctioned posts, as reinforced by cited precedents like Indian Drugs & Pharmaceuticals Ltd. and Ram Jawaya. Petitioner's arguments directly align with these legal principles, while respondents' claims lack support for judicially mandating post creation. The Supreme Court is likely to accept the appeal and set aside the lower courts' directions.",
+      "raw_pred": 1,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The trial court correctly held that there is no sanctioned post of tractor driver, a finding of fact not disputed, and courts cannot direct creation of new posts as that is an executive function. Principles from cases like Umadevi prohibit regularization on unsanctioned posts, especially when employees were appointed and regularized as Mali and accepted it without protest. The High Court erred in upholding the first appellate court's direction to create the post, making the employer's appeal likely to succeed."
+    },
+    {
+      "case_id": "2008_1460",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The Supreme Court is likely to follow and extend the precedent in B.S. Joshi v. State of Haryana, which permits quashing of non-compoundable offences under Section 482 CrPC or Article 226 when parties settle amicably, particularly in private disputes without significant public interest. This case involves a settled commercial dispute over vehicle financing under Sections 420/468/471 IPC, fitting the criteria for preventing abuse of process and securing ends of justice via harmonious construction of Sections 320 and 482 CrPC. Respondents' arguments for reconsidering B.S. Joshi are outweighed by the pragmatic approach emphasized in supporting precedents like Pepsi Foods.",
+      "raw_pred": 1,
+      "raw_conf": 0.95,
+      "raw_reasoning": "The appeal challenges the High Court's refusal to quash an FIR for non-compoundable offenses (420/468/471 IPC) after parties settled a private commercial dispute. Precedent in B.S. Joshi (2003) explicitly permits quashing under S.482 CrPC or Art.226 to prevent abuse of process and secure justice, even for non-compoundable offenses. Arguments against reconsideration of B.S. Joshi are weak, as the offenses are private in nature with no ongoing public interest post-settlement."
+    },
+    {
+      "case_id": "2008_188",
+      "true_label": 1,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The defects in the verification and affidavit are minor and technical, specifying paragraphs based on personal knowledge versus information, and precedents like Murarka Radhey Shyam Ram Kumar and H D Revanna establish that such curable defects do not warrant dismissal under Section 86 RP Act. Legal concepts emphasize strict construction but opportunity to cure rather than summary dismissal, especially since non-compliance with Section 83 is not fatal. The Supreme Court is likely to accept the appeal, set aside the High Court's order, and remand for curing defects or trial on merits.",
+      "raw_pred": 0,
+      "raw_conf": 0.9,
+      "raw_reasoning": "The High Court correctly identified fatal defects in the election petition under Section 83 of the RP Act, 1951, including the affidavit not conforming to Form 25, lacking proper affirmation/certification by a Magistrate/Notary, and failing to specify sources of information for corrupt practice allegations not based on personal knowledge, as required by Order VI Rule 15 CPC and precedents like Ajay Maken (2021). The petition's verification was general and did not distinguish knowledge from information specific to corrupt practices, violating mandatory provisions. Supreme Court consistently holds such non-compliance as jurisdictional defects leading to dismissal under Section 85, with no opportunity for cure post-objections."
+    },
+    {
+      "case_id": "2008_368",
+      "true_label": 0,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "Section 25 of the Pondicherry Act grants the High Court wide revisional powers to interfere with findings of fact, unlike the narrower S.115 CPC, as affirmed in the cited Punnoose precedents, undermining the petitioner's argument that reversal was impermissible. The facts establish the premises as 60 years old with cracks, supporting eviction on dilapidation grounds with landlord's permissions obtained, alongside the ceased occupancy issue. The Supreme Court is thus likely to uphold the High Court's decision and reject the appeal.",
+      "raw_pred": 1,
+      "raw_conf": 0.75,
+      "raw_reasoning": "The tenant-appellant argues that the High Court, exercising revisional jurisdiction under Section 25 of the Pondicherry Buildings Lease and Rent Control Act, 1969, could not reverse the factual findings of the First Appellate Court, citing M. Punnoose v. K.M. Munneruddin (2003) 10 SCC 610, which likely supports the limited scope of such jurisdiction to prevent re-appreciation of evidence absent perversity. In Indian rent control jurisprudence, revisional powers are supervisory and do not extend to substituting views on facts unless erroneous in law or jurisdictionally flawed. Thus, the Supreme Court is likely to find the High Court overstepped, accepting the appeal to restore the Appellate Authority's order favoring the tenant."
+    },
+    {
+      "case_id": "2014_170",
+      "true_label": 0,
+      "graph_pred": 1,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The binding precedent in V. Jagannadha Rao v. State of Andhra Pradesh holds that Special Rules under Article 309 permitting promotional transfers across cadres violate the Presidential Order under Article 371-D, particularly paras 3 and 5, and was applied prospectively by the Supreme Court. The High Court overstepped by setting aside the Tribunal's prospective application of this judgment, as the doctrine of prospective overruling is invocable only by the Apex Court under Article 142, not High Courts under Article 226. The procedural failure to implead necessary parties further renders the High Court order liable to be set aside, favoring acceptance of the appeal.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The Supreme Court in V. Jagannadha Rao held the special rules violative of the Presidential Order under Article 371-D without specifying prospective application, and such declarations of constitutional invalidity generally apply retrospectively, rendering prior appointments under the invalid rules void ab initio due to the overriding effect of Article 371-D(10). The High Court's decision to set aside the Tribunal's prospectivity ruling aligns with standard principles of judicial precedent, as overruling prior Supreme Court decisions implies the correct law always prevailed. No equities or indications in the facts suggest limiting the ruling to prospective effect."
+    },
+    {
+      "case_id": "2019_890",
+      "true_label": 1,
+      "graph_pred": 0,
+      "graph_conf": 0.85,
+      "graph_reasoning": "The arbitration clause requiring a 10% deposit applies equally to both parties, serves the legitimate purpose of deterring frivolous claims, and aligns with precedents like S.K. Jain v. State of Haryana upholding similar provisions and Tata Cellular limiting judicial scrutiny of tender terms unless manifestly arbitrary. Petitioner's reliance on Central Inland Water, an employment context, is distinguishable in commercial contracts where state entities have contractual freedom. The clause is proportionate with refund provisions and does not constitute a contract of adhesion warranting invalidation under Article 14.",
+      "raw_pred": 0,
+      "raw_conf": 0.85,
+      "raw_reasoning": "The arbitration clause requiring a 10% deposit is part of a commercial tender contract applying equally to both parties, aimed at deterring frivolous claims, and falls within the realm of contract not ordinarily subject to judicial scrutiny unless arbitrary or discriminatory, as per Tata Cellular and Directorate of Education. The appellant's reliance on Central Inland Water Transport Corp. v. Brojo Nath Ganguly, which addressed unconscionable clauses in unequal adhesion contracts like employment, does not extend to arm's-length commercial dealings between a contractor and government board. Principles of judicial restraint in reviewing tender terms strongly favor upholding the clause, making rejection of the appeal likely."
+    }
+  ]
+}

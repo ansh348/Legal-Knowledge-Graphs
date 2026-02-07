@@ -1,0 +1,43 @@
+{
+  "case_id": "1965_185",
+  "edge_validity_rate": 0.9904,
+  "invalid_edge_count": 1,
+  "invalid_edge_patterns": [
+    "a->h:grounds"
+  ],
+  "connectivity_rate": 0.8143,
+  "orphan_count": 13,
+  "orphan_nodes": [
+    "f2",
+    "f1",
+    "f6",
+    "c11",
+    "p6"
+  ],
+  "issues_resolved_rate": 0.8333,
+  "holdings_connected_rate": 1.0,
+  "unresolved_issues": [
+    "i6"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 1,
+  "warnings": [
+    "Duplicate text found: [('issues', 'i6'), ('holdings', 'h7')]"
+  ],
+  "actor_distribution": {
+    "petitioner": 6,
+    "lower_court": 1,
+    "court": 6
+  },
+  "node_counts": {
+    "facts": 22,
+    "concepts": 13,
+    "issues": 6,
+    "arguments": 13,
+    "holdings": 9,
+    "precedents": 6,
+    "edges": 104,
+    "reasoning_chains": 9
+  },
+  "quality_score": 9.17
+}

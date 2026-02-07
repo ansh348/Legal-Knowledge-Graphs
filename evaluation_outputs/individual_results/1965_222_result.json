@@ -1,0 +1,45 @@
+{
+  "case_id": "1965_222",
+  "edge_validity_rate": 1.0,
+  "invalid_edge_count": 0,
+  "invalid_edge_patterns": [],
+  "connectivity_rate": 0.8082,
+  "orphan_count": 14,
+  "orphan_nodes": [
+    "f1",
+    "p9",
+    "p5",
+    "f5",
+    "c13"
+  ],
+  "issues_resolved_rate": 0.75,
+  "holdings_connected_rate": 1.0,
+  "unresolved_issues": [
+    "i1",
+    "i5"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 3,
+  "warnings": [
+    "Duplicate text found: [('holdings', 'h1'), ('holdings', 'h2')]",
+    "Invalid concept_id: CONST_ART136",
+    "Invalid concept_id: DOCTRINE_ESTOPPEL"
+  ],
+  "actor_distribution": {
+    "petitioner": 5,
+    "respondent": 1,
+    "lower_court": 2,
+    "court": 2
+  },
+  "node_counts": {
+    "facts": 20,
+    "concepts": 16,
+    "issues": 8,
+    "arguments": 10,
+    "holdings": 6,
+    "precedents": 12,
+    "edges": 108,
+    "reasoning_chains": 6
+  },
+  "quality_score": 8.82
+}

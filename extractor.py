@@ -114,7 +114,11 @@ from schema_v2_1 import (
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler("iltur_run.log", encoding="utf-8"),
+    ],
 )
 logger = logging.getLogger("LegalExtractor")
 
@@ -1544,9 +1548,27 @@ class GrokClient(LLMClient):
     """X.AI Grok client implementation."""
 
     def __init__(self, api_key: str, model_id: str = "grok-4-1-fast-reasoning"):
+        import httpx
+
         self.api_key = api_key
         self.model_id = model_id
         self.base_url = "https://api.x.ai/v1"
+        self._http = httpx.AsyncClient(
+            timeout=180.0,
+            limits=httpx.Limits(max_connections=30, max_keepalive_connections=20),
+            headers={
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+            },
+        )
+        # Token usage tracking
+        self.total_prompt_tokens = 0
+        self.total_completion_tokens = 0
+        self.total_requests = 0
+
+    async def close(self):
+        """Close the persistent HTTP client."""
+        await self._http.aclose()
 
     async def complete(
             self,
@@ -1561,26 +1583,60 @@ class GrokClient(LLMClient):
         if json_mode:
             system = system + "\n\nYou MUST respond with valid JSON only. No markdown, no explanation."
 
-        async with httpx.AsyncClient(timeout=180.0) as client:
-            response = await client.post(
-                f"{self.base_url}/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {self.api_key}",
-                    "Content-Type": "application/json"
-                },
-                json={
-                    "model": self.model_id,
-                    "messages": [
-                        {"role": "system", "content": system},
-                        {"role": "user", "content": prompt}
-                    ],
-                    "temperature": temperature,
-                    "max_tokens": max_tokens
-                }
-            )
-            response.raise_for_status()
-            data = response.json()
-            return data["choices"][0]["message"]["content"]
+        max_backoff_retries = 5
+        for backoff_attempt in range(max_backoff_retries):
+            try:
+                response = await self._http.post(
+                    f"{self.base_url}/chat/completions",
+                    json={
+                        "model": self.model_id,
+                        "messages": [
+                            {"role": "system", "content": system},
+                            {"role": "user", "content": prompt}
+                        ],
+                        "temperature": temperature,
+                        "max_tokens": max_tokens
+                    }
+                )
+
+                # Retry on 429 / 5xx with exponential backoff
+                if response.status_code == 429 or response.status_code >= 500:
+                    if backoff_attempt < max_backoff_retries - 1:
+                        import random
+                        delay = min(2 ** backoff_attempt + random.uniform(0, 1), 60)
+                        logger.warning(
+                            f"HTTP {response.status_code}, retrying in {delay:.1f}s "
+                            f"(attempt {backoff_attempt + 1}/{max_backoff_retries})"
+                        )
+                        await asyncio.sleep(delay)
+                        continue
+                    response.raise_for_status()
+
+                response.raise_for_status()
+                data = response.json()
+
+                # Track token usage
+                usage = data.get("usage")
+                if usage:
+                    self.total_prompt_tokens += usage.get("prompt_tokens", 0)
+                    self.total_completion_tokens += usage.get("completion_tokens", 0)
+                self.total_requests += 1
+
+                return data["choices"][0]["message"]["content"]
+
+            except httpx.TimeoutException:
+                if backoff_attempt < max_backoff_retries - 1:
+                    import random
+                    delay = min(2 ** backoff_attempt + random.uniform(0, 1), 60)
+                    logger.warning(
+                        f"Timeout, retrying in {delay:.1f}s "
+                        f"(attempt {backoff_attempt + 1}/{max_backoff_retries})"
+                    )
+                    await asyncio.sleep(delay)
+                    continue
+                raise
+
+        raise RuntimeError("Exhausted all backoff retries")
 
 
 # =============================================================================
@@ -1598,6 +1654,20 @@ CRITICAL RULES:
 6. BE EXHAUSTIVE - Extract ALL relevant instances, not just obvious ones
 
 OUTPUT: Valid JSON only. No markdown code blocks, no explanations."""
+
+METADATA_PROMPT = """Extract case metadata from the beginning of this Indian court judgment.
+
+From the text below, identify:
+- case_name: The party names (e.g. "State of Maharashtra v. Rajesh Kumar")
+- case_year: The year the judgment was delivered (integer)
+- court: The court name (e.g. "Supreme Court of India", "High Court of Bombay")
+- judges: List of judge names who authored/heard the case
+
+TEXT (first ~3000 chars):
+{header_text}
+
+Respond with JSON only:
+{{"case_name": "...", "case_year": ..., "court": "...", "judges": [...]}}"""
 
 FACTS_PROMPT = """Extract ALL FACTS from this legal judgment.
 
@@ -2229,6 +2299,7 @@ class ExtractionPass(ABC):
     ) -> ExtractionResult:
         """Execute extraction with retry logic."""
         last_response = ""
+        original_prompt = prompt  # Keep original separate to avoid prompt bloat
 
         for attempt in range(self.config.max_retries):
             try:
@@ -2243,7 +2314,8 @@ class ExtractionPass(ABC):
                 data, parse_error = self.parse_json_response(response)
                 if parse_error:
                     if attempt < self.config.max_retries - 1:
-                        prompt += f"\n\nPREVIOUS ERROR: {parse_error}\nPlease respond with valid JSON only."
+                        prompt = original_prompt + f"\n\nPREVIOUS ERROR: {parse_error}\nPlease respond with valid JSON only."
+                        await asyncio.sleep(1)
                         continue
                     return ExtractionResult(
                         success=False,
@@ -2265,8 +2337,9 @@ class ExtractionPass(ABC):
                         retry_count=attempt
                     )
 
-                # Add errors to prompt for retry
-                prompt += f"\n\nVALIDATION ERRORS (please fix):\n" + "\n".join(errors)
+                # Only append latest errors (not cumulative)
+                prompt = original_prompt + f"\n\nVALIDATION ERRORS (please fix):\n" + "\n".join(errors)
+                await asyncio.sleep(1)
 
             except Exception as e:
                 logger.error(f"Extraction error on attempt {attempt + 1}: {e}")
@@ -2278,6 +2351,7 @@ class ExtractionPass(ABC):
                         errors=[f"Exception: {str(e)}"],
                         retry_count=attempt
                     )
+                await asyncio.sleep(1)
 
         return ExtractionResult(
             success=False,
@@ -2300,6 +2374,33 @@ class ExtractionPass(ABC):
 # =============================================================================
 # EXTRACTION PASSES
 # =============================================================================
+
+class MetadataExtractionPass(ExtractionPass):
+    """Extract case metadata (name, year, court, judges) from judgment header."""
+
+    async def extract(self, context: Dict = None) -> ExtractionResult:
+        prompt = METADATA_PROMPT.format(
+            header_text=self.doc.full_text[:3000]
+        )
+        return await self.extract_with_retry(prompt, context)
+
+    def validate(self, data: Any, context: Dict = None) -> Tuple[bool, List[str], List[str]]:
+        errors = []
+        warnings = []
+
+        case_name = data.get("case_name")
+        if not case_name or not isinstance(case_name, str) or not case_name.strip():
+            errors.append("Missing or empty 'case_name'")
+
+        if not data.get("case_year"):
+            warnings.append("Missing 'case_year'")
+        if not data.get("court"):
+            warnings.append("Missing 'court'")
+        if not data.get("judges"):
+            warnings.append("Missing 'judges'")
+
+        return len(errors) == 0, errors, warnings
+
 
 class FactsExtractionPass(ExtractionPass):
     """Extract facts from the document."""
@@ -3802,6 +3903,18 @@ class LegalReasoningExtractor:
 
         context = {}
         all_warnings = []
+
+        # Pass 0: Metadata (only if not provided by caller)
+        if not case_name:
+            logger.info("Pass 0: Extracting case metadata...")
+            meta_pass = MetadataExtractionPass(self.client, self.config, doc)
+            meta_result = await meta_pass.extract()
+            if meta_result.success:
+                graph.case_name = meta_result.data.get("case_name")
+                graph.case_year = meta_result.data.get("case_year")
+                graph.court = meta_result.data.get("court")
+                graph.judges = meta_result.data.get("judges", [])
+            all_warnings.extend(meta_result.warnings)
 
         # Pass 1: Facts
         logger.info("Pass 1: Extracting facts...")

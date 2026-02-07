@@ -1,0 +1,48 @@
+{
+  "case_id": "1954_74",
+  "edge_validity_rate": 0.9728,
+  "invalid_edge_count": 4,
+  "invalid_edge_patterns": [
+    "a->h:grounds",
+    "a->h:grounds",
+    "a->h:grounds",
+    "a->h:rebuts"
+  ],
+  "connectivity_rate": 0.8816,
+  "orphan_count": 9,
+  "orphan_nodes": [
+    "f6",
+    "f7",
+    "f8",
+    "f5",
+    "f22"
+  ],
+  "issues_resolved_rate": 0.8333,
+  "holdings_connected_rate": 1.0,
+  "unresolved_issues": [
+    "i3"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 2,
+  "warnings": [
+    "Duplicate text found: [('issues', 'i2'), ('holdings', 'h6')]",
+    "Invalid concept_id: CONST_ART136"
+  ],
+  "actor_distribution": {
+    "respondent": 2,
+    "petitioner": 7,
+    "lower_court": 1,
+    "court": 4
+  },
+  "node_counts": {
+    "facts": 24,
+    "concepts": 10,
+    "issues": 6,
+    "arguments": 14,
+    "holdings": 9,
+    "precedents": 12,
+    "edges": 147,
+    "reasoning_chains": 7
+  },
+  "quality_score": 9.15
+}

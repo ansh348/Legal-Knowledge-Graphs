@@ -1,0 +1,47 @@
+{
+  "case_id": "1965_21",
+  "edge_validity_rate": 0.9732,
+  "invalid_edge_count": 4,
+  "invalid_edge_patterns": [
+    "a->h:rebuts",
+    "a->h:rebuts",
+    "c->h:enables",
+    "c->h:enables"
+  ],
+  "connectivity_rate": 0.863,
+  "orphan_count": 10,
+  "orphan_nodes": [
+    "f2",
+    "f1",
+    "f6",
+    "p6",
+    "f5"
+  ],
+  "issues_resolved_rate": 0.8,
+  "holdings_connected_rate": 1.0,
+  "unresolved_issues": [
+    "i4"
+  ],
+  "missing_anchor_count": 0,
+  "warnings_count": 1,
+  "warnings": [
+    "Invalid concept_id: DOCTRINE_LEGAL_FICTION"
+  ],
+  "actor_distribution": {
+    "petitioner": 5,
+    "respondent": 1,
+    "court": 6,
+    "lower_court": 2
+  },
+  "node_counts": {
+    "facts": 20,
+    "concepts": 13,
+    "issues": 5,
+    "arguments": 14,
+    "holdings": 8,
+    "precedents": 12,
+    "edges": 149,
+    "reasoning_chains": 6
+  },
+  "quality_score": 9.15
+}

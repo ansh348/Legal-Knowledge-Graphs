@@ -27,7 +27,7 @@ import hashlib
 from pathlib import Path
 from typing import Dict, List, Set, Tuple, Optional, Any
 from copy import deepcopy
-from datetime import datetime
+from datetime import datetime, timezone
 
 # =============================================================================
 # VALID EDGE RELATIONS (mirrored from extractor.py)
@@ -530,7 +530,7 @@ def repair_graph(
         for score, relation, src, tgt in candidates:
             if added >= max_edges_per_orphan:
                 break
-            if added == 1 and score < runner_up_threshold:
+            if added >= 1 and score < runner_up_threshold:
                 break
 
             sig = (src, tgt, relation)
@@ -553,7 +553,7 @@ def repair_graph(
                 "target": tgt,
                 "relation": relation,
                 "anchor": None,
-                "explanation": f"Orphan repair: keyword_overlap={score:.1f}, "
+                "explanation": f"Orphan repair: score={score:.1f}, "
                                f"{get_node_type_from_id(src)}->{get_node_type_from_id(tgt)}",
                 "confidence": "inferred",
                 "strength": "weak" if score < 4.0 else "moderate",
@@ -565,7 +565,7 @@ def repair_graph(
                     "prompt_id": "repair_orphans_v1",
                     "run_id": None,
                     "temperature": None,
-                    "timestamp": datetime.utcnow().isoformat(),
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
                 },
             }
             new_edges.append(new_edge)
@@ -659,7 +659,7 @@ def process_directory(
 
     for json_file in json_files:
         try:
-            with open(json_file, "r") as f:
+            with open(json_file, "r", encoding="utf-8") as f:
                 g = json.load(f)
         except (json.JSONDecodeError, Exception) as e:
             print(f"  SKIP {json_file.name}: {e}")
@@ -701,12 +701,12 @@ def process_directory(
             pct_before = (orphans_before / countable * 100) if countable else 0
             pct_after = (orphans_after / countable * 100) if countable else 0
             print(
-                f"  {json_file.stem}: {orphans_before}→{orphans_after} orphans "
-                f"({pct_before:.0f}%→{pct_after:.0f}%), +{edges_added} edges"
+                f"  {json_file.stem}: {orphans_before}->{orphans_after} orphans "
+                f"({pct_before:.0f}%->{pct_after:.0f}%), +{edges_added} edges"
             )
 
             if not dry_run:
-                with open(json_file, "w") as f:
+                with open(json_file, "w", encoding="utf-8") as f:
                     json.dump(repaired_g, f, indent=2, ensure_ascii=False)
 
     # Summary
@@ -723,7 +723,7 @@ def process_directory(
         print(f"Edges added:       {total_edges_added}")
         print(f"Files modified:    {files_modified}/{len(json_files)}")
         print(f"Target:            <30%")
-        print(f"Status:            {'✓ PASS' if pct_after < 30 else '✗ STILL ABOVE 30%'}")
+        print(f"Status:            {'PASS' if pct_after < 30 else 'STILL ABOVE 30%'}")
 
         if pct_after >= 30:
             print(f"\nTo further reduce orphans, try:")
@@ -733,7 +733,7 @@ def process_directory(
         print("No countable nodes found.")
 
     if dry_run:
-        print(f"\n⚠ DRY RUN - no files were modified. Remove --dry-run to apply.")
+        print(f"\n[DRY RUN] No files were modified. Remove --dry-run to apply.")
 
     return {
         "total_nodes": total_nodes,
@@ -756,7 +756,7 @@ def main():
         description="Repair orphan nodes in legal reasoning graphs"
     )
     parser.add_argument(
-        "--dir", type=str, default="iltur_graphs",
+        "--dir", type=str, default="iltur_graphttest", #ill keep it changed to graphttest for a wile
         help="Directory containing .json graph files"
     )
     parser.add_argument(
