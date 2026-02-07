@@ -12,12 +12,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-primary: #0f0f1a; --sidebar-bg: rgba(20,20,35,0.95);
+      --text-primary: #e5e7eb; --text-secondary: #9ca3af; --text-muted: #6b7280;
+      --input-bg: rgba(255,255,255,0.05); --input-border: rgba(255,255,255,0.1);
+      --card-bg: rgba(255,255,255,0.02); --card-border: rgba(255,255,255,0.1);
+      --border-color: rgba(168,85,247,0.3);
+    }
+    [data-theme="light"] {
+      --bg-primary: #f8fafc; --sidebar-bg: rgba(255,255,255,0.95);
+      --text-primary: #1e293b; --text-secondary: #475569; --text-muted: #94a3b8;
+      --input-bg: rgba(0,0,0,0.05); --input-border: rgba(0,0,0,0.1);
+      --card-bg: rgba(0,0,0,0.02); --card-border: rgba(0,0,0,0.1);
+      --border-color: rgba(100,116,139,0.3);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'IBM Plex Sans', system-ui, sans-serif; background: #0f0f1a; overflow: hidden; }
+    body { font-family: 'IBM Plex Sans', system-ui, sans-serif; background: var(--bg-primary); overflow: hidden; }
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
     ::-webkit-scrollbar-thumb { background: rgba(168,85,247,0.3); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(168,85,247,0.5); }
+    .btn { padding: 6px 12px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; font-size: 12px; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.85; }
+    .dropdown-item { width: 100%; padding: 10px 12px; background: transparent; border: none; color: var(--text-primary); font-size: 13px; cursor: pointer; text-align: left; border-radius: 6px; }
+    .dropdown-item:hover { background: rgba(168,85,247,0.15); }
   </style>
 </head>
 <body>
@@ -200,35 +218,38 @@
     // ============================================================================
     // SUB-COMPONENTS
     // ============================================================================
-    function PropertyRow({ label, value, theme }) {
+    function PropertyRow({ label, value, theme, currentTheme }) {
+      const t = currentTheme || THEMES[theme] || THEMES.dark;
       return (
-        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: 'rgba(255,255,255,0.02)', borderRadius: '6px', fontSize: '13px' }}>
-          <span style={{ color: '#9ca3af' }}>{label}</span>
-          <span style={{ color: '#e5e7eb', textAlign: 'right', maxWidth: '60%', wordBreak: 'break-word' }}>{String(value)}</span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: t.cardBg, borderRadius: '6px', fontSize: '13px' }}>
+          <span style={{ color: t.textSecondary }}>{label}</span>
+          <span style={{ color: t.textPrimary, textAlign: 'right', maxWidth: '60%', wordBreak: 'break-word' }}>{String(value)}</span>
         </div>
       );
     }
 
-    function EdgeChip({ edge, direction, nodeMap, getNodeText, onClick }) {
-      const otherNodeId = direction === 'in' ? edge.source : edge.target;
+    function EdgeChip({ edge, direction, nodeMap, getNodeText, onClick, currentTheme }) {
+      const t = currentTheme || THEMES.dark;
+      const otherNodeId = direction === 'in' ? (typeof edge.source === 'object' ? edge.source.id : edge.source) : (typeof edge.target === 'object' ? edge.target.id : edge.target);
       const otherNode = nodeMap.get(otherNodeId);
       const color = BASE_EDGE_COLORS[edge.relation] || BASE_EDGE_COLORS.default;
       return (
         <div onClick={onClick} style={{
           display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', marginBottom: '6px',
-          background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${color}`,
+          background: t.cardBg, borderLeft: `3px solid ${color}`,
           borderRadius: '0 6px 6px 0', cursor: 'pointer', fontSize: '12px'
         }}>
           <span style={{ color }}>{direction === 'in' ? '←' : '→'}</span>
-          <span style={{ color: '#9ca3af', textTransform: 'uppercase', fontSize: '10px' }}>{edge.relation}</span>
-          <span style={{ color: '#e5e7eb', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span style={{ color: t.textSecondary, textTransform: 'uppercase', fontSize: '10px' }}>{edge.relation}</span>
+          <span style={{ color: t.textPrimary, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {otherNode ? getNodeText(otherNode).substring(0, 30) : otherNodeId}
           </span>
         </div>
       );
     }
 
-    function ToulminView({ argumentId, getToulmin, getNodeText }) {
+    function ToulminView({ argumentId, getToulmin, getNodeText, currentTheme }) {
+      const t = currentTheme || THEMES.dark;
       const toulmin = getToulmin(argumentId);
       if (!toulmin) return null;
       const sections = [
@@ -239,21 +260,32 @@
       ];
       return (
         <div style={{ marginBottom: '20px' }}>
-          <h4 style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#9ca3af', textTransform: 'uppercase' }}>Toulmin Structure</h4>
+          <h4 style={{ margin: '0 0 12px 0', fontSize: '13px', color: t.textSecondary, textTransform: 'uppercase' }}>Toulmin Structure</h4>
+          {toulmin.claim && (
+            <div style={{ padding: '8px 12px', marginBottom: '12px', background: t.cardBg, borderLeft: '3px solid #a855f7', borderRadius: '0 6px 6px 0', fontSize: '13px', color: t.textPrimary }}>
+              <span style={{ fontSize: '11px', color: t.textSecondary, textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>Claim</span>
+              {toulmin.claim}
+            </div>
+          )}
+          {toulmin.qualifier && (
+            <div style={{ padding: '6px 12px', marginBottom: '12px', fontSize: '12px', color: t.textSecondary }}>
+              Qualifier (confidence): <strong style={{ color: t.textPrimary }}>{toulmin.qualifier}</strong>
+            </div>
+          )}
           {sections.map(sec => (
             toulmin[sec.key]?.length > 0 && (
               <div key={sec.key} style={{ marginBottom: '12px' }}>
                 <div style={{ fontSize: '11px', color: sec.color.text, marginBottom: '6px' }}>{sec.icon} {sec.label}</div>
                 {toulmin[sec.key].map(node => (
-                  <div key={node.id} style={{ padding: '8px 10px', marginBottom: '4px', background: 'rgba(255,255,255,0.02)', borderLeft: `2px solid ${sec.color.border}`, borderRadius: '0 4px 4px 0', fontSize: '12px' }}>
+                  <div key={node.id} style={{ padding: '8px 10px', marginBottom: '4px', background: t.cardBg, borderLeft: `2px solid ${sec.color.border}`, borderRadius: '0 4px 4px 0', fontSize: '12px' }}>
                     {getNodeText(node).substring(0, 80)}
                   </div>
                 ))}
               </div>
             )
           ))}
-          {sections.every(sec => !toulmin[sec.key]?.length) && (
-            <div style={{ fontSize: '12px', color: '#4b5563' }}>No Toulmin elements found</div>
+          {sections.every(sec => !toulmin[sec.key]?.length) && !toulmin.claim && (
+            <div style={{ fontSize: '12px', color: t.textMuted }}>No Toulmin elements found</div>
           )}
         </div>
       );
@@ -270,7 +302,12 @@
       const bufferRows = 5;
 
       useEffect(() => {
-        if (containerRef.current) setContainerHeight(containerRef.current.clientHeight - 50);
+        if (!containerRef.current) return;
+        const observer = new ResizeObserver(entries => {
+          for (const entry of entries) setContainerHeight(entry.contentRect.height - 50);
+        });
+        observer.observe(containerRef.current);
+        return () => observer.disconnect();
       }, []);
 
       const totalHeight = nodes.length * rowHeight;
@@ -305,7 +342,7 @@
                       </div>
                       <div style={{ width: '140px', padding: '8px 12px', flexShrink: 0, fontFamily: 'IBM Plex Mono, monospace', fontSize: '10px', color: currentTheme.textSecondary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{node.id}</div>
                       <div style={{ flex: 1, padding: '8px 12px', minWidth: '200px', fontSize: '12px', color: currentTheme.textPrimary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                        {getNodeText(node).substring(0, 100)}{getNodeText(node).length > 100 ? '...' : ''}
+                        {(() => { const t = getNodeText(node); return t.substring(0, 100) + (t.length > 100 ? '...' : ''); })()}
                       </div>
                       <div style={{ width: '100px', padding: '8px 12px', flexShrink: 0 }}>
                         <span style={{ color: node.confidence === 'high' ? '#10b981' : node.confidence === 'medium' ? '#f59e0b' : '#ef4444', fontSize: '11px' }}>{node.confidence || 'N/A'}</span>
@@ -327,7 +364,8 @@
     // ============================================================================
     // EXPORT DROPDOWN
     // ============================================================================
-    function ExportDropdown({ graphData, svgRef, stats }) {
+    function ExportDropdown({ graphData, svgRef, stats, currentTheme }) {
+      const t = currentTheme || THEMES.dark;
       const [isOpen, setIsOpen] = useState(false);
       const exportJSON = () => {
         if (!graphData) return;
@@ -336,35 +374,56 @@
         link.download = `legal-graph-${graphData?.case_id || 'export'}.json`;
         link.href = URL.createObjectURL(blob);
         link.click();
-        URL.revokeObjectURL(link.href);
+        setTimeout(() => URL.revokeObjectURL(link.href), 1000);
         setIsOpen(false);
       };
       const exportSVG = () => {
         if (!svgRef.current) return;
-        const svgData = new XMLSerializer().serializeToString(svgRef.current);
+        const svgClone = svgRef.current.cloneNode(true);
+        const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        bg.setAttribute('width', '100%'); bg.setAttribute('height', '100%'); bg.setAttribute('fill', t.name === 'dark' ? '#0f0f1a' : '#f8fafc');
+        svgClone.insertBefore(bg, svgClone.firstChild);
+        const svgData = new XMLSerializer().serializeToString(svgClone);
         const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
         const link = document.createElement('a');
         link.download = `legal-graph-${graphData?.case_id || 'export'}.svg`;
         link.href = URL.createObjectURL(blob);
         link.click();
-        URL.revokeObjectURL(link.href);
+        setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+        setIsOpen(false);
+      };
+      const exportPNG = () => {
+        if (!svgRef.current) return;
+        const svgClone = svgRef.current.cloneNode(true);
+        const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        bg.setAttribute('width', '100%'); bg.setAttribute('height', '100%'); bg.setAttribute('fill', t.name === 'dark' ? '#0f0f1a' : '#f8fafc');
+        svgClone.insertBefore(bg, svgClone.firstChild);
+        const svgData = new XMLSerializer().serializeToString(svgClone);
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        img.onload = () => {
+          canvas.width = img.width; canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          const pngUrl = canvas.toDataURL('image/png');
+          const link = document.createElement('a');
+          link.download = `legal-graph-${graphData?.case_id || 'export'}.png`;
+          link.href = pngUrl;
+          link.click();
+        };
+        img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
         setIsOpen(false);
       };
       return (
         <div style={{ position: 'relative' }}>
-          <button onClick={() => setIsOpen(!isOpen)} style={{ padding: '6px 12px', background: 'rgba(168,85,247,0.2)', border: '1px solid rgba(168,85,247,0.4)', borderRadius: '6px', color: '#d8b4fe', fontSize: '12px', cursor: 'pointer' }}>
+          <button onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-haspopup="true" style={{ padding: '6px 12px', background: 'rgba(168,85,247,0.2)', border: '1px solid rgba(168,85,247,0.4)', borderRadius: '6px', color: '#d8b4fe', fontSize: '12px', cursor: 'pointer' }}>
             📤 Export
           </button>
           {isOpen && (
-            <div style={{ position: 'absolute', top: '100%', right: 0, marginTop: '4px', background: 'rgba(30,30,50,0.98)', border: '1px solid rgba(168,85,247,0.3)', borderRadius: '8px', padding: '6px', minWidth: '160px', zIndex: 1000 }}>
-              <button onClick={exportSVG} style={{ width: '100%', padding: '10px 12px', background: 'transparent', border: 'none', color: '#e5e7eb', fontSize: '13px', cursor: 'pointer', textAlign: 'left', borderRadius: '6px' }}
-                onMouseEnter={e => e.target.style.background = 'rgba(255,255,255,0.1)'} onMouseLeave={e => e.target.style.background = 'transparent'}>
-                📐 Export SVG
-              </button>
-              <button onClick={exportJSON} style={{ width: '100%', padding: '10px 12px', background: 'transparent', border: 'none', color: '#e5e7eb', fontSize: '13px', cursor: 'pointer', textAlign: 'left', borderRadius: '6px' }}
-                onMouseEnter={e => e.target.style.background = 'rgba(255,255,255,0.1)'} onMouseLeave={e => e.target.style.background = 'transparent'}>
-                📋 JSON Export
-              </button>
+            <div style={{ position: 'absolute', top: '100%', right: 0, marginTop: '4px', background: t.sidebarBg, border: `1px solid ${t.borderColor}`, borderRadius: '8px', padding: '6px', minWidth: '160px', zIndex: 1000 }}>
+              <button onClick={exportSVG} className="dropdown-item">📐 Export SVG</button>
+              <button onClick={exportPNG} className="dropdown-item">🖼️ Export PNG</button>
+              <button onClick={exportJSON} className="dropdown-item">📋 JSON Export</button>
             </div>
           )}
         </div>
@@ -376,6 +435,10 @@
     // ============================================================================
     function Minimap({ nodes, edges, width = 150, height = 100, zoomTransform, containerRef, zoomRef }) {
       const minimapRef = useRef(null);
+      const viewportRef = useRef(null);
+      const scaleRef = useRef({ scale: 1, offsetX: 0, offsetY: 0 });
+
+      // Structure effect — draws circles and lines
       useEffect(() => {
         if (!minimapRef.current || !nodes.length) return;
         const svg = d3.select(minimapRef.current);
@@ -391,6 +454,7 @@
         const scale = Math.min(scaleX, scaleY);
         const offsetX = padding - xExtent[0] * scale + (width - padding * 2 - (xExtent[1] - xExtent[0]) * scale) / 2;
         const offsetY = padding - yExtent[0] * scale + (height - padding * 2 - (yExtent[1] - yExtent[0]) * scale) / 2;
+        scaleRef.current = { scale, offsetX, offsetY };
 
         svg.selectAll('line').data(edges.filter(e => e.source?.x && e.target?.x)).enter().append('line')
           .attr('x1', d => d.source.x * scale + offsetX).attr('y1', d => d.source.y * scale + offsetY)
@@ -399,16 +463,27 @@
         svg.selectAll('circle').data(positionedNodes).enter().append('circle')
           .attr('cx', d => d.x * scale + offsetX).attr('cy', d => d.y * scale + offsetY)
           .attr('r', 2).attr('fill', d => NODE_COLORS[d.nodeType || d.type]?.border || '#666');
-        if (zoomTransform && containerRef.current) {
+        viewportRef.current = svg.append('rect')
+          .attr('fill', 'none').attr('stroke', '#a855f7').attr('stroke-width', 1.5).attr('rx', 2);
+      }, [nodes, edges, width, height]);
+
+      // Viewport effect — only updates the viewport rect
+      useEffect(() => {
+        if (!viewportRef.current || !containerRef.current) return;
+        const { scale, offsetX, offsetY } = scaleRef.current;
+        if (zoomTransform) {
           const cw = containerRef.current.clientWidth, ch = containerRef.current.clientHeight;
-          svg.append('rect')
+          viewportRef.current
             .attr('x', (-zoomTransform.x / zoomTransform.k) * scale + offsetX)
             .attr('y', (-zoomTransform.y / zoomTransform.k) * scale + offsetY)
             .attr('width', (cw / zoomTransform.k) * scale)
             .attr('height', (ch / zoomTransform.k) * scale)
-            .attr('fill', 'none').attr('stroke', '#a855f7').attr('stroke-width', 1.5).attr('rx', 2);
+            .attr('visibility', 'visible');
+        } else {
+          viewportRef.current.attr('visibility', 'hidden');
         }
-      }, [nodes, edges, width, height, zoomTransform, containerRef]);
+      }, [zoomTransform, containerRef]);
+
       return <svg ref={minimapRef} width={width} height={height} style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '6px', cursor: 'pointer' }} />;
     }
 
@@ -423,8 +498,9 @@
       const [activeTab, setActiveTab] = useState('graph');
       const [filterTypes, setFilterTypes] = useState(new Set(['fact', 'concept', 'issue', 'argument', 'holding', 'precedent', 'outcome', 'justification_set']));
       const [searchQuery, setSearchQuery] = useState('');
+      const [searchMode, setSearchMode] = useState('filter');
       const [highlightedChain, setHighlightedChain] = useState(null);
-      const [counterfactualNode, setCounterfactualNode] = useState(null);
+      const [counterfactualNodes, setCounterfactualNodes] = useState(new Set());
       const [fileLoaded, setFileLoaded] = useState(false);
       const [hoveredNode, setHoveredNode] = useState(null);
       const [theme, setTheme] = useState('dark');
@@ -437,12 +513,25 @@
       const [showAllNodes, setShowAllNodes] = useState(false);
       const [expandedCluster, setExpandedCluster] = useState(null);
 
+      const [toast, setToast] = useState(null);
+
       const svgRef = useRef(null);
       const containerRef = useRef(null);
       const searchInputRef = useRef(null);
       const zoomRef = useRef(null);
+      const simulationRef = useRef(null);
+      const linkSelRef = useRef(null);
+      const nodeSelRef = useRef(null);
+      const edgeLabelSelRef = useRef(null);
 
       const currentTheme = THEMES[theme];
+
+      // Auto-dismiss toast
+      useEffect(() => {
+        if (!toast) return;
+        const timer = setTimeout(() => setToast(null), 5000);
+        return () => clearTimeout(timer);
+      }, [toast]);
 
       // ============================================================================
       // DATA PROCESSING
@@ -491,17 +580,63 @@
         return [...rels];
       }, [graphData]);
 
+      // ============================================================================
+      // HELPER FUNCTIONS (must be above filteredNodes/clusters which use them)
+      // ============================================================================
+      function getConceptLabel(conceptId, node) {
+        // Priority: unlisted_label > ontology label > cleaned concept_id
+        if (node?.unlisted_label) return node.unlisted_label;
+        if (ontologyData?.concepts?.[conceptId]?.label) return ontologyData.concepts[conceptId].label;
+        return conceptId?.replace(/_/g, ' ') || '';
+      }
+
+      const getNodeType = useCallback((node) => {
+        if (node.type) return node.type;
+        if (node.fact_type) return 'fact';
+        if (node.concept_id) return 'concept';
+        if (node.issue_number !== undefined) return 'issue';
+        if (node.claim) return 'argument';
+        if (node.is_ratio !== undefined) return 'holding';
+        if (node.citation) return 'precedent';
+        if (node.disposition) return 'outcome';
+        if (node.logic && node.target_id) return 'justification_set';
+        return 'unknown';
+      }, []);
+
+      // FIX #2: Concept labels now prefer unlisted_label
+      const getNodeText = useCallback((node) => {
+        const type = getNodeType(node);
+        switch (type) {
+          case 'fact': return node.text || '';
+          case 'concept': return node.unlisted_label || getConceptLabel(node.concept_id, node);
+          case 'issue': return node.text || '';
+          case 'argument': return node.claim || '';
+          case 'holding': return node.text || '';
+          case 'precedent': return node.citation || node.case_name || '';
+          case 'outcome': return node.disposition || '';
+          case 'justification_set': return node.label || `JS: ${node.logic?.toUpperCase()} → ${node.target_id}`;
+          default: return node.id;
+        }
+      }, [ontologyData]);
+
       const filteredNodes = useMemo(() => {
         return allNodes.filter(n => {
           const type = n.type || getNodeType(n);
           if (!filterTypes.has(type)) return false;
-          if (searchQuery) {
+          if (searchQuery && searchMode === 'filter') {
             const text = getNodeText(n).toLowerCase();
             if (!text.includes(searchQuery.toLowerCase())) return false;
           }
           return true;
         });
-      }, [allNodes, filterTypes, searchQuery]);
+      }, [allNodes, filterTypes, searchQuery, searchMode, ontologyData]);
+
+      // IDs matching the search query (for highlight mode)
+      const searchMatchIds = useMemo(() => {
+        if (!searchQuery || searchMode !== 'highlight') return null;
+        const q = searchQuery.toLowerCase();
+        return new Set(allNodes.filter(n => getNodeText(n).toLowerCase().includes(q)).map(n => n.id));
+      }, [allNodes, searchQuery, searchMode]);
 
       const filteredEdges = useMemo(() => {
         if (!graphData?.edges) return [];
@@ -545,13 +680,13 @@
             if (e.source === cid) connectedIds.add(e.target);
             if (e.target === cid) connectedIds.add(e.source);
           });
-          const members = { facts: [], concepts: [cid], precedents: [], arguments: [], issues: [], holdings: [] };
+          const members = { facts: [], concepts: [cid], precedents: [], arguments: [], issues: [], holdings: [], outcomes: [], justification_sets: [] };
+          const typeToKey = { fact:'facts', concept:'concepts', issue:'issues', argument:'arguments', holding:'holdings', precedent:'precedents', outcome:'outcomes', justification_set:'justification_sets' };
           connectedIds.forEach(id => {
             const node = nodeMap.get(id);
             if (!node) return;
-            const type = getNodeType(node);
-            if (members[type + 's']) members[type + 's'].push(id);
-            else if (type === 'precedent') members.precedents.push(id);
+            const key = typeToKey[getNodeType(node)];
+            if (key && members[key]) members[key].push(id);
           });
           // Look up ontology for requirements
           let requires = [], logic = 'and', satisfied = {};
@@ -576,53 +711,6 @@
       }, [graphData, nodeMap, ontologyData]);
 
       // ============================================================================
-      // FIX #2: HUMAN-READABLE CONCEPT LABELS
-      // ============================================================================
-      function getConceptLabel(conceptId, node) {
-        // Priority: unlisted_label > ontology label > cleaned concept_id
-        if (node?.unlisted_label) return node.unlisted_label;
-        if (ontologyData?.concepts?.[conceptId]?.label) return ontologyData.concepts[conceptId].label;
-        return conceptId?.replace(/_/g, ' ') || '';
-      }
-
-      // ============================================================================
-      // HELPER FUNCTIONS
-      // ============================================================================
-      function getNodeType(node) {
-        if (node.type) return node.type;
-        if (node.fact_type) return 'fact';
-        if (node.concept_id) return 'concept';
-        if (node.issue_number !== undefined) return 'issue';
-        if (node.claim) return 'argument';
-        if (node.is_ratio !== undefined) return 'holding';
-        if (node.citation) return 'precedent';
-        if (node.disposition) return 'outcome';
-        if (node.logic && node.target_id) return 'justification_set';
-        return 'unknown';
-      }
-
-      // FIX #2: Concept labels now prefer unlisted_label
-      function getNodeText(node) {
-        const type = getNodeType(node);
-        switch (type) {
-          case 'fact': return node.text || '';
-          case 'concept': return node.unlisted_label || getConceptLabel(node.concept_id, node);
-          case 'issue': return node.text || '';
-          case 'argument': return node.claim || '';
-          case 'holding': return node.text || '';
-          case 'precedent': return node.citation || node.case_name || '';
-          case 'outcome': return node.disposition || '';
-          case 'justification_set': return node.label || `JS: ${node.logic?.toUpperCase()} → ${node.target_id}`;
-          default: return node.id;
-        }
-      }
-
-      function getNodeLabel(node) {
-        const text = getNodeText(node);
-        return text.length > 60 ? text.substring(0, 57) + '...' : text;
-      }
-
-      // ============================================================================
       // STATS
       // ============================================================================
       const stats = useMemo(() => {
@@ -643,6 +731,29 @@
       }, [graphData]);
 
       // ============================================================================
+      // SCHEMA VALIDATION
+      // ============================================================================
+      function validateGraph(data) {
+        const warnings = [];
+        if (!data) return ['No data provided'];
+        if (!Array.isArray(data.edges)) warnings.push('edges is not an array');
+        ['facts','concepts','issues','arguments','holdings','precedents'].forEach(k => {
+          if (data[k] && !Array.isArray(data[k])) warnings.push(`${k} is not an array`);
+        });
+        const nodeIds = new Set();
+        ['facts','concepts','issues','arguments','holdings','precedents','justification_sets'].forEach(k => {
+          (data[k] || []).forEach(n => { if (!n.id) warnings.push(`Node in ${k} missing id`); else nodeIds.add(n.id); });
+        });
+        if (data.outcome?.id) nodeIds.add(data.outcome.id);
+        (data.edges || []).forEach(e => {
+          if (!e.source || !e.target) warnings.push(`Edge ${e.id} missing source/target`);
+          if (e.source && !nodeIds.has(e.source)) warnings.push(`Edge ${e.id} references unknown source: ${e.source}`);
+          if (e.target && !nodeIds.has(e.target)) warnings.push(`Edge ${e.id} references unknown target: ${e.target}`);
+        });
+        return warnings;
+      }
+
+      // ============================================================================
       // FILE HANDLING
       // ============================================================================
       const handleFileUpload = (event) => {
@@ -652,14 +763,18 @@
         reader.onload = (e) => {
           try {
             const data = JSON.parse(e.target.result);
+            const warnings = validateGraph(data);
+            if (warnings.length > 0) {
+              setToast({ type: 'warning', message: `Graph loaded with ${warnings.length} warning(s): ${warnings.slice(0, 3).join('; ')}${warnings.length > 3 ? '...' : ''}` });
+            }
             setGraphData(data);
             setFileLoaded(true);
             setSelectedNode(null);
             setSelectedEdge(null);
             setHighlightedChain(null);
-            setCounterfactualNode(null);
+            setCounterfactualNodes(new Set());
           } catch (err) {
-            alert('Invalid JSON file: ' + err.message);
+            setToast({ type: 'error', message: 'Invalid JSON file: ' + err.message });
           }
         };
         reader.readAsText(file);
@@ -673,7 +788,7 @@
           try {
             setOntologyData(JSON.parse(e.target.result));
           } catch (err) {
-            alert('Invalid ontology JSON: ' + err.message);
+            setToast({ type: 'error', message: 'Invalid ontology JSON: ' + err.message });
           }
         };
         reader.readAsText(file);
@@ -701,15 +816,17 @@
         d3.select(svgRef.current).transition().duration(500).call(zoomRef.current.transform, d3.zoomIdentity.translate(w / 2, h / 2).scale(0.8));
       }, []);
 
-      // BFS path finding
-      const findPath = useCallback((startId, endId) => {
+      // BFS path finding — directed first, falls back to undirected
+      const findPath = useCallback((startId, endId, directed = true) => {
         if (!graphData?.edges) return null;
         const adj = {};
         graphData.edges.forEach(e => {
           if (!adj[e.source]) adj[e.source] = [];
-          if (!adj[e.target]) adj[e.target] = [];
           adj[e.source].push({ node: e.target, edge: e.id });
-          adj[e.target].push({ node: e.source, edge: e.id });
+          if (!directed) {
+            if (!adj[e.target]) adj[e.target] = [];
+            adj[e.target].push({ node: e.source, edge: e.id });
+          }
         });
         const queue = [[startId, [startId], []]];
         const visited = new Set([startId]);
@@ -720,8 +837,26 @@
             if (!visited.has(neighbor)) { visited.add(neighbor); queue.push([neighbor, [...path, neighbor], [...edges, edge]]); }
           }
         }
+        if (directed) return findPath(startId, endId, false);
         return null;
       }, [graphData]);
+
+      // URL hash state sync (E3)
+      useEffect(() => {
+        const params = new URLSearchParams(window.location.hash.slice(1));
+        if (params.get('tab')) setActiveTab(params.get('tab'));
+        if (params.get('chain')) setHighlightedChain(params.get('chain'));
+        if (params.get('q')) setSearchQuery(params.get('q'));
+      }, []);
+
+      useEffect(() => {
+        const params = new URLSearchParams();
+        if (activeTab !== 'graph') params.set('tab', activeTab);
+        if (highlightedChain) params.set('chain', highlightedChain);
+        if (searchQuery) params.set('q', searchQuery);
+        const hash = params.toString();
+        window.history.replaceState(null, '', hash ? `#${hash}` : window.location.pathname);
+      }, [activeTab, highlightedChain, searchQuery]);
 
       // Keyboard shortcuts
       useEffect(() => {
@@ -749,14 +884,12 @@
       // FIX #5: ONTOLOGY-DRIVEN COUNTERFACTUAL
       // ============================================================================
       const counterfactualResult = useMemo(() => {
-        if (!counterfactualNode || !graphData) return null;
-        const removedId = counterfactualNode;
-        const removedNode = nodeMap.get(removedId);
-        const removedType = removedNode ? getNodeType(removedNode) : 'unknown';
+        if (counterfactualNodes.size === 0 || !graphData) return null;
+        const removedIds = counterfactualNodes;
 
         const result = {
-          removedNode: removedId,
-          removedType,
+          removedNodes: [...removedIds],
+          removedCount: removedIds.size,
           brokenRequirements: [],
           affectedHoldings: [],
           unaffectedHoldings: [],
@@ -767,25 +900,26 @@
         // Check cluster-level requirement breakage
         clusters.forEach(cluster => {
           const allMemberIds = Object.values(cluster.members).flat();
-          if (!allMemberIds.includes(removedId)) return;
+          if (!allMemberIds.some(id => removedIds.has(id))) return;
 
           const brokenReqs = [];
           if (cluster.satisfied_requirements) {
             Object.entries(cluster.satisfied_requirements).forEach(([req, satisfierId]) => {
-              if (satisfierId === removedId) {
+              if (removedIds.has(satisfierId)) {
                 brokenReqs.push(req);
               }
             });
           }
 
-          if (brokenReqs.length > 0 || allMemberIds.includes(removedId)) {
-            result.affectedClusters.push({
+          result.affectedClusters.push({
               concept_id: cluster.concept_id,
               concept_label: cluster.concept_label,
               logic: cluster.logic,
               brokenReqs,
               isFullyBroken: cluster.logic === 'and' && brokenReqs.length > 0,
+              memberOnly: brokenReqs.length === 0,
             });
+          if (brokenReqs.length > 0) {
             result.brokenRequirements.push(...brokenReqs.map(r => ({
               requirement: r,
               cluster: cluster.concept_label,
@@ -796,22 +930,19 @@
 
         // Check holdings via justification sets
         (graphData.holdings || []).forEach(h => {
-          // Find all JS targeting this holding
           const jsForHolding = (graphData.justification_sets || []).filter(js => js.target_id === h.id);
-          // Find direct edges from removed node to holding
-          const directEdges = (graphData.edges || []).filter(e => e.source === removedId && e.target === h.id);
-          // Find edges that are part of JS and include removed node
+          const directEdges = (graphData.edges || []).filter(e => removedIds.has(e.source) && e.target === h.id);
           const affectedJS = [];
           const unaffectedJS = [];
 
           jsForHolding.forEach(js => {
             const jsEdges = (graphData.edges || []).filter(e => e.support_group_ids?.includes(js.id));
             const jsMemberIds = jsEdges.map(e => e.source);
-            if (jsMemberIds.includes(removedId)) {
+            if (jsMemberIds.some(id => removedIds.has(id))) {
               if (js.logic === 'and') {
                 affectedJS.push({ js, reason: `AND justification broken — removed node was a required member` });
               } else {
-                const remaining = jsMemberIds.filter(m => m !== removedId);
+                const remaining = jsMemberIds.filter(m => !removedIds.has(m));
                 if (remaining.length === 0) {
                   affectedJS.push({ js, reason: 'OR justification — no alternatives remain' });
                 } else {
@@ -846,11 +977,12 @@
         );
 
         return result;
-      }, [counterfactualNode, graphData, nodeMap, clusters]);
+      }, [counterfactualNodes, graphData, nodeMap, clusters]);
 
-      // Toulmin structure
+      // Toulmin structure — enhanced (E6)
       const getToulminStructure = useCallback((argumentId) => {
         if (!graphData) return null;
+        const argNode = nodeMap.get(argumentId);
         const grounds = [], warrants = [], backing = [], rebuttals = [];
         (graphData.edges || []).forEach(e => {
           if (e.target === argumentId) {
@@ -861,19 +993,27 @@
               if (sourceType === 'fact') grounds.push(sourceNode);
               else if (sourceType === 'concept') warrants.push(sourceNode);
               else if (sourceType === 'precedent') backing.push(sourceNode);
+            } else if (e.relation === 'grounds') {
+              if (sourceType === 'concept') warrants.push(sourceNode);
+              else grounds.push(sourceNode);
             } else if (['attacks', 'rebuts', 'undercuts'].includes(e.relation)) {
               rebuttals.push(sourceNode);
             }
           }
         });
-        return { grounds, warrants, backing, rebuttals };
+        return {
+          grounds, warrants, backing, rebuttals,
+          claim: argNode?.claim || null,
+          qualifier: argNode?.confidence || null,
+        };
       }, [graphData, nodeMap]);
 
       // ============================================================================
-      // D3 FORCE GRAPH
+      // D3 FORCE GRAPH — LAYOUT EFFECT
       // ============================================================================
       useEffect(() => {
         if (!svgRef.current || !containerRef.current || activeTab !== 'graph') return;
+        if (simulationRef.current) simulationRef.current.stop();
         const container = containerRef.current;
         const width = container.clientWidth, height = container.clientHeight;
         d3.select(svgRef.current).selectAll('*').remove();
@@ -894,6 +1034,13 @@
               if (aIsCritical !== bIsCritical) return aIsCritical - bIsCritical;
               return (priorityOrder[getNodeType(a)] || 10) - (priorityOrder[getNodeType(b)] || 10);
             }).slice(0, maxVisibleNodes);
+        }
+
+        // Empty graph guard (F3/Step 6.2)
+        if (nodesToRender.length === 0) {
+          svg.append('text').attr('x', width / 2).attr('y', height / 2).attr('text-anchor', 'middle').attr('fill', '#6b7280').attr('font-size', '16px').text('No nodes to display. Adjust filters or load data.');
+          linkSelRef.current = null; nodeSelRef.current = null; edgeLabelSelRef.current = null;
+          return;
         }
 
         const nodes = nodesToRender.map(n => ({ ...n, nodeType: getNodeType(n) }));
@@ -918,7 +1065,6 @@
             .force('x', d3.forceX(width / 2).strength(0.05))
             .force('collision', d3.forceCollide().radius(40));
         } else if (layoutType === 'concept-cluster') {
-          // FIX #1: TRUE CONCEPT-CENTRIC CLUSTER LAYOUT
           const conceptPositions = {};
           const conceptNodes = nodes.filter(n => n.nodeType === 'concept');
           const anglePer = (2 * Math.PI) / Math.max(conceptNodes.length, 1);
@@ -927,7 +1073,6 @@
             const angle = anglePer * i - Math.PI / 2;
             conceptPositions[c.id] = { x: width / 2 + clusterRadius * Math.cos(angle), y: height / 2 + clusterRadius * Math.sin(angle) };
           });
-          // Assign each node to its nearest concept via edges
           nodes.forEach(n => {
             if (n.nodeType === 'concept') return;
             if (n.nodeType === 'outcome') return;
@@ -936,9 +1081,11 @@
               .map(e => e.source === n.id ? e.target : e.source)
               .filter(id => conceptPositions[id]);
             if (connectedConcepts.length > 0) {
-              const pos = conceptPositions[connectedConcepts[0]];
-              n._clusterX = pos.x;
-              n._clusterY = pos.y;
+              // Step 5.1: Multi-concept centroid positioning
+              const avgX = connectedConcepts.reduce((s, id) => s + conceptPositions[id].x, 0) / connectedConcepts.length;
+              const avgY = connectedConcepts.reduce((s, id) => s + conceptPositions[id].y, 0) / connectedConcepts.length;
+              n._clusterX = avgX;
+              n._clusterY = avgY;
             }
           });
           simulation = d3.forceSimulation(nodes)
@@ -976,13 +1123,12 @@
             .force('center', d3.forceCenter(width / 2, height / 2))
             .force('collision', d3.forceCollide().radius(50));
         }
+        simulationRef.current = simulation;
 
-        // Defs: arrow markers for ALL relations (FIX #4)
+        // Defs: arrow markers
         const defs = svg.append('defs');
-        // Default marker
         defs.append('marker').attr('id', 'arrow-default').attr('viewBox', '0 -5 10 10').attr('refX', 28).attr('refY', 0).attr('markerWidth', 8).attr('markerHeight', 8).attr('orient', 'auto')
           .append('path').attr('fill', '#6b7280').attr('d', 'M0,-4L8,0L0,4Z');
-        // Markers for all known relations
         Object.entries(edgeColors).forEach(([relation, color]) => {
           if (relation === 'default') return;
           defs.append('marker').attr('id', `arrow-${relation}`).attr('viewBox', '0 -5 10 10').attr('refX', 28).attr('refY', 0).attr('markerWidth', 8).attr('markerHeight', 8).attr('orient', 'auto')
@@ -999,38 +1145,26 @@
         const linkGroup = g.append('g').attr('class', 'links');
         const link = linkGroup.selectAll('path').data(links).enter().append('path')
           .attr('fill', 'none')
-          .attr('stroke', d => {
-            if (foundPath?.edges?.includes(d.id)) return '#f59e0b';
-            return edgeColors[d.relation] || edgeColors.default;
-          })
-          .attr('stroke-width', d => {
-            if (foundPath?.edges?.includes(d.id)) return 4;
-            return d.is_critical ? 3 : d.strength === 'strong' ? 2 : 1;
-          })
-          .attr('stroke-opacity', d => {
-            if (foundPath?.edges?.includes(d.id)) return 1;
-            if (highlightedChain) {
-              const chain = graphData.reasoning_chains?.find(c => c.id === highlightedChain);
-              return chain?.edge_ids?.includes(d.id) ? 1 : 0.15;
-            }
-            return 0.7;
-          })
+          .attr('stroke', d => edgeColors[d.relation] || edgeColors.default)
+          .attr('stroke-width', d => d.is_critical ? 3 : d.strength === 'strong' ? 2 : 1)
+          .attr('stroke-opacity', 0.7)
           .attr('stroke-dasharray', d => d.strength === 'weak' ? '4,4' : null)
           .attr('marker-end', d => {
-            // FIX #4: Use default marker if relation-specific marker not defined
             const markerId = edgeColors[d.relation] ? `arrow-${d.relation}` : 'arrow-default';
             return `url(#${markerId})`;
           })
           .style('cursor', 'pointer')
           .on('click', (event, d) => { event.stopPropagation(); setSelectedEdge(d); setSelectedNode(null); })
           .on('mouseenter', function(event, d) { d3.select(this).attr('stroke-width', d.is_critical ? 5 : 4); })
-          .on('mouseleave', function(event, d) { d3.select(this).attr('stroke-width', foundPath?.edges?.includes(d.id) ? 4 : d.is_critical ? 3 : d.strength === 'strong' ? 2 : 1); });
+          .on('mouseleave', function(event, d) { d3.select(this).attr('stroke-width', d.is_critical ? 3 : d.strength === 'strong' ? 2 : 1); });
+        linkSelRef.current = link;
 
         // Edge labels
         const edgeLabels = linkGroup.selectAll('text').data(links).enter().append('text')
           .text(d => d.relation)
-          .attr('font-size', '9px').attr('fill', '#6b7280').attr('text-anchor', 'middle').attr('dy', -6)
+          .attr('font-size', '9px').attr('fill', currentTheme.textMuted).attr('text-anchor', 'middle').attr('dy', -6)
           .style('pointer-events', 'none').style('opacity', 0);
+        edgeLabelSelRef.current = edgeLabels;
 
         // Nodes
         const nodeGroup = g.append('g').attr('class', 'nodes');
@@ -1047,10 +1181,11 @@
               else { setFoundPath(findPath(pathSource, d.id)); setPathSource(null); setPathFindingMode(false); }
             } else { setSelectedNode(d); setSelectedEdge(null); }
           })
-          .on('mouseenter', (event, d) => { setHoveredNode(d); })
+          .on('mouseenter', (event, d) => { setHoveredNode({ ...d, _screenX: event.clientX, _screenY: event.clientY }); })
           .on('mouseleave', () => { setHoveredNode(null); });
+        nodeSelRef.current = node;
 
-        // Node shapes: diamond for JS, circle for rest
+        // Node shapes
         node.each(function(d) {
           const el = d3.select(this);
           const colors = NODE_COLORS[d.nodeType] || NODE_COLORS.fact;
@@ -1079,11 +1214,13 @@
           .attr('fill', d => NODE_COLORS[d.nodeType]?.text || '#ccc')
           .style('pointer-events', 'none');
 
-        // Tick
+        // Tick — includes self-loop handling (Step 6.1)
         simulation.on('tick', () => {
           link.attr('d', d => {
             const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
-            const dr = Math.sqrt(dx * dx + dy * dy) * 2;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 1) return `M${d.source.x},${d.source.y}A20,20 0 1,1 ${d.source.x + 1},${d.source.y + 1}`;
+            const dr = dist * 2;
             return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
           });
           edgeLabels.attr('x', d => (d.source.x + d.target.x) / 2).attr('y', d => (d.source.y + d.target.y) / 2);
@@ -1093,13 +1230,69 @@
         svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(width / 2, height / 2).scale(0.8));
 
         return () => simulation.stop();
-      }, [filteredNodes, filteredEdges, activeTab, layoutType, highlightedChain, foundPath, showAllNodes, maxVisibleNodes, edgeColors]);
+      }, [filteredNodes, filteredEdges, activeTab, layoutType, showAllNodes, maxVisibleNodes, edgeColors]);
+
+      // ============================================================================
+      // D3 STYLING EFFECT — runs on highlight/path changes without rebuilding layout
+      // ============================================================================
+      useEffect(() => {
+        const link = linkSelRef.current;
+        const node = nodeSelRef.current;
+        if (!link || !node) return;
+
+        link
+          .attr('stroke', d => {
+            if (foundPath?.edges?.includes(d.id)) return '#f59e0b';
+            return edgeColors[d.relation] || edgeColors.default;
+          })
+          .attr('stroke-width', d => {
+            if (foundPath?.edges?.includes(d.id)) return 4;
+            return d.is_critical ? 3 : d.strength === 'strong' ? 2 : 1;
+          })
+          .attr('stroke-opacity', d => {
+            if (foundPath?.edges?.includes(d.id)) return 1;
+            if (highlightedChain) {
+              const chain = graphData?.reasoning_chains?.find(c => c.id === highlightedChain);
+              return chain?.edge_ids?.includes(d.id) ? 1 : 0.15;
+            }
+            return 0.7;
+          });
+
+        node.attr('opacity', d => {
+          if (highlightedChain) {
+            const chain = graphData?.reasoning_chains?.find(c => c.id === highlightedChain);
+            const chainNodeIds = [...(chain?.fact_ids || []), ...(chain?.concept_ids || []), ...(chain?.argument_ids || []), chain?.holding_id, chain?.justification_set_id].filter(Boolean);
+            return chainNodeIds.includes(d.id) ? 1 : 0.2;
+          }
+          if (foundPath?.nodes?.includes(d.id)) return 1;
+          if (foundPath) return 0.2;
+          if (searchMatchIds) return searchMatchIds.has(d.id) ? 1 : 0.15;
+          return 1;
+        })
+        .attr('filter', d => {
+          if (searchMatchIds && searchMatchIds.has(d.id)) return 'url(#glow)';
+          return null;
+        });
+      }, [highlightedChain, foundPath, edgeColors, graphData, searchMatchIds]);
+
+      // Memoize edge connections for the right sidebar (B2)
+      const { incomingEdges, outgoingEdges } = useMemo(() => {
+        if (!selectedNode || !graphData?.edges) return { incomingEdges: [], outgoingEdges: [] };
+        const incoming = [], outgoing = [];
+        graphData.edges.forEach(e => {
+          const src = typeof e.source === 'object' ? e.source.id : e.source;
+          const tgt = typeof e.target === 'object' ? e.target.id : e.target;
+          if (tgt === selectedNode.id) incoming.push(e);
+          if (src === selectedNode.id) outgoing.push(e);
+        });
+        return { incomingEdges: incoming, outgoingEdges: outgoing };
+      }, [selectedNode, graphData]);
 
       // ============================================================================
       // RENDER
       // ============================================================================
       return (
-        <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', background: currentTheme.bg, color: currentTheme.textPrimary }}>
+        <div data-theme={theme} style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', background: currentTheme.bg, color: currentTheme.textPrimary }}>
           {/* HEADER */}
           <header style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -1134,8 +1327,8 @@
                 <option value="radial">Radial</option>
               </select>
 
-              <ExportDropdown graphData={graphData} svgRef={svgRef} stats={stats} />
-              <button onClick={toggleTheme} style={{ padding: '6px 12px', background: currentTheme.inputBg, border: `1px solid ${currentTheme.inputBorder}`, borderRadius: '6px', color: currentTheme.textPrimary, fontSize: '12px', cursor: 'pointer' }}>
+              <ExportDropdown graphData={graphData} svgRef={svgRef} stats={stats} currentTheme={currentTheme} />
+              <button onClick={toggleTheme} aria-label="Toggle theme" style={{ padding: '6px 12px', background: currentTheme.inputBg, border: `1px solid ${currentTheme.inputBorder}`, borderRadius: '6px', color: currentTheme.textPrimary, fontSize: '12px', cursor: 'pointer' }}>
                 {theme === 'dark' ? '☀️' : '🌙'}
               </button>
 
@@ -1156,10 +1349,16 @@
             {/* LEFT SIDEBAR */}
             <aside style={{ width: '280px', background: currentTheme.sidebarBg, borderRight: `1px solid ${currentTheme.borderColor}`, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
               {/* Search */}
-              <div style={{ padding: '16px', borderBottom: `1px solid ${currentTheme.cardBorder}` }}>
+              <div role="search" style={{ padding: '16px', borderBottom: `1px solid ${currentTheme.cardBorder}` }}>
                 <input ref={searchInputRef} type="text" placeholder="🔍 Search nodes... (/ or Ctrl+F)" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} style={{
-                  width: '100%', padding: '10px 14px', background: currentTheme.inputBg, border: `1px solid ${currentTheme.inputBorder}`, borderRadius: '8px', color: currentTheme.textPrimary, fontSize: '13px', outline: 'none'
+                  width: '100%', padding: '10px 14px', background: currentTheme.inputBg, border: `1px solid ${currentTheme.inputBorder}`, borderRadius: '8px', color: currentTheme.textPrimary, fontSize: '13px', outline: 'none', marginBottom: searchQuery ? '8px' : 0
                 }} />
+                {searchQuery && (
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    <button onClick={() => setSearchMode('filter')} style={{ flex: 1, padding: '5px 8px', fontSize: '11px', borderRadius: '5px', cursor: 'pointer', border: `1px solid ${searchMode === 'filter' ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`, background: searchMode === 'filter' ? 'rgba(168,85,247,0.2)' : 'transparent', color: searchMode === 'filter' ? '#d8b4fe' : currentTheme.textSecondary }}>Filter</button>
+                    <button onClick={() => setSearchMode('highlight')} style={{ flex: 1, padding: '5px 8px', fontSize: '11px', borderRadius: '5px', cursor: 'pointer', border: `1px solid ${searchMode === 'highlight' ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`, background: searchMode === 'highlight' ? 'rgba(168,85,247,0.2)' : 'transparent', color: searchMode === 'highlight' ? '#d8b4fe' : currentTheme.textSecondary }}>Highlight</button>
+                  </div>
+                )}
               </div>
 
               {/* FIX #3: Node Type Filters - NOW includes justification_set */}
@@ -1225,7 +1424,7 @@
             {/* CENTER */}
             <main style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               {/* Tabs */}
-              <div style={{ display: 'flex', gap: '4px', padding: '12px 16px', background: theme === 'dark' ? 'rgba(20,20,35,0.8)' : 'rgba(255,255,255,0.8)', borderBottom: `1px solid ${currentTheme.cardBorder}`, flexWrap: 'wrap' }}>
+              <div role="tablist" style={{ display: 'flex', gap: '4px', padding: '12px 16px', background: theme === 'dark' ? 'rgba(20,20,35,0.8)' : 'rgba(255,255,255,0.8)', borderBottom: `1px solid ${currentTheme.cardBorder}`, flexWrap: 'wrap' }}>
                 {[
                   { id: 'graph', label: '🕸️ Graph', key: '1' },
                   { id: 'cluster', label: '🧩 Clusters', key: '2' },
@@ -1234,7 +1433,7 @@
                   { id: 'counterfactual', label: '🔮 Counterfactual', key: '5' },
                   { id: 'source', label: '📄 Provenance', key: '6' }
                 ].map(tab => (
-                  <button key={tab.id} onClick={() => setActiveTab(tab.id)} title={`Press ${tab.key}`} style={{
+                  <button key={tab.id} role="tab" id={`tab-${tab.id}`} aria-selected={activeTab === tab.id} onClick={() => setActiveTab(tab.id)} title={`Press ${tab.key}`} style={{
                     padding: '8px 16px',
                     background: activeTab === tab.id ? 'linear-gradient(135deg, rgba(168,85,247,0.3), rgba(236,72,153,0.3))' : 'transparent',
                     border: `1px solid ${activeTab === tab.id ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`,
@@ -1251,10 +1450,16 @@
               {/* ================================================================ */}
               {activeTab === 'graph' && (
                 <div ref={containerRef} style={{ flex: 1, position: 'relative' }}>
-                  <svg ref={svgRef} style={{ width: '100%', height: '100%', background: 'transparent' }} />
+                  <svg ref={svgRef} aria-label="Legal reasoning graph visualization" style={{ width: '100%', height: '100%', background: 'transparent' }} />
 
-                  {hoveredNode && (
-                    <div style={{ position: 'absolute', top: '16px', left: '50%', transform: 'translateX(-50%)', background: theme === 'dark' ? 'rgba(20,20,35,0.98)' : 'rgba(255,255,255,0.98)', border: `2px solid ${NODE_COLORS[getNodeType(hoveredNode)]?.border || '#666'}`, borderRadius: '12px', padding: '12px 16px', maxWidth: '400px', zIndex: 1000, boxShadow: '0 8px 32px rgba(0,0,0,0.3)', pointerEvents: 'none' }}>
+                  {hoveredNode && (() => {
+                    const containerRect = containerRef.current?.getBoundingClientRect() || { left: 0, top: 0, width: window.innerWidth, height: window.innerHeight };
+                    let tooltipX = (hoveredNode._screenX || 0) - containerRect.left + 16;
+                    let tooltipY = (hoveredNode._screenY || 0) - containerRect.top - 60;
+                    if (tooltipX + 400 > containerRect.width) tooltipX = Math.max(16, containerRect.width - 416);
+                    if (tooltipY < 16) tooltipY = 16;
+                    return (
+                    <div style={{ position: 'absolute', top: `${tooltipY}px`, left: `${tooltipX}px`, background: theme === 'dark' ? 'rgba(20,20,35,0.98)' : 'rgba(255,255,255,0.98)', border: `2px solid ${NODE_COLORS[getNodeType(hoveredNode)]?.border || '#666'}`, borderRadius: '12px', padding: '12px 16px', maxWidth: '400px', zIndex: 1000, boxShadow: '0 8px 32px rgba(0,0,0,0.3)', pointerEvents: 'none' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                         <span style={{ fontSize: '20px' }}>{NODE_COLORS[getNodeType(hoveredNode)]?.icon}</span>
                         <span style={{ padding: '3px 8px', background: NODE_COLORS[getNodeType(hoveredNode)]?.bg, border: `1px solid ${NODE_COLORS[getNodeType(hoveredNode)]?.border}`, borderRadius: '10px', fontSize: '10px', textTransform: 'uppercase', fontWeight: 600, color: NODE_COLORS[getNodeType(hoveredNode)]?.text }}>{getNodeType(hoveredNode)}</span>
@@ -1262,7 +1467,8 @@
                       <div style={{ fontSize: '13px', color: currentTheme.textPrimary, lineHeight: 1.5 }}>{getNodeText(hoveredNode).substring(0, 150)}{getNodeText(hoveredNode).length > 150 ? '...' : ''}</div>
                       {hoveredNode.anchor?.display_location && <div style={{ marginTop: '6px', fontSize: '11px', color: currentTheme.textMuted }}>📍 {hoveredNode.anchor.display_location}</div>}
                     </div>
-                  )}
+                    );
+                  })()}
 
                   {/* Zoom Controls */}
                   <div style={{ position: 'absolute', bottom: '16px', right: '16px', display: 'flex', flexDirection: 'column', gap: '8px', background: theme === 'dark' ? 'rgba(20,20,35,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: '8px', zIndex: 100 }}>
@@ -1272,7 +1478,7 @@
                       { fn: fitToScreen, label: '⊡', color: '#3b82f6', title: 'Fit' },
                       { fn: resetView, label: '↺', color: '#10b981', title: 'Reset' },
                     ].map(b => (
-                      <button key={b.label} onClick={b.fn} title={b.title} style={{ width: '36px', height: '36px', background: `${b.color}33`, border: `1px solid ${b.color}66`, borderRadius: '8px', color: b.color, fontSize: '18px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{b.label}</button>
+                      <button key={b.label} onClick={b.fn} title={b.title} aria-label={b.title} style={{ width: '36px', height: '36px', background: `${b.color}33`, border: `1px solid ${b.color}66`, borderRadius: '8px', color: b.color, fontSize: '18px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{b.label}</button>
                     ))}
                   </div>
 
@@ -1304,6 +1510,11 @@
                       <Minimap nodes={filteredNodes} edges={filteredEdges} width={150} height={100} zoomTransform={zoomTransform} containerRef={containerRef} zoomRef={zoomRef} />
                     </div>
                   )}
+
+                  {/* Keyboard shortcuts hint */}
+                  <div style={{ position: 'absolute', bottom: '4px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '12px', padding: '4px 12px', borderRadius: '6px', background: theme === 'dark' ? 'rgba(20,20,35,0.7)' : 'rgba(255,255,255,0.7)', fontSize: '10px', color: currentTheme.textMuted, zIndex: 50, pointerEvents: 'none' }}>
+                    <span>/ Search</span><span>Esc Deselect</span><span>+/- Zoom</span><span>0 Fit</span><span>1-6 Tabs</span>
+                  </div>
                 </div>
               )}
 
@@ -1319,7 +1530,7 @@
                     </p>
 
                     {clusters.length === 0 ? (
-                      <div style={{ textAlign: 'center', color: '#6b7280', paddingTop: '60px' }}>
+                      <div style={{ textAlign: 'center', color: currentTheme.textMuted, paddingTop: '60px' }}>
                         <div style={{ fontSize: '48px', marginBottom: '16px', opacity: 0.3 }}>🧩</div>
                         <div>No clusters found. Load a graph JSON with cluster_summary, or load an ontology to auto-generate clusters from concept edges.</div>
                       </div>
@@ -1327,7 +1538,7 @@
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {clusters.map(cluster => (
                           <div key={cluster.concept_id} style={{
-                            background: 'rgba(255,255,255,0.02)', border: `1px solid ${expandedCluster === cluster.concept_id ? 'rgba(168,85,247,0.5)' : 'rgba(255,255,255,0.1)'}`,
+                            background: currentTheme.cardBg, border: `1px solid ${expandedCluster === cluster.concept_id ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`,
                             borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.2s'
                           }}>
                             {/* Cluster Header */}
@@ -1383,10 +1594,10 @@
                                 )}
 
                                 {/* Member nodes by type */}
-                                {['facts', 'concepts', 'precedents', 'arguments', 'issues', 'holdings'].map(memberType => {
+                                {['facts', 'concepts', 'precedents', 'arguments', 'issues', 'holdings', 'outcomes', 'justification_sets'].map(memberType => {
                                   const ids = cluster.members[memberType] || [];
                                   if (ids.length === 0) return null;
-                                  const singularType = memberType === 'precedents' ? 'precedent' : memberType.slice(0, -1);
+                                  const singularType = memberType === 'precedents' ? 'precedent' : memberType === 'justification_sets' ? 'justification_set' : memberType === 'outcomes' ? 'outcome' : memberType.slice(0, -1);
                                   const colors = NODE_COLORS[singularType] || NODE_COLORS.fact;
                                   return (
                                     <div key={memberType} style={{ marginBottom: '12px' }}>
@@ -1427,7 +1638,7 @@
                 <div style={{ flex: 1, overflow: 'auto', padding: '24px' }}>
                   {graphData?.reasoning_chains?.length > 0 ? (
                     graphData.reasoning_chains.map((chain, idx) => (
-                      <div key={chain.id} style={{ marginBottom: '32px', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', padding: '24px' }}>
+                      <div key={chain.id} style={{ marginBottom: '32px', background: currentTheme.cardBg, borderRadius: '16px', border: `1px solid ${currentTheme.cardBorder}`, padding: '24px' }}>
                         <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', background: 'linear-gradient(90deg, #a855f7, #ec4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                           Reasoning Chain {idx + 1}
                         </h3>
@@ -1451,7 +1662,7 @@
                               </div>
                             );
                           })}
-                          <div style={{ textAlign: 'center', color: '#6b7280', fontSize: '20px' }}>↓</div>
+                          <div style={{ textAlign: 'center', color: currentTheme.textMuted, fontSize: '20px' }}>↓</div>
                           {/* Justification Set */}
                           {chain.justification_set_id && (() => {
                             const js = nodeMap.get(chain.justification_set_id);
@@ -1466,7 +1677,7 @@
                               </div>
                             );
                           })()}
-                          <div style={{ textAlign: 'center', color: '#6b7280', fontSize: '20px' }}>↓</div>
+                          <div style={{ textAlign: 'center', color: currentTheme.textMuted, fontSize: '20px' }}>↓</div>
                           {/* Holding */}
                           {chain.holding_id && (() => {
                             const h = nodeMap.get(chain.holding_id);
@@ -1497,7 +1708,7 @@
                       </div>
                     ))
                   ) : (
-                    <div style={{ textAlign: 'center', color: '#6b7280', paddingTop: '60px' }}>No reasoning chains defined in this graph</div>
+                    <div style={{ textAlign: 'center', color: currentTheme.textMuted, paddingTop: '60px' }}>No reasoning chains defined in this graph</div>
                   )}
                 </div>
               )}
@@ -1521,24 +1732,32 @@
                     </p>
 
                     <div style={{ marginBottom: '24px' }}>
-                      <label style={{ display: 'block', marginBottom: '8px', fontSize: '13px', color: '#9ca3af' }}>Select Node to Remove:</label>
-                      <select value={counterfactualNode || ''} onChange={e => setCounterfactualNode(e.target.value || null)} style={{
-                        width: '100%', padding: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', color: '#fff', fontSize: '14px'
-                      }}>
-                        <option value="">-- Select a node --</option>
-                        <optgroup label="Concepts">
-                          {(graphData?.concepts || []).map(c => <option key={c.id} value={c.id}>{getNodeText(c)}</option>)}
-                        </optgroup>
-                        <optgroup label="Facts">
-                          {(graphData?.facts || []).map(f => <option key={f.id} value={f.id}>{getNodeText(f).substring(0, 80)}</option>)}
-                        </optgroup>
-                        <optgroup label="Precedents">
-                          {(graphData?.precedents || []).map(p => <option key={p.id} value={p.id}>{getNodeText(p)}</option>)}
-                        </optgroup>
-                        <optgroup label="Arguments">
-                          {(graphData?.arguments || []).map(a => <option key={a.id} value={a.id}>{getNodeText(a).substring(0, 80)}</option>)}
-                        </optgroup>
-                      </select>
+                      <label style={{ display: 'block', marginBottom: '8px', fontSize: '13px', color: currentTheme.textSecondary }}>Select Node(s) to Remove ({counterfactualNodes.size} selected):</label>
+                      {counterfactualNodes.size > 0 && (
+                        <button onClick={() => setCounterfactualNodes(new Set())} style={{ marginBottom: '8px', padding: '4px 12px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '6px', color: '#fca5a5', fontSize: '11px', cursor: 'pointer' }}>Clear All</button>
+                      )}
+                      <div style={{ maxHeight: '240px', overflow: 'auto', background: currentTheme.inputBg, border: `1px solid ${currentTheme.inputBorder}`, borderRadius: '8px', padding: '8px' }}>
+                        {[
+                          { label: 'Concepts', items: graphData?.concepts || [] },
+                          { label: 'Facts', items: graphData?.facts || [] },
+                          { label: 'Precedents', items: graphData?.precedents || [] },
+                          { label: 'Arguments', items: graphData?.arguments || [] },
+                        ].map(group => group.items.length > 0 && (
+                          <div key={group.label} style={{ marginBottom: '8px' }}>
+                            <div style={{ fontSize: '11px', fontWeight: 600, color: currentTheme.textSecondary, textTransform: 'uppercase', marginBottom: '4px' }}>{group.label}</div>
+                            {group.items.map(n => (
+                              <label key={n.id} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 8px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px', color: currentTheme.textPrimary }}>
+                                <input type="checkbox" checked={counterfactualNodes.has(n.id)} onChange={e => {
+                                  const next = new Set(counterfactualNodes);
+                                  if (e.target.checked) next.add(n.id); else next.delete(n.id);
+                                  setCounterfactualNodes(next);
+                                }} style={{ accentColor: '#a855f7' }} />
+                                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{getNodeText(n).substring(0, 80)}</span>
+                              </label>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     {counterfactualResult && (
@@ -1552,14 +1771,17 @@
                           <div style={{ fontSize: '16px', fontWeight: 600 }}>
                             {counterfactualResult.outcomeAffected ? '⚠️ OUTCOME WOULD BE AFFECTED' : '✓ OUTCOME WOULD REMAIN STABLE'}
                           </div>
-                          <div style={{ fontSize: '13px', color: '#9ca3af', marginTop: '4px' }}>
-                            Removing {counterfactualResult.removedType}: "{nodeMap.get(counterfactualResult.removedNode) ? getNodeText(nodeMap.get(counterfactualResult.removedNode)).substring(0, 60) : counterfactualResult.removedNode}"
+                          <div style={{ fontSize: '13px', color: currentTheme.textSecondary, marginTop: '4px' }}>
+                            Removing {counterfactualResult.removedCount} node(s): {counterfactualResult.removedNodes.map(id => {
+                              const n = nodeMap.get(id);
+                              return n ? getNodeText(n).substring(0, 40) : id;
+                            }).join(', ')}
                           </div>
                         </div>
 
                         {/* Broken Requirements */}
                         {counterfactualResult.brokenRequirements.length > 0 && (
-                          <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '20px' }}>
+                          <div style={{ background: currentTheme.cardBg, border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '12px', padding: '20px' }}>
                             <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#f472b6' }}>🔗 Broken Ontology Requirements ({counterfactualResult.brokenRequirements.length})</h4>
                             {counterfactualResult.brokenRequirements.map((br, i) => (
                               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', marginBottom: '6px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '6px' }}>
@@ -1575,13 +1797,13 @@
 
                         {/* Affected Clusters */}
                         {counterfactualResult.affectedClusters.length > 0 && (
-                          <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '20px' }}>
+                          <div style={{ background: currentTheme.cardBg, border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '12px', padding: '20px' }}>
                             <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#fbbf24' }}>🧩 Affected Clusters ({counterfactualResult.affectedClusters.length})</h4>
                             {counterfactualResult.affectedClusters.map((ac, i) => (
                               <div key={i} style={{ padding: '12px', marginBottom: '8px', background: ac.isFullyBroken ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)', border: `1px solid ${ac.isFullyBroken ? 'rgba(239,68,68,0.3)' : 'rgba(245,158,11,0.3)'}`, borderRadius: '8px' }}>
                                 <div style={{ fontWeight: 600, marginBottom: '4px' }}>{ac.concept_label}</div>
                                 <div style={{ fontSize: '12px', color: currentTheme.textMuted }}>
-                                  Logic: {ac.logic.toUpperCase()} • {ac.isFullyBroken ? '❌ FULLY BROKEN' : '⚠️ Partially affected'}
+                                  Logic: {ac.logic.toUpperCase()} • {ac.memberOnly ? 'ℹ️ Member removed, no requirements broken' : ac.isFullyBroken ? '❌ FULLY BROKEN' : '⚠️ Partially affected'}
                                   {ac.brokenReqs.length > 0 && ` • ${ac.brokenReqs.length} req(s) unsatisfied`}
                                 </div>
                               </div>
@@ -1591,7 +1813,7 @@
 
                         {/* Affected Holdings */}
                         {counterfactualResult.affectedHoldings.length > 0 && (
-                          <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '20px' }}>
+                          <div style={{ background: currentTheme.cardBg, border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '12px', padding: '20px' }}>
                             <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#ef4444' }}>❌ Affected Holdings ({counterfactualResult.affectedHoldings.length})</h4>
                             {counterfactualResult.affectedHoldings.map(ah => (
                               <div key={ah.id} style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '8px', padding: '12px', marginBottom: '8px' }}>
@@ -1610,7 +1832,7 @@
 
                         {/* Unaffected Holdings */}
                         {counterfactualResult.unaffectedHoldings.length > 0 && (
-                          <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '20px' }}>
+                          <div style={{ background: currentTheme.cardBg, border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '12px', padding: '20px' }}>
                             <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#10b981' }}>✓ Unaffected Holdings ({counterfactualResult.unaffectedHoldings.length})</h4>
                             {counterfactualResult.unaffectedHoldings.map(id => {
                               const n = nodeMap.get(id);
@@ -1654,6 +1876,11 @@
                           nodesByLocation[loc].push(node);
                         });
                         const sortedLocations = Object.keys(nodesByLocation).sort((a, b) => {
+                          const prefixOrder = { 'para': 0, 'section': 1, 'footnote': 2 };
+                          const aPre = (a.match(/^[a-z]+/i)?.[0] || '').toLowerCase();
+                          const bPre = (b.match(/^[a-z]+/i)?.[0] || '').toLowerCase();
+                          const aOrd = prefixOrder[aPre] ?? 3, bOrd = prefixOrder[bPre] ?? 3;
+                          if (aOrd !== bOrd) return aOrd - bOrd;
                           const aNum = parseInt(a.match(/\d+/)?.[0] || '999');
                           const bNum = parseInt(b.match(/\d+/)?.[0] || '999');
                           return aNum - bNum;
@@ -1715,24 +1942,25 @@
             <aside style={{ width: '360px', background: currentTheme.sidebarBg, borderLeft: `1px solid ${currentTheme.borderColor}`, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               {selectedNode ? (
                 <div style={{ flex: 1, overflow: 'auto' }}>
-                  <div style={{ padding: '20px', background: NODE_COLORS[getNodeType(selectedNode)]?.bg || '#333', borderBottom: `2px solid ${NODE_COLORS[getNodeType(selectedNode)]?.border || '#666'}` }}>
+                  <div style={{ padding: '20px', background: NODE_COLORS[getNodeType(selectedNode)]?.bg || '#333', borderBottom: `2px solid ${NODE_COLORS[getNodeType(selectedNode)]?.border || '#666'}`, position: 'relative' }}>
+                    <button onClick={() => { setSelectedNode(null); setSelectedEdge(null); }} aria-label="Close detail panel" style={{ position: 'absolute', top: '12px', right: '12px', width: '28px', height: '28px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '6px', color: currentTheme.textMuted, cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
                       <span style={{ fontSize: '24px' }}>{NODE_COLORS[getNodeType(selectedNode)]?.icon}</span>
                       <span style={{ padding: '4px 12px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', fontSize: '12px', textTransform: 'uppercase', fontWeight: 600 }}>{getNodeType(selectedNode)}</span>
                       {selectedNode.novel && <span style={{ padding: '4px 10px', background: 'rgba(245,158,11,0.3)', border: '1px solid #f59e0b', borderRadius: '12px', fontSize: '11px', fontWeight: 600, color: '#fcd34d' }}>⭐ NOVEL</span>}
                     </div>
-                    <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: '#9ca3af' }}>{selectedNode.id}</div>
+                    <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: currentTheme.textSecondary }}>{selectedNode.id}</div>
                   </div>
 
                   <div style={{ padding: '20px' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '10px', padding: '16px', marginBottom: '20px', fontSize: '14px', lineHeight: 1.6 }}>
+                    <div style={{ background: currentTheme.cardBg, borderRadius: '10px', padding: '16px', marginBottom: '20px', fontSize: '14px', lineHeight: 1.6 }}>
                       {getNodeText(selectedNode)}
                     </div>
 
                     {/* FIX #6: Surface text in detail panel */}
                     {selectedNode.anchor?.surface_text && (
                       <div style={{ marginBottom: '20px' }}>
-                        <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#9ca3af', textTransform: 'uppercase' }}>Source Evidence</h4>
+                        <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: currentTheme.textSecondary, textTransform: 'uppercase' }}>Source Evidence</h4>
                         <div style={{ background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.3)', borderRadius: '8px', padding: '12px', fontSize: '13px', fontStyle: 'italic', lineHeight: 1.6 }}>
                           "{selectedNode.anchor.surface_text}"
                         </div>
@@ -1747,7 +1975,7 @@
                     {/* Metadata badges */}
                     {(selectedNode.treatment || selectedNode.answer || selectedNode.schemes?.length > 0 || selectedNode.logic) && (
                       <div style={{ marginBottom: '20px' }}>
-                        <h4 style={{ margin: '0 0 10px 0', fontSize: '13px', color: '#9ca3af', textTransform: 'uppercase' }}>Metadata</h4>
+                        <h4 style={{ margin: '0 0 10px 0', fontSize: '13px', color: currentTheme.textSecondary, textTransform: 'uppercase' }}>Metadata</h4>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                           {selectedNode.treatment && (
                             <span style={{ padding: '5px 10px', background: TREATMENT_COLORS[selectedNode.treatment]?.bg || '#3d3d3d', border: `1px solid ${TREATMENT_COLORS[selectedNode.treatment]?.border || '#666'}`, borderRadius: '16px', fontSize: '11px', fontWeight: 600, color: TREATMENT_COLORS[selectedNode.treatment]?.text || '#fff', textTransform: 'uppercase' }}>
@@ -1780,36 +2008,36 @@
 
                     {/* Properties */}
                     <div style={{ display: 'grid', gap: '6px', marginBottom: '20px' }}>
-                      {selectedNode.confidence && <PropertyRow label="Confidence" value={selectedNode.confidence} />}
-                      {selectedNode.anchor?.display_location && <PropertyRow label="Location" value={selectedNode.anchor.display_location} />}
-                      {selectedNode.relevance && <PropertyRow label="Relevance" value={selectedNode.relevance} />}
-                      {selectedNode.actor && <PropertyRow label="Actor" value={selectedNode.actor} />}
-                      {selectedNode.court_response && <PropertyRow label="Court Response" value={selectedNode.court_response} />}
-                      {selectedNode.resolves_issue && <PropertyRow label="Resolves" value={selectedNode.resolves_issue} />}
-                      {selectedNode.target_id && <PropertyRow label="Target" value={selectedNode.target_id} />}
-                      {selectedNode.concept_id && <PropertyRow label="Concept ID" value={selectedNode.concept_id} />}
+                      {selectedNode.confidence && <PropertyRow label="Confidence" value={selectedNode.confidence} currentTheme={currentTheme} />}
+                      {selectedNode.anchor?.display_location && <PropertyRow label="Location" value={selectedNode.anchor.display_location} currentTheme={currentTheme} />}
+                      {selectedNode.relevance && <PropertyRow label="Relevance" value={selectedNode.relevance} currentTheme={currentTheme} />}
+                      {selectedNode.actor && <PropertyRow label="Actor" value={selectedNode.actor} currentTheme={currentTheme} />}
+                      {selectedNode.court_response && <PropertyRow label="Court Response" value={selectedNode.court_response} currentTheme={currentTheme} />}
+                      {selectedNode.resolves_issue && <PropertyRow label="Resolves" value={selectedNode.resolves_issue} currentTheme={currentTheme} />}
+                      {selectedNode.target_id && <PropertyRow label="Target" value={selectedNode.target_id} currentTheme={currentTheme} />}
+                      {selectedNode.concept_id && <PropertyRow label="Concept ID" value={selectedNode.concept_id} currentTheme={currentTheme} />}
                     </div>
 
                     {getNodeType(selectedNode) === 'argument' && (
-                      <ToulminView argumentId={selectedNode.id} getToulmin={getToulminStructure} getNodeText={getNodeText} />
+                      <ToulminView argumentId={selectedNode.id} getToulmin={getToulminStructure} getNodeText={getNodeText} currentTheme={currentTheme} />
                     )}
 
                     {/* Connections */}
                     <div>
-                      <h4 style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#9ca3af', textTransform: 'uppercase' }}>Connections</h4>
+                      <h4 style={{ margin: '0 0 12px 0', fontSize: '13px', color: currentTheme.textSecondary, textTransform: 'uppercase' }}>Connections</h4>
                       <div style={{ marginBottom: '12px' }}>
-                        <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '6px' }}>INCOMING</div>
-                        {(graphData?.edges || []).filter(e => e.target === selectedNode.id).map(e => (
-                          <EdgeChip key={e.id} edge={e} direction="in" nodeMap={nodeMap} getNodeText={getNodeText} onClick={() => { setSelectedEdge(e); setSelectedNode(null); }} />
+                        <div style={{ fontSize: '11px', color: currentTheme.textMuted, marginBottom: '6px' }}>INCOMING</div>
+                        {incomingEdges.map(e => (
+                          <EdgeChip key={e.id} edge={e} direction="in" nodeMap={nodeMap} getNodeText={getNodeText} onClick={() => { setSelectedEdge(e); setSelectedNode(null); }} currentTheme={currentTheme} />
                         ))}
-                        {(graphData?.edges || []).filter(e => e.target === selectedNode.id).length === 0 && <div style={{ fontSize: '12px', color: '#4b5563' }}>None</div>}
+                        {incomingEdges.length === 0 && <div style={{ fontSize: '12px', color: currentTheme.textMuted }}>None</div>}
                       </div>
                       <div>
-                        <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '6px' }}>OUTGOING</div>
-                        {(graphData?.edges || []).filter(e => e.source === selectedNode.id).map(e => (
-                          <EdgeChip key={e.id} edge={e} direction="out" nodeMap={nodeMap} getNodeText={getNodeText} onClick={() => { setSelectedEdge(e); setSelectedNode(null); }} />
+                        <div style={{ fontSize: '11px', color: currentTheme.textMuted, marginBottom: '6px' }}>OUTGOING</div>
+                        {outgoingEdges.map(e => (
+                          <EdgeChip key={e.id} edge={e} direction="out" nodeMap={nodeMap} getNodeText={getNodeText} onClick={() => { setSelectedEdge(e); setSelectedNode(null); }} currentTheme={currentTheme} />
                         ))}
-                        {(graphData?.edges || []).filter(e => e.source === selectedNode.id).length === 0 && <div style={{ fontSize: '12px', color: '#4b5563' }}>None</div>}
+                        {outgoingEdges.length === 0 && <div style={{ fontSize: '12px', color: currentTheme.textMuted }}>None</div>}
                       </div>
                     </div>
                   </div>
@@ -1817,42 +2045,70 @@
               ) : selectedEdge ? (
                 <div style={{ flex: 1, overflow: 'auto', padding: '20px' }}>
                   <h3 style={{ margin: '0 0 16px 0', fontSize: '16px' }}>Edge Details</h3>
-                  <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '10px', padding: '16px', marginBottom: '20px' }}>
+                  <div style={{ background: currentTheme.cardBg, borderRadius: '10px', padding: '16px', marginBottom: '20px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
                       <span style={{ padding: '6px 14px', background: edgeColors[selectedEdge.relation] || edgeColors.default, borderRadius: '16px', fontSize: '12px', fontWeight: 600, textTransform: 'uppercase' }}>{selectedEdge.relation}</span>
                       {selectedEdge.is_critical && <span style={{ color: '#f59e0b', fontSize: '12px' }}>⚡ CRITICAL</span>}
                     </div>
-                    <div style={{ fontSize: '13px', color: '#9ca3af' }}>
-                      <div style={{ marginBottom: '8px' }}><strong>From:</strong> {selectedEdge.source}</div>
-                      <div><strong>To:</strong> {selectedEdge.target}</div>
+                    <div style={{ fontSize: '13px', color: currentTheme.textSecondary }}>
+                      <div style={{ marginBottom: '8px' }}><strong>From:</strong> {typeof selectedEdge.source === 'object' ? selectedEdge.source.id : selectedEdge.source}</div>
+                      <div><strong>To:</strong> {typeof selectedEdge.target === 'object' ? selectedEdge.target.id : selectedEdge.target}</div>
                     </div>
                   </div>
                   <div style={{ display: 'grid', gap: '8px' }}>
-                    <PropertyRow label="Confidence" value={selectedEdge.confidence} />
-                    <PropertyRow label="Strength" value={selectedEdge.strength} />
-                    {selectedEdge.explanation && <PropertyRow label="Explanation" value={selectedEdge.explanation} />}
-                    {selectedEdge.support_group_ids?.length > 0 && <PropertyRow label="Support Groups" value={selectedEdge.support_group_ids.join(', ')} />}
+                    <PropertyRow label="Confidence" value={selectedEdge.confidence} currentTheme={currentTheme} />
+                    <PropertyRow label="Strength" value={selectedEdge.strength} currentTheme={currentTheme} />
+                    {selectedEdge.explanation && <PropertyRow label="Explanation" value={selectedEdge.explanation} currentTheme={currentTheme} />}
+                    {selectedEdge.support_group_ids?.length > 0 && <PropertyRow label="Support Groups" value={selectedEdge.support_group_ids.join(', ')} currentTheme={currentTheme} />}
                   </div>
                   <div style={{ marginTop: '20px' }}>
-                    <button onClick={() => { const n = nodeMap.get(selectedEdge.source); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '8px', color: '#93c5fd', cursor: 'pointer', marginBottom: '8px', fontSize: '13px' }}>View Source Node</button>
-                    <button onClick={() => { const n = nodeMap.get(selectedEdge.target); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(16,185,129,0.2)', border: '1px solid rgba(16,185,129,0.4)', borderRadius: '8px', color: '#6ee7b7', cursor: 'pointer', fontSize: '13px' }}>View Target Node</button>
+                    <button onClick={() => { const sid = typeof selectedEdge.source === 'object' ? selectedEdge.source.id : selectedEdge.source; const n = nodeMap.get(sid); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '8px', color: '#93c5fd', cursor: 'pointer', marginBottom: '8px', fontSize: '13px' }}>View Source Node</button>
+                    <button onClick={() => { const tid = typeof selectedEdge.target === 'object' ? selectedEdge.target.id : selectedEdge.target; const n = nodeMap.get(tid); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(16,185,129,0.2)', border: '1px solid rgba(16,185,129,0.4)', borderRadius: '8px', color: '#6ee7b7', cursor: 'pointer', fontSize: '13px' }}>View Target Node</button>
                   </div>
                 </div>
               ) : (
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px', textAlign: 'center', color: '#6b7280' }}>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px', textAlign: 'center', color: currentTheme.textMuted }}>
                   <div style={{ fontSize: '48px', marginBottom: '16px', opacity: 0.3 }}>👆</div>
                   <div style={{ fontSize: '14px' }}>Click on a node or edge to view details</div>
-                  <div style={{ fontSize: '12px', marginTop: '8px', color: '#4b5563' }}>Esc: Deselect • /: Search • 1-6: Tabs • +/-: Zoom</div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', color: currentTheme.textMuted }}>Esc: Deselect • /: Search • 1-6: Tabs • +/-: Zoom</div>
                 </div>
               )}
             </aside>
           </div>
+
+          {/* Toast notifications */}
+          {toast && (
+            <div style={{ position: 'fixed', bottom: '24px', left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', borderRadius: '10px', fontSize: '13px', zIndex: 10000, maxWidth: '600px', display: 'flex', alignItems: 'center', gap: '10px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+              background: toast.type === 'error' ? 'rgba(239,68,68,0.95)' : toast.type === 'warning' ? 'rgba(245,158,11,0.95)' : 'rgba(16,185,129,0.95)',
+              color: '#fff'
+            }}>
+              <span>{toast.type === 'error' ? '❌' : toast.type === 'warning' ? '⚠️' : '✓'}</span>
+              <span style={{ flex: 1 }}>{toast.message}</span>
+              <button onClick={() => setToast(null)} style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', fontSize: '16px', padding: '0 4px' }}>✕</button>
+            </div>
+          )}
         </div>
       );
     }
 
+    class ErrorBoundary extends React.Component {
+      constructor(props) { super(props); this.state = { hasError: false, error: null }; }
+      static getDerivedStateFromError(error) { return { hasError: true, error }; }
+      render() {
+        if (this.state.hasError) return (
+          <div style={{ padding: '60px', textAlign: 'center', color: '#e5e7eb', background: '#0f0f1a', height: '100vh' }}>
+            <div style={{ fontSize: '48px', marginBottom: '16px' }}>⚠️</div>
+            <h2>Something went wrong</h2>
+            <p style={{ color: '#9ca3af' }}>{this.state.error?.message}</p>
+            <button onClick={() => this.setState({ hasError: false, error: null })} style={{ marginTop: '20px', padding: '10px 24px', background: 'rgba(168,85,247,0.3)', border: '1px solid rgba(168,85,247,0.5)', borderRadius: '8px', color: '#d8b4fe', cursor: 'pointer' }}>Reset</button>
+          </div>
+        );
+        return this.props.children;
+      }
+    }
+
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<LegalGraphVisualizer />);
+    root.render(<ErrorBoundary><LegalGraphVisualizer /></ErrorBoundary>);
   </script>
 </body>
 </html>
