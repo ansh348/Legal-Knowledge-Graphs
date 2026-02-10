@@ -3295,6 +3295,46 @@
         "temperature": 0.1,
         "timestamp": "2026-02-08T03:01:02.451628"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "c8",
+      "target": "c16",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.5, concept->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:23.343299+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "c8",
+      "target": "c7",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: score=3.5, concept->concept",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:23.343311+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -3541,7 +3581,8 @@
     "extraction_timestamp": "2026-02-08T02:52:19.619183",
     "retry_attempts": 0,
     "validation_warnings": [
-      "JSON parse error: Unterminated string starting at: line 1 column 15870 (char 15869)"
+      "JSON parse error: Unterminated string starting at: line 1 column 15870 (char 15869)",
+      "repair_orphans: added 2 edges for 1 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

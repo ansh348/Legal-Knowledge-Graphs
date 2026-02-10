@@ -2238,6 +2238,166 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T03:52:56.730673"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "a12",
+      "target": "c3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.5, argument->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.953097+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "a12",
+      "target": "c8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=3.5, argument->concept",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.953109+00:00"
+      }
+    },
+    {
+      "id": "e_repair_3",
+      "source": "a2",
+      "target": "a1",
+      "relation": "responds_to",
+      "anchor": null,
+      "explanation": "Orphan repair: score=8.0, argument->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.953627+00:00"
+      }
+    },
+    {
+      "id": "e_repair_4",
+      "source": "a2",
+      "target": "a3",
+      "relation": "responds_to",
+      "anchor": null,
+      "explanation": "Orphan repair: score=7.5, argument->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.953632+00:00"
+      }
+    },
+    {
+      "id": "e_repair_5",
+      "source": "a4",
+      "target": "a3",
+      "relation": "responds_to",
+      "anchor": null,
+      "explanation": "Orphan repair: score=8.5, argument->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.954150+00:00"
+      }
+    },
+    {
+      "id": "e_repair_6",
+      "source": "a4",
+      "target": "a1",
+      "relation": "responds_to",
+      "anchor": null,
+      "explanation": "Orphan repair: score=7.5, argument->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.954155+00:00"
+      }
+    },
+    {
+      "id": "e_repair_7",
+      "source": "c2",
+      "target": "h1",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Orphan repair: score=9.5, concept->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.954702+00:00"
+      }
+    },
+    {
+      "id": "e_repair_8",
+      "source": "c2",
+      "target": "a6",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=8.5, concept->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:43.954708+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -2352,7 +2512,8 @@
     "extraction_timestamp": "2026-02-07T03:47:50.411541",
     "retry_attempts": 0,
     "validation_warnings": [
-      "JSON parse error: Unterminated string starting at: line 1 column 15277 (char 15276)"
+      "JSON parse error: Unterminated string starting at: line 1 column 15277 (char 15276)",
+      "repair_orphans: added 8 edges for 4 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

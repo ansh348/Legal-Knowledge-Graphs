@@ -5055,6 +5055,46 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T22:18:15.359653"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "a19",
+      "target": "c9",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=5.5, argument->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:49.662663+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "a19",
+      "target": "h5",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=3.5, argument->holding",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:49.663072+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -5454,7 +5494,8 @@
     "extraction_timestamp": "2026-02-07T22:08:57.064986",
     "retry_attempts": 0,
     "validation_warnings": [
-      "JSON parse error: Expecting property name enclosed in double quotes: line 1 column 14541 (char 14540)"
+      "JSON parse error: Expecting property name enclosed in double quotes: line 1 column 14541 (char 14540)",
+      "repair_orphans: added 2 edges for 1 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

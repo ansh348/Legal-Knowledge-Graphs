@@ -1303,7 +1303,7 @@
     {
       "id": "i6",
       "type": "issue",
-      "text": "Fakira’s right to residence in the house in suit will vest in the Custodian as his migrating from the village to Pakistan on partition does not amount to abandonment contemplated by the provisions of the wajib-ul-arz.",
+      "text": "Fakiraâ€™s right to residence in the house in suit will vest in the Custodian as his migrating from the village to Pakistan on partition does not amount to abandonment contemplated by the provisions of the wajib-ul-arz.",
       "anchor": {
         "doc_id": "sha256:2752f718be06",
         "start_char": 11250,
@@ -1311,7 +1311,7 @@
         "text_hash": "7da4bada6939f905",
         "display_location": "0",
         "secondary_spans": [],
-        "surface_text": "Learned counsel for the respondent has further contended that apart from s. 18 of the Act, Fakira’s right to residence in the house in suit will vest in the Custodian as his migrating from the village to Pakistan on partition does not amount to abandonment contemplated by the provisions of the wajib-ul-arz."
+        "surface_text": "Learned counsel for the respondent has further contended that apart from s. 18 of the Act, Fakiraâ€™s right to residence in the house in suit will vest in the Custodian as his migrating from the village to Pakistan on partition does not amount to abandonment contemplated by the provisions of the wajib-ul-arz."
       },
       "issue_number": null,
       "framed_by": "respondent",
@@ -1680,7 +1680,7 @@
     {
       "id": "a9",
       "type": "argument",
-      "claim": "Fakira’s right to residence will vest in the Custodian as migrating to Pakistan on partition does not amount to abandonment contemplated by the wajib-ul-arz",
+      "claim": "Fakiraâ€™s right to residence will vest in the Custodian as migrating to Pakistan on partition does not amount to abandonment contemplated by the wajib-ul-arz",
       "anchor": {
         "doc_id": "sha256:2752f718be06",
         "start_char": 11250,
@@ -1688,7 +1688,7 @@
         "text_hash": "7da4bada6939f905",
         "display_location": "0",
         "secondary_spans": [],
-        "surface_text": "Learned counsel for the respondent has further contended that apart from s. 18 of the Act, Fakira’s right to residence in the house in suit will vest in the Custodian as his migrating from the village to Pakistan"
+        "surface_text": "Learned counsel for the respondent has further contended that apart from s. 18 of the Act, Fakiraâ€™s right to residence in the house in suit will vest in the Custodian as his migrating from the village to Pakistan"
       },
       "actor": "respondent",
       "schemes": [
@@ -5611,6 +5611,166 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T09:11:42.638535"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "a8",
+      "target": "i4",
+      "relation": "addresses",
+      "anchor": null,
+      "explanation": "Orphan repair: score=5.5, argument->issue",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.738032+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "a8",
+      "target": "h2",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.0, argument->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.738045+00:00"
+      }
+    },
+    {
+      "id": "e_repair_3",
+      "source": "f1",
+      "target": "h8",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=2.5, fact->holding",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.738904+00:00"
+      }
+    },
+    {
+      "id": "e_repair_4",
+      "source": "f12",
+      "target": "a12",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=5.0, fact->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.739513+00:00"
+      }
+    },
+    {
+      "id": "e_repair_5",
+      "source": "f12",
+      "target": "i1",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.0, fact->issue",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.739518+00:00"
+      }
+    },
+    {
+      "id": "e_repair_6",
+      "source": "f6",
+      "target": "c15",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Orphan repair: score=2.5, fact->concept",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.740494+00:00"
+      }
+    },
+    {
+      "id": "e_repair_7",
+      "source": "p2",
+      "target": "c12",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=18.5, precedent->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.741992+00:00"
+      }
+    },
+    {
+      "id": "e_repair_8",
+      "source": "p2",
+      "target": "h5",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=9.5, precedent->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:13:38.741997+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -6338,7 +6498,8 @@
     "retry_attempts": 0,
     "validation_warnings": [
       "Edge e16: 'grounds' not valid for holding -> holding. Valid: conflicts_with, constrains, specializes, supports, undercuts",
-      "Edge e26: 'grounds' not valid for holding -> holding. Valid: conflicts_with, constrains, specializes, supports, undercuts"
+      "Edge e26: 'grounds' not valid for holding -> holding. Valid: conflicts_with, constrains, specializes, supports, undercuts",
+      "repair_orphans: added 8 edges for 5 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

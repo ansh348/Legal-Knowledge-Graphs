@@ -2856,6 +2856,46 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T02:23:02.040315"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "c4",
+      "target": "h3",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Orphan repair: score=16.0, concept->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:41.235949+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "c4",
+      "target": "a7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=10.5, concept->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:41.235963+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -3022,7 +3062,8 @@
     "extraction_timestamp": "2026-02-07T02:14:48.733362",
     "retry_attempts": 0,
     "validation_warnings": [
-      "JSON parse error: Expecting ',' delimiter: line 1 column 17061 (char 17060)"
+      "JSON parse error: Expecting ',' delimiter: line 1 column 17061 (char 17060)",
+      "repair_orphans: added 2 edges for 1 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

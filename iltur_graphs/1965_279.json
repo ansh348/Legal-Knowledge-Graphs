@@ -4817,6 +4817,126 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T05:38:58.553587"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "f12",
+      "target": "h1",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.0, fact->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:08.780882+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "f19",
+      "target": "c9",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Orphan repair: score=2.5, fact->concept",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:08.781672+00:00"
+      }
+    },
+    {
+      "id": "e_repair_3",
+      "source": "f27",
+      "target": "h5",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=6.5, fact->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:08.782536+00:00"
+      }
+    },
+    {
+      "id": "e_repair_4",
+      "source": "f27",
+      "target": "a9",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=5.5, fact->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:08.782542+00:00"
+      }
+    },
+    {
+      "id": "e_repair_5",
+      "source": "f9",
+      "target": "c4",
+      "relation": "triggers",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.5, fact->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:08.784491+00:00"
+      }
+    },
+    {
+      "id": "e_repair_6",
+      "source": "f9",
+      "target": "h3",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.5, fact->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:08.784496+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -5102,7 +5222,8 @@
       "Edge e_21c1a513_11: HIGH/MEDIUM confidence requires anchor",
       "Edge e_ef8755ab_11: HIGH/MEDIUM confidence requires anchor",
       "Edge e_ef8755ab_12: HIGH/MEDIUM confidence requires anchor",
-      "Edge e_21c1a513_19: HIGH/MEDIUM confidence requires anchor"
+      "Edge e_21c1a513_19: HIGH/MEDIUM confidence requires anchor",
+      "repair_orphans: added 6 edges for 4 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

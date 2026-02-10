@@ -3207,6 +3207,86 @@
         "temperature": 0.1,
         "timestamp": "2026-02-08T04:00:46.766922"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "a5",
+      "target": "h4",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=5.5, argument->holding",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:22.964068+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "a5",
+      "target": "a11",
+      "relation": "responds_to",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.5, argument->argument",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:22.964082+00:00"
+      }
+    },
+    {
+      "id": "e_repair_3",
+      "source": "c10",
+      "target": "c4",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: score=6.0, concept->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:22.964664+00:00"
+      }
+    },
+    {
+      "id": "e_repair_4",
+      "source": "c10",
+      "target": "c8",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: score=5.5, concept->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:22.964669+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -3566,7 +3646,8 @@
     "retry_attempts": 0,
     "validation_warnings": [
       "JSON parse error: Expecting ',' delimiter: line 1 column 14871 (char 14870)",
-      "Edge e25: 'rebuts' not valid for argument -> argument. Valid: attacks, responds_to, supports_arg"
+      "Edge e25: 'rebuts' not valid for argument -> argument. Valid: attacks, responds_to, supports_arg",
+      "repair_orphans: added 4 edges for 2 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

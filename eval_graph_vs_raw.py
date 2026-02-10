@@ -77,9 +77,20 @@ def load_raw_texts_hf(name="Exploration-Lab/IL-TUR", config="cjpe", split="singl
 # CHECKPOINTING
 # =============================================================================
 
-def _checkpoint_path(n_cases: int, no_scrub: bool) -> Path:
+def _model_slug(model: str) -> str:
+    """Short slug from model name for file naming."""
+    m = model.lower()
+    if "sonnet" in m: return "sonnet"
+    if "opus" in m: return "opus"
+    if "haiku" in m: return "haiku"
+    if "grok" in m: return m.split("/")[-1].replace(" ", "-")
+    return m.replace("/", "-").replace(" ", "-")[:30]
+
+
+def _checkpoint_path(n_cases: int, no_scrub: bool, model: str = "") -> Path:
     scrub_tag = "_noscrub" if no_scrub else ""
-    return Path(f"eval_checkpoint_n{n_cases}{scrub_tag}.json")
+    model_tag = f"_{_model_slug(model)}" if model else ""
+    return Path(f"eval_checkpoint_n{n_cases}{scrub_tag}{model_tag}.json")
 
 
 def save_checkpoint(results: list, config: dict, path: Path):
@@ -480,56 +491,130 @@ def build_raw_prompt(text: str) -> str:
 # LLM CLIENT
 # =============================================================================
 
+def _extract_prediction_json(content: str) -> dict:
+    """Parse LLM response content into a prediction dict.
+
+    Handles markdown wrapping, reasoning preamble, and nested JSON.
+    Returns {"prediction": -1, ...} on parse failure.
+    """
+    content = content.strip()
+
+    # Strip markdown wrapping
+    if content.startswith("```"):
+        content = re.sub(r'^```(?:json)?\s*', '', content)
+        content = re.sub(r'\s*```$', '', content)
+
+    # If content starts with JSON, try direct parse first
+    if content.startswith("{"):
+        try:
+            result = json.loads(content)
+            if result.get("prediction") in (0, 1):
+                return result
+        except json.JSONDecodeError:
+            pass
+
+    # Handle reasoning model thinking before JSON — find the JSON block
+    # Use a greedy approach that handles nested braces in "reasoning"
+    json_start = content.find("{")
+    if json_start >= 0:
+        depth = 0
+        for i in range(json_start, len(content)):
+            if content[i] == "{":
+                depth += 1
+            elif content[i] == "}":
+                depth -= 1
+                if depth == 0:
+                    candidate = content[json_start:i + 1]
+                    try:
+                        result = json.loads(candidate)
+                        if result.get("prediction") in (0, 1):
+                            return result
+                    except json.JSONDecodeError:
+                        continue
+
+    # Fallback: original simple regex (no nested braces)
+    json_match = re.search(r'\{[^{}]*"prediction"[^{}]*\}', content)
+    if json_match:
+        try:
+            result = json.loads(json_match.group(0))
+            if result.get("prediction") in (0, 1):
+                return result
+        except json.JSONDecodeError:
+            pass
+
+    return {"prediction": -1, "confidence": 0.0,
+            "reasoning": f"Failed to parse response: {content[:200]}"}
+
+
+# Retryable HTTP/API errors (non-deterministic failures worth retrying)
+_RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
+_MAX_RETRIES = 3
+_RETRY_BASE_DELAY = 2.0  # seconds, doubles each retry
+
+
 async def llm_predict(api_key: str, system: str, prompt: str,
                       model: str = "grok-4-1-fast-reasoning",
                       temperature: float = 0.1) -> dict:
-    """Call Grok API and parse JSON response."""
+    """Call Grok API and parse JSON response. Retries on transient failures."""
     import httpx
 
-    async with httpx.AsyncClient(timeout=300.0) as client:
+    last_error = None
+    for attempt in range(_MAX_RETRIES):
         try:
-            response = await client.post(
-                "https://api.x.ai/v1/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {api_key}",
-                    "Content-Type": "application/json"
-                },
-                json={
-                    "model": model,
-                    "messages": [
-                        {"role": "system", "content": system},
-                        {"role": "user", "content": prompt}
-                    ],
-                    "temperature": temperature,
-                    "max_tokens": 1024,
-                }
-            )
-            response.raise_for_status()
-            data = response.json()
-            content = data["choices"][0]["message"]["content"].strip()
+            async with httpx.AsyncClient(timeout=300.0) as client:
+                response = await client.post(
+                    "https://api.x.ai/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {api_key}",
+                        "Content-Type": "application/json"
+                    },
+                    json={
+                        "model": model,
+                        "messages": [
+                            {"role": "system", "content": system},
+                            {"role": "user", "content": prompt}
+                        ],
+                        "temperature": temperature,
+                        "max_tokens": 1024,
+                    }
+                )
 
-            # Strip markdown wrapping
-            if content.startswith("```"):
-                content = re.sub(r'^```(?:json)?\s*', '', content)
-                content = re.sub(r'\s*```$', '', content)
+                # Retry on transient HTTP errors
+                if response.status_code in _RETRYABLE_STATUS_CODES:
+                    last_error = f"HTTP {response.status_code}"
+                    delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                    print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                          f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
 
-            # Handle reasoning model thinking before JSON
-            if not content.startswith("{"):
-                json_match = re.search(r'\{[^{}]*"prediction"[^{}]*\}', content)
-                if json_match:
-                    content = json_match.group(0)
+                response.raise_for_status()
+                data = response.json()
+                content = data["choices"][0]["message"]["content"]
+                result = _extract_prediction_json(content)
 
-            result = json.loads(content)
+                # Retry on parse failures (model sometimes produces garbage)
+                if result["prediction"] == -1 and attempt < _MAX_RETRIES - 1:
+                    last_error = f"Parse failure: {result['reasoning'][:80]}"
+                    delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                    print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                          f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
 
-            pred = result.get("prediction")
-            if pred not in (0, 1):
-                return {"prediction": -1, "confidence": 0.0,
-                        "reasoning": f"Invalid prediction value: {pred}"}
-            return result
+                return result
 
         except Exception as e:
-            return {"prediction": -1, "confidence": 0.0,
-                    "reasoning": f"Error: {str(e)[:150]}"}
+            last_error = str(e)[:150]
+            if attempt < _MAX_RETRIES - 1:
+                delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                      f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                await asyncio.sleep(delay)
+            continue
+
+    return {"prediction": -1, "confidence": 0.0,
+            "reasoning": f"Failed after {_MAX_RETRIES} attempts: {last_error}"}
 
 
 def _is_anthropic_model(model: str) -> bool:
@@ -540,60 +625,73 @@ def _is_anthropic_model(model: str) -> bool:
 async def llm_predict_anthropic(api_key: str, system: str, prompt: str,
                                 model: str = "claude-sonnet-4-5-20250929",
                                 temperature: float = 0.1) -> dict:
-    """Call Anthropic Messages API and parse JSON response."""
+    """Call Anthropic Messages API and parse JSON response. Retries on transient failures."""
     import httpx
 
-    async with httpx.AsyncClient(timeout=300.0) as client:
+    last_error = None
+    for attempt in range(_MAX_RETRIES):
         try:
-            response = await client.post(
-                "https://api.anthropic.com/v1/messages",
-                headers={
-                    "x-api-key": api_key,
-                    "anthropic-version": "2023-06-01",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "model": model,
-                    "system": system,
-                    "messages": [
-                        {"role": "user", "content": prompt}
-                    ],
-                    "temperature": temperature,
-                    "max_tokens": 1024,
-                }
-            )
-            response.raise_for_status()
-            data = response.json()
+            async with httpx.AsyncClient(timeout=300.0) as client:
+                response = await client.post(
+                    "https://api.anthropic.com/v1/messages",
+                    headers={
+                        "x-api-key": api_key,
+                        "anthropic-version": "2023-06-01",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": model,
+                        "system": system,
+                        "messages": [
+                            {"role": "user", "content": prompt}
+                        ],
+                        "temperature": temperature,
+                        "max_tokens": 1024,
+                    }
+                )
 
-            # Anthropic returns content as a list of blocks
-            content = ""
-            for block in data.get("content", []):
-                if block.get("type") == "text":
-                    content += block.get("text", "")
-            content = content.strip()
+                # Retry on transient HTTP errors
+                if response.status_code in _RETRYABLE_STATUS_CODES:
+                    last_error = f"HTTP {response.status_code}"
+                    delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                    print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                          f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
 
-            # Strip markdown wrapping
-            if content.startswith("```"):
-                content = re.sub(r'^```(?:json)?\s*', '', content)
-                content = re.sub(r'\s*```$', '', content)
+                response.raise_for_status()
+                data = response.json()
 
-            # Handle any preamble before JSON
-            if not content.startswith("{"):
-                json_match = re.search(r'\{[^{}]*"prediction"[^{}]*\}', content)
-                if json_match:
-                    content = json_match.group(0)
+                # Anthropic returns content as a list of blocks
+                content = ""
+                for block in data.get("content", []):
+                    if block.get("type") == "text":
+                        content += block.get("text", "")
 
-            result = json.loads(content)
+                result = _extract_prediction_json(content)
 
-            pred = result.get("prediction")
-            if pred not in (0, 1):
-                return {"prediction": -1, "confidence": 0.0,
-                        "reasoning": f"Invalid prediction value: {pred}"}
-            return result
+                # Retry on parse failures
+                if result["prediction"] == -1 and attempt < _MAX_RETRIES - 1:
+                    last_error = f"Parse failure: {result['reasoning'][:80]}"
+                    delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                    print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                          f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
+
+                return result
 
         except Exception as e:
-            return {"prediction": -1, "confidence": 0.0,
-                    "reasoning": f"Error: {str(e)[:150]}"}
+            last_error = str(e)[:150]
+            if attempt < _MAX_RETRIES - 1:
+                delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                      f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                await asyncio.sleep(delay)
+            continue
+
+    return {"prediction": -1, "confidence": 0.0,
+            "reasoning": f"Failed after {_MAX_RETRIES} attempts: {last_error}"}
 
 
 # =============================================================================
@@ -735,7 +833,7 @@ async def run_comparison(
         "model": model, "seed": seed,
         "max_raw_chars": max_raw_chars, "no_scrub": no_scrub,
     }
-    ckpt_path = _checkpoint_path(n_cases, no_scrub)
+    ckpt_path = _checkpoint_path(n_cases, no_scrub, model)
     completed = load_checkpoint(ckpt_path, ckpt_config)
     completed_ids = {r["case_id"] for r in completed}
     remaining = [c for c in eval_cases if c["case_id"] not in completed_ids]
@@ -1102,7 +1200,8 @@ async def run_comparison(
     }
 
     scrub_tag = "_noscrub" if no_scrub else ""
-    out_path = Path(f"graph_vs_raw_n{n}{scrub_tag}.json")
+    model_tag = f"_{_model_slug(model)}" if model else ""
+    out_path = Path(f"graph_vs_raw_n{n}{scrub_tag}{model_tag}.json")
     with open(out_path, "w") as f:
         json.dump(output, f, indent=2)
     print(f"\n  Full results saved to {out_path}")

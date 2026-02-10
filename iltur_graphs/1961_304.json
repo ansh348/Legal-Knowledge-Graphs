@@ -3129,6 +3129,46 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T08:55:21.942619"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "h8",
+      "target": "p1",
+      "relation": "follows",
+      "anchor": null,
+      "explanation": "Orphan repair: score=10.0, holding->precedent",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:54.191229+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "h8",
+      "target": "c5",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Orphan repair: score=8.0, holding->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:54.191238+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -3281,7 +3321,8 @@
     "retry_attempts": 0,
     "validation_warnings": [
       "JSON parse error: Unterminated string starting at: line 1 column 15284 (char 15283)",
-      "Edge e_30fd03b1_8: HIGH/MEDIUM confidence requires anchor"
+      "Edge e_30fd03b1_8: HIGH/MEDIUM confidence requires anchor",
+      "repair_orphans: added 2 edges for 1 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [
