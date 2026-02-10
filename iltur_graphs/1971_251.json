@@ -3925,6 +3925,26 @@
         "temperature": 0.1,
         "timestamp": "2026-02-08T06:06:12.235699"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "h6",
+      "target": "h7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=2.5, holding->holding",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:04:18.700831+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -4172,7 +4192,8 @@
     "retry_attempts": 0,
     "validation_warnings": [
       "JSON parse error: Expecting value: line 1 column 14519 (char 14518)",
-      "Edge e_ed5fe71b_3: HIGH/MEDIUM confidence requires anchor"
+      "Edge e_ed5fe71b_3: HIGH/MEDIUM confidence requires anchor",
+      "repair_orphans: added 1 edges for 1 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

@@ -756,7 +756,7 @@ def main():
         description="Repair orphan nodes in legal reasoning graphs"
     )
     parser.add_argument(
-        "--dir", type=str, default="iltur_graphttest", #ill keep it changed to graphttest for a wile
+        "--dir", type=str, default="iltur_graphs", #ill keep it changed to graphttest for a wile
         help="Directory containing .json graph files"
     )
     parser.add_argument(

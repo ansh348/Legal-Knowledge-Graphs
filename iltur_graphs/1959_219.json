@@ -3957,6 +3957,66 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T10:34:58.865646"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "c9",
+      "target": "c7",
+      "relation": "requires",
+      "anchor": null,
+      "explanation": "Orphan repair: score=2.5, concept->concept",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:47.318592+00:00"
+      }
+    },
+    {
+      "id": "e_repair_2",
+      "source": "p3",
+      "target": "c7",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.5, precedent->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:47.319500+00:00"
+      }
+    },
+    {
+      "id": "e_repair_3",
+      "source": "p3",
+      "target": "c15",
+      "relation": "supports",
+      "anchor": null,
+      "explanation": "Orphan repair: score=4.5, precedent->concept",
+      "confidence": "inferred",
+      "strength": "moderate",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:47.319509+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -4295,7 +4355,8 @@
     "extraction_timestamp": "2026-02-07T10:30:08.622410",
     "retry_attempts": 0,
     "validation_warnings": [
-      "JSON parse error: Unterminated string starting at: line 1 column 15743 (char 15742)"
+      "JSON parse error: Unterminated string starting at: line 1 column 15743 (char 15742)",
+      "repair_orphans: added 3 edges for 2 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [

@@ -2530,6 +2530,26 @@
         "temperature": 0.1,
         "timestamp": "2026-02-07T09:06:08.879072"
       }
+    },
+    {
+      "id": "e_repair_1",
+      "source": "c1",
+      "target": "h1",
+      "relation": "grounds",
+      "anchor": null,
+      "explanation": "Orphan repair: score=3.5, concept->holding",
+      "confidence": "inferred",
+      "strength": "weak",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": {
+        "extraction_method": "inference",
+        "model_id": null,
+        "prompt_id": "repair_orphans_v1",
+        "run_id": null,
+        "temperature": null,
+        "timestamp": "2026-02-08T11:03:54.491817+00:00"
+      }
     }
   ],
   "reasoning_chains": [
@@ -2937,7 +2957,8 @@
     "extraction_timestamp": "2026-02-07T09:01:12.937862",
     "retry_attempts": 0,
     "validation_warnings": [
-      "JSON parse error: Unterminated string starting at: line 1 column 16177 (char 16176)"
+      "JSON parse error: Unterminated string starting at: line 1 column 16177 (char 16176)",
+      "repair_orphans: added 1 edges for 1 orphan nodes"
     ],
     "cluster_membership": {
       "c1": [
