@@ -12,201 +12,206 @@
   "facts": [
     {
       "id": "f1",
-      "text": "Defendants drew a cheque for Rs. 60,000 in favour of the plaintiff which was dishonoured on presentation to the Bank.",
+      "text": "Plaintiff filed suit in Court of Commercial Subordinate Judge, Delhi, under Order XXXVII CPC on basis of cheque for Rs. 60,000 drawn by defendants in favour of plaintiff, which was dishonoured on presentation to Bank.",
       "type": "material",
       "date": null,
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "Plaintiff filed suit under Order XXXVII CPC in Court of Commercial Subordinate Judge, Delhi, Suit No. 264 of 1956.",
-      "type": "procedural",
+      "text": "Defendants admitted execution of the cheque but pleaded it was given only as collateral security for price of goods supplied by plaintiff to defendants, and that goods were paid for by cash payments from time to time and by other cheques, so cheque in suit had served its end and should be returned.",
+      "type": "disputed",
       "date": null,
-      "source": "court"
+      "source": "respondent"
     },
     {
       "id": "f3",
-      "text": "Defendants applied for leave to defend under r.3 of Order XXXVII.",
+      "text": "Defendants set out exact dates on which payments were made and numbers of the cheques in their affidavit.",
+      "type": "disputed",
+      "date": null,
+      "source": "respondent"
+    },
+    {
+      "id": "f4",
+      "text": "Defendants applied for leave to defend suit under r.3 of Order XXXVII.",
       "type": "procedural",
       "date": null,
       "source": "court"
     },
     {
-      "id": "f4",
-      "text": "Trial Judge held defence raises triable issue but defendants placed nothing to show bona fide defence; granted conditional leave requiring security for suit amount and costs.",
+      "id": "f5",
+      "text": "Trial Judge held defence raises triable issue but defendants placed nothing on file to show defence bona fide; permitted defence on condition of giving security for suit amount and costs.",
       "type": "procedural",
       "date": "1956-11-01",
       "source": "lower_court"
     },
     {
-      "id": "f5",
-      "text": "Defendants applied for review before trial court and failed.",
+      "id": "f6",
+      "text": "Defendants applied for review before trial Judge and failed.",
       "type": "procedural",
       "date": null,
-      "source": "court"
-    },
-    {
-      "id": "f6",
-      "text": "Defendants applied under Art. 227 Constitution to Punjab High Court Circuit Bench at Delhi in Civil Misc. No. 896-D of 1956 and failed.",
-      "type": "procedural",
-      "date": "1956-12-17",
       "source": "court"
     },
     {
       "id": "f7",
-      "text": "Supreme Court granted special leave to appeal under Art. 136.",
+      "text": "Defendants applied under Art. 227 Constitution to Punjab High Court Circuit Bench at Delhi and failed.",
       "type": "procedural",
-      "date": null,
-      "source": "court"
+      "date": "1956-12-17",
+      "source": "lower_court"
     },
     {
       "id": "f8",
-      "text": "Defendants admitted execution of cheque but pleaded it was given as collateral security for price of goods supplied by plaintiff; goods paid for by cash payments and other cheques, so cheque served its end; set out exact dates and cheque numbers.",
-      "type": "disputed",
+      "text": "Defendants granted special leave to appeal under Art. 136.",
+      "type": "procedural",
       "date": null,
-      "source": "respondent"
+      "source": "court"
     }
   ],
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the trial court could impose conditions for leave to defend under Order XXXVII r.3 despite finding a triable issue, without evidence of non-bona fide defence.",
+      "text": "Whether leave to defend under Order XXXVII r.3 CPC should be granted unconditionally when defence raises triable issue, or conditions can be imposed even if bona fides not disproved.",
       "framed_by": "court"
     },
     {
       "id": "i2",
-      "text": "Scope of discretion under Order XXXVII r.3(2) to impose terms like security, and when unconditional leave must be granted upon triable issue.",
+      "text": "Scope of discretion under Order XXXVII r.3(2) to impose conditions like security for leave to defend.",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Defence raises triable issue as admitted by trial judge; no basis to impose conditions without proof of non-bona fide; defence supported by affidavit with specific dates and cheque numbers.",
+      "text": "Defence raises triable issue as facts in affidavit, if proved, provide good defence; leave must be unconditional if triable issue raised.",
       "supporting_facts": [
-        "f3",
-        "f4",
-        "f8"
+        "f2",
+        "f3"
       ],
-      "legal_basis": "Order XXXVII r.3(1); principles from Jacobs v. Booths Distillery Company; triable issue test"
+      "legal_basis": "Order XXXVII r.3(1) CPC; triable issue test from Jacobs v. Booths Distillery Company"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Discretion under r.3(2) is unfettered; no appeal lies unless grave miscarriage of justice; trial judge exercised discretion properly.",
+      "text": "Discretion under r.3(2) unfettered; no appeal lies unless grave miscarriage of justice; trial Judge exercised discretion properly.",
+      "supporting_facts": [],
+      "legal_basis": "D.N. Banerji v. P.R. Mukherjee; Waryam Singh v. Amarnath"
+    },
+    {
+      "id": "ra2",
+      "text": "Defence not bona fide as no documents produced to support assertions.",
       "supporting_facts": [
-        "f4"
+        "f5"
       ],
-      "legal_basis": "D.N. Banerji v. P.R. Mukherjee; Waryam Singh v. Amarnath; Gopala Rao v. Subba Rao"
+      "legal_basis": "Gopala Rao v. Subba Rao; Manohar Lal v. Nanhe Mal; Shib Karan Das v. Mohammed Sadiq"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Procedural laws facilitate justice, not penal; interpret with elasticity and natural justice principles; defendant not to be condemned unheard.",
+      "text": "Procedural laws to facilitate justice, not frustrate; construed in light of natural justice principles that men not condemned unheard.",
       "addresses_issue": "i1",
-      "key_observation": "Laws of procedure grounded on natural justice; must construe to avoid frustrating justice."
+      "key_observation": "Rules of procedure grounded on natural justice."
     },
     {
       "id": "cr2",
-      "text": "Order XXXVII r.3(1) mandates leave if affidavit discloses facts requiring proof of consideration or sufficient facts; r.3(2) allows conditions but discretion judicial.",
-      "addresses_issue": "i2",
-      "key_observation": "If triable issue, leave unconditional; conditions only if non-bona fide to prevent prolongation."
+      "text": "If defence raises triable issue, leave must be given unconditionally; conditions only if not bona fide, but cannot conclude not bona fide arbitrarily without proof stage.",
+      "addresses_issue": "i1",
+      "key_observation": "Triable issue test: if facts alleged, if proved, good/plausible defence."
     },
     {
       "id": "cr3",
-      "text": "Trial judge erred: defence clear and precise on affidavit; no need for documents at leave stage; proof comes after leave granted.",
-      "addresses_issue": "i1",
-      "key_observation": "Defence not vague; raises real issue if proved."
+      "text": "Trial Judge erred: defence clear and precise on face; no need to produce evidence before leave granted; stage of proof after leave.",
+      "addresses_issue": "i2",
+      "key_observation": "Defence not vague; facts specific with dates and cheque numbers."
     },
     {
       "id": "cr4",
-      "text": "Interference warranted if discretion arbitrary or misunderstands principles, causing failure of justice.",
+      "text": "Discretion exercised arbitrarily based on misunderstanding; interference warranted as failure of justice.",
       "addresses_issue": "i2",
-      "key_observation": "Obvious failure of justice if judgment against defendant who would succeed if allowed to prove case."
+      "key_observation": "Conditions only to ensure speedy trial if prolongation suspected, not merely for lack of pre-leave evidence."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Where defence raises triable issue, leave to defend must be granted unconditionally; conditions only if defence sham or to ensure speedy trial upon non-bona fide suspicion.",
-      "resolves_issue": "i2",
+      "text": "Court must grant unconditional leave to defend if affidavit discloses facts making triable issue; discretion judicial, not arbitrary.",
+      "resolves_issue": "i1",
       "in_favor_of": "petitioner"
     },
     {
       "id": "h2",
-      "text": "Court cannot deem defence non-bona fide arbitrarily or for lack of proof before leave stage; must apply judicial rules.",
-      "resolves_issue": "i1",
+      "text": "Conditions imposable only if defence not bona fide or to prevent prolongation; here, triable issue raised unconditionally.",
+      "resolves_issue": "i2",
       "in_favor_of": "petitioner"
     }
   ],
   "precedents_cited": [
     {
-      "case_name": "D.N. Banerji v. P.R. Mukherjee",
+      "case_name": "D. N. Banerji v. P.R. Mukherjee",
       "citation": "1953 S.C.R. 302",
       "treatment": "referred",
-      "relevance": "No appeal against discretion unless grave miscarriage"
+      "relevance": "No appeal against discretion unless grave miscarriage."
     },
     {
       "case_name": "Waryam Singh v. Amarnath",
       "citation": "1954 S.C.R. 565",
       "treatment": "referred",
-      "relevance": "No appeal against discretion unless grave miscarriage"
+      "relevance": "No appeal against discretion unless grave miscarriage."
     },
     {
       "case_name": "Sangram Singh v. Election Tribunal, Kotah",
       "citation": "1955 2 S.C.R. 1",
       "treatment": "followed",
-      "relevance": "Procedural laws facilitate justice; interpret with natural justice"
+      "relevance": "Procedural laws facilitate justice; interpret with elasticity and natural justice."
     },
     {
       "case_name": "Jacobs v. Booths Distillery Company",
       "citation": "1901 85 L.T. 262",
       "treatment": "followed",
-      "relevance": "Triable issue mandates leave unconditionally"
+      "relevance": "Leave unconditional if triable issue."
     },
     {
       "case_name": "Powszechny Bank Zwiazkowy W. Polsce v. Paros",
       "citation": "1932 2 K.B. 353",
       "treatment": "followed",
-      "relevance": "Triable issue requires unconditional leave"
+      "relevance": "Leave unconditional if triable issue, else illusory."
     },
     {
       "case_name": "Sundaram Chettiar v. Valli Ammal",
       "citation": "1935 1 L.R. 58 Mad. 116",
       "treatment": "followed",
-      "relevance": "Triable issue test; object of speedy decisions in commercial cases"
+      "relevance": "Triable issue test; object to prevent frivolous defences."
     },
     {
       "case_name": "Kiranmoyee Dassi v. J. Chatterjee",
       "citation": "1945 49 C.W.N. 246",
       "treatment": "followed",
-      "relevance": "Triable issue test"
+      "relevance": "Triable issue test."
     },
     {
       "case_name": "Gopala Rao v. Subba Rao",
       "citation": "A.I.R. 1936 Mad. 246",
       "treatment": "distinguished",
-      "relevance": "Court may impose conditions if non-bona fide"
+      "relevance": "Court may impose conditions if not bona fide."
     },
     {
       "case_name": "Manohar Lal v. Nanhe Mal",
       "citation": "A.I.R. 1938 Lah. 548",
-      "treatment": "referred",
-      "relevance": "Cited by respondent"
+      "treatment": "distinguished",
+      "relevance": "Court may impose conditions if not bona fide."
     },
     {
       "case_name": "Shib Karan Das v. Mohammed Sadiq",
       "citation": "A.I.R. 1936 Lah. 584",
-      "treatment": "referred",
-      "relevance": "Cited by respondent"
+      "treatment": "distinguished",
+      "relevance": "Court may impose conditions if not bona fide."
     },
     {
       "case_name": "Kesavan v. South Indian Bank Ltd.",
       "citation": "I.L.R. 1950 Mad. 251",
       "treatment": "referred",
-      "relevance": "Object of Order XXXVII"
+      "relevance": "Object of Order XXXVII."
     }
   ],
   "statutes_cited": [
@@ -218,7 +223,7 @@
         "Order XXXVII r.3(1)",
         "Order XXXVII r.3(2)"
       ],
-      "relevance": "Governs summary suits on bills/cheques; leave to defend conditional or unconditional"
+      "relevance": "Governs summary suits on bills/cheques; leave to defend conditional or unconditional."
     },
     {
       "name": "Constitution of India",
@@ -226,39 +231,34 @@
         "Article 227",
         "Article 136"
       ],
-      "relevance": "High Court supervisory jurisdiction; SC special leave"
+      "relevance": "High Court supervisory jurisdiction; Supreme Court special leave."
     }
   ],
   "outcome": {
     "disposition": "accepted",
-    "summary": "Appeal allowed; orders of High Court and trial judge set aside; case remanded to trial court for trial of issues raised by defendants.",
-    "relief_granted": "Unconditional leave to defend implied; remand for full trial",
+    "summary": "Appeal allowed; orders of High Court and trial Judge set aside; case remanded to trial court for trial of issues raised by defendants.",
+    "relief_granted": "Unconditional leave to defend implied by remand for full trial.",
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "A code of procedure must be regarded as such. It is procedure, something designed to facilitate justice and further its ends not a penal enactment for punishment and penalties.",
+      "text": "\"A code of procedure must be regarded as such. It is procedure, something designed to facilitate justice and further its ends not a penal enactment for punishment and penalties; not a thing designed to trip people up.\"",
       "speaker": "court",
-      "significance": "Core principle for interpreting procedural laws like Order XXXVII"
+      "significance": "Core principle for interpreting procedural rules like Order XXXVII."
     },
     {
-      "text": "Our laws of procedure are grounded on a principle of natural justice which requires that men should not be condemned unheard.",
+      "text": "\"our laws of procedure are grounded on a principle of natural justice which requires that men should not be condemned unheard\"",
       "speaker": "court",
-      "significance": "Justifies mandatory unconditional leave on triable issue"
+      "significance": "Justifies unconditional leave if triable issue to uphold natural justice."
     },
     {
-      "text": "Whenever the defence raises a triable issue, leave must be given, and later cases say that when that is the case it must be given unconditionally.",
+      "text": "\"the test is to see whether the defence raises a real issue and not a sham one, in the sense that, if the facts alleged by the defendant are established, there would be a good, or even a plausible, defence on those facts.\"",
       "speaker": "court",
-      "significance": "States the binding rule from precedents"
-    },
-    {
-      "text": "The test is to see whether the defence raises a real issue and not a sham one.",
-      "speaker": "court",
-      "significance": "Defines standard for granting leave"
+      "significance": "Defines triable issue test for granting leave."
     }
   ],
   "_case_id": "1958_115",
   "_label": 1,
   "_text_length": 11845,
-  "_extracted_at": "2026-02-08T22:33:52.570454"
+  "_extracted_at": "2026-02-10T19:21:10.082386"
 }

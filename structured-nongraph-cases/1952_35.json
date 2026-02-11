@@ -21,15 +21,15 @@
     },
     {
       "id": "f2",
-      "text": "Pamphlet under the heading 'Sangram' printed at Bharati Press and circulated in Purulia, Manbhum district.",
+      "text": "Pamphlet under the heading 'Sangram' printed at Bharati Press and circulated in Purulia, district of Manbhum.",
       "type": "material",
-      "date": "1949",
+      "date": null,
       "source": "court"
     },
     {
       "id": "f3",
-      "text": "Government of Bihar considered pamphlet contained objectionable matter under section 4(1) of Indian Press Emergency Powers Act, 1931.",
-      "type": "disputed",
+      "text": "Government of Bihar considered pamphlet contained objectionable matter under section 4(1) of Indian Press Emergency Powers Act, XXIII of 1931.",
+      "type": "material",
       "date": null,
       "source": "petitioner"
     },
@@ -42,29 +42,36 @@
     },
     {
       "id": "f5",
-      "text": "Respondent applied to High Court of Patna under section 23 on 26th September 1949 to set aside the order.",
+      "text": "On 26th September 1949, respondent applied to High Court of Patna under section 23 to set aside the order.",
       "type": "procedural",
       "date": "1949-09-26",
       "source": "respondent"
     },
     {
       "id": "f6",
-      "text": "High Court Special Bench (Shearer, Ramaswami, Sarjoo Prosad JJ.) allowed application by majority on 13th October 1950; Shearer J. dissented.",
+      "text": "High Court Special Bench (Shearer, Ramaswami and Sarjoo Prosad JJ.) in Miscellaneous Judicial Case No. 220 of 1949 allowed application by majority (Sarjoo Prosad J. with Ramaswami J.), Shearer J. dissented.",
       "type": "procedural",
       "date": "1950-10-13",
       "source": "lower_court"
     },
     {
       "id": "f7",
-      "text": "High Court held pamphlet came within section 4(1) but section 4(1)(a) void under Article 19(1).",
+      "text": "High Court held pamphlet came within mischief of Act but section 4(1)(a) repugnant to Article 19(1) and void under Article 13.",
       "type": "disputed",
       "date": null,
       "source": "lower_court"
     },
     {
       "id": "f8",
-      "text": "Appeal to Supreme Court under Articles 132(1) and 134(1)(c).",
+      "text": "Appeal to Supreme Court under Articles 132(1) and 134(1)(c) of Constitution.",
       "type": "procedural",
+      "date": null,
+      "source": "court"
+    },
+    {
+      "id": "f9",
+      "text": "Pamphlet written in high-flown Bengali, contains demagogic claptrap, abstract propositions, poetic flourish; no specific oppression or cause mentioned; no connection to any agitation.",
+      "type": "material",
       "date": null,
       "source": "court"
     }
@@ -72,90 +79,98 @@
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the pamphlet contained words or signs or visible representations under section 4(1)(a) of the Indian Press Emergency Powers Act.",
+      "text": "Whether the pamphlet contained words or signs or visible representations of the nature described in section 4(1) of the Indian Press Emergency Powers Act.",
       "framed_by": "court"
     },
     {
       "id": "i2",
-      "text": "Whether section 4(1)(a) of the Act is repugnant to Article 19(1) and void under Article 13.",
-      "framed_by": "court"
+      "text": "Whether provisions of section 4(1)(a) of the Act are inconsistent with Article 19(1) of the Constitution and void under Article 13.",
+      "framed_by": "high_court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Pamphlet contained matter inciting or encouraging commission of murder or cognizable offence involving violence under section 4(1)(a).",
+      "text": "Pamphlet falls within section 4(1)(a) as it contemplates bloody revolution, incites violence; certain passages support this.",
       "supporting_facts": [
         "f2",
-        "f3"
+        "f9"
       ],
-      "legal_basis": "Indian Press Emergency Powers Act, s.4(1)(a)"
+      "legal_basis": "Section 4(1)(a) Indian Press Emergency Powers Act; Badri Narain v. Chief Secretary"
     },
     {
       "id": "pa2",
-      "text": "Section 4(1)(a) not void; restrictions directed against undermining security of State, within Article 19(2). Romesh Thapar and Brij Bhushan not applicable.",
+      "text": "Section 4(1)(a) not repugnant to Constitution; Romesh Thapar and Brij Bhushan do not apply as they concern broader public order, not specific incitement to violence undermining State security.",
       "supporting_facts": [],
-      "legal_basis": "Constitution Articles 19(1)(a), 19(2); Romesh Thapar v. State of Madras; Brij Bhushan v. State of Delhi"
+      "legal_basis": "Article 19(2); Romesh Thapar v. State of Madras; Brij Bhushan v. State of Delhi"
+    },
+    {
+      "id": "pa3",
+      "text": "Amendment to Article 19(2) retrospective, not violative of Article 20.",
+      "supporting_facts": [],
+      "legal_basis": "Article 19(2), Article 20"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Leaflet did not contain words under section 4(1).",
+      "text": "Leaflet does not contain words inciting murder or cognizable offences involving violence under section 4(1)(a).",
       "supporting_facts": [
-        "f2"
+        "f9"
       ],
-      "legal_basis": "Indian Press Emergency Powers Act, s.4(1)"
+      "legal_basis": "Section 4(1)(a)"
     },
     {
       "id": "ra2",
-      "text": "Section 4(1)(a) inconsistent with Article 19(1), void under Article 13.",
-      "supporting_facts": [],
-      "legal_basis": "Constitution Articles 19(1), 13; Romesh Thapar v. State of Madras; Brij Bhushan v. State of Delhi"
+      "text": "Pamphlet contains empty slogans, figurative language, no tendency to excite; to be read as whole, not isolated passages.",
+      "supporting_facts": [
+        "f9"
+      ],
+      "legal_basis": null
     },
     {
       "id": "ra3",
-      "text": "Amendment to Article 19(2) repugnant to Article 20.",
+      "text": "Amendment to Article 19(2) repugnant to Article 20 as it declares act offence retrospectively.",
       "supporting_facts": [],
-      "legal_basis": "Constitution Article 20"
+      "legal_basis": "Article 20"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Romesh Thapar and Brij Bhushan deal with wider public order restrictions, not specific incitement to violence under s.4(1)(a) which undermines State security.",
+      "text": "Romesh Thapar and Brij Bhushan concern broader public order restrictions, not specific incitement to violence like section 4(1)(a) which undermines State security and falls within Article 19(2).",
       "addresses_issue": "i2",
-      "key_observation": "Section 4(1)(a) within Article 19(2) as it targets incitement to violent crimes like murder."
+      "key_observation": "Section 4(1)(a) constitutional."
     },
     {
       "id": "cr2",
-      "text": "Pamphlet is high-flown Bengali with demagogic claptrap, abstract propositions, no specific appeal or connection to agitation; no tendency to incite violence.",
+      "text": "Pamphlet is high-flown Bengali demagogic claptrap, abstract, no specific cause or oppression; no evidence of local agitation; read as whole, no tendency to incite violence among educated readers.",
       "addresses_issue": "i1",
-      "key_observation": "Document read as whole has no effect on educated readers; empty slogans, poetic flourish."
+      "key_observation": "Pamphlet does not fall within section 4(1)(a)."
     },
     {
       "id": "cr3",
-      "text": "Consider writing as whole, not isolated passages; effect on ordinary reader in normal circumstances.",
+      "text": "Document to be considered as whole, in fair spirit; stock phrases of demagogues have lost sting; no proof of exceptional circumstances.",
       "addresses_issue": "i1",
-      "key_observation": "No evidence of exceptional circumstances like excited mob."
+      "key_observation": "Ordinary reader laughs at it."
     },
     {
       "id": "cr4",
-      "text": "Amendment to Article 19(2) not violative of Article 20; no retrospective criminalization.",
+      "text": "Amendment to Article 19(2) does not violate Article 20; no retrospective criminalisation.",
       "addresses_issue": "i2",
-      "key_observation": "Act was law in 1949; no conviction involved."
+      "key_observation": "Article 20 inapplicable."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Section 4(1)(a) constitutional under Article 19(2).",
+      "text": "Section 4(1)(a) of Indian Press Emergency Powers Act is not repugnant to Article 19(1)(a) and is valid under Article 19(2).",
       "resolves_issue": "i2",
       "in_favor_of": "petitioner"
     },
     {
       "id": "h2",
-      "text": "Pamphlet does not fall within section 4(1)(a).",
+      "text": "Pamphlet does not contain matter inciting or encouraging commission of murder or cognizable offence involving violence under section 4(1)(a).",
       "resolves_issue": "i1",
       "in_favor_of": "respondent"
     }
@@ -165,42 +180,42 @@
       "case_name": "Romesh Thapar v. State of Madras",
       "citation": "1950 S.C.R. 594",
       "treatment": "distinguished",
-      "relevance": "Deals with wider public order restrictions under Madras Act, not specific incitement to violence."
+      "relevance": "Concerns broader public order restrictions under Madras Act, not specific incitement to violence."
     },
     {
       "case_name": "Brij Bhushan v. State of Delhi",
       "citation": "1950 S.C.R. 605",
       "treatment": "distinguished",
-      "relevance": "Similar to Romesh Thapar; not applicable to s.4(1)(a)."
+      "relevance": "Similar to Romesh Thapar, does not compel invalidity of section 4(1)(a)."
     },
     {
       "case_name": "Bhagwati Charan Shukla v. Government of C.P. Berar",
       "citation": "I.L.R. 1964 Nag. 865",
       "treatment": "followed",
-      "relevance": "Extravagant language in pamphlets does not incite violence in normal circumstances."
+      "relevance": "Extravagant language in pamphlets does not excite violence in normal circumstances."
     },
     {
       "case_name": "Badri Narain v. Chief Secretary, Bihar Government",
       "citation": "A.I.R. 1941 Pat. 132",
       "treatment": "distinguished",
-      "relevance": "Poem had specific appeal to laborers; unlike abstract pamphlet here."
+      "relevance": "Poem had consistent purpose to incite labourers; unlike abstract pamphlet here."
     },
     {
       "case_name": "Harkrishan Singh v. Emperor",
       "citation": "A.I.R. 1946 Lah. 22",
-      "treatment": "referred",
-      "relevance": "Words create no impression on reasonable reader; principle applies to s.4(1)(a)."
+      "treatment": "followed",
+      "relevance": "Words create no impression on reasonable reader; principle applies to section 4(1)(a)."
     }
   ],
   "statutes_cited": [
     {
-      "name": "Indian Press (Emergency Powers) Act, 1931",
+      "name": "Indian Press Emergency Powers Act, 1931",
       "sections": [
         "Section 3(3)",
         "Section 4(1)(a)",
         "Section 23"
       ],
-      "relevance": "Basis for security demand and challenge; s.4(1)(a) held constitutional but not attracted."
+      "relevance": "Basis for security demand and challenge; section 4(1)(a) held constitutional but not attracted."
     },
     {
       "name": "Constitution of India",
@@ -213,34 +228,34 @@
         "Article 134(1)(c)",
         "Article 226"
       ],
-      "relevance": "Freedom of speech restrictions valid if for State security; amendment to Art.19(2) retrospective but not violative of Art.20."
+      "relevance": "Section 4(1)(a) within Article 19(2) restrictions; High Court treated as Article 226 petition."
     }
   ],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "Appeal dismissed as High Court erred on constitutionality of s.4(1)(a) but correctly held pamphlet not within its mischief; no order as to costs.",
-    "relief_granted": "High Court order setting aside security demand upheld.",
+    "summary": "Appeal dismissed as High Court erred in holding section 4(1)(a) unconstitutional but correctly (though for wrong reason) set aside security order since pamphlet does not fall within the section; no order as to costs.",
+    "relief_granted": "Security order set aside maintained.",
     "costs": "No order as to costs"
   },
   "key_quotes": [
     {
-      "text": "\"It is plain that speeches or expressions... which incite to or encourage the commission of violent crimes, such as murder, cannot but be matters which would undermine the security of the State and come within the ambit of a law sanctioned by article 19(2).\"",
+      "text": "speeches or expressions... which incite to or encourage the commission of violent crimes, such as murder, cannot but be matters which would undermine the security of the State and come within the ambit of a law sanctioned by article 19(2).",
       "speaker": "court",
-      "significance": "Clarifies s.4(1)(a) falls within Art.19(2)."
+      "significance": "Holds section 4(1)(a) constitutional under Article 19(2)."
     },
     {
-      "text": "\"The document is written in high-flown Bengali language and contains a good deal of demagogic claptrap with some pretence to poetic flourish.\"",
+      "text": "the pamphlet contains merely empty slogans, carrying no particular meaning except some amount of figurative expression or language borrowed at random from various authors with a touch of poetic flourish.",
       "speaker": "court",
-      "significance": "Describes nature of pamphlet, explaining why no incitement."
+      "significance": "Reason pamphlet does not incite violence."
     },
     {
-      "text": "\"Writings of this character... neither excite nor have the tendency to excite any person... They will necessarily be educated people. Such writings leave their readers cold.\"",
-      "speaker": "court",
-      "significance": "Assesses impact on likely readers."
+      "text": "if a person were to go on inciting murder... he would be free to do so with impunity... This would be so, because such speech... would fall neither under libel nor slander nor defamation...",
+      "speaker": "lower_court",
+      "significance": "High Court observation critiqued as misunderstanding Supreme Court precedents."
     }
   ],
   "_case_id": "1952_35",
   "_label": 0,
   "_text_length": 38376,
-  "_extracted_at": "2026-02-08T22:12:08.644240"
+  "_extracted_at": "2026-02-10T19:14:39.726192"
 }

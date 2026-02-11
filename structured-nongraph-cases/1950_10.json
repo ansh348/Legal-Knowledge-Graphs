@@ -6,7 +6,7 @@
     "judges": [
       "Patanjali Sastri J.",
       "Kania C.J.",
-      "Mehr Chand Mahajan J.",
+      "Mehr Chand Mahajan",
       "Mukherjea J.",
       "Das J.",
       "Fazl Ali J."
@@ -17,35 +17,42 @@
   "facts": [
     {
       "id": "f1",
-      "text": "The petitioner is the printer, publisher and editor of a recently started weekly journal in English called Cross Roads printed and published in Bombay.",
+      "text": "Petitioner is the printer, publisher and editor of a recently started weekly journal in English called Cross Roads printed and published in Bombay.",
       "type": "background",
       "date": null,
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "The Government of Madras issued order No. MS. 1333 dated 1st March, 1950, imposing a ban upon the entry and circulation of the journal Cross Roads in the State of Madras under section 9(1-A) of the Madras Maintenance of Public Order Act, 1949.",
+      "text": "Government of Madras issued order No. MS. 1333 dated 1st March 1950 under section 9(1-A) of the Madras Maintenance of Public Order Act, 1949, imposing a ban on the entry and circulation of the journal Cross Roads in the State of Madras.",
       "type": "material",
       "date": "1950-03-01",
-      "source": "court"
+      "source": "respondent"
     },
     {
       "id": "f3",
-      "text": "The order was published in the Fort St. George Gazette and prohibits, with effect on and from the date of publication, the entry into or the circulation, sale or distribution in the State of Madras or any part thereof of the newspaper entitled Cross Roads.",
+      "text": "The order was published in the Fort St. George Gazette.",
       "type": "procedural",
       "date": null,
       "source": "court"
     },
     {
       "id": "f4",
-      "text": "Application under article 32 of the Constitution for a writ of prohibition and certiorari.",
+      "text": "Petitioner filed application under Article 32 for writ of prohibition and certiorari claiming the order contravenes fundamental right to freedom of speech and expression under Article 19(1)(a) and challenges validity of section 9(1-A) as void under Article 13(1).",
       "type": "procedural",
       "date": null,
-      "source": "court"
+      "source": "petitioner"
     },
     {
       "id": "f5",
-      "text": "The impugned Act was passed by the Provincial Legislature in exercise of the power conferred by section 100 of the Government of India Act 1935, read with Entry 1 of List II of the Seventh Schedule to that Act.",
+      "text": "Advocate-General of Madras raised preliminary objection to jurisdiction of Supreme Court under Article 32, contending petitioner should first approach High Court of Madras under Article 226.",
+      "type": "procedural",
+      "date": null,
+      "source": "respondent"
+    },
+    {
+      "id": "f6",
+      "text": "Madras Maintenance of Public Order Act, 1949 passed by Provincial Legislature under section 100 of Government of India Act, 1935 read with Entry 1 of List II of Seventh Schedule (public order).",
       "type": "background",
       "date": null,
       "source": "court"
@@ -54,97 +61,111 @@
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the order issued under section 9(1-A) of the Madras Maintenance of Public Order Act, 1949, contravenes the fundamental right to freedom of speech and expression under article 19(1)(a) and whether section 9(1-A) is void under article 13(1) as inconsistent therewith.",
-      "framed_by": "petitioner"
-    },
-    {
-      "id": "i2",
-      "text": "Whether the petitioner should first resort to the High Court at Madras under article 226 before approaching this Court under article 32.",
+      "text": "Whether this Court has jurisdiction under Article 32 to entertain the application directly, or should petitioner first approach the High Court under Article 226.",
       "framed_by": "respondent"
     },
     {
+      "id": "i2",
+      "text": "Whether section 9(1-A) of the Madras Maintenance of Public Order Act, 1949 is void under Article 13(1) as inconsistent with Article 19(1)(a), or saved by Article 19(2) as relating to security of the State or tending to overthrow the State.",
+      "framed_by": "court"
+    },
+    {
       "id": "i3",
-      "text": "Whether section 9(1-A), which authorises prohibition for securing public safety or maintenance of public order, relates to matters which undermine the security of or tend to overthrow the State so as to be saved by article 19(2).",
+      "text": "Whether 'public safety and maintenance of public order' in section 9(1-A) falls within 'security of the State or tends to overthrow the State' under Article 19(2).",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "The said order contravenes the fundamental right of the petitioner to freedom of speech and expression conferred by article 19(1)(a) and section 9(1-A) of the impugned Act is void under article 13(1).",
+      "text": "The order contravenes the fundamental right of the petitioner to freedom of speech and expression conferred by Article 19(1)(a).",
       "supporting_facts": [
+        "f1",
         "f2",
         "f3"
       ],
-      "legal_basis": "Article 19(1)(a), Article 13(1)"
+      "legal_basis": "Article 19(1)(a)"
+    },
+    {
+      "id": "pa2",
+      "text": "Section 9(1-A) of the impugned Act is void under Article 13(1) by reason of its being inconsistent with Article 19(1)(a).",
+      "supporting_facts": [
+        "f2"
+      ],
+      "legal_basis": "Article 13(1), Article 19(1)(a)"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Preliminary objection to the jurisdiction of this Court; petitioner should first resort to the High Court at Madras under article 226 as a matter of orderly procedure.",
-      "supporting_facts": [],
-      "legal_basis": "Article 226, Article 32, cited Emperor Bisheswar Prasad Sinha, Urquhart v. Brown, Mooney v. Kolohan"
+      "text": "Petitioner should first resort to High Court at Madras under Article 226 as a matter of orderly procedure before approaching Supreme Court under Article 32.",
+      "supporting_facts": [
+        "f4",
+        "f5"
+      ],
+      "legal_basis": "Article 226; cited Emperor Bisheswar Prasad Sinha; American cases Urquhart v. Brown, Mooney v. Kolohan"
     },
     {
       "id": "ra2",
-      "text": "The expression 'public safety' in the impugned Act means the security of the Province, and therefore the security of the State within the meaning of article 19(2).",
+      "text": "Expression 'public safety' in the impugned Act means the security of the Province, and therefore the security of the State within Article 19(2).",
       "supporting_facts": [
         "f2",
-        "f5"
+        "f6"
       ],
-      "legal_basis": "Article 19(2), Article 12, Rex v. Wormwood Scrubbs Prison"
+      "legal_basis": "Article 19(2), Article 12; cited Rex v. Wormwood Scrubbs Prison"
     },
     {
       "id": "ra3",
-      "text": "Section 9(1-A) is not wholly void; valid to the extent it secures security of the State under article 19(2).",
-      "supporting_facts": [],
+      "text": "Section 9(1-A) is valid to the extent it relates to security of the State under Article 13(1) and Article 19(2).",
+      "supporting_facts": [
+        "f2"
+      ],
       "legal_basis": "Article 13(1), Article 19(2)"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Article 32 provides a guaranteed remedy for enforcement of fundamental rights, itself a fundamental right; Court cannot refuse to entertain applications seeking protection against infringements. Rejects preliminary objection.",
-      "addresses_issue": "i2",
-      "key_observation": "American decisions not analogous; article 32 constitutes this Court protector of fundamental rights."
+      "text": "Article 32 provides a guaranteed remedy for enforcement of fundamental rights, itself a fundamental right; Court cannot refuse to entertain applications seeking protection against infringements.",
+      "addresses_issue": "i1",
+      "key_observation": "American decisions and cited instances not analogous; Article 32 distinct from Article 226."
     },
     {
       "id": "cr2",
       "text": "Freedom of speech and expression includes freedom of propagation of ideas ensured by freedom of circulation; liberty of circulation as essential as liberty of publication.",
-      "addresses_issue": "i1",
-      "key_observation": "Order violates article 19(1)(a) unless saved by article 19(2)."
+      "addresses_issue": "i2",
+      "key_observation": "Order violates Article 19(1)(a) unless saved by Article 19(2)."
     },
     {
       "id": "cr3",
-      "text": "Public order is wide connotation signifying state of tranquillity; public safety part of public order. Section 9(1-A) wider than 'undermining security of or tending to overthrow the State'; not saved by article 19(2).",
+      "text": "'Public order' is wide, includes public safety; but does not necessarily mean security of the State; public safety ordinarily means security of public or freedom from danger, can include preventing dangers to public health, rash driving etc.",
       "addresses_issue": "i3",
-      "key_observation": "Law restricting freedom must be directed solely against undermining security of State."
+      "key_observation": "Distinguished IPC chapters: offences against public safety vs against State vs public tranquillity."
     },
     {
       "id": "cr4",
-      "text": "Where law purports to authorise restrictions in language wide enough to cover both permissible and impermissible, not severable; wholly void if possibility of application beyond constitutional limits.",
+      "text": "Law purporting to authorize restrictions in language wide enough to cover both permissible and impermissible cannot be upheld even to the extent valid; wholly void if capable of application beyond constitutional limits.",
       "addresses_issue": "i3",
-      "key_observation": "Enactment capable of application where no danger to State cannot be constitutional."
-    },
-    {
-      "id": "cr5",
-      "text": "Fazl Ali J. (dissenting): Disorders involving menace to peace and tranquillity of Province undermine security of State; impugned law satisfies article 19(2). Relief cannot be granted.",
-      "addresses_issue": "i1",
-      "key_observation": "Sedition creates disorders against public tranquillity; degrees of gravity do not affect validity of law."
+      "key_observation": "Section 9(1-A) falls outside Article 19(2) as wider than security of State."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Section 9(1-A) of Madras Maintenance of Public Order Act, 1949, falls outside scope of authorised restrictions under article 19(2) and is void and unconstitutional.",
+      "text": "Supreme Court has jurisdiction under Article 32 to entertain the petition directly.",
       "resolves_issue": "i1",
       "in_favor_of": "petitioner"
     },
     {
       "id": "h2",
-      "text": "Direct approach under article 32 permissible without exhausting High Court remedy under article 226.",
+      "text": "Section 9(1-A) of Madras Maintenance of Public Order Act, 1949 is void and unconstitutional under Article 13(1) as it authorizes restrictions beyond those permitted by Article 19(2).",
       "resolves_issue": "i2",
+      "in_favor_of": "petitioner"
+    },
+    {
+      "id": "h3",
+      "text": "'Securing public safety or maintenance of public order' does not relate solely to 'undermining security of or tending to overthrow the State'; includes matters beyond Article 19(2).",
+      "resolves_issue": "i3",
       "in_favor_of": "petitioner"
     }
   ],
@@ -171,13 +192,13 @@
       "case_name": "Ex parte Jackson",
       "citation": "96 U.S. 727",
       "treatment": "followed",
-      "relevance": "Without circulation, publication of little value; freedom of circulation essential."
+      "relevance": "Without circulation, publication of little value; essential to freedom of speech."
     },
     {
       "case_name": "Lovell v. City of Griffin",
       "citation": "303 U.S. 444",
       "treatment": "followed",
-      "relevance": "Freedom of speech includes circulation."
+      "relevance": "Freedom of circulation essential to freedom of speech."
     },
     {
       "case_name": "Rex v. Wormwood Scrubbs Prison",
@@ -193,40 +214,39 @@
     },
     {
       "case_name": "King Emperor v. Sadashiv Narayan Bhalerao",
-      "citation": "Not fully cited",
+      "citation": "Not fully cited; Privy Council overruling Tilak's case reference",
       "treatment": "referred",
-      "relevance": "Privy Council on sedition: exciting bad feelings towards Government, not requiring actual disturbance."
+      "relevance": "Sedition consists in exciting disaffection towards Government, not necessarily disorder."
     }
   ],
   "statutes_cited": [
     {
       "name": "Constitution of India",
       "sections": [
+        "Article 32",
         "Article 19(1)(a)",
         "Article 19(2)",
-        "Article 32",
         "Article 13(1)",
         "Article 226",
-        "Article 12",
-        "Article 352"
+        "Article 12"
       ],
-      "relevance": "Fundamental right to freedom of speech; guaranteed remedy; restrictions only for security of State."
+      "relevance": "Guaranteed remedy for fundamental rights; freedom of speech restrictions only for security of State; impugned section inconsistent."
     },
     {
       "name": "Madras Maintenance of Public Order Act, 1949",
       "sections": [
         "Section 9(1-A)"
       ],
-      "relevance": "Authorises ban on entry/circulation for public safety/maintenance of public order; held unconstitutional."
+      "relevance": "Authorizes ban on entry/circulation for public safety/maintenance of public order; held void."
     },
     {
       "name": "Government of India Act, 1935",
       "sections": [
         "Section 100",
-        "Entry 1 List II",
+        "Entry 1 List II Seventh Schedule",
         "Section 57"
       ],
-      "relevance": "Power of Provincial Legislature over public order."
+      "relevance": "Provincial power over public order; distinguishes security of State."
     },
     {
       "name": "Indian Penal Code",
@@ -241,54 +261,38 @@
         "Section 159"
       ],
       "relevance": "Distinguishes offences against public safety, State, public tranquillity."
-    },
-    {
-      "name": "Criminal Procedure Code",
-      "sections": [
-        "Section 435"
-      ],
-      "relevance": "Instances of approaching lower courts first."
-    },
-    {
-      "name": "Civil Procedure Code",
-      "sections": [
-        "Section 24"
-      ],
-      "relevance": "Instances of approaching lower courts first."
-    },
-    {
-      "name": "Constitution of India Seventh Schedule",
-      "sections": [
-        "Entry 3 List III"
-      ],
-      "relevance": "Security of State and public order as distinct."
     }
   ],
   "outcome": {
     "disposition": "accepted",
-    "summary": "The application is allowed and the order of the respondents prohibiting the entry and circulation of the petitioner's journal in the State of Madras is quashed. Section 9(1-A) held void. Fazl Ali J. dissents, would dismiss petition.",
-    "relief_granted": "Writ granted; ban order quashed.",
+    "summary": "Majority allows the application, declares section 9(1-A) void and unconstitutional, quashes the order prohibiting entry and circulation of Cross Roads in Madras. Fazl Ali J. dissents, would dismiss petition.",
+    "relief_granted": "Order of respondents quashed.",
     "costs": null
   },
   "key_quotes": [
     {
       "text": "\"Article 32 provides a guaranteed remedy for the enforcement of those rights, and this remedial right is itself made a fundamental right by being included in Part III.\"",
       "speaker": "court",
-      "significance": "Rejects preliminary objection; affirms SC's role as protector of fundamental rights."
+      "significance": "Establishes direct access to Supreme Court under Article 32 for fundamental rights enforcement."
     },
     {
       "text": "\"Liberty of circulation is as essential to that freedom as the liberty of publication. Indeed, without circulation the publication would be of little value.\"",
       "speaker": "court",
-      "significance": "Expands scope of freedom of speech under Article 19(1)(a)."
+      "significance": "Defines scope of freedom of speech to include circulation."
     },
     {
       "text": "\"Unless a law restricting freedom of speech and expression is directed solely against the undermining of the security of the State or the overthrow of it, such law cannot fall within the reservation under clause (2) of article 19.\"",
       "speaker": "court",
-      "significance": "Core holding on limits of Article 19(2); section 9(1-A) unconstitutional."
+      "significance": "Narrow interpretation of Article 19(2) limitations."
+    },
+    {
+      "text": "\"Where a law purports to authorise the imposition of restrictions on a fundamental right in language wide enough to cover restrictions both within and without the limits of constitutionally permissible legislative action... it must be held to be wholly unconstitutional and void.\"",
+      "speaker": "court",
+      "significance": "Doctrine of severability; section wholly void due to overbreadth."
     }
   ],
   "_case_id": "1950_10",
   "_label": 1,
   "_text_length": 21816,
-  "_extracted_at": "2026-02-08T22:12:01.661933"
+  "_extracted_at": "2026-02-10T19:15:22.951010"
 }

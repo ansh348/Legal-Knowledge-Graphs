@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "case_name": "Assessee v. Income-tax Authorities",
-    "case_year": 1953,
+    "case_name": "Appellant v. Income-tax Appellate Tribunal",
+    "case_year": null,
     "court": "Supreme Court of India",
     "judges": [
       "Venkatarama Aiyar, J."
@@ -12,31 +12,31 @@
   "facts": [
     {
       "id": "f1",
-      "text": "Appellant carries on business in arrack and runs a lorry.",
+      "text": "The appellant carries on business in arrack. He also runs a lorry.",
       "type": "background",
       "date": null,
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "For assessment year 1945-46, Income-tax Officer found income chargeable to tax as Rs. 54,600.",
+      "text": "For the assessment year 1945-46, the Income-tax Officer found that the income chargeable to tax was Rs. 54,600.",
       "type": "material",
       "date": "1945-46",
-      "source": "lower_court"
+      "source": "income_tax_officer"
     },
     {
       "id": "f3",
-      "text": "For assessment year 1946-47, Income-tax Officer found income chargeable as Rs. 27,500.",
+      "text": "For the assessment year 1946-47, the Income-tax Officer found that the income chargeable was Rs. 27,500.",
       "type": "material",
       "date": "1946-47",
-      "source": "lower_court"
+      "source": "income_tax_officer"
     },
     {
       "id": "f4",
-      "text": "For assessment year 1947-48, Income-tax Officer found income chargeable as Rs. 54,500.",
+      "text": "For the assessment year 1947-48, the Income-tax Officer held that the income chargeable was Rs. 54,500.",
       "type": "material",
       "date": "1947-48",
-      "source": "lower_court"
+      "source": "income_tax_officer"
     },
     {
       "id": "f5",
@@ -47,49 +47,70 @@
     },
     {
       "id": "f6",
-      "text": "Appellant's explanation: Father's profits of about Rs. 80,000 in arrack business; father died in 1936, entrusted amount to assessee's aunt; aunt died in 1944 and handed amount to appellant.",
+      "text": "Appellant's explanation: His father had made profits of about Rs. 80,000 in the arrack business conducted by him, had this amount when he died in 1936, entrusted it to the assessee's aunt prior to death, she died in 1944 and handed it over to the appellant before her death.",
       "type": "disputed",
       "date": "1936 / 1944",
       "source": "petitioner"
     },
     {
       "id": "f7",
-      "text": "Balance of about Rs. 42,000 represented profits earned in partnership concern in arrack business during 1938-39 to 1944-45; partners: Ediga Thayappa (benamidar for appellant) and M. Govindaswamy Mudaliar.",
+      "text": "As regards the balance of about Rs. 42,000, the explanation of the appellant was that they represented the profits earned in a partnership concern which carried on business in arrack during the years 1938-39 to 1944-45. The partners were Ediga Thayappa and M. Govindaswamy Mudaliar. Ediga Thayappa was only a benamidar for the appellant.",
       "type": "disputed",
       "date": "1938-39 to 1944-45",
       "source": "petitioner"
     },
     {
       "id": "f8",
-      "text": "Income-tax Officer rejected both explanations and held amounts represented concealed income, imposed tax thereon.",
+      "text": "This story was rejected by the Income-tax Officer. Both explanations rejected, amounts held to represent concealed income and tax imposed thereon.",
       "type": "procedural",
       "date": null,
-      "source": "lower_court"
+      "source": "income_tax_officer"
     },
     {
       "id": "f9",
-      "text": "Appellate Assistant Commissioner agreed with Income-tax Officer after investigation.",
+      "text": "Appellant appealed to the Appellate Assistant Commissioner who agreed with the conclusions of the Income-tax Officer.",
       "type": "procedural",
       "date": null,
       "source": "lower_court"
     },
     {
       "id": "f10",
-      "text": "Income-tax Appellate Tribunal by judgment dated January 29, 1953, confirmed decision: rejected gift of Rs. 80,000 as untrue; no evidence Ediga Thayappa was benamidar, firm registered under section 26A with Thayappa's name only, no proof of profit shares paid to assessee over six years, no remuneration to Thayappa, rejected evidence of Ediga Narashiah and Govindaswamy Mudaliar.",
+      "text": "Appellate Tribunal by judgment dated January 29, 1953 confirmed the decision. Rejected gift story as untrue after examining evidence.",
       "type": "procedural",
       "date": "1953-01-29",
-      "source": "lower_court"
+      "source": "tribunal"
     },
     {
       "id": "f11",
-      "text": "Tribunal held amounts as undisclosed income.",
-      "type": "material",
+      "text": "Tribunal held no thing to establish Ediga Thayappa was benamidar; in account books only Thayappa's name; firm registered under section 26A with only Thayappa as partner.",
+      "type": "admitted",
       "date": null,
-      "source": "lower_court"
+      "source": "tribunal"
     },
     {
       "id": "f12",
-      "text": "Appellant applied for reference to High Court under section 66(2), dismissed; no appeal against High Court order.",
+      "text": "During six years, no proof that Thayappa paid over any share of profits to assessee; Thayappa not remunerated.",
+      "type": "material",
+      "date": null,
+      "source": "tribunal"
+    },
+    {
+      "id": "f13",
+      "text": "Tribunal rejected evidence of Ediga Narashiah and Govindaswamy Mudaliar examined by appellant.",
+      "type": "procedural",
+      "date": null,
+      "source": "tribunal"
+    },
+    {
+      "id": "f14",
+      "text": "Against Tribunal order, appellant applied for reference to High Court under section 66(2), dismissed by High Court. No appeal against that.",
+      "type": "procedural",
+      "date": null,
+      "source": "court"
+    },
+    {
+      "id": "f15",
+      "text": "Present appeals by special leave under Article 136 against Tribunal decision.",
       "type": "procedural",
       "date": null,
       "source": "court"
@@ -98,54 +119,60 @@
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Assuming assessee failed to establish explanations for source of amounts, does it follow as a matter of law that amounts were income received or accrued during previous year, or was it duty of Department to adduce evidence showing source and why treated as concealed income?",
+      "text": "Assuming appellant failed to establish his explanations, does it follow that the amounts were income received or accrued during the previous year? Was it duty of Department to adduce evidence to show source and why treated as concealed income?",
       "framed_by": "petitioner"
     },
     {
       "id": "i2",
-      "text": "Whether Income-tax Officer entitled to infer amounts are assessable income upon rejection of assessee's explanations.",
+      "text": "Whether Tribunal's finding that amounts are undisclosed income is warranted, or is there ground for interference by Supreme Court?",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Even if explanations failed, it does not follow amounts were income of previous year; Department must prove source and why concealed income; absence of such evidence makes finding erroneous.",
+      "text": "Even if explanations failed, it does not follow as matter of law that amounts were income of previous year; duty of Department to adduce evidence of source and why concealed income. In absence, finding erroneous.",
       "supporting_facts": [
-        "f5",
         "f6",
         "f7",
-        "f10",
-        "f11"
+        "f8"
       ],
       "legal_basis": null
+    },
+    {
+      "id": "pa2",
+      "text": "All points urged were taken in reference under s.66(2).",
+      "supporting_facts": [
+        "f14"
+      ],
+      "legal_basis": "Section 66(2) of Indian Income-tax Act"
     }
   ],
   "respondent_arguments": [],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Whether receipt is income depends on facts and circumstances; here receipts in firm account books where appellant partner; upon rejection of explanations (gift Rs.80,000 and business profits Rs.42,000), Income-tax Officer entitled to hold concealed income.",
+      "text": "Whether receipt is income depends on facts and circumstances. Here receipts shown in firm books where appellant partner. Called to explain, put forward two explanations rejected. Open to ITO to hold concealed income.",
       "addresses_issue": "i1",
-      "key_observation": "Ample authority that where assessee fails to prove source and nature of cash received, Income-tax Officer may infer assessable nature."
+      "key_observation": "Ample authority: where assessee fails to prove source and nature of cash received, ITO entitled to infer assessable."
     },
     {
       "id": "cr2",
-      "text": "Tribunal's conclusion amply warranted by facts; no ground to interfere.",
+      "text": "Tribunal conclusion amply warranted by facts. No ground for interference.",
       "addresses_issue": "i2",
-      "key_observation": "Points urged already taken in section 66(2) reference dismissed by High Court, final; not open to question Tribunal decision afresh under Article 136."
+      "key_observation": "Dhakeswari allows appeal under Art.136 against Tribunal, but here appellant moved HC under s.66(2), adverse final decision, points not open."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Income-tax Officer entitled to treat amounts as concealed income upon rejection of assessee's explanations for source.",
+      "text": "Failure to prove source allows inference of assessable concealed income.",
       "resolves_issue": "i1",
       "in_favor_of": "respondent"
     },
     {
       "id": "h2",
-      "text": "No interference with Tribunal's finding; appeals dismissed.",
+      "text": "No interference with Tribunal finding; appeals dismissed.",
       "resolves_issue": "i2",
       "in_favor_of": "respondent"
     }
@@ -155,33 +182,40 @@
       "case_name": "Dhakeswari Cotton Mills Ltd. v. Commissioner of Income-tax, West Bengal",
       "citation": null,
       "treatment": "referred",
-      "relevance": "Court has decided that appeal under Article 136 against Tribunal decision possible, but here High Court reference already final."
+      "relevance": "Holds that appeal under Article 136 possible against Tribunal decision, but inapplicable here due to final adverse HC order on s.66(2) reference."
     }
   ],
   "statutes_cited": [
     {
       "name": "Indian Income-tax Act",
       "sections": [
-        "Section 26A",
-        "Section 66(2)"
+        "26A",
+        "66(2)"
       ],
-      "relevance": "Firm registered under 26A with Thayappa's name; reference application under 66(2) dismissed."
+      "relevance": "Firm registration under 26A showed only Thayappa as partner; reference application to HC under 66(2) dismissed."
+    },
+    {
+      "name": "Constitution of India",
+      "sections": [
+        "Article 136"
+      ],
+      "relevance": "Basis for special leave appeals against Tribunal."
     }
   ],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "Appeals by special leave against Income-tax Appellate Tribunal's decision dated January 29, 1953, dismissed; Tribunal's finding that amounts are undisclosed income upheld as explanations rejected and inference of concealed income warranted.",
+    "summary": "Appeals dismissed with costs. Tribunal's holding that amounts are undisclosed income confirmed; no interference warranted.",
     "relief_granted": null,
-    "costs": "Dismissed with costs."
+    "costs": "With costs"
   },
   "key_quotes": [
     {
-      "text": "\"When both these explanations were rejected, as they have been it was clearly open to the Income-tax Officer to hold that the income must be concealed income.\"",
+      "text": "When both these explanations were rejected, as they have been it was clearly open to the Income-tax Officer to hold that the income must be concealed income.",
       "speaker": "court",
-      "significance": "Core reasoning justifying inference of concealed income."
+      "significance": "Core reasoning on inference from rejected explanations."
     },
     {
-      "text": "\"There is ample authority for the position that where an assessee fails to prove satisfactorily the source and nature of certain amount of cash received during the accounting year, the Income-tax Officer is entitled to draw the inference that the receipts are of an assessable nature.\"",
+      "text": "There is ample authority for the position that where an assessee fails to prove satisfactorily the source and nature of certain amount of cash received during the accounting year, the Income-tax Officer is entitled to draw the inference that the receipts are of an assessable nature.",
       "speaker": "court",
       "significance": "Legal principle applied to uphold Tribunal."
     }
@@ -189,5 +223,5 @@
   "_case_id": "1958_135",
   "_label": 0,
   "_text_length": 6542,
-  "_extracted_at": "2026-02-08T22:33:53.817023"
+  "_extracted_at": "2026-02-10T19:21:53.903812"
 }

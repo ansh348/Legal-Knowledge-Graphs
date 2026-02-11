@@ -4,7 +4,7 @@
     "case_year": 1954,
     "court": "Supreme Court of India",
     "judges": [
-      "BOSE J."
+      "Bose J."
     ],
     "case_number": "Criminal Appeal No. 4 of 1952",
     "date_of_judgment": "1954-05-05"
@@ -29,54 +29,61 @@
       "text": "On appeal to the High Court of Judicature at Allahabad, five more were acquitted and the convictions were upheld only for the two appellants Nar Singh and Roshan Singh, and one Nanhu Singh.",
       "type": "procedural",
       "date": "1951-05-07",
-      "source": "court"
+      "source": "lower_court"
     },
     {
       "id": "f4",
-      "text": "High Court misread evidence and mixed up Nanhu Singh with Bechan Singh, convicting Nanhu instead of Bechan.",
+      "text": "High Court misread evidence and mixed up Nanhu Singh with Bechan Singh; meant to convict Bechan and acquit Nanhu, but acquitted Bechan and convicted Nanhu.",
       "type": "procedural",
       "date": null,
       "source": "court"
     },
     {
       "id": "f5",
-      "text": "High Court Judges realised mistake, communicated with State Government, which remitted sentence on Nanhu Singh and directed his release.",
+      "text": "High Court Judges realised mistake, communicated with State Government; Government remitted sentence on Nanhu Singh and directed his release.",
       "type": "procedural",
       "date": null,
       "source": "court"
     },
     {
       "id": "f6",
-      "text": "Application under Article 134(1)(c) by Nanhu Singh, Nar Singh and Roshan Singh for certificate.",
+      "text": "Application under Article 134(1)(c) by Nanhu Singh, Nar Singh and Roshan Singh for certificate; granted to all.",
       "type": "procedural",
       "date": null,
-      "source": "court"
+      "source": "lower_court"
     },
     {
       "id": "f7",
-      "text": "High Court granted certificate to Nanhu Singh due to stigma of conviction despite remission; wrongly granted to Nar Singh and Roshan Singh thinking bound by 'case' as whole appeal.",
+      "text": "High Court considered certificate proper for Nanhu due to stigma of conviction despite remission; for appellants, no exceptional nature but granted as part of whole appeal.",
       "type": "procedural",
       "date": null,
-      "source": "court"
+      "source": "lower_court"
     },
     {
       "id": "f8",
-      "text": "Nanhu Singh did not appeal to Supreme Court; only Nar Singh and Roshan Singh appealed.",
+      "text": "Nanhu did not appeal to Supreme Court; only Nar Singh and Roshan Singh appealed.",
       "type": "procedural",
       "date": null,
       "source": "court"
     },
     {
       "id": "f9",
-      "text": "High Court finding: more than five persons involved; eye-witnesses identified the two appellants.",
+      "text": "A number of persons joined in an attack at two in the morning on helpless persons who were asleep in bed.",
       "type": "material",
+      "date": null,
+      "source": "court"
+    },
+    {
+      "id": "f10",
+      "text": "High Court finding: more than five persons involved; eye-witnesses identify the two appellants.",
+      "type": "disputed",
       "date": null,
       "source": "lower_court"
     },
     {
-      "id": "f10",
-      "text": "Attack by a number of persons at two in the morning on helpless persons who were asleep in bed.",
-      "type": "material",
+      "id": "f11",
+      "text": "Only two out of the band of attackers were satisfactorily identified.",
+      "type": "admitted",
       "date": null,
       "source": "court"
     }
@@ -84,69 +91,80 @@
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the certificate under Article 134(1)(c) was properly granted to Nar Singh and Roshan Singh, given High Court's view that 'case' means the appeal as a whole.",
+      "text": "Whether the certificate under Article 134(1)(c) was properly granted to Nar Singh and Roshan Singh.",
       "framed_by": "court"
     },
     {
       "id": "i2",
-      "text": "Whether, upon grant of certificate under Article 134(1)(c), Supreme Court becomes an ordinary Court of appeal bound to hear on facts and law.",
+      "text": "Meaning of 'case' in Article 134(1)(c): whether it refers to the appeal as a whole or each individual's case.",
       "framed_by": "court"
     },
     {
       "id": "i3",
-      "text": "Whether convictions under sections 148, 307/149 and 302/149 IPC are sustainable, given evidence of more than five attackers and identification.",
+      "text": "Scope of Supreme Court's jurisdiction upon grant of certificate under Article 134(1)(c): whether it becomes ordinary appellate court on facts and law.",
+      "framed_by": "petitioner"
+    },
+    {
+      "id": "i4",
+      "text": "Justification for use of Section 149 IPC given more than five persons involved.",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Having obtained a certificate under Article 134(1)(c), Supreme Court has become an ordinary Court of appeal and is bound to hear their case as an appellate Court both on facts and on law.",
+      "text": "Having obtained a certificate under Article 134(1)(c), Supreme Court becomes an ordinary Court of appeal and is bound to hear their case as an appellate Court both on facts and on law.",
       "supporting_facts": [
-        "f7",
+        "f6",
         "f8"
       ],
-      "legal_basis": "Reliance on Subhanand Chowdhary v. Apurba Krishna Mitra; Article 134(1)(c)"
+      "legal_basis": "Subhanand Chowdhary v. Apurba Krishna Mitra; Article 134(1)(c)"
     }
   ],
   "respondent_arguments": [],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "'Case' in Article 134(1)(c) means the case of each individual person, not the appeal as a whole; High Court wrongly thought bound to grant certificate to all.",
-      "addresses_issue": "i1",
-      "key_observation": "High Court misdirected itself and did not exercise judicial discretion."
+      "text": "'Case' in Article 134(1)(c) means the case of each individual person, not the appeal as a whole; even if joint memorandum, each appeal is separate.",
+      "addresses_issue": "i2",
+      "key_observation": "High Court wrongly thought bound to grant certificate to all as one case."
     },
     {
       "id": "cr2",
-      "text": "Supreme Court can determine if certificate under Article 134(1)(c) was rightly granted; discretion must be judicially exercised; here it was fettered by misinterpretation.",
-      "addresses_issue": "i2",
-      "key_observation": "Treat appellants' case as one under Article 136 for special leave."
+      "text": "Certificate under Article 134(1)(c) involves judicial discretion exercised on well-established lines; Supreme Court can review if misdirected.",
+      "addresses_issue": "i1",
+      "key_observation": "High Court misdirected itself, fettered discretion wrongly."
     },
     {
       "id": "cr3",
-      "text": "Evidence against appellants is clear; High Court believed eye-witnesses identifying them; more than five persons involved justifies Section 149 IPC.",
+      "text": "Subhanand Chowdhary inapplicable as deals with different provision (Section 205, 1935 Act).",
       "addresses_issue": "i3",
-      "key_observation": "No reason to interfere with convictions or sentences."
+      "key_observation": "Supreme Court retains power to determine if certificate rightly granted."
+    },
+    {
+      "id": "cr4",
+      "text": "Treating as Article 136 petition: no special grounds; evidence clear, High Court believed eye-witnesses identifying appellants; more than five involved justifies Section 149 IPC.",
+      "addresses_issue": "i4",
+      "key_observation": "Mere identification of two does not weaken finding of more than five."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Certificate under Article 134(1)(c) wrongly granted to appellants as High Court misdirected itself on meaning of 'case'.",
+      "text": "Certificate under Article 134(1)(c) wrongly granted to appellants; treat appeal as petition under Article 136 for special leave, which is rejected.",
       "resolves_issue": "i1",
       "in_favor_of": "respondent"
     },
     {
       "id": "h2",
-      "text": "Supreme Court not bound as ordinary appellate court upon certificate; can review its propriety and treat as Article 136 petition.",
+      "text": "'Case' means individual case, not entire appeal.",
       "resolves_issue": "i2",
       "in_favor_of": "respondent"
     },
     {
       "id": "h3",
-      "text": "Convictions under sections 148, 307/149 and 302/149 IPC proper; no interference with findings or sentences.",
-      "resolves_issue": "i3",
+      "text": "Convictions under Sections 148, 307/149, 302/149 IPC proper; no interference with sentences.",
+      "resolves_issue": "i4",
       "in_favor_of": "respondent"
     }
   ],
@@ -155,7 +173,7 @@
       "case_name": "Subhanand Chowdhary v. Apurba Krishna Mitra",
       "citation": "1940 F.C.R. 31",
       "treatment": "distinguished",
-      "relevance": "Deals with section 205 Government of India Act, 1935; not applicable to Article 134(1)(c)"
+      "relevance": "Deals with Section 205 of 1935 Act, different from Article 134(1)(c)"
     },
     {
       "case_name": "Banarsi Parshad v. Kashi Krishna",
@@ -191,7 +209,7 @@
       "case_name": "Brij Indar Singh v. Kanshi Ram",
       "citation": null,
       "treatment": "followed",
-      "relevance": "Superior court must remit or exercise discretion if lower court misdirected"
+      "relevance": "Superior court must remit or exercise discretion if misdirection"
     }
   ],
   "statutes_cited": [
@@ -202,43 +220,43 @@
         "307/149",
         "302/149"
       ],
-      "relevance": "Offences for which appellants tried and convicted; Section 149 justified due to more than five persons"
+      "relevance": "Offences for which appellants convicted; Section 149 justified as more than five involved"
     },
     {
       "name": "Constitution of India",
       "sections": [
         "134(1)(c)",
-        "136",
-        "133(1)(c)"
+        "133(1)(c)",
+        "136"
       ],
-      "relevance": "Certificate for appeal to Supreme Court; discretion judicial; reviewable"
+      "relevance": "Certificate for appeal to Supreme Court; discretion judicially exercised; fallback to special leave"
     }
   ],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "Certificates under Article 134(1)(c) wrongly granted to appellants; appeal treated as special leave petition under Article 136 and dismissed; convictions and sentences upheld.",
+    "summary": "Supreme Court held certificate wrongly granted, treated appeal as Article 136 special leave petition and dismissed it; upheld convictions and sentences of Nar Singh and Roshan Singh under Sections 148, 307/149, 302/149 IPC.",
     "relief_granted": null,
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "'Case' as used there means the case of each individual person. That would be so even if the trial had been by the High Court itself but it is even more so on appeal...",
+      "text": "'Case' as used there means the case of each individual person.",
       "speaker": "court",
-      "significance": "Core interpretation rejecting High Court's view on Article 134(1)(c)"
+      "significance": "Core interpretation rejecting High Court's view of joint appeal as single case"
     },
     {
       "text": "Ordinarily no certificate can be granted to them as there is nothing of an exceptional nature in their cases.",
-      "speaker": "court",
-      "significance": "High Court's own admission of no merit in appellants' cases"
+      "speaker": "lower_court",
+      "significance": "High Court's own admission no merit in appellants' cases"
     },
     {
       "text": "The mere fact that only two out of the band of attackers were satisfactorily identified does not weaken the force of the finding that more than five were involved.",
       "speaker": "court",
-      "significance": "Upholds use of Section 149 IPC"
+      "significance": "Justifies application of Section 149 IPC"
     }
   ],
   "_case_id": "1954_104",
   "_label": 0,
   "_text_length": 7632,
-  "_extracted_at": "2026-02-08T22:14:32.275795"
+  "_extracted_at": "2026-02-10T19:18:09.286530"
 }

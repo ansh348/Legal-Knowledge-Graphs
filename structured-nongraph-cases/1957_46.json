@@ -4,7 +4,7 @@
     "case_year": 1957,
     "court": "Supreme Court of India",
     "judges": [
-      "VENKATARAMA AIYAR J."
+      "Venkatarama Aiyar J."
     ],
     "case_number": "Civil Appeal No. 12 of 1955",
     "date_of_judgment": "1957-04-24"
@@ -20,7 +20,7 @@
     {
       "id": "f2",
       "text": "The dispute relates to assessment of excess profits tax on income from business other than life insurance for chargeable accounting periods ending December 31, 1940, and December 31, 1941.",
-      "type": "material",
+      "type": "procedural",
       "date": null,
       "source": "court"
     },
@@ -33,49 +33,49 @@
     },
     {
       "id": "f4",
-      "text": "In any year, premiums received in full but risks covered only in part; part outstanding for next year.",
-      "type": "background",
+      "text": "Company prepares annual statements: premiums fully included as assets, 40% as reserve for unexpired risks shown as liability.",
+      "type": "admitted",
       "date": null,
-      "source": "court"
+      "source": "respondent"
     },
     {
       "id": "f5",
-      "text": "Respondent's accounting method: premiums fully included in assets; 40% treated as reserve for unexpired risks shown as liability; balance in net profits.",
-      "type": "background",
-      "date": null,
-      "source": "court"
-    },
-    {
-      "id": "f6",
-      "text": "Example: In 1939, Rs. 1,00,000 premiums received; Rs. 40,000 shown as reserve for unexpired risks; in 1940, that reserve becomes asset.",
+      "text": "Example: In 1939, Rs. 1,00,000 premiums received, Rs. 40,000 shown as reserve for unexpired risks; balance as net profits.",
       "type": "material",
       "date": "1939-12-31",
       "source": "court"
     },
     {
+      "id": "f6",
+      "text": "In 1940, 1939 reserve of Rs. 40,000 treated as assets; fresh policies issued with new reserve.",
+      "type": "material",
+      "date": "1940-12-31",
+      "source": "court"
+    },
+    {
       "id": "f7",
-      "text": "This method adopted by insurance companies per approved accountancy practice.",
+      "text": "This method is usual for insurance companies and approved accountancy practice.",
       "type": "admitted",
       "date": null,
       "source": "court"
     },
     {
       "id": "f8",
-      "text": "Tribunal decided against respondent.",
+      "text": "Tribunal decided against respondent (allowed deduction).",
       "type": "procedural",
       "date": null,
-      "source": "court"
+      "source": "lower_court"
     },
     {
       "id": "f9",
-      "text": "High Court of Calcutta on reference under s.66(1) Income-tax Act read with s.21 Excess Profits Tax Act answered adversely to appellant; granted certificate under s.66A.",
+      "text": "High Court of Calcutta on reference under s.66(1) Income-tax Act read with s.21 Excess Profits Tax Act answered against appellant, granted certificate under s.66A.",
       "type": "procedural",
       "date": "1953-09-10",
-      "source": "court"
+      "source": "lower_court"
     },
     {
       "id": "f10",
-      "text": "Statements to Controller of Insurance disclosed 40% premiums as reserve for unexpired risks, treated as liability in P&L, allowed in income-tax assessment.",
+      "text": "Statements to Controller of Insurance disclosed 40% reserves as liability, allowed in income-tax assessment.",
       "type": "admitted",
       "date": null,
       "source": "court"
@@ -91,21 +91,21 @@
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "All premiums received treated as capital under r.1 Sch.II; reserves for unexpired risks (e.g. Rs.40,000) represent outstanding liability, deductible as accruing liability under r.2 Sch.II.",
+      "text": "All premiums received treated as capital under r.1 Sch.II; reserves for unexpired risks (Rs.40,000 in example) are outstanding liability/accruing liability to be deducted under r.2 Sch.II.",
       "supporting_facts": [
-        "f2",
-        "f5",
-        "f6"
+        "f3",
+        "f4",
+        "f5"
       ],
       "legal_basis": "r.2 Sch.II Excess Profits Tax Act; Sun Insurance Office v. Clark"
     },
     {
       "id": "pa2",
-      "text": "Contract of insurance complete on policy issue; risk attaches; liability accruing as long as policy in force; can ripen anytime.",
+      "text": "Contract of insurance complete on issuance; risk attaches, liability accruing as it can ripen anytime during policy.",
       "supporting_facts": [
         "f3"
       ],
-      "legal_basis": "Sun Insurance Office v. Clark"
+      "legal_basis": "Sun Insurance Office v. Clark (House of Lords)"
     }
   ],
   "respondent_arguments": [
@@ -113,49 +113,54 @@
       "id": "ra1",
       "text": "Provision for unexpired risks is contingent liability, not within r.2 Sch.II.",
       "supporting_facts": [
+        "f4",
         "f5"
       ],
-      "legal_basis": "Indian Contract Act s.31; history of r.2 amendment"
+      "legal_basis": "Indian Contract Act s.31 (contingent contract)"
     },
     {
       "id": "ra2",
-      "text": "Insurance contract contingent until event happens; no enforceable liability; not a debt.",
-      "supporting_facts": [
-        "f3"
-      ],
-      "legal_basis": "Webb v. Stenton; Israelson v. Dawson"
+      "text": "r.2 originally for borrowed money/debts; accruing liabilities added by amendment but as part of debts; unexpired risks not debt.",
+      "supporting_facts": [],
+      "legal_basis": "Excess Profits Tax Amendment Act XLII 1940 s.10; Webb v. Stenton; Israelson v. Dawson"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "One condition for r.2 satisfied as reserves allowed in income-tax computation per r.6 Sch. Income-tax Act.",
+      "text": "Reserves allowable deduction for income-tax under s.10 Income-tax Act Sch. r.6 as per accounts under Insurance Act.",
       "addresses_issue": "i1",
-      "key_observation": "Dispute on whether reserve is sum in respect of accruing liability."
+      "key_observation": "One condition of r.2 Sch.II satisfied."
     },
     {
       "id": "cr2",
-      "text": "Sun Insurance allows deduction for income-tax as present liability/unearned premium, but Excess Profits Tax differs; capital under Sch.II factual, includes all assets utilised in business.",
+      "text": "Issue is whether reserve is 'sum in respect of accruing liabilities'; insurance contract contingent but for tax, per Sun Insurance, treated as present liability for profits computation.",
       "addresses_issue": "i1",
-      "key_observation": "r.2 deductions (borrowed money, debts, accruing liabilities) must be profit-earning assets utilised in business."
+      "key_observation": "Distinguishes income-tax from excess profits tax."
     },
     {
       "id": "cr3",
-      "text": "Reserve for unexpired risks not real trading asset contributing to profits; something in the air, no effect on business working.",
+      "text": "Excess Profits Tax scheme taxes profits over standard profits based on capital employed; r.1 includes all assets utilised in business; r.2 deducts borrowed money, debts, accruing liabilities of same character.",
       "addresses_issue": "i1",
-      "key_observation": "Not accruing liability per r.2 Sch.II."
+      "key_observation": "Accruing liabilities must be profit-earning assets utilised in business."
     },
     {
       "id": "cr4",
-      "text": "Northern Aluminium case applies: contingent liability not accruing for Excess Profits Tax, even if allowed for income-tax.",
+      "text": "Reserve for unexpired risks not real trading asset contributing to profits; 'something in the air', no effect on business working.",
       "addresses_issue": "i1",
-      "key_observation": "No difference if from insurance policy."
+      "key_observation": "Not accruing liability under r.2."
+    },
+    {
+      "id": "cr5",
+      "text": "Sun Insurance principle (unearned premium/liability as unpaid price) inapplicable; Northern Aluminium case applies: contingent liability not accruing for excess profits tax capital computation.",
+      "addresses_issue": "i1",
+      "key_observation": "Allowance in income-tax irrelevant."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Reserves for unexpired risks on pending policies are not sums in respect of accruing liabilities deductible under r.2 Sch.II Excess Profits Tax Act.",
+      "text": "Reserve for unexpired risks in pending policies is not a sum in respect of accruing liability within r.2 Sch.II Excess Profits Tax Act and cannot be deducted from capital employed.",
       "resolves_issue": "i1",
       "in_favor_of": "respondent"
     }
@@ -164,14 +169,14 @@
     {
       "case_name": "Sun Insurance Office v. Clark",
       "citation": "1912 A.C. 443; 6 T.C. 59",
-      "treatment": "followed for income-tax; distinguished for excess profits tax",
-      "relevance": "Allows deduction of unexpired risks reserve as present liability/unearned premium for income-tax purposes."
+      "treatment": "followed",
+      "relevance": "For income-tax, reserves for unexpired risks deductible as present liability/unearned premium."
     },
     {
-      "case_name": "The General Accident Fire and Life Assurance Corporation v. McGowan",
+      "case_name": "General Accident Fire and Life Assurance Corporation v. McGowan",
       "citation": "1908 5 T.C. 308",
       "treatment": "distinguished",
-      "relevance": "Turned on facts; not barring deduction as matter of law."
+      "relevance": "Distinguished by House of Lords in Sun Insurance."
     },
     {
       "case_name": "Gresham Life Assurance Society v. Styles",
@@ -183,7 +188,7 @@
       "case_name": "Scottish Union and National Insurance Company v. Smiles",
       "citation": "1889 2 T.C. 551",
       "treatment": "doubted",
-      "relevance": "No allowance for unexpired risks; not reliable per Lord Haldane."
+      "relevance": "No allowance for unexpired risks; doubted by Lord Haldane."
     },
     {
       "case_name": "Webb v. Stenton",
@@ -195,30 +200,30 @@
       "case_name": "Israelson v. Dawson (Port of Manchester Insurance Co., Ltd., Garnishees)",
       "citation": "1933 1 K.B. 301",
       "treatment": "referred",
-      "relevance": "Amount under policy not debt until compensation determined."
+      "relevance": "Insurance payout not debt until compensation determined."
     },
     {
       "case_name": "Southern Railway of Peru Ltd. v. Owen",
       "citation": "1956 2 All E.R. 728",
-      "treatment": "referred",
-      "relevance": "Distinguishes contingent liability from payment on contingency; insurance liability present."
+      "treatment": "followed",
+      "relevance": "Distinguishes contingent liability from payment on contingency; Sun Insurance liability in praesenti."
     },
     {
       "case_name": "Northern Aluminium Co. Ltd. v. Inland Revenue Commissioners",
       "citation": "1946 1 All E.R. 546",
       "treatment": "followed",
-      "relevance": "Conditional liability not accruing for excess profits tax."
+      "relevance": "Conditional liability under contract not accruing liability for excess profits tax."
     },
     {
       "case_name": "Inland Revenue Commissioners v. Northern Aluminium Co. Ltd.",
       "citation": "1947 1 All E.R. 608",
       "treatment": "followed",
-      "relevance": "Affirms no accruing liability for conditional obligations in excess profits tax."
+      "relevance": "Affirmed no accruing liability for excess profits tax capital."
     }
   ],
   "statutes_cited": [
     {
-      "name": "Excess Profits Tax Act, 1940",
+      "name": "Excess Profits Tax Act, 1940 (XV of 1940)",
       "sections": [
         "s.4",
         "s.6",
@@ -227,29 +232,29 @@
         "Sch. II r.1",
         "Sch. II r.2"
       ],
-      "relevance": "Charge on excess profits; standard profits on capital employed; rules for capital include assets minus borrowed money/debts/accruing liabilities."
+      "relevance": "Charge on excess profits over standard profits based on capital employed; rules for capital computation exclude accruing liabilities if qualifying."
     },
     {
-      "name": "Indian Income-tax Act, 1922",
+      "name": "Income-tax Act, 1922",
       "sections": [
         "s.10(7)",
         "s.66(1)",
         "s.66A",
         "Sch. r.6"
       ],
-      "relevance": "Profits of non-life insurance per annual accounts under Insurance Act, adjusted; reference to High Court."
+      "relevance": "Insurance profits per annual accounts furnished under Insurance Act; reserves allowed as deduction."
     },
     {
       "name": "Insurance Act, 1938",
       "sections": [],
-      "relevance": "Requires annual accounts furnished to Controller of Insurance."
+      "relevance": "Requires annual accounts to Controller of Insurance."
     },
     {
-      "name": "Excess Profits Tax Amendment Act, 1940",
+      "name": "Excess Profits Tax Amendment Act, 1940 (XLII of 1940)",
       "sections": [
         "s.10"
       ],
-      "relevance": "Amended r.2 Sch.II to include accruing liabilities within debts."
+      "relevance": "Amended r.2 Sch.II to include accruing liabilities as part of debts."
     },
     {
       "name": "Indian Contract Act",
@@ -261,29 +266,29 @@
   ],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "The appeal is dismissed; reserves for unexpired risks not deductible under r.2 Sch.II Excess Profits Tax Act as accruing liabilities.",
-    "relief_granted": "None to appellant; upholds High Court in favor of respondent.",
+    "summary": "The appeal is dismissed. Reserves for unexpired risks are not accruing liabilities deductible under r.2 Sch.II Excess Profits Tax Act from capital employed.",
+    "relief_granted": "None to appellant; upholds High Court decision denying deduction.",
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "\"The debts to be deducted under this sub-rule shall include any such sums in respect of accruing liabilities as are allowable as a deduction in computing profits for the purposes of excess profits tax\"",
+      "text": "\"The reserve liability could not factually be said to have contributed to the running of the business or the earning of profits. It was something in the air.\"",
       "speaker": "court",
-      "significance": "Key provision r.2(1) Sch.II interpreted."
+      "significance": "Core reasoning why reserve not accruing liability."
     },
     {
-      "text": "\"a purely contingent liability, which may or may not mature, is not one which falls within that language... it would be contrary to the whole conception underlying these capital provisions\"",
+      "text": "\"A purely contingent liability, which may or may not mature, is not one which falls within that language...\"",
       "speaker": "court",
-      "significance": "From Northern Aluminium; crux why reserve not accruing liability."
+      "significance": "Quotes Lord Greene from Northern Aluminium on contingent liabilities."
     },
     {
-      "text": "\"The reserve liability could not factually be said to have contributed to the running of the business or the earning of profits. It was something in the air\"",
+      "text": "\"There is... a fundamental distinction between a contingent liability and a payment dependent on a contingency.\"",
       "speaker": "court",
-      "significance": "Court's key observation rejecting deduction."
+      "significance": "From Southern Railway distinguishing insurance liability."
     }
   ],
   "_case_id": "1957_46",
   "_label": 0,
   "_text_length": 35557,
-  "_extracted_at": "2026-02-08T22:35:53.169596"
+  "_extracted_at": "2026-02-10T19:22:37.974672"
 }

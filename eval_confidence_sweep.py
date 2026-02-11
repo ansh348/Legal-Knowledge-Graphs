@@ -42,6 +42,11 @@ def load_results(path: str) -> List[Dict]:
     with open(path) as f:
         data = json.load(f)
     cases = data.get("cases", [])
+    # Normalize: newer eval scripts use "struct_*" instead of "raw_*"
+    for c in cases:
+        if "struct_pred" in c and "raw_pred" not in c:
+            c["raw_pred"] = c["struct_pred"]
+            c["raw_conf"] = c["struct_conf"]
     # Filter to valid predictions only
     valid = [c for c in cases
              if c.get("graph_pred") in (0, 1) and c.get("raw_pred") in (0, 1)]

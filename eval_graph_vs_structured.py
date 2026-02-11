@@ -13,6 +13,8 @@ The difference is how the case is *presented*:
 
 Both use NO regex scrubbing of fact text — the comparison isolates
 the effect of the extraction *architecture*, not the scrubbing strategy.
+Pass --no_scrub to use minimal blinding (strip holdings/outcome only),
+matching eval_graph_vs_raw.py --no_scrub exactly for the graph arm.
 
 Same LLM, same system prompt, same cases, same seed.
 
@@ -20,6 +22,7 @@ Usage:
     python eval_graph_vs_structured.py --n 50
     python eval_graph_vs_structured.py --n 100 --concurrent 10 --model grok-4-1-fast-reasoning
     python eval_graph_vs_structured.py --n 200 --model claude-sonnet-4-5-20250929
+    python eval_graph_vs_structured.py --n 100 --no_scrub  # minimal blinding, matches graph_vs_raw --no_scrub
 
 Requirements:
     pip install datasets python-dotenv httpx numpy
@@ -88,9 +91,10 @@ def _model_slug(model: str) -> str:
     return m.replace("/", "-").replace(" ", "-")[:30]
 
 
-def _checkpoint_path(n_cases: int, model: str = "") -> Path:
+def _checkpoint_path(n_cases: int, no_scrub: bool = False, model: str = "") -> Path:
+    scrub_tag = "_noscrub" if no_scrub else ""
     model_tag = f"_{_model_slug(model)}" if model else ""
-    return Path(f"eval_gvs_checkpoint_n{n_cases}{model_tag}.json")
+    return Path(f"eval_gvs_checkpoint_n{n_cases}{scrub_tag}{model_tag}.json")
 
 
 def save_checkpoint(results: list, config: dict, path: Path):
@@ -107,7 +111,7 @@ def load_checkpoint(path: Path, config: dict) -> list:
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
         saved_cfg = data.get("config", {})
-        for key in ("model", "seed"):
+        for key in ("model", "seed", "no_scrub"):
             if saved_cfg.get(key) != config.get(key):
                 print(f"  ⚠️  Checkpoint config mismatch on '{key}' — starting fresh")
                 return []
@@ -120,32 +124,62 @@ def load_checkpoint(path: Path, config: dict) -> list:
 
 
 # =============================================================================
-# BLINDING: GRAPH SUMMARY (no scrub — but strip holdings/outcome/court_response)
+# BLINDING: GRAPH SUMMARY (matched to eval_graph_vs_raw.py serialization)
 # =============================================================================
 
-def build_blinded_graph_summary(graph: dict) -> str:
-    """Build blinded graph summary — no holdings, no outcome, no court_response.
+# Phrases in fact text that reveal court's findings (from eval_graph_vs_raw.py)
+_FACT_COURT_LEAK_RE = re.compile(
+    r"(?:the\s+court\s+(?:held|found|observed|concluded|noted|opined|directed)|"
+    r"it\s+was\s+(?:held|found|observed|concluded)\s+(?:that|by)|"
+    r"(?:rightly|wrongly|correctly|erroneously)\s+(?:held|found|decided|concluded)|"
+    r"the\s+(?:learned\s+)?(?:judge|magistrate|tribunal|high\s+court)\s+"
+    r"(?:held|found|observed|concluded|was\s+(?:right|wrong|justified)|erred)|"
+    r"(?:we|this\s+court)\s+(?:hold|find|observe|conclude)\s+that|"
+    r"(?:conviction|acquittal|sentence)\s+(?:was|is|has\s+been)\s+"
+    r"(?:upheld|set\s+aside|reversed|confirmed|modified)|"
+    r"(?:appeal|petition|writ)\s+(?:was|is|has\s+been)\s+"
+    r"(?:dismissed|allowed|granted|refused|rejected))",
+    re.IGNORECASE
+)
 
-    No regex scrubbing of fact text. Concepts get full text including
-    interpretation. Precedent names included but treatment excluded.
-    This is the 'no_scrub' philosophy — trust schema separation.
+
+def _scrub_fact_text(text: str) -> str:
+    """Remove court-finding language from fact text."""
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    cleaned = [s for s in sentences if not _FACT_COURT_LEAK_RE.search(s)]
+    result = " ".join(cleaned).strip()
+    if not result and text:
+        return text[:100] + "..."
+    return result
+
+
+def build_blinded_graph_summary(graph: dict, no_scrub: bool = False) -> str:
+    """Build blinded graph summary — NO holdings, NO court responses, NO outcome.
+
+    If no_scrub=True: minimal blinding. Facts, concepts, precedents get their
+    full text. Only holdings, outcome, court_response, and issue answers are
+    stripped. This trusts the extractor's schema separation.
+
+    If no_scrub=False (default): aggressive scrubbing. Fact text is regex-filtered,
+    concept interpretations excluded, precedent propositions excluded.
     """
     parts = []
 
-    # Facts — full text, no scrubbing
+    # Facts
     facts = graph.get("facts") or []
     material = [f for f in facts if isinstance(f, dict) and f.get("fact_type") == "material"]
     other = [f for f in facts if isinstance(f, dict) and f.get("fact_type") != "material"]
-    selected = (material + other)[:12]
+    selected = (material + other)[:8]
     if selected:
         parts.append("FACTS:")
         for f in selected:
-            text = f.get("text", "")[:300]
+            raw_text = f.get("text", "")[:300]
+            text = raw_text if no_scrub else _scrub_fact_text(raw_text)
             ftype = f.get("fact_type", "")
             if text:
                 parts.append(f"  [{ftype}] {text}")
 
-    # Legal concepts — full text including interpretation
+    # Legal concepts
     concepts = graph.get("concepts") or []
     central = [c for c in concepts if isinstance(c, dict) and c.get("relevance") == "central"]
     supporting = [c for c in concepts if isinstance(c, dict) and c.get("relevance") == "supporting"]
@@ -158,22 +192,26 @@ def build_blinded_graph_summary(graph: dict) -> str:
             rel = c.get("relevance", "")
             kind = c.get("kind", "")
             kind_str = f" ({kind})" if kind else ""
-            interp = c.get("interpretation", "")
-            desc = c.get("unlisted_description", "")
-            extra = interp or desc
-            extra_str = f": {extra[:200]}" if extra else ""
+            # In no_scrub mode, include interpretation and description
+            if no_scrub:
+                interp = c.get("interpretation", "")
+                desc = c.get("unlisted_description", "")
+                extra = interp or desc
+                extra_str = f": {extra[:200]}" if extra else ""
+            else:
+                extra_str = ""
             parts.append(f"  [{rel}]{kind_str} {label}{extra_str}")
 
-    # Issues — questions only, NO answers
+    # Issues (questions only — NO answers regardless of mode)
     issues = graph.get("issues") or []
     if issues:
         parts.append("ISSUES BEFORE THE COURT:")
-        for iss in issues[:6]:
+        for iss in issues[:5]:
             if isinstance(iss, dict):
                 text = iss.get("text", "")[:250]
                 parts.append(f"  - {text}")
 
-    # Arguments — party claims only, NO court actor, NO court_response
+    # Arguments — party claims only, NO court actor, NO court_response regardless of mode
     arguments = graph.get("arguments") or []
     pet_args = [a for a in arguments if isinstance(a, dict) and
                 a.get("actor") in ("petitioner", "appellant", "complainant", "prosecution")]
@@ -182,30 +220,37 @@ def build_blinded_graph_summary(graph: dict) -> str:
 
     if pet_args or resp_args:
         parts.append("PARTY ARGUMENTS:")
-        for a in pet_args[:5]:
+        for a in pet_args[:4]:
             claim = a.get("claim", "")[:250]
-            scheme = a.get("scheme", "")
-            scheme_str = f" [{scheme}]" if scheme else ""
-            if claim:
-                parts.append(f"  Petitioner{scheme_str}: {claim}")
-        for a in resp_args[:5]:
-            claim = a.get("claim", "")[:250]
-            scheme = a.get("scheme", "")
-            scheme_str = f" [{scheme}]" if scheme else ""
-            if claim:
-                parts.append(f"  Respondent{scheme_str}: {claim}")
+            actor = a.get("actor", "petitioner")
+            schemes = a.get("schemes") or []
+            scheme_str = f" [{', '.join(str(s) for s in schemes[:2])}]" if schemes else ""
+            parts.append(f"  [{actor.upper()}]{scheme_str} {claim}")
 
-    # Precedents — names only, NO treatment (followed/distinguished/overruled is outcome-leaking)
+        for a in resp_args[:4]:
+            claim = a.get("claim", "")[:250]
+            actor = a.get("actor", "respondent")
+            schemes = a.get("schemes") or []
+            scheme_str = f" [{', '.join(str(s) for s in schemes[:2])}]" if schemes else ""
+            parts.append(f"  [{actor.upper()}]{scheme_str} {claim}")
+
+    # Precedents
     precedents = graph.get("precedents") or []
     if precedents:
-        prec_names = []
-        for p in precedents[:8]:
-            if isinstance(p, dict):
-                name = p.get("case_name", "")
+        prec_parts = []
+        for pr in precedents[:5]:
+            if isinstance(pr, dict):
+                name = pr.get("case_name") or pr.get("citation", "")
                 if name:
-                    prec_names.append(name)
-        if prec_names:
-            parts.append(f"CITED PRECEDENTS: {'; '.join(prec_names)}")
+                    if no_scrub:
+                        # Include cited_proposition in no_scrub mode
+                        prop = pr.get("cited_proposition", "")
+                        prop_str = f" — {prop[:150]}" if prop else ""
+                        prec_parts.append(f"{name}{prop_str}")
+                    else:
+                        prec_parts.append(name)
+        if prec_parts:
+            parts.append(f"CITED PRECEDENTS: {'; '.join(prec_parts)}")
 
     return "\n".join(parts)
 
@@ -224,23 +269,34 @@ _OUTCOME_LEAK_RE = re.compile(
 )
 
 
-def build_blinded_structured_summary(struct: dict) -> str:
+def build_blinded_structured_summary(struct: dict, no_scrub: bool = False) -> str:
     """Build blinded structured summary — no outcome, no holdings, no court_reasoning.
 
-    Strips:
+    If no_scrub=True: minimal blinding (fair counterpart to graph no_scrub).
+        Facts are NOT filtered for outcome language.
+        Precedent treatment is included.
+        Only outcome, holdings, and court_reasoning sections are stripped.
+        Court key_quotes are still excluded (no graph equivalent).
+
+    If no_scrub=False (default): aggressive scrubbing.
+        Facts filtered for outcome language.
+        Precedent treatment excluded.
+        Court key_quotes excluded.
+
+    Strips (always, regardless of mode):
         - outcome (disposition, summary, relief, costs)
         - holdings (court's legal determinations)
         - court_reasoning (court's own analysis)
-        - key_quotes from court (may reveal reasoning)
 
     Keeps:
         - metadata (case name, court, year)
-        - facts (full text)
+        - facts (full text; filtered for outcome leaks unless no_scrub)
         - legal_issues (questions only)
         - petitioner_arguments (full text + legal basis)
         - respondent_arguments (full text + legal basis)
-        - precedents_cited (names + citation, NO treatment)
+        - precedents_cited (names + citation; treatment only if no_scrub)
         - statutes_cited (names + sections)
+        - key_quotes (counsel only — court quotes always excluded, no graph equivalent)
     """
     parts = []
 
@@ -258,7 +314,7 @@ def build_blinded_structured_summary(struct: dict) -> str:
             header += ")"
         parts.append(f"CASE: {header}")
 
-    # Facts — full text, no scrubbing, but filter any that leak outcome
+    # Facts — full text; filter outcome leaks unless no_scrub
     facts = struct.get("facts") or []
     if facts:
         parts.append("FACTS:")
@@ -267,8 +323,8 @@ def build_blinded_structured_summary(struct: dict) -> str:
                 text = f.get("text", "")[:300]
                 ftype = f.get("type", "")
                 source = f.get("source", "")
-                # Skip facts that explicitly state the outcome
-                if _OUTCOME_LEAK_RE.search(text):
+                # Skip facts that explicitly state the outcome (unless no_scrub)
+                if not no_scrub and _OUTCOME_LEAK_RE.search(text):
                     continue
                 source_str = f" ({source})" if source else ""
                 if text:
@@ -291,7 +347,7 @@ def build_blinded_structured_summary(struct: dict) -> str:
             if isinstance(a, dict):
                 text = a.get("text", "")[:300]
                 basis = a.get("legal_basis", "")
-                if _OUTCOME_LEAK_RE.search(text):
+                if not no_scrub and _OUTCOME_LEAK_RE.search(text):
                     continue
                 basis_str = f" [Basis: {basis}]" if basis else ""
                 if text:
@@ -305,13 +361,13 @@ def build_blinded_structured_summary(struct: dict) -> str:
             if isinstance(a, dict):
                 text = a.get("text", "")[:300]
                 basis = a.get("legal_basis", "")
-                if _OUTCOME_LEAK_RE.search(text):
+                if not no_scrub and _OUTCOME_LEAK_RE.search(text):
                     continue
                 basis_str = f" [Basis: {basis}]" if basis else ""
                 if text:
                     parts.append(f"  - {text}{basis_str}")
 
-    # Precedents — name + citation only, NO treatment
+    # Precedents — name + citation; include treatment only if no_scrub
     precs = struct.get("precedents_cited") or []
     if precs:
         prec_strs = []
@@ -323,6 +379,10 @@ def build_blinded_structured_summary(struct: dict) -> str:
                     s = name
                     if cite:
                         s += f" ({cite})"
+                    if no_scrub:
+                        treatment = p.get("treatment", "")
+                        if treatment:
+                            s += f" — {treatment[:150]}"
                     prec_strs.append(s)
         if prec_strs:
             parts.append(f"CITED PRECEDENTS: {'; '.join(prec_strs)}")
@@ -336,12 +396,13 @@ def build_blinded_structured_summary(struct: dict) -> str:
                 name = s.get("name", "")
                 sections = s.get("sections") or []
                 if name:
-                    sec_str = f" ({', '.join(sections[:4])})" if sections else ""
+                    sec_str = f" ({', '.join(s for s in sections[:4] if s)})" if sections else ""
                     stat_strs.append(f"{name}{sec_str}")
         if stat_strs:
             parts.append(f"STATUTES: {'; '.join(stat_strs)}")
 
-    # key_quotes — ONLY from counsel, never from court
+    # key_quotes — ONLY from counsel, never from court (regardless of mode,
+    # since court quotes leak outcome and graph has no equivalent)
     quotes = struct.get("key_quotes") or []
     counsel_quotes = [q for q in quotes if isinstance(q, dict)
                       and q.get("speaker") in ("petitioner_counsel", "respondent_counsel")]
@@ -404,20 +465,21 @@ Respond with ONLY this JSON (no markdown, no explanation outside the JSON):
 You MUST respond with valid JSON only. No markdown, no ```json blocks."""
 
 
-def build_graph_prompt(graph: dict) -> str:
-    summary = build_blinded_graph_summary(graph)
+def build_graph_prompt(graph: dict, no_scrub: bool = False) -> str:
+    """Prompt for graph-structured zero-shot prediction."""
+    summary = build_blinded_graph_summary(graph, no_scrub=no_scrub)
     return (
         "Predict the outcome of this Indian Supreme Court case.\n"
-        "The case has been analyzed into a structured legal reasoning graph.\n"
-        "Court holdings and outcome are NOT shown — predict from the facts, "
+        "The case has been analyzed into structured components below.\n"
+        "Court responses to arguments are NOT shown — predict from the facts, "
         "legal framework, and party arguments alone.\n\n"
         f"{summary}\n\n"
-        "Predict: {{\"prediction\": 0 or 1, \"confidence\": 0.0-1.0, \"reasoning\": \"...\"}}"
+        "Predict: {\"prediction\": 0 or 1, \"confidence\": 0.0-1.0, \"reasoning\": \"...\"}"
     )
 
 
-def build_structured_prompt(struct: dict) -> str:
-    summary = build_blinded_structured_summary(struct)
+def build_structured_prompt(struct: dict, no_scrub: bool = False) -> str:
+    summary = build_blinded_structured_summary(struct, no_scrub=no_scrub)
     return (
         "Predict the outcome of this Indian Supreme Court case.\n"
         "The case has been organized into structured sections by an AI.\n"
@@ -596,6 +658,7 @@ async def run_comparison(
     model: str = "grok-4-1-fast-reasoning",
     concurrent: int = 10,
     seed: int = 42,
+    no_scrub: bool = False,
 ):
     api_key = os.getenv("XAI_API_KEY")
     anthropic_key = os.getenv("ANTHROPIC_API_KEY")
@@ -668,7 +731,9 @@ async def run_comparison(
     print(f"  {sel_acc} accepted, {sel_rej} rejected")
 
     print(f"\nModel: {model}")
-    print(f"Blinding: NO scrub on both — strip holdings/outcome/court_reasoning only")
+    scrub_desc = "NO scrub — strip holdings/outcome/court_reasoning only" if no_scrub \
+        else "Full scrub — regex filtering + holdings/outcome/court_reasoning stripped"
+    print(f"Blinding: {scrub_desc}")
     print(f"Concurrent: {concurrent}")
 
     # Build prompts + sanity checks
@@ -681,11 +746,11 @@ async def run_comparison(
         case_id, graph, struct, label = corpus[idx]
         label_str = "ACC" if label == 1 else "REJ"
 
-        graph_prompt = build_graph_prompt(graph)
-        struct_prompt = build_structured_prompt(struct)
+        graph_prompt = build_graph_prompt(graph, no_scrub=no_scrub)
+        struct_prompt = build_structured_prompt(struct, no_scrub=no_scrub)
 
-        graph_summary = build_blinded_graph_summary(graph)
-        struct_summary = build_blinded_structured_summary(struct)
+        graph_summary = build_blinded_graph_summary(graph, no_scrub=no_scrub)
+        struct_summary = build_blinded_structured_summary(struct, no_scrub=no_scrub)
         sanity_warnings.extend(blinding_sanity_check(graph_summary, f"GRAPH-{label_str}", case_id))
         sanity_warnings.extend(blinding_sanity_check(struct_summary, f"STRUCT-{label_str}", case_id))
 
@@ -719,8 +784,8 @@ async def run_comparison(
     print("RUNNING PREDICTIONS")
     print(f"{'='*80}")
 
-    ckpt_config = {"model": model, "seed": seed}
-    ckpt_path = _checkpoint_path(n_cases, model)
+    ckpt_config = {"model": model, "seed": seed, "no_scrub": no_scrub}
+    ckpt_path = _checkpoint_path(n_cases, no_scrub, model)
     completed = load_checkpoint(ckpt_path, ckpt_config)
     completed_ids = {r["case_id"] for r in completed}
     remaining = [c for c in eval_cases if c["case_id"] not in completed_ids]
@@ -1033,7 +1098,9 @@ async def run_comparison(
             "n_cases": n,
             "seed": seed,
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "blinding": "no_scrub on both — holdings/outcome/court_reasoning stripped",
+            "blinding": "no_scrub on both — holdings/outcome/court_reasoning stripped" if no_scrub
+                       else "full scrub — regex filtering + holdings/outcome/court_reasoning stripped",
+            "no_scrub": no_scrub,
             "blinding_warnings": len(sanity_warnings),
         },
         "summary": {
@@ -1062,8 +1129,9 @@ async def run_comparison(
         "cases": valid,
     }
 
+    scrub_tag = "_noscrub" if no_scrub else ""
     model_tag = f"_{_model_slug(model)}" if model else ""
-    out_path = Path(f"graph_vs_structured_n{n}{model_tag}.json")
+    out_path = Path(f"graph_vs_structured_n{n}{scrub_tag}{model_tag}.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
     print(f"\n  Full results saved to {out_path}")
@@ -1083,6 +1151,9 @@ def main():
     p.add_argument("--model", default="grok-4-1-fast-reasoning", help="LLM model")
     p.add_argument("--concurrent", type=int, default=10, help="Max concurrent API calls")
     p.add_argument("--seed", type=int, default=42, help="Random seed for sampling")
+    p.add_argument("--no_scrub", action="store_true",
+                   help="Minimal blinding: strip holdings/outcome/court_reasoning only. "
+                        "No regex scrubbing of fact text or concept fields.")
     args = p.parse_args()
 
     asyncio.run(run_comparison(
@@ -1090,6 +1161,7 @@ def main():
         model=args.model,
         concurrent=args.concurrent,
         seed=args.seed,
+        no_scrub=args.no_scrub,
     ))
 
 

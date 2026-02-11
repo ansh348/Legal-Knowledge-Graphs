@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "case_name": "Shree Ram Mills Limited v. Commissioner of Income-tax",
-    "case_year": 1945,
+    "case_name": "Shree Ram Mills Limited v. Commissioner of Excess Profits Tax",
+    "case_year": null,
     "court": "Supreme Court of India",
     "judges": [
       "Bose, J."
@@ -27,28 +27,28 @@
     {
       "id": "f3",
       "text": "The Income-tax Officer assessed the profits for income-tax at Rs. 46,18,384.",
-      "type": "material",
+      "type": "procedural",
       "date": null,
-      "source": "lower_court"
+      "source": "court"
     },
     {
       "id": "f4",
       "text": "The Excess Profits Tax Officer computed the profits, for excess profits tax purposes, at Rs. 46,94,304.",
-      "type": "material",
+      "type": "procedural",
       "date": null,
-      "source": "lower_court"
+      "source": "court"
     },
     {
       "id": "f5",
-      "text": "In reaching the figure of Rs. 46,94,304, the Excess Profits Tax Officer excluded certain items in the return for determining how the profits increased the capital, for example, money given away as presents and in charity.",
+      "text": "In reaching the figure of Rs. 46,94,304, the Excess Profits Tax Officer excluded certain items in the return for determining how the profits increased the capital, for example, money given away as presents and in charity etc.",
       "type": "material",
       "date": null,
-      "source": "lower_court"
+      "source": "court"
     },
     {
       "id": "f6",
-      "text": "Under the Excess Profits Tax Act, 1940, to determine the quantum of excess profits tax payable, it is necessary to compute the average amount of capital employed by the business during a certain period under Section 23 as computed in accordance with the Second Schedule, bringing in Rule 5.",
-      "type": "procedural",
+      "text": "To determine the quantum of excess profits tax payable, it is necessary under the Act to compute, among other things, the average amount of capital employed by the business during a certain period under Section 2(3), as computed in accordance with the Second Schedule.",
+      "type": "background",
       "date": null,
       "source": "court"
     },
@@ -61,17 +61,17 @@
     },
     {
       "id": "f8",
-      "text": "The department accepted that the profits accrued at an even rate because the assessee has not rebutted that presumption nor has the department attempted to do so.",
+      "text": "The department has accepted that the profits accrued at an even rate because the assessee has not rebutted that presumption nor has the department attempted to do so.",
       "type": "admitted",
       "date": null,
-      "source": "respondent"
+      "source": "court"
     },
     {
       "id": "f9",
-      "text": "Under the Articles of Agreement between the assessee and its managing agents, the agents were to be paid a certain commission due yearly on the thirty-first day of December and payable immediately after annual accounts have been passed by the shareholders.",
+      "text": "Under the Articles of Agreement between the assessee and its managing agents, the agents were to be paid a certain commission and the articles provided: The said commission shall be due to the said firm yearly on the thirty-first day of December in each and every year during the continuance of this agreement and shall be payable and be paid immediately after annual accounts of the said company have been passed by the shareholders of the company.",
       "type": "background",
       "date": null,
-      "source": "petitioner"
+      "source": "court"
     },
     {
       "id": "f10",
@@ -79,24 +79,31 @@
       "type": "material",
       "date": null,
       "source": "court"
+    },
+    {
+      "id": "f11",
+      "text": "The managing agency commission payable by the company to its managing agents for the year 1943 is in dispute.",
+      "type": "disputed",
+      "date": "1943-12-31",
+      "source": "court"
     }
   ],
   "legal_issues": [
     {
       "id": "i1",
       "text": "Whether on a true construction of Rule 5 of Schedule II of the Excess Profits Tax Act the expression 'so far as the contrary is shown' applies only to sub-clause (a) or also to sub-clause (b)?",
-      "framed_by": "court"
+      "framed_by": "high_court"
     },
     {
       "id": "i2",
       "text": "Whether the managing agency commission payable by the company to its managing agents for the year 1943 is borrowed money for the purposes of Rule 2A or a debt for the purposes of Rule 2 of Schedule II to the Excess Profits Tax Act?",
-      "framed_by": "court"
+      "framed_by": "high_court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "The words 'except so far as the contrary is shown' only govern clause (a) and not clause (b).",
+      "text": "The words 'except so far as the contrary is shown' only govern clause (a) and not clause (b). Since clause (a) has been accepted (profits accrued at even rate), clause (b) must also be applied without anything more.",
       "supporting_facts": [
         "f7",
         "f8"
@@ -105,26 +112,18 @@
     },
     {
       "id": "pa2",
-      "text": "Rule 5 is an artificial rule which creates a fiction that profits accrue evenly; if this is not rebutted or accepted, clause (b) must follow as a corollary.",
+      "text": "Rule 5 is an artificial rule creating a fiction that profits accrue evenly; if rebutted for (a), whole rule falls; clause (b) is corollary to (a). The managing agency commission left with assessee constitutes a borrowing within Rule 2A.",
       "supporting_facts": [
-        "f7"
-      ],
-      "legal_basis": "Rule 5 of Schedule II, Excess Profits Tax Act, 1940"
-    },
-    {
-      "id": "pa3",
-      "text": "The managing agency commission left with the assessee constitutes a borrowing within the meaning of Rule 2A of Schedule II.",
-      "supporting_facts": [
-        "f9",
+        "f7",
         "f10"
       ],
-      "legal_basis": "Rule 2A of Schedule II, Excess Profits Tax Act, 1940"
+      "legal_basis": "Rule 5, Rule 2A of Schedule II, Excess Profits Tax Act, 1940"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "The words 'except so far as the contrary is shown' apply to both clauses (a) and (b), allowing exclusion of items like charity from capital increase.",
+      "text": "The words 'deemed' and 'except so far as the contrary is shown' govern both clauses (a) and (b). It is open to rebut either presumption independently. Profits did not actually go to increase capital as they were given to charities etc.",
       "supporting_facts": [
         "f5",
         "f7"
@@ -133,38 +132,39 @@
     },
     {
       "id": "ra2",
-      "text": "The managing agency commission is a debt within the meaning of Rule 2.",
+      "text": "The managing agency commission is a debt within Rule 2, not a borrowing under Rule 2A.",
       "supporting_facts": [
         "f9",
-        "f10"
+        "f10",
+        "f11"
       ],
-      "legal_basis": "Rule 2 of Schedule II, Excess Profits Tax Act, 1940"
+      "legal_basis": "Rule 2, Rule 2A of Schedule II, Excess Profits Tax Act, 1940"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "The word 'deemed' clearly governs both clauses, for the fiction created is not only that profits shall be deemed to have accrued at an even rate but further that they must be deemed to have resulted in a corresponding increase or decrease in capital. The words 'except so far as the contrary is shown' govern both clauses and it is open to either side to rebut either presumption independently.",
+      "text": "The word 'deemed' clearly governs both clauses, for the fiction is not only that profits shall be deemed to have accrued at an even rate, but further that they must be deemed to have resulted in a corresponding increase or decrease in capital. The words 'except so far as the contrary is shown' govern both clauses and it is open to either side to rebut either presumption independently.",
       "addresses_issue": "i1",
       "key_observation": "If only one presumption is rebutted, the other stands."
     },
     {
       "id": "cr2",
-      "text": "The managing agency commission is a debt and not a borrowing. Mere inaction cannot convert money due into a loan; a loan imports a positive act of lending coupled with acceptance. The Articles merely give a right to receive commission at a certain time; if not paid, it lies as a debt.",
+      "text": "At bottom this is a question of fact. Money left could, by proper agreement, be converted into a loan, but mere inaction cannot convert money due into a loan. A loan imports a positive act of lending coupled with acceptance. The relationship of borrower and lender cannot come about by mere inaction. The clause merely gives right to receive commission at certain time; if not paid, it lies as debt.",
       "addresses_issue": "i2",
-      "key_observation": "Relationship of borrower and lender cannot arise by mere inaction."
+      "key_observation": "No agreement to convert into loan."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "The expression 'so far as the contrary is shown' in Rule 5 of Schedule II applies to both clauses (a) and (b).",
+      "text": "The expression 'so far as the contrary is shown' applies to both clauses (a) and (b) of Rule 5 of Schedule II.",
       "resolves_issue": "i1",
       "in_favor_of": "respondent"
     },
     {
       "id": "h2",
-      "text": "The managing agency commission is a debt under Rule 2 and not borrowed money under Rule 2A of Schedule II.",
+      "text": "The managing agency commission is a debt under Rule 2 and not a borrowing under Rule 2A of Schedule II.",
       "resolves_issue": "i2",
       "in_favor_of": "respondent"
     }
@@ -174,17 +174,17 @@
     {
       "name": "Excess Profits Tax Act, 1940",
       "sections": [
-        "Section 23",
+        "Section 2(3)",
         "Schedule II Rule 5",
         "Schedule II Rule 2",
         "Schedule II Rule 2A"
       ],
-      "relevance": "Governs computation of average capital employed, deeming of profits accrual and impact on capital, and classification of debts vs borrowings."
+      "relevance": "Governs computation of average capital employed; interpretation of presumptions in Rule 5 and classification of managing agency commission as debt or borrowing."
     }
   ],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "The Supreme Court agreed with the High Court on both questions: the exception in Rule 5 applies to both clauses, and the managing agency commission is a debt under Rule 2, not a borrowing under Rule 2A.",
+    "summary": "The Supreme Court agrees with the High Court on both questions: the phrase 'so far as the contrary is shown' applies to both sub-clauses of Rule 5, and the managing agency commission is a debt under Rule 2, not borrowed money under Rule 2A. The appeal is dismissed.",
     "relief_granted": null,
     "costs": null
   },
@@ -192,16 +192,16 @@
     {
       "text": "'The word deemed clearly governs both clauses, for the fiction which the Rule creates is not only that the profits shall be deemed to have accrued at an even rate throughout the period, but further that they must be deemed to have resulted, as they accrued, in a corresponding increase or decrease in the capital.'",
       "speaker": "court",
-      "significance": "Explains scope of Rule 5's deeming provisions."
+      "significance": "Core interpretation of Rule 5 establishing dual fictions."
     },
     {
       "text": "'A loan imports a positive act of lending coupled with an acceptance by the other side of the money as a loan. The relationship of borrower and lender cannot ordinarily come about by mere inaction.'",
       "speaker": "court",
-      "significance": "Distinguishes debt from borrowing for managing agency commission."
+      "significance": "Distinguishes debt from borrowing for managing commission."
     }
   ],
   "_case_id": "1953_12",
   "_label": 0,
   "_text_length": 6386,
-  "_extracted_at": "2026-02-08T22:11:27.270318"
+  "_extracted_at": "2026-02-10T19:13:36.310281"
 }
