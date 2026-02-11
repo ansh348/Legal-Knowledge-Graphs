@@ -12,91 +12,102 @@
   "facts": [
     {
       "id": "f1",
-      "text": "Krishtarao died in 1890, leaving surviving two widows Radhabai (senior) and Gangabai (junior) and a son Dattatraya.",
+      "text": "Dyamappa had sons Kalasappa, Girimaji, Krishtarao, Hanamanta.",
       "type": "background",
-      "date": "1890",
+      "date": null,
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "Dattatraya died in 1913 leaving surviving a widow Sundarabai and a son Jagannath.",
-      "type": "background",
-      "date": "1913",
+      "text": "Krishtarao died in 1890, leaving surviving two widows Radhabai (senior) and Gangabai (junior) and a son Dattatraya.",
+      "type": "material",
+      "date": "1890",
       "source": "court"
     },
     {
       "id": "f3",
-      "text": "Sundarabai died shortly after Dattatraya.",
-      "type": "background",
+      "text": "Dattatraya died in 1913 leaving surviving a widow Sundarabai and a son Jagannath.",
+      "type": "material",
       "date": "1913",
       "source": "court"
     },
     {
       "id": "f4",
-      "text": "Jagannath died in 1914.",
-      "type": "background",
-      "date": "1914",
+      "text": "Sundarabai died shortly after Dattatraya.",
+      "type": "material",
+      "date": "1913",
       "source": "court"
     },
     {
       "id": "f5",
+      "text": "Jagannath died in 1914.",
+      "type": "material",
+      "date": "1914",
+      "source": "court"
+    },
+    {
+      "id": "f6",
       "text": "Gangabai adopted the plaintiff Dattatraya Gurunath in 1943.",
       "type": "disputed",
       "date": "1943",
       "source": "petitioner"
     },
     {
-      "id": "f6",
-      "text": "Plaintiff instituted suit on 15th March 1944 in forma pauperis claiming to be adopted son of Krishtarao by Gangabai, entitled to possession of adoptive father's properties and declaration regarding compensation money for land acquired by Hubli Municipality.",
+      "id": "f7",
+      "text": "Appellant instituted suit on 15th March 1944 in forma pauperis claiming to be adopted son of Krishtarao by Gangabai, entitled to possession of adoptive father's properties and declaration re compensation money.",
       "type": "procedural",
       "date": "1944-03-15",
       "source": "petitioner"
     },
     {
-      "id": "f7",
-      "text": "Defendants (sons and grandsons of first cousin of Krishtarao) disputed plaintiff's adoption on ground that Gangabai's power to adopt was extinguished when Dattatraya died in 1913 leaving widow Sundarabai and son Jagannath to continue family line.",
+      "id": "f8",
+      "text": "Defendants (sons and grandsons of first cousin of Krishtarao) disputed plaintiff's adoption on ground that Gangabai's power extinguished when Dattatraya died in 1913 leaving widow and son.",
       "type": "disputed",
+      "date": null,
       "source": "respondent"
     },
     {
-      "id": "f8",
-      "text": "Gangabai in written statement supported plaintiff's claim and asserted senior widow Radhabai gave consent to adoption.",
+      "id": "f9",
+      "text": "Gangabai in written statement supported plaintiff's claim and asserted Radhabai gave consent to adoption.",
       "type": "admitted",
+      "date": null,
       "source": "petitioner"
     },
     {
-      "id": "f9",
-      "text": "Trial judge upheld defendants' contention, dismissed suit; upheld factum of adoption but held Radhabai did not give consent; power to adopt extinguished when son died leaving son and widow.",
-      "type": "procedural",
-      "source": "lower_court"
-    },
-    {
       "id": "f10",
-      "text": "High Court affirmed trial court decision; held Gangabai's power to adopt ended when her son died leaving son and widow to continue family line. No finding on Radhabai's consent.",
+      "text": "Trial judge upheld defendants' contention, dismissed suit; upheld factum of adoption but held Radhabai did not give consent.",
       "type": "procedural",
+      "date": null,
       "source": "lower_court"
     },
     {
       "id": "f11",
-      "text": "Appeal before Supreme Court by special leave in forma pauperis.",
+      "text": "High Court affirmed trial court decision, held Gangabai's power to adopt ended when her son died leaving son and widow; no finding on Radhabai's consent.",
       "type": "procedural",
+      "date": null,
+      "source": "lower_court"
+    },
+    {
+      "id": "f12",
+      "text": "Appeal to Supreme Court by special leave in forma pauperis.",
+      "type": "procedural",
+      "date": null,
       "source": "court"
     }
   ],
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether a widow can exercise power of adoption conferred on her or possessed by her at any time during her life irrespective of devolution of property or changes in family or other circumstances and even after a grandson has come on the scene but has subsequently died without leaving a widow or a son.",
+      "text": "Whether a widow can exercise a power of adoption conferred on her or possessed by her at any time during her life irrespective of any devolution of property or changes in the family or other circumstances and even after a grandson has come on the scene but has subsequently died without leaving a widow or a son.",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Hindu Shastric Law itself sets no limit to exercise of widow's power of adoption once acquired or possessed; power can be exercised during her lifetime when necessity arises for continuing line of her husband.",
+      "text": "Hindu Shastric Law itself sets no limit to the exercise of the widow's power of adoption once she has acquired that power or is possessed of it, and the power can be exercised by her during her life-time when necessity arises for the purpose of continuing the line of her husband.",
       "supporting_facts": [
-        "f5",
-        "f11"
+        "f6"
       ],
       "legal_basis": "Hindu Shastric Law"
     },
@@ -104,67 +115,73 @@
       "id": "pa2",
       "text": "Power suspended during son's lifetime revives on son dying sonless and unmarried; logically revives when son, widow, grandson and his widow all die out; substitution for spiritual reasons essence, devolution of property accessory.",
       "supporting_facts": [
-        "f2",
         "f3",
-        "f4"
+        "f4",
+        "f5"
       ],
       "legal_basis": "Amarendra Mansingh v. Sanatan (1933 L.R. 60 I.A. 242)"
     },
     {
       "id": "pa3",
-      "text": "Rule in Amarendra's case has no application; on death of grandson widow's power revives; cites Bapuji v. Gangaram (1941 I.L.R. Nagpur 178) and Prem Jagat Kuer v. Harihar Bakhsh Singh (1945 I.L.R. 21 Luck. 1).",
+      "text": "Rule in Amarendra's case has no application; power revives on death of grandson; cites Bapuji v. Gangaram and Prem Jagat Kuer v. Harihar Bakhsh Singh.",
       "supporting_facts": [
-        "f4"
+        "f5"
       ],
-      "legal_basis": "High Court decisions"
+      "legal_basis": "Bapuji v. Gangaram (1941 I.L.R. Nagpur 178); Prem Jagat Kuer v. Harihar Bakhsh Singh (1945 I.L.R. 21 Luck. 1)"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Though Hindu Shastric Law sets no limit, judicially recognised power not unlimited/absolute; comes to end when another heir comes on scene and passes duty of continuing line.",
+      "text": "Though Hindu Shastric Law sets no limit, judicially recognised that power is not unlimited and absolute, comes to an end when another heir has come on the scene and passed on duty of continuing the line.",
       "supporting_facts": [
-        "f2"
+        "f3"
       ],
-      "legal_basis": "Judicial decisions including Privy Council cases"
+      "legal_basis": "Chundrabullee cases and subsequent Privy Council decisions"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Reviews Privy Council decisions: Bhoobun Moyee v. Ram Kishore (1865 10 M.I.A. 279), Padma Coomari v. Court of Wards (1881 L.R. 8 I.A. 229); power incapable when son married/leaves widow as heir.",
+      "text": "Reviews Privy Council decisions starting from Bhoobun Moyee v. Ram Kishore (1865) and Padma Coomari (1881), holding power incapable after son leaves widow as heir with vested estate.",
       "addresses_issue": "i1",
-      "key_observation": "Power ends upon vesting of estate in widow of son."
+      "key_observation": "Power at end upon vesting of estate in son's widow."
     },
     {
       "id": "cr2",
-      "text": "Affirms Thayammal v. Venkatarama (1887 L.R. 14 I.A. 67), Tarachurn v. Suresh Chunder (1889 L.R. 16 I.A. 166); Full Bench Bombay Ramkrishna v. Shamrao (1902 I.L.R. 26 Bom 526): power extinguished if son leaves son or widow competent to continue line.",
+      "text": "Affirms rule in Thayammal (1887), Tarachurn (1889), Ramkrishna Ramchandra (1902 Bom), Madana Mohana (1918), where power extinguished when son dies leaving son or widow competent to continue line.",
       "addresses_issue": "i1",
-      "key_observation": "Principle approved in Madana Mohana v. Purushothama (1918 L.R. 45 I.A. 156)."
+      "key_observation": "Power once extinguished cannot be revived."
     },
     {
       "id": "cr3",
-      "text": "Amarendra Mansingh v. Sanatan (1933 L.R. 60 I.A. 242): Stress on spiritual duty; interposition of grandson or son's widow ends power; mere birth/attaining competence by son does not; not based on property vesting.",
+      "text": "In Amarendra Mansingh (1933), reorients to spiritual aspect: power ends with interposition of grandson or son's widow competent to continue line; not mere birth of son; not dependent on property vesting.",
       "addresses_issue": "i1",
-      "key_observation": "Duty passed to son then to grandson/son's widow ends mother's power; cannot revive."
+      "key_observation": "Duty passed to grandson or son's widow ends mother's power."
     },
     {
       "id": "cr4",
-      "text": "Rule reaffirmed in Vijaysingji v. Shivsangji (1935 L.R. 62 I.A. 161), Anant Bhikappa v. Shankar (1943 L.R. 70 I.A. 232); part of Hindu Law for three quarters century; consistent with justice, equity, good conscience.",
+      "text": "Rule reaffirmed in Vijaysingji (1935), Anant Bhikappa (1943); consistent for three quarters century; courts can lay down on justice, equity; no grounds to depart.",
       "addresses_issue": "i1",
-      "key_observation": "Too late to depart; no substantial grounds to overturn."
+      "key_observation": "Too late to question limitations on widow's power."
     },
     {
       "id": "cr5",
-      "text": "Rejects appellant's reliance on Bapuji v. Gangaram and Prem Jagat Kuer: Erroneous, misapprehend Amarendra; power once extinguished cannot revive; duty comes to end.",
+      "text": "Rejects revival argument: if duty passed to grandson, cannot revive; distinguishes cases where son dies incompetent without widow/son.",
       "addresses_issue": "i1",
-      "key_observation": "Logical fallacy in revival argument."
+      "key_observation": "Moment son hands torch to another, mother cannot take it."
+    },
+    {
+      "id": "cr6",
+      "text": "Nagpur and Lucknow High Court decisions erroneous, misread Amarendra.",
+      "addresses_issue": "i1",
+      "key_observation": "No revival on son's widow remarriage or grandson's death."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Widow's power to adopt comes to end by interposition of grandson or son's widow competent to continue line by adoption; once extinguished, cannot revive.",
+      "text": "Widow's power to make an adoption comes to an end by the interposition of a grandson or the son's widow competent to continue the line by adoption; once extinguished, cannot revive.",
       "resolves_issue": "i1",
       "in_favor_of": "respondent"
     }
@@ -174,100 +191,102 @@
       "case_name": "Bhoobun Moyee v. Ram Kishore",
       "citation": "1865 10 M.I.A. 279",
       "treatment": "followed",
-      "relevance": "Power incapable when son leaves married widow as heir."
+      "relevance": "Power incapable after son marries and leaves widow as heir with vested estate."
     },
     {
       "case_name": "Padma Coomari v. Court of Wards",
       "citation": "1881 L.R. 8 I.A. 229",
       "treatment": "followed",
-      "relevance": "Power ends on vesting in son's widow; incapable of execution."
+      "relevance": "Confirms power ends upon vesting in widow of son."
     },
     {
       "case_name": "Thayammal and Kuttiswami Aiyan v. Venkatarama Aiyan",
       "citation": "1887 L.R. 14 I.A. 67",
       "treatment": "followed",
-      "relevance": "Affirmed limitations on widow's power."
+      "relevance": "Affirms limitations on widow's power."
     },
     {
       "case_name": "Tarachurn v. Suresh Chunder",
       "citation": "1889 L.R. 16 I.A. 166",
       "treatment": "followed",
-      "relevance": "Affirmed limitations."
+      "relevance": "Affirms limitations on widow's power."
     },
     {
       "case_name": "Ramkrishna Ramchandra v. Shamrao",
       "citation": "1902 I.L.R. 26 Bom 526",
       "treatment": "followed",
-      "relevance": "Full Bench: Power extinguished if son leaves son or widow to continue line."
+      "relevance": "Power extinguished when son dies leaving widow to continue line; cannot revive."
     },
     {
       "case_name": "Madana Mohana v. Purushothama Deo",
       "citation": "1918 L.R. 45 I.A. 156",
       "treatment": "followed",
-      "relevance": "Approved Bombay Full Bench principle."
+      "relevance": "Approves Bombay Full Bench: power ends when son dies after attaining capacity, leaving line continuer."
     },
     {
       "case_name": "Amarendra Mansingh v. Sanatan",
       "citation": "1933 L.R. 60 I.A. 242",
       "treatment": "followed",
-      "relevance": "Reoriented to spiritual duty; interposition of grandson/son's widow ends power; no revival."
+      "relevance": "Power ends with interposition of grandson or son's widow; spiritual duty basis, not property."
     },
     {
       "case_name": "Vijaysingji v. Shivsangji",
       "citation": "1935 L.R. 62 I.A. 161",
       "treatment": "followed",
-      "relevance": "Applied Amarendra rule."
+      "relevance": "Applies Amarendra rule."
     },
     {
       "case_name": "Anant Bhikappa Patil v. Shankar Ramchandra Patil",
       "citation": "1943 L.R. 70 I.A. 232",
       "treatment": "followed",
-      "relevance": "Restated and reaffirmed limitations."
+      "relevance": "Reaffirms limitations on widow's power."
+    },
+    {
+      "case_name": "Shrinivas Krishnarao Kango v. Narayan Devji Kango",
+      "citation": null,
+      "treatment": "referred",
+      "relevance": "One proposition accepted, no doubt cast on rule."
     },
     {
       "case_name": "Bapuji v. Gangaram",
       "citation": "1941 I.L.R. Nagpur 178",
       "treatment": "distinguished",
-      "relevance": "Erroneous; misapprehends Amarendra; power does not revive on son's widow remarriage."
+      "relevance": "Erroneous; misreads Amarendra on revival."
     },
     {
       "case_name": "Prem Jagat Kuer v. Harihar Bakhsh Singh",
       "citation": "1945 I.L.R. 21 Luck. 1",
       "treatment": "distinguished",
-      "relevance": "Followed erroneous Nagpur case; mistaken approval claim."
-    },
-    {
-      "case_name": "Shrinivas Krishnarao Kango v. Narayan Devji Kango",
-      "treatment": "referred",
-      "relevance": "No doubt cast on rule."
+      "relevance": "Follows Nagpur erroneously; authority shaken."
     }
   ],
   "statutes_cited": [],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "Appeal dismissed upholding High Court and trial court; plaintiff's adoption by Gangabai in 1943 invalid as her power ended in 1913 upon son's death leaving widow and grandson competent to continue line.",
+    "summary": "Appeal dismissed; adoption by Gangabai in 1943 held invalid as her power to adopt extinguished in 1913 when son Dattatraya died leaving son Jagannath and widow Sundarabai competent to continue the line.",
     "relief_granted": null,
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "\"the power of the former widow is extinguished and can never afterwards be revived.\"",
+      "text": "Hindu law itself sets no limit to the exercise of the power during the lifetime of the widow and the validity of successive adoptions in continuance of the line is now well recognised.",
       "speaker": "court",
-      "significance": "Principle from Bombay Full Bench affirmed by Privy Council."
+      "significance": "Acknowledges no Shastric limit but upholds judicial limits."
     },
     {
-      "text": "\"where the duty of providing for the continuance of the line for spiritual purposes which was upon the father, and was laid by him conditionally upon the mother, has been assumed by the son and by him passed on to a grandson or to the son's widow, the mother's power is gone.\"",
+      "text": "Where the duty of providing for the continuance of the line for spiritual purposes which was upon the father, and was laid by him conditionally upon the mother, has been assumed by the son and by him passed on to a grandson or to the son's widow, the mother's power is gone.",
       "speaker": "court",
-      "significance": "True basis of rule from Amarendra case."
+      "significance": "Core principle from Amarendra explaining extinction of power."
     },
     {
-      "text": "\"it is too late in the day to say that there are no limitations of any kind on the widow's power to adopt excepting those that limit the power of her husband to adopt.\"",
+      "id": "kq3",
+      "text": "The power having once been extinguished it cannot afterwards be revived.",
       "speaker": "court",
-      "significance": "Court declines to overturn settled rule."
+      "significance": "Rejects revival argument central to case."
     }
   ],
   "_case_id": "1954_74",
   "_label": 0,
   "_text_length": 25948,
-  "_extracted_at": "2026-02-08T22:14:40.728615"
+  "_extracted_at": "2026-02-10T19:18:23.265731"
 }

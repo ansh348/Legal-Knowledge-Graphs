@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "case_name": "Appellant v. First Wife",
+    "case_name": "Appellant (Husband) v. First Wife (Respondent)",
     "case_year": null,
     "court": "Supreme Court of India",
     "judges": [
@@ -12,70 +12,78 @@
   "facts": [
     {
       "id": "f1",
-      "text": "Appellant secured an ex parte decree divorcing his first wife on 6.7.1990, though the wife says that she never had notice of the said decree or the proceedings commenced by her husband.",
-      "type": "procedural",
+      "text": "Appellant secured an ex parte decree divorcing his first wife on 6.7.1990",
+      "type": "background",
       "date": "1990-07-06",
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "Appellant underwent a marriage with another lady on 25.5.1993 presumably on the strength of the ex parte decree secured by him.",
+      "text": "First wife says she never had notice of the said decree or the proceedings commenced by her husband",
+      "type": "disputed",
+      "date": null,
+      "source": "respondent"
+    },
+    {
+      "id": "f3",
+      "text": "Appellant underwent a marriage with another lady on 25.5.1993 presumably on the strength of the ex parte decree",
       "type": "material",
       "date": "1993-05-25",
       "source": "court"
     },
     {
-      "id": "f3",
-      "text": "First wife succeeded in getting the ex parte decree set aside on 31.3.1994.",
-      "type": "procedural",
-      "date": "1994-03-31",
-      "source": "court"
-    },
-    {
       "id": "f4",
-      "text": "There is no decree of divorce as between the appellant and his first wife ever since 31.3.1994.",
-      "type": "background",
+      "text": "First wife succeeded in getting the ex parte decree set aside on 31.3.1994",
+      "type": "procedural",
       "date": "1994-03-31",
       "source": "court"
     },
     {
       "id": "f5",
-      "text": "First wife filed a complaint against the appellant on 28.3.1995 alleging that the appellant has committed the offence under Section 494 of the IPC.",
+      "text": "There is no decree of divorce as between the appellant and his first wife ever since 31.3.1994",
+      "type": "admitted",
+      "date": "1994-03-31",
+      "source": "court"
+    },
+    {
+      "id": "f6",
+      "text": "First wife filed a complaint against the appellant on 28.3.1995 alleging offence under Section 494 of the IPC",
       "type": "procedural",
       "date": "1995-03-28",
       "source": "respondent"
     },
     {
-      "id": "f6",
-      "text": "On receiving the process issued by the criminal court the appellant moved the High Court of Allahabad for quashing the criminal proceedings.",
+      "id": "f7",
+      "text": "Appellant moved the High Court of Allahabad for quashing the criminal proceedings",
       "type": "procedural",
+      "date": null,
       "source": "petitioner"
     }
   ],
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the appellant can be convicted for the offence under Section 494 IPC given that he contracted the second marriage on 25.5.1993 when the ex parte divorce decree was still in force, though later set aside on 31.3.1994.",
+      "text": "Whether the appellant can be convicted for the offence under Section 494 IPC for second marriage on 25.5.1993 when ex parte divorce decree was in force but later set aside on 31.3.1994",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "On the date when he contracted the second marriage the first marriage was no subsisting in view of the ex parte decree which continued in force on the said date.",
+      "text": "On the date when he contracted the second marriage the first marriage was not subsisting in view of the ex parte decree which continued in force on the said date",
       "supporting_facts": [
         "f1",
-        "f2"
+        "f3"
       ],
-      "legal_basis": "Section 494 IPC"
+      "legal_basis": "Ex parte decree of divorce dated 6.7.1990"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Did no dispute the fact that she moved for setting aside the ex parte decree and succeeded in it on 31.3.1994; contended that the appellant is guilty of adultery at least from the date 31.3.1994.",
+      "text": "Did not dispute setting aside of ex parte decree on 31.3.1994 but contended that appellant is guilty of adultery at least from 31.3.1994",
       "supporting_facts": [
-        "f3"
+        "f4"
       ],
       "legal_basis": null
     }
@@ -83,21 +91,21 @@
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "As per the order dated 31.3.1994 the ex parte decree of divorce dated 6.7.1990 was set aside. If that be so, appellant cannot possibly be convicted for the offence under Section 494 of IPC on premise that he had undergone a ceremony of marriage with another lady on 25.5.1993.",
+      "text": "If the ex parte decree dated 6.7.1990 was set aside on 31.3.1994, appellant cannot possibly be convicted for offence under Section 494 IPC on premise that he underwent ceremony of marriage with another lady on 25.5.1993",
       "addresses_issue": "i1",
-      "key_observation": "The ex parte decree was in force on the date of second marriage."
+      "key_observation": "Criminal proceeding for Section 494 IPC is an exercise of futility since no subsisting divorce decree issue affects validity at time of second marriage"
     },
     {
       "id": "cr2",
-      "text": "We are no considering the aspect of adultery from 31.3.1994 since no complaint has been filed by the first wife against the appellant on that score. The criminal proceeding no pending against the appellant for the offence under Section 494 of the IPC is only an exercise of futility.",
+      "text": "Not considering adultery aspect since no complaint filed on that score",
       "addresses_issue": "i1",
-      "key_observation": "No basis for Section 494 proceedings."
+      "key_observation": "Criminal court should not waste time on futile Section 494 proceedings"
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Appellant cannot possibly be convicted for the offence under Section 494 of IPC as the second marriage occurred when the ex parte divorce decree was still in force.",
+      "text": "Appellant cannot be convicted under Section 494 IPC as ex parte decree set aside renders proceedings futile",
       "resolves_issue": "i1",
       "in_favor_of": "petitioner"
     }
@@ -109,12 +117,12 @@
       "sections": [
         "Section 494"
       ],
-      "relevance": "Offence of marrying again during lifetime of husband or wife; proceedings quashed as no subsisting marriage on date of second marriage due to ex parte decree then in force."
+      "relevance": "Offence of marrying again during lifetime of husband or wife; proceedings quashed as futile post-set aside of divorce decree"
     }
   ],
   "outcome": {
     "disposition": "accepted",
-    "summary": "Appeal allowed; impugned order set aside; criminal proceedings pursuant to the complaint under Section 494 IPC quashed as futile.",
+    "summary": "Appeal allowed; impugned order set aside; criminal proceedings pursuant to complaint under Section 494 IPC quashed as futile since ex parte divorce decree was set aside.",
     "relief_granted": "Quashing of criminal proceedings",
     "costs": null
   },
@@ -122,16 +130,16 @@
     {
       "text": "If that be so, appellant cannot possibly be convicted for the offence under Section 494 of IPC on premise that he had undergone a ceremony of marriage with another lady on 25.5.1993.",
       "speaker": "court",
-      "significance": "Core reasoning why Section 494 does not apply."
+      "significance": "Core reasoning for quashing proceedings"
     },
     {
-      "text": "The criminal proceeding no pending against the appellant for the offence under Section 494 of the IPC is only an exercise of futility.",
+      "text": "The criminal proceeding now pending against the appellant for the offence under Section 494 of the IPC is only an exercise of futility.",
       "speaker": "court",
-      "significance": "Justification for quashing proceedings."
+      "significance": "Justification for not wasting court time"
     }
   ],
   "_case_id": "2002_151",
   "_label": 1,
   "_text_length": 2302,
-  "_extracted_at": "2026-02-08T22:08:40.976133"
+  "_extracted_at": "2026-02-10T19:13:34.506656"
 }

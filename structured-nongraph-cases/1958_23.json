@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "case_name": "Appellant (Elected Candidate) v. Respondents (Election Petitioners)",
+    "case_name": "Appellant (Returned Candidate) v. Respondents (Election Petitioners)",
     "case_year": 1958,
     "court": "Supreme Court of India",
     "judges": [
-      "SARKAR J."
+      "Sarkar J."
     ],
     "case_number": "Civil Appeal No. 251 of 1958",
     "date_of_judgment": "1958-08-21"
@@ -13,56 +13,63 @@
     {
       "id": "f1",
       "text": "Election held on March 8, 1957, for Mysore State Legislative Assembly, Harihar constituency.",
-      "type": "background",
+      "type": "procedural",
       "date": "1957-03-08",
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "Nomination papers of Hanumanthappa (Patel), Siddappa (Patel), and Guru Rao (Shanbhog) rejected by Returning Officer as holders of offices of profit under Mysore Government, disqualified under Art. 191.",
+      "text": "Nomination papers of Hanumanthappa (Patel), Siddappa (Patel), and Guru Rao (Shanbhog) rejected by Returning Officer as holders of offices of profit under Mysore Government, disqualified under Art. 191 Constitution.",
       "type": "procedural",
       "date": null,
       "source": "returning_officer"
     },
     {
       "id": "f3",
-      "text": "Two candidates left, appellant declared elected with larger number of votes.",
+      "text": "Two candidates left, appellant obtained larger number of votes and declared elected.",
       "type": "material",
       "date": null,
       "source": "court"
     },
     {
       "id": "f4",
-      "text": "Six electors of Harihar constituency filed election petition under s.100(1)(c) of Representation of the People Act, 1951, alleging improper rejection of nominations, seeking declaration that appellant's election void.",
+      "text": "Six electors of Harihar constituency filed election petition under s.100(1)(c) Representation of the People Act, 1951, alleging improper rejection of nominations, seeking declaration that appellant's election void.",
       "type": "procedural",
       "date": null,
       "source": "petitioner"
     },
     {
       "id": "f5",
-      "text": "Election Tribunal dismissed petition on September 10, 1957, holding Patels and Shanbhogs hold offices of profit under Mysore Village Offices Act, 1908, with considerable remuneration.",
+      "text": "Election Tribunal dismissed petition on September 10, 1957, holding Patels and Shanbhogs hold offices of profit under Mysore Village Offices Act, 1908, receive considerable remuneration.",
       "type": "procedural",
       "date": "1957-09-10",
       "source": "lower_court"
     },
     {
       "id": "f6",
-      "text": "Petitioners appealed to Mysore High Court, which allowed appeal on February 26, 1958, held offices not under Government, declared appellant's election void.",
+      "text": "Six petitioners appealed to Mysore High Court, which allowed appeal on February 26, 1958, held offices not under Government, declared appellant's election void.",
       "type": "procedural",
       "date": "1958-02-26",
       "source": "high_court"
     },
     {
       "id": "f7",
-      "text": "Appeal to Supreme Court with certificate under Art. 133(1)(c); one petitioner dead, five respondents.",
+      "text": "Appeal to Supreme Court with certificate under Art.133(1)(c) Constitution; one petitioner dead, five respondents.",
       "type": "procedural",
       "date": null,
       "source": "court"
     },
     {
       "id": "f8",
-      "text": "Undisputed: Hanumanthappa and Siddappa held offices of Patels with lands allotted and cash allowances; Guru Rao Shanbhog with cash remuneration; all have specific duties and are holders of offices.",
+      "text": "Undisputed: Hanumanthappa and Siddappa held offices of Patels with lands allotted and cash allowances; Guru Rao Shanbhog with cash remuneration; all have specific duties, holders of offices.",
       "type": "admitted",
+      "date": null,
+      "source": "court"
+    },
+    {
+      "id": "f9",
+      "text": "Offices of Patels and Shanbhogs are hereditary village officers, regulated by Mysore Village Offices Act, 1908.",
+      "type": "background",
       "date": null,
       "source": "court"
     }
@@ -70,16 +77,17 @@
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether Patels and Shanbhogs are holders of offices of profit under the Mysore Government and thus disqualified under Art. 191 of the Constitution for being chosen as members of the Legislative Assembly.",
+      "text": "Whether Patels and Shanbhogs are holders of offices of profit under the Mysore Government and thus disqualified under Art. 191 Constitution for being chosen as members of Legislative Assembly.",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Patels and Shanbhogs hold office by reason of Government appointment, even if no option in some cases; office held under Government as appointment perfects right; no one else under whom held; dismissal power under s.7 does not negate; remuneration from Government funds; duties under Government control.",
+      "text": "Patels and Shanbhogs hold offices under Government by reason of appointment, even if no option in some cases; hereditary right not absolute; dismissal powers under s.7 Act; remuneration from Government funds; no one else under whom office held.",
       "supporting_facts": [
-        "f8"
+        "f8",
+        "f9"
       ],
       "legal_basis": "Mysore Village Offices Act, 1908 (ss.6,7,8,11); Art. 310 Constitution"
     }
@@ -87,44 +95,52 @@
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Offices hereditary under customary law, held under village community as agents/liaisons; Government appoints only if no hereditary holder; Act consolidates without altering hereditary right; not under Government; small remuneration; no direct payment; s.11 right to sue; minor successor provision.",
+      "text": "Patels and Shanbhogs not holders of offices under Government; hereditary under customary law, held under village community as agents/liaisons; Government appoints only if no hereditary; Act consolidates old law without altering; small remuneration.",
       "supporting_facts": [
-        "f2",
-        "f8"
+        "f8",
+        "f9"
       ],
       "legal_basis": "Mysore Land Revenue Code, 1888; Mysore Village Offices Act, 1908; Mangal Sain v. State of Punjab"
+    },
+    {
+      "id": "ra2",
+      "text": "Heir succeeds by own right, not Government appointment; Government cannot prevent succession; no dismissal at pleasure under Art.310; no direct payment by Government.",
+      "supporting_facts": [
+        "f9"
+      ],
+      "legal_basis": "Mysore Village Offices Act, 1908 (ss.7,8,11)"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Mysore Village Offices Act, 1908 governs; recognizes limited hereditary right but appointment by Government required to hold office (s.8); heir not appointed if ineligible (s.8(1)); even if mandatory, appointment by Government makes office under it; no corporate village community.",
+      "text": "Mysore Village Offices Act, 1908 governs; recognizes limited hereditary right (s.6 new offices from families; s.8 succession per personal law but eligibility under s.8(1), forfeiture possible; appointment by Government perfects right.",
       "addresses_issue": "i1",
-      "key_observation": "Appointment by Government perfects right to office."
+      "key_observation": "Office held by reason of Government appointment; no absolute hereditary right."
     },
     {
       "id": "cr2",
-      "text": "Dismissal under s.7; not at pleasure but statute can limit (Gould v. Stuart); does not negate holding under Government.",
+      "text": "Dismissal under s.7; not at pleasure but statute can limit (Gould v. Stuart); does not mean not under Government.",
       "addresses_issue": "i1",
-      "key_observation": "Liability to dismissal not conclusive."
+      "key_observation": "Liability to dismissal by Government, even if regulated."
     },
     {
       "id": "cr3",
-      "text": "Remuneration: lands allotted, cash from revenue collected (deemed Government payment per rules); duties fixed under Government control/supervision.",
+      "text": "Remuneration: lands allotted, cash allowances from revenue collected (deemed Government payment per rules); duties fixed under Government control/supervision.",
       "addresses_issue": "i1",
-      "key_observation": "Paid from Government funds."
+      "key_observation": "Paid from Government funds/assets."
     },
     {
       "id": "cr4",
-      "text": "Mangal Sain distinguished: municipality exists there, not here.",
+      "text": "Village communities lack corporate existence; office cannot be under them; Mangal Sain distinguished as municipality exists there.",
       "addresses_issue": "i1",
-      "key_observation": "Office under Government."
+      "key_observation": "Appointment by Government means held under it."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "Patels and Shanbhogs hold offices of profit under the Mysore Government.",
+      "text": "Patels and Shanbhogs hold offices of profit under Mysore Government: appointed by it, controlled/supervised by it, remunerated from its funds, removable by it.",
       "resolves_issue": "i1",
       "in_favor_of": "petitioner"
     }
@@ -134,19 +150,25 @@
       "case_name": "Mangal Sain v. State of Punjab",
       "citation": "A.I.R. 1952 Punj. 58",
       "treatment": "distinguished",
-      "relevance": "Appointment/dismissal by Government does not make officeholder servant if held under another body like municipality."
+      "relevance": "Government role in appointment/dismissal of municipal officer does not make him Government servant; distinguished as municipality exists."
     },
     {
       "case_name": "Gould v. Stuart",
       "citation": "1896 A.C. 579",
-      "treatment": "referred",
-      "relevance": "Statute can prevent dismissal at Government's pleasure without negating service under Government."
+      "treatment": "followed",
+      "relevance": "Statute can prevent dismissal at Government's pleasure without negating holding office under Government."
     },
     {
       "case_name": "R. Venkata Rao v. Secretary of State for India",
       "citation": "1936 L.R. 64 I.A. 55",
       "treatment": "referred",
       "relevance": "Refers to Gould v. Stuart on statutory limits to dismissal."
+    },
+    {
+      "case_name": "Dunn v. Reg.; De Dohse v. Reg.",
+      "citation": "1896 1 Q.B. 117, n.",
+      "treatment": "referred",
+      "relevance": "Crown power to dismiss at pleasure imported into contracts unless statute provides otherwise."
     }
   ],
   "statutes_cited": [
@@ -157,7 +179,7 @@
         "Art. 133(1)(c)",
         "Art. 310"
       ],
-      "relevance": "Disqualification for office of profit; certificate for appeal; pleasure doctrine for dismissal."
+      "relevance": "Disqualification for office of profit; certificate for appeal; pleasure dismissal principle."
     },
     {
       "name": "Representation of the People Act, 1951",
@@ -174,34 +196,39 @@
         "s. 8",
         "s. 11"
       ],
-      "relevance": "Governs village offices, appointments, hereditary rights, eligibility, dismissal."
+      "relevance": "Regulates village offices, appointments, hereditary succession (limited), eligibility, dismissal, right to sue for office/emoluments."
     },
     {
       "name": "Mysore Land Revenue Code, 1888",
       "sections": [],
-      "relevance": "Government appoints only if no hereditary Patel/Shanbhog."
+      "relevance": "Government appoints Patels/Shanbhogs only where no hereditary."
     }
   ],
   "outcome": {
     "disposition": "accepted",
-    "summary": "Appeal allowed; High Court judgment and order set aside; Election Tribunal's order restored; election petition dismissed. Nomination rejections proper.",
-    "relief_granted": "Appellant's election upheld",
+    "summary": "Appeal allowed; High Court judgment and order set aside; Election Tribunal's order restored; election petition dismissed as nominations properly rejected.",
+    "relief_granted": "Appellant's election upheld.",
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "The appointment being by the Government, the office to which it is made must be held under it for there is no one else under whom it can be held.",
+      "text": "The office is, therefore, held by reason of the appointment by the Government and not simply because of a hereditary right to it.",
       "speaker": "court",
-      "significance": "Core reasoning on why office under Government despite hereditary aspects."
+      "significance": "Core holding on nature of appointment."
     },
     {
       "text": "All these clearly establish that Patels and Shanbhogs hold offices of profit under the Government.",
       "speaker": "court",
-      "significance": "Concluding holding on the main issue."
+      "significance": "Concludes they are disqualified under Art.191."
+    },
+    {
+      "text": "Ail office has to be held under someone for it is impossible to conceive of an office held under no one.",
+      "speaker": "court",
+      "significance": "Rejects village community as holder."
     }
   ],
   "_case_id": "1958_23",
   "_label": 1,
   "_text_length": 19196,
-  "_extracted_at": "2026-02-08T22:16:56.650881"
+  "_extracted_at": "2026-02-10T19:20:25.068572"
 }

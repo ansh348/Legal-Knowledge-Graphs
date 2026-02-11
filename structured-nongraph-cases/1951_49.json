@@ -4,7 +4,7 @@
     "case_year": null,
     "court": "Supreme Court of India",
     "judges": [
-      "Justice Fazl Ali"
+      "Fazl Ali, J."
     ],
     "case_number": null,
     "date_of_judgment": null
@@ -27,7 +27,7 @@
     {
       "id": "f3",
       "text": "In the course of the assessment for the years 1941-42, 1942-43 and 1943-44, the company claimed that its unabsorbed depreciation at the end of 1938-39 should be deemed to be a part of the depreciation allowance for 1939-40 and therefore such unabsorbed depreciation should be allowed to be further carried forward under Section 10(2)(vi) of the Income-tax Act.",
-      "type": "material",
+      "type": "disputed",
       "date": null,
       "source": "respondent"
     },
@@ -43,48 +43,41 @@
       "text": "The Tribunal, at the instance of the company, referred the following question to the High Court: 'Whether on the facts and in the circumstances of this case the Tribunal was right in holding that the unabsorbed depreciation at the end of the year 1938-39, which was not given effect to in the subsequent years, could be treated as part of the allowable depreciation for the relevant assessment years which are assessment years 1941-42, 1942-43 and 1943-44.'",
       "type": "procedural",
       "date": null,
-      "source": "tribunal"
+      "source": "court"
     },
     {
       "id": "f6",
-      "text": "The High Court answered the question in favour of the company.",
+      "text": "The High Court answered the question in favour of the company, and gave a certificate to the Commissioner of Income-tax under Section 66A(2) of the Act to appeal to this Court.",
       "type": "procedural",
       "date": null,
-      "source": "lower_court"
+      "source": "court"
     },
     {
       "id": "f7",
-      "text": "The High Court gave a certificate to the Commissioner of Income-tax under Section 66A(2) of the Act to appeal to this Court.",
+      "text": "In the assessment for 1940-41, the Income-tax Officer decided that unabsorbed depreciation from end of 1938-39 could not be carried forward, and the company did not appeal against that order.",
       "type": "procedural",
       "date": null,
-      "source": "lower_court"
+      "source": "court"
     },
     {
       "id": "f8",
-      "text": "This is an appeal from a judgment of the High Court at Calcutta in a reference under Section 66(1) of the Indian Income-tax Act, 1922.",
-      "type": "procedural",
+      "text": "The assessment year 1938-39 corresponds to the assessee's accounting year for the calendar year 1937.",
+      "type": "background",
       "date": null,
       "source": "court"
     },
     {
       "id": "f9",
-      "text": "In the assessment for 1940-41, the Income-tax Officer decided that unabsorbed depreciation from end of 1938-39 could not be carried forward, and the company did not appeal against that order.",
-      "type": "procedural",
-      "date": null,
-      "source": "lower_court"
-    },
-    {
-      "id": "f10",
-      "text": "The assessee's accounting year for assessment year 1938-39 was the calendar year 1937.",
-      "type": "background",
+      "text": "In assessment year 1938-39, the assessee showed unabsorbed depreciation which under unamended section was permitted to be carried forward into accounting year 1938 for assessment year 1939-40, but Income-tax Officer refused to allow it.",
+      "type": "material",
       "date": null,
       "source": "court"
     },
     {
-      "id": "f11",
-      "text": "The amendment to Section 10(2)(vi) was to take effect from 1st April, 1940.",
+      "id": "f10",
+      "text": "The assessment year 1939-40 ended on 31st March 1940.",
       "type": "background",
-      "date": "1940-04-01",
+      "date": "1940-03-31",
       "source": "court"
     }
   ],
@@ -96,76 +89,92 @@
     },
     {
       "id": "i2",
-      "text": "Whether the company can be allowed to carry forward the unabsorbed depreciation remaining at the end of 1938-39 and treat it as part of the depreciation for 1939-40 and subsequently.",
+      "text": "Whether the company can be allowed to carry forward the unabsorbed depreciation remaining at the end of 1938-39 and treat it as part of the depreciation for 1939-40 and thereafter.",
+      "framed_by": "court"
+    },
+    {
+      "id": "i3",
+      "text": "Whether the dates '1st April, 1939' and '1st April, 1940' apply to accounting year or assessment year.",
+      "framed_by": "court"
+    },
+    {
+      "id": "i4",
+      "text": "Whether assessment year 1939-40 is a year which ended prior to 1st April, 1939.",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "By reason of the amendment of the section, the respondent-company was not entitled to carry forward the unabsorbed depreciation at the end of 1938-39.",
+      "text": "The matter could not be reopened in subsequent assessments because in 1940-41 assessment, ITO decided against carry forward and no appeal was filed by assessee.",
       "supporting_facts": [
-        "f11"
-      ],
-      "legal_basis": "Section 10(2)(vi) as amended in 1939"
-    },
-    {
-      "id": "pa2",
-      "text": "In the course of the assessment for 1940-41, the question was considered and disallowed by ITO, and no appeal was filed, so matter could not be reopened.",
-      "supporting_facts": [
-        "f9"
+        "f7"
       ],
       "legal_basis": null
     },
     {
-      "id": "pa3",
-      "text": "Full effect could not be given to the unabsorbed depreciation not for reasons in the section but due to failure to appeal against 1940-41 assessment.",
+      "id": "pa2",
+      "text": "By reason of the amendment of Section 10(2)(vi), the respondent-company was not entitled to carry forward the unabsorbed depreciation at the end of 1938-39.",
       "supporting_facts": [
-        "f9"
+        "f3"
       ],
-      "legal_basis": "Section 10(2)(vi)"
+      "legal_basis": "Section 10(2)(vi) after 1939 amendment"
+    },
+    {
+      "id": "pa3",
+      "text": "Full effect could not be given to unabsorbed depreciation not for reasons in the section (no profits) but due to failure to appeal against 1940-41 assessment.",
+      "supporting_facts": [
+        "f7"
+      ],
+      "legal_basis": "Section 10(2)(vi) proviso (b)"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Unabsorbed depreciation at the end of 1938-39 should be deemed to be a part of the depreciation allowance for 1939-40 and allowed to be carried forward under Section 10(2)(vi).",
+      "text": "Unabsorbed depreciation at end of 1938-39 should be deemed part of depreciation allowance for 1939-40 and carried forward to 1941-42 etc. under Section 10(2)(vi).",
       "supporting_facts": [
         "f3"
       ],
-      "legal_basis": "Section 10(2)(vi) of the Income-tax Act"
+      "legal_basis": "Section 10(2)(vi) of Income-tax Act"
     }
   ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "The material changes in the amended section are: (1) depreciation based on written down value except for ocean-going steamers; (2) unabsorbed depreciation at end of year prior to 1st April 1939 shall not be carried forward.",
+      "text": "The material changes in amended Section 10(2)(vi): depreciation based on written down value except for ocean-going steamers; unabsorbed depreciation from year ended prior to 1 April 1939 not carried forward.",
       "addresses_issue": "i1",
-      "key_observation": "Amendment effective from 1st April 1940."
+      "key_observation": "Amendment effective from 1 April 1940."
     },
     {
       "id": "cr2",
-      "text": "Dates apply to assessment year; old law applied up to 1939-40; amendment from 1940-41.",
-      "addresses_issue": "i2",
-      "key_observation": "Unabsorbed depreciation from 1938-39 carried to 1939-40 under old law."
+      "text": "Dates apply to assessment year, not accounting year, as law applied is that in force in assessment year.",
+      "addresses_issue": "i3",
+      "key_observation": "Old law applied up to and including 1939-40 assessment year."
     },
     {
       "id": "cr3",
-      "text": "Assessment year 1939-40 ended 31st March 1940, not prior to 1st April 1939, so not excluded; can be carried forward to 1940-41 if not absorbed due to insufficient profits.",
+      "text": "Unabsorbed depreciation from 1938-39 carried forward to 1939-40 under old law; for purpose of reference, treat as unabsorbed in 1939-40 due to insufficient profits.",
       "addresses_issue": "i2",
-      "key_observation": "Proviso condition satisfied as profits less than allowance."
+      "key_observation": "Mandatory provision of old section makes it part of allowance for 1939-40."
     },
     {
       "id": "cr4",
-      "text": "Section says 'where full effect cannot be given' not 'has not been given'; requirements satisfied despite no appeal.",
-      "addresses_issue": "i2",
-      "key_observation": "Misreading by appellant."
+      "text": "Assessment year 1939-40 ended 31 March 1940, not prior to 1 April 1939, so not excluded; unabsorbed depreciation for 1939-40 can be carried forward to 1940-41 and succeeding years if not absorbed due to no profits or insufficient profits.",
+      "addresses_issue": "i4",
+      "key_observation": "Proviso (b) conditions satisfied."
     },
     {
       "id": "cr5",
-      "text": "First ground of AAC (no appeal in 1940-41) not pressed as Tribunal rejected it and not referred.",
+      "text": "Section uses 'where full effect cannot be given' not 'has not been given'; profits were less than allowance, so requirements satisfied regardless of no appeal.",
       "addresses_issue": "i1",
-      "key_observation": "Only second ground concerned."
+      "key_observation": "Appellant's argument misreads the section."
+    },
+    {
+      "id": "cr6",
+      "text": "First ground of AAC (no appeal in 1940-41) not in reference; authorities accepted Tribunal's rejection of it.",
+      "addresses_issue": "i1",
+      "key_observation": "Only second ground before court."
     }
   ],
   "holdings": [
@@ -177,7 +186,7 @@
     },
     {
       "id": "h2",
-      "text": "Unabsorbed depreciation for 1939-40 (including carry forward from 1938-39) can be carried to 1940-41 and succeeding years under amended proviso as 1939-40 not a year ended prior to 1st April 1939.",
+      "text": "Unabsorbed depreciation for a year becomes by legal fiction part of allowance for succeeding year.",
       "resolves_issue": "i2",
       "in_favor_of": "respondent"
     }
@@ -187,38 +196,38 @@
     {
       "name": "Indian Income-tax Act, 1922",
       "sections": [
-        "Section 10(2)(vi)",
         "Section 66(1)",
-        "Section 66A(2)"
+        "Section 66A(2)",
+        "Section 10(2)(vi)"
       ],
-      "relevance": "Governs carry forward of unabsorbed depreciation; amendment in 1939 restricts carry forward from years ending prior to 1st April 1939 but allows from 1939-40 onwards if conditions met."
+      "relevance": "Reference to High Court and appeal to Supreme Court; carry forward of unabsorbed depreciation before and after 1939 amendment"
     }
   ],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "The Supreme Court upheld the High Court's answer in favour of the assessee, holding that the company is entitled to carry forward the unabsorbed depreciation from the end of 1938-39 through 1939-40 to the assessment years 1941-42, 1942-43 and 1943-44, as the conditions of Section 10(2)(vi) proviso are satisfied.",
-    "relief_granted": "Company's claim for carry forward of unabsorbed depreciation allowed.",
+    "summary": "The Supreme Court upheld the High Court's answer in favour of the assessee, holding that the unabsorbed depreciation at the end of 1938-39 could be carried forward through 1939-40 to the relevant assessment years 1941-42, 1942-43 and 1943-44 under Section 10(2)(vi).",
+    "relief_granted": "Assessee entitled to carry forward unabsorbed depreciation as claimed.",
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "\"where full effect cannot be given to any such allowance in any year, not being a year which ended prior to the 1st day of April, 1939, owing to there being no profits or gains chargeable for the year\"",
+      "text": "\"where full effect cannot be given to any such allowance in any year, not being a year which ended prior to the 1st day of April, 1939, owing to there being no profits or gains chargeable for that year\".",
       "speaker": "court",
-      "significance": "Key proviso text interpreted to allow carry forward from 1939-40."
+      "significance": "Key proviso in amended Section 10(2)(vi) allowing carry forward except for pre-1 April 1939 years."
     },
     {
       "text": "The words used in the section are - where full effect cannot be given, and not where full effect has not been given.",
       "speaker": "court",
-      "significance": "Distinguishes reason for non-absorption from procedural failure to appeal."
+      "significance": "Distinguishes reason for non-allowance; focuses on insufficient profits, not procedural failure."
     },
     {
-      "text": "In our opinion, this question has been rightly answered by the High Court in favour of the assessee.",
+      "text": "In income-tax matters the law to be applied is the law in force in the assessment year unless otherwise stated or implied.",
       "speaker": "court",
-      "significance": "Confirms ruling in favor of respondent."
+      "significance": "Determines application of dates to assessment years."
     }
   ],
   "_case_id": "1951_49",
   "_label": 0,
   "_text_length": 11532,
-  "_extracted_at": "2026-02-08T22:16:15.538126"
+  "_extracted_at": "2026-02-10T19:19:41.718475"
 }

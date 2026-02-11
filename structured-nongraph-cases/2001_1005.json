@@ -12,50 +12,36 @@
   "facts": [
     {
       "id": "f1",
-      "text": "Two criminal appeals disposed of by Calcutta High Court.",
-      "type": "procedural",
+      "text": "Trial judge convicted accused under section 302 IPC and awarded death sentence.",
+      "type": "material",
       "date": null,
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "High Court set aside conviction under section 302 IPC and award of death sentence.",
+      "text": "Calcutta High Court set aside the conviction under section 302 IPC and death sentence, and remitted the matter to the trial judge for de novo trial, finding that the trial judge committed serious error in mentioning the time and place of occurrence in the charge framed.",
       "type": "procedural",
       "date": null,
-      "source": "high_court"
+      "source": "lower_court"
     },
     {
       "id": "f3",
-      "text": "High Court remitted the matter to the trial judge for de novo trial on finding that trial judge committed serious error in mentioning the time and place of occurrence in the charge framed.",
-      "type": "procedural",
+      "text": "The factual charge indicates more or less with precision, the date and place when the alleged offence was committed.",
+      "type": "admitted",
       "date": null,
-      "source": "high_court"
+      "source": "petitioner"
     },
     {
       "id": "f4",
-      "text": "The charge indicates more or less with precision, the date and place when the alleged offence was committed.",
-      "type": "admitted",
+      "text": "Accused has never made any grievance with regard to the defect in the charge before the learned sessions judge.",
+      "type": "procedural",
       "date": null,
       "source": "petitioner"
     },
     {
       "id": "f5",
-      "text": "Accused has never made any grievance with regard to the defect in the charge before the learned sessions judge.",
-      "type": "admitted",
-      "date": null,
-      "source": "petitioner"
-    },
-    {
-      "id": "f6",
-      "text": "It is a case of death reference.",
-      "type": "procedural",
-      "date": null,
-      "source": "respondent"
-    },
-    {
-      "id": "f7",
       "text": "Charges framed as shown at pages 5-6 of the paper book.",
-      "type": "background",
+      "type": "procedural",
       "date": null,
       "source": "court"
     }
@@ -63,42 +49,32 @@
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the High Court erred in setting aside the conviction and sentence and remitting for de novo trial on ground of defect in framing of charge regarding time and place of occurrence.",
+      "text": "Whether the High Court erred in setting aside the conviction and sentence and remitting for de novo trial on the ground of defect in framing of charge regarding time and place of occurrence.",
       "framed_by": "court"
+    },
+    {
+      "id": "i2",
+      "text": "Whether in a death reference case, the appellate court can interfere with conviction on ground of defect in charge unless it caused prejudice to the accused.",
+      "framed_by": "respondent"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Conclusion of the High Court is erroneous both in law and on facts.",
+      "text": "Conclusion of the High Court is erroneous both in law and on facts; factual charge indicates more or less with precision the date and place of offence; in view of law in Chittaranjan Das v. State of West Bengal, High Court's conclusion erroneous; accused never made grievance about defect in charge before sessions judge.",
       "supporting_facts": [
+        "f3",
         "f4"
       ],
       "legal_basis": "Chittaranjan Das v. State of West Bengal"
-    },
-    {
-      "id": "pa2",
-      "text": "Factual charge indicates more or less with precision, the date and place when the alleged offence was committed.",
-      "supporting_facts": [
-        "f4"
-      ],
-      "legal_basis": null
-    },
-    {
-      "id": "pa3",
-      "text": "Accused never made any grievance with regard to the defect in the charge before the sessions judge.",
-      "supporting_facts": [
-        "f5"
-      ],
-      "legal_basis": null
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "In a case where death sentence has been referred to the High Court for confirmation, it should not be treated to be an appeal but in continuation of the trial and therefore the appellate court would be justified in looking into the charge framed and find out whether such charge could really prejudice the accused or not.",
+      "text": "In a case where death sentence has been referred to High Court for confirmation, it should not be treated as an appeal but continuation of the trial; appellate court justified in looking into charge to find if it prejudiced accused.",
       "supporting_facts": [
-        "f6"
+        "f2"
       ],
       "legal_basis": null
     }
@@ -106,27 +82,21 @@
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Object of framing a charge as engrafted in the Code of Criminal Procedure is to give a clear idea of what the accused is being tried for and what are the essential facts he is required to meet in the trial.",
+      "text": "Object of framing a charge as engrafted in Code of Criminal Procedure is to give clear idea of what accused is tried for and essential facts to meet; unless charge misled accused or caused prejudice in defence, appellate court not justified in interfering with conviction and sentence on ground of defect in charge.",
       "addresses_issue": "i1",
-      "key_observation": "Unless and until the charge framed could be said to be such that the accused was misled or that such framing of charge has really caused any prejudice in the defence of the accused, the appellate court would not be justified in interfering with the conviction and sentence on the ground of so called defect in the framing of charge."
+      "key_observation": "Decision in Chittaranjan Das v. State of West Bengal squarely supports this conclusion."
     },
     {
       "id": "cr2",
-      "text": "The decision relied upon by the learned A.S.G. squarely supports this conclusion of ours.",
+      "text": "Having regard to charges framed (pages 5-6 of paper book) and impugned judgment of Calcutta High Court, High Court totally in error in setting aside conviction and sentence and remitting for de novo trial.",
       "addresses_issue": "i1",
-      "key_observation": "Having regard to the charges framed in this case, as shown at pages 5-6 of the paper book, and the impugned judgment of the Calcutta High Court, the High Court was totally in error in setting aside the conviction and the sentence awarded by the Sessions Judge and in remitting the matter to the Sessions Judge for de novo trial."
+      "key_observation": "No hesitation in coming to conclusion that High Court erred."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "High Court was totally in error in setting aside the conviction and sentence and remitting for de novo trial.",
-      "resolves_issue": "i1",
-      "in_favor_of": "petitioner"
-    },
-    {
-      "id": "h2",
-      "text": "Set aside the impugned judgment of the Calcutta High Court and remit criminal appeal Nos. 203 and 232 of 1999 to the High Court for re-disposal in accordance with law.",
+      "text": "Unless charge framed can be said to mislead accused or cause prejudice in defence, appellate court not justified in interfering with conviction and sentence on ground of defect in framing of charge.",
       "resolves_issue": "i1",
       "in_favor_of": "petitioner"
     }
@@ -136,43 +106,43 @@
       "case_name": "Chittaranjan Das v. State of West Bengal",
       "citation": null,
       "treatment": "followed",
-      "relevance": "Law laid down supports that unless charge causes prejudice, no interference with conviction."
+      "relevance": "Law laid down supports that no interference unless prejudice from defect in charge."
     }
   ],
   "statutes_cited": [
     {
       "name": "Indian Penal Code",
       "sections": [
-        "302"
+        "Section 302"
       ],
       "relevance": "Conviction under this section set aside by High Court"
     },
     {
       "name": "Code of Criminal Procedure",
       "sections": [],
-      "relevance": "Object of framing a charge engrafted in the Code"
+      "relevance": "Object of framing charge engrafted therein to give clear idea to accused"
     }
   ],
   "outcome": {
     "disposition": "remanded",
-    "summary": "Supreme Court set aside the impugned judgment of the Calcutta High Court and remitted criminal appeal Nos. 203 and 232 of 1999 to the High Court for re-disposal in accordance with law. High Court directed to take up the case immediately after pooja vacation before a bench where any of the learned judges who passed the impugned order would not be a member.",
-    "relief_granted": "Remitted appeals to High Court for fresh disposal",
+    "summary": "Set aside impugned judgment of Calcutta High Court; remit criminal appeal Nos. 203 and 232 of 1999 to High Court for re-disposal in accordance with law; since death reference, High Court to take up immediately after pooja vacation before bench with one judge from impugned order.",
+    "relief_granted": "Remitted to High Court for fresh disposal",
     "costs": null
   },
   "key_quotes": [
     {
       "text": "Unless and until the charge framed could be said to be such that the accused was misled or that such framing of charge has really caused any prejudice in the defence of the accused, the appellate court would not be justified in interfering with the conviction and sentence on the ground of so called defect in the framing of charge.",
       "speaker": "court",
-      "significance": "Core legal principle applied to hold High Court erred"
+      "significance": "Core legal principle applied to hold High Court erred."
     },
     {
       "text": "The decision relied upon by the learned A.S.G. squarely supports this conclusion of ours.",
       "speaker": "court",
-      "significance": "Affirms reliance on precedent"
+      "significance": "Affirms reliance on cited precedent."
     }
   ],
   "_case_id": "2001_1005",
   "_label": 1,
   "_text_length": 3062,
-  "_extracted_at": "2026-02-08T22:08:43.037919"
+  "_extracted_at": "2026-02-10T19:13:33.481677"
 }

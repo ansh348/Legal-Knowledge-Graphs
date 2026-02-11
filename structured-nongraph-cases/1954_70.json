@@ -18,169 +18,172 @@
   "facts": [
     {
       "id": "f1",
-      "text": "The appellant is the Istimrardar of Kharwa.",
+      "text": "The appellant is the Istimrardar of Kharwa. According to him, he has held a cattle fair on his estate every year for some twenty years.",
       "type": "background",
-      "date": null,
-      "source": "court"
-    },
-    {
-      "id": "f2",
-      "text": "The appellant has held a cattle fair on his estate every year for some twenty years.",
-      "type": "admitted",
       "date": null,
       "source": "appellant"
     },
     {
-      "id": "f3",
+      "id": "f2",
       "text": "It is admitted that the land on which the fair is normally held belongs to the appellant.",
       "type": "admitted",
       "date": null,
       "source": "court"
     },
     {
-      "id": "f4",
+      "id": "f3",
       "text": "On 8-1-1951 the Chief Commissioner of Ajmer framed certain rules for the regulation of cattle and other fairs in the State of Ajmer under sections 40 and 41 of the Ajmer Laws Regulation of 1877.",
-      "type": "material",
+      "type": "procedural",
       "date": "1951-01-08",
       "source": "court"
     },
     {
-      "id": "f5",
+      "id": "f4",
       "text": "One of the rules required that persons desiring to hold fairs should obtain a permit from the District Magistrate.",
       "type": "material",
       "date": null,
       "source": "court"
     },
     {
-      "id": "f6",
-      "text": "The appellant applied for a permit.",
-      "type": "procedural",
-      "date": "1952-07-09",
-      "source": "court"
-    },
-    {
-      "id": "f7",
-      "text": "The permit was refused on the ground that no more permits were to be issued to private individuals. District Magistrate replied: 'It has been decided that as a matter of policy permits to hold fairs will be issued only to local bodies and not to private individuals.' Order dated 18-9-1952.",
+      "id": "f5",
+      "text": "The appellant applied for a permit. This was refused on the ground that no more permits were to be issued to private individuals.",
       "type": "material",
       "date": "1952-09-18",
       "source": "district_magistrate"
     },
     {
-      "id": "f8",
-      "text": "The appellant applied under article 226 of the Constitution to the Judicial Commissioners Court at Ajmer for the issue of a writ directing the authorities concerned to permit the appellant to hold his fair as usual.",
+      "id": "f6",
+      "text": "District Magistrate replied on application dated 9-7-1952: 'It has been decided that as a matter of policy permits to hold fairs will be issued only to local bodies and not to private individuals.'",
       "type": "procedural",
-      "date": "1952",
+      "date": "1952-07-09",
+      "source": "district_magistrate"
+    },
+    {
+      "id": "f7",
+      "text": "The appellant applied under article 226 of the Constitution to the Judicial Commissioners Court at Ajmer for a writ directing authorities to permit holding the fair.",
+      "type": "procedural",
+      "date": null,
       "source": "petitioner"
     },
     {
-      "id": "f9",
-      "text": "The learned Judicial Commissioner refused to issue the writ but granted leave to appeal under article 132(1) of the Constitution.",
+      "id": "f8",
+      "text": "Judicial Commissioner refused writ but granted leave to appeal under article 132(1) on question of vires of Regulation and bye-laws, and allowed attack on District Magistrate's action.",
       "type": "procedural",
       "date": "1952-11-22",
-      "source": "lower_court"
-    },
-    {
-      "id": "f10",
-      "text": "Leave confined to the vires of the Regulation and the bye-laws but allowed the appellant to attack the validity of the District Magistrate's action as well.",
-      "type": "procedural",
-      "date": null,
       "source": "lower_court"
     }
   ],
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the rules promulgated by the Chief Commissioner were ultra vires sections 40 and 41 of the Ajmer Laws Regulation of 1877.",
+      "text": "Whether the rules framed by Chief Commissioner under sections 40 and 41 of Ajmer Laws Regulation 1877 are ultra vires.",
       "framed_by": "court"
     },
     {
       "id": "i2",
-      "text": "Whether the regulation and the bye-laws framed thereunder amount to a reasonable restriction on the appellant's fundamental right to hold a cattle fair in his own land under Article 19(1)(f) and (g).",
-      "framed_by": "lower_court"
+      "text": "Whether the rules amount to reasonable restriction on appellant's fundamental right under article 19(1)(f) and 19(1)(g).",
+      "framed_by": "court"
     },
     {
       "id": "i3",
-      "text": "Validity of the District Magistrate's action in refusing the permit.",
+      "text": "Validity of District Magistrate's refusal to grant permit.",
       "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "Fundamental rights under the Constitution were infringed.",
+      "text": "Fundamental rights under Constitution infringed; rules promulgated by Chief Commissioner ultra vires the Regulation.",
       "supporting_facts": [
+        "f1",
         "f2",
-        "f3"
+        "f5"
       ],
       "legal_basis": "Articles 19(1)(f), 19(1)(g), 226"
     },
     {
       "id": "pa2",
-      "text": "The rules promulgated by the Chief Commissioner were ultra vires the Regulation under which he purported to act.",
+      "text": "Holding of annual fair is occupation or business within article 19(1)(g).",
       "supporting_facts": [
-        "f4",
-        "f5"
+        "f1",
+        "f2"
       ],
-      "legal_basis": "Sections 40 and 41 of Ajmer Laws Regulation, 1877"
+      "legal_basis": "Article 19(1)(g)"
     }
   ],
-  "respondent_arguments": [],
+  "respondent_arguments": [
+    {
+      "id": "ra1",
+      "text": "Permits to hold fairs issued only to local bodies and not to private individuals as a matter of policy.",
+      "supporting_facts": [
+        "f5",
+        "f6"
+      ],
+      "legal_basis": null
+    }
+  ],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "The rules travel beyond the Regulation in at least two respects: (1) The Regulation empowers the Chief Commissioner to make rules for the establishment of a system of conservancy and sanitation by bringing a system into existence and incorporating it in his rules; instead, rules leave it to the District Magistrate to determine what a proper system is, which is delegation ultra vires. (2) The fourth sub-rule empowers the District Magistrate to revoke any permit without assigning reasons or giving notice, which is absolute and arbitrary power ultra vires.",
+      "text": "Rules travel beyond Regulation: empower District Magistrate to determine proper system of conservancy etc., which is delegation ultra vires as power is with Chief Commissioner.",
       "addresses_issue": "i1",
-      "key_observation": "The Regulation assumes the right of persons to hold fairs and requires due regard for conservancy etc., via rules by Chief Commissioner, not arbitrary prohibition by DM."
+      "key_observation": "Chief Commissioner cannot delegate authority to District Magistrate to make his own system."
     },
     {
       "id": "cr2",
-      "text": "The District Magistrate's order prohibits the holding of the fair without aid of valid rules or law, hence bad. Covered by Tahir Hussain v. District Board, Muzafarnagar.",
-      "addresses_issue": "i3",
-      "key_observation": "DM has no power in himself to impose the ban without valid empowering law."
+      "text": "Fourth sub-rule empowers District Magistrate to revoke permit without reasons or notice: absolute arbitrary power ultra vires.",
+      "addresses_issue": "i1",
+      "key_observation": "Regulation assumes right to hold fairs subject to rules on conservancy; cannot arbitrarily prohibit."
     },
     {
       "id": "cr3",
-      "text": "The rules only authorise DM to satisfy himself on conservancy etc., and impose terms, but not reject on policy ground of issuing only to local bodies.",
+      "text": "District Magistrate's order prohibits fair without valid rules or law, hence bad. Covered by Tahir Hussain v. District Board.",
       "addresses_issue": "i3",
-      "key_observation": "Impugned order bad as rules do not authorise rejection on that ground."
+      "key_observation": "Without aid of valid rules, no power to impose ban."
     },
     {
       "id": "cr4",
-      "text": "Rules purport to establish ad hoc control by DM through permits, which cannot be said to constitute a system of conservancy etc., hence not within intent of section 40.",
+      "text": "Rules establish ad hoc control by DM via permits, not a system of conservancy/sanitation as required by s.40; not within rule-making power.",
       "addresses_issue": "i1",
-      "key_observation": "A system of ad hoc control requires explicit legislative grant."
+      "key_observation": "Net effect is ad hoc control without constituting required system."
+    },
+    {
+      "id": "cr5",
+      "text": "DM not authorised to refuse on policy ground of issuing only to local bodies; rules only allow check on conservancy etc.",
+      "addresses_issue": "i3",
+      "key_observation": "Impugned order bad on both grounds: exceeds rules and rules invalid."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "The sub-rules of Rule I are ultra vires as they delegate to DM the power to make his own system of conservancy and allow arbitrary revocation.",
+      "text": "Rules void to the extent they delegate to DM power to determine system of conservancy and arbitrary revocation power.",
       "resolves_issue": "i1",
       "in_favor_of": "petitioner"
     },
     {
       "id": "h2",
-      "text": "The District Magistrate's order dated 18-9-1952 is quashed as bad without valid rules.",
+      "text": "District Magistrate's order dated 18-9-1952 quashed as ultra vires.",
       "resolves_issue": "i3",
       "in_favor_of": "petitioner"
     }
   ],
   "precedents_cited": [
     {
-      "case_name": "Tahir Hussain v. District Board, Muzafarnagar",
+      "case_name": "Tahir Hussain v. District Board, Muzaffarnagar",
       "citation": "A.I.R. 1954 S.C. 630",
       "treatment": "followed",
-      "relevance": "Covers the matter where action without valid empowering law is bad."
+      "relevance": "Covers that without valid rules or law, authorities have no power to prohibit fairs."
     }
   ],
   "statutes_cited": [
     {
-      "name": "Ajmer Laws Regulation, 1877",
+      "name": "Ajmer Laws Regulation, 1877 (Reg. III of 1877)",
       "sections": [
         "Section 40",
         "Section 41"
       ],
-      "relevance": "Empowers Chief Commissioner to make rules on conservancy, sanitation, watch and ward at fairs, and penalties; rules held ultra vires these sections."
+      "relevance": "Empowers Chief Commissioner to make rules on conservancy, sanitation, watch and ward, taxes, cattle registration, and penalties; rules exceed this scope."
     },
     {
       "name": "Constitution of India",
@@ -192,34 +195,34 @@
         "Article 132(1)",
         "Article 226"
       ],
-      "relevance": "Fundamental right to hold fair on own land as property and occupation; restrictions must be reasonable; basis for writ and appeal."
+      "relevance": "Fundamental right to hold property and carry on business/occupation; restrictions must be reasonable; writ jurisdiction; appeal on constitutional question."
     }
   ],
   "outcome": {
     "disposition": "accepted",
-    "summary": "Appeal allowed, order of Judicial Commissioner set aside. Rules declared void to the extent indicated (sub-rules of Rule I), District Magistrate's order dated 18-9-1952 quashed. No order as to costs as point not taken in proper time.",
-    "relief_granted": "Declaration that rules void in parts; quashing of DM order permitting appellant to hold fair.",
+    "summary": "Appeal allowed, order of Judicial Commissioner set aside. Rules declared void to extent indicated, District Magistrate's order dated 18-9-1952 quashed. No order as to costs as point not raised timely.",
+    "relief_granted": "Declaration that rules void in parts; quashing of refusal order.",
     "costs": "No order about costs."
   },
   "key_quotes": [
     {
-      "text": "\"Therefore, the Chief Commissioner cannot by Rule invest the District Magistrate with the right arbitrarily to prohibit that which the law and the Constitution, not only allow, but guarantee.\"",
+      "text": "\"The Regulation assumes the right of persons to hold fairs, and all it requires is that those who do so should have due regard for the requirements of conservancy and sanitation.\"",
       "speaker": "court",
-      "significance": "Core holding on ultra vires nature and protection of fundamental rights."
+      "significance": "Core holding on scope of Regulation and right to hold fairs."
+    },
+    {
+      "text": "\"Therefore, the Chief Commissioner cannot by Rule invest the District Magistrate with the right arbitrarily to prohibit that which the law and the Constitution not only allow, but guarantee.\"",
+      "speaker": "court",
+      "significance": "Explains ultra vires nature of arbitrary power."
     },
     {
       "text": "\"It has been decided that as a matter of policy permits to hold fairs will be issued only to local bodies and not to private individuals.\"",
       "speaker": "district_magistrate",
-      "significance": "Reason for refusal, held unauthorized by rules."
-    },
-    {
-      "text": "\"The net effect of these rules is merely to establish a system of ad hoc control by the District Magistrate through the issue of a permit.\"",
-      "speaker": "court",
-      "significance": "Explains why rules exceed rule-making power under section 40."
+      "significance": "Basis of refusal order held invalid."
     }
   ],
   "_case_id": "1954_70",
   "_label": 1,
   "_text_length": 10537,
-  "_extracted_at": "2026-02-08T22:14:33.369240"
+  "_extracted_at": "2026-02-10T19:18:05.363838"
 }

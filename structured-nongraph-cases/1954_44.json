@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "case_name": "Petition under Article 32 by Mr. G",
+    "case_name": null,
     "case_year": null,
     "court": "Supreme Court of India",
     "judges": [
@@ -12,21 +12,21 @@
   "facts": [
     {
       "id": "f1",
-      "text": "This is a petition under article 32 of Constitution and raises the same question on the merits as in the connected summons case in which we have just delivered judgment. The facts will be found there.",
-      "type": "background",
+      "text": "This is a petition under article 32 of Constitution and raises the same question on the merits as in the connected summons case.",
+      "type": "procedural",
       "date": null,
       "source": "court"
     },
     {
       "id": "f2",
-      "text": "In the present matter... number question arises about the breach of a fundamental right. But as a matter touching the jurisdiction of the Bar Council Tribunal and that of the Bombay High Court was argued.",
+      "text": "Number question arises about the breach of a fundamental right.",
       "type": "background",
       "date": null,
       "source": "court"
     },
     {
       "id": "f3",
-      "text": "At a very early stage [Mr. G] applied to the Registrar and also to the Prothonotary for a copy of the order of the Chief Justice constituting the Tribunal. He was told by the Prothonotary that the order was oral.",
+      "text": "At a very early stage Mr. G applied to the Registrar and also to the Prothonotary for a copy of the order of the Chief Justice constituting the Tribunal. He was told by the Prothonotary that the order was oral.",
       "type": "procedural",
       "date": null,
       "source": "petitioner"
@@ -47,8 +47,8 @@
     },
     {
       "id": "f6",
-      "text": "The learned Judges [High Court] said - The record clearly shows that when it came to the notice of this Court it was decided to refer this case to the Bar Council under section 10(2) and accordingly a Tribunal was appointed under section 11(1) by the learned Chief Justice of this Court.",
-      "type": "procedural",
+      "text": "The record clearly shows that when it came to the notice of this Court it was decided to refer this case to the Bar Council under section 10(2) and accordingly a Tribunal was appointed under section 11(1) by the learned Chief Justice of this Court.",
+      "type": "admitted",
       "date": null,
       "source": "lower_court"
     },
@@ -69,101 +69,106 @@
     {
       "id": "f9",
       "text": "Mr. G was supplied with copies of these letters and so was aware of the fact that orders had been issued.",
-      "type": "procedural",
+      "type": "admitted",
       "date": null,
       "source": "court"
     },
     {
       "id": "f10",
-      "text": "We have seen the originals of the High Courts office files and find that the names of the three members of the Tribunal are in the Chief Justices handwriting with his initials underneath. That is an additional record of the making of the order.",
+      "text": "The originals of the High Court's office files show that the names of the three members of the Tribunal are in the Chief Justice's handwriting with his initials underneath.",
       "type": "procedural",
       "date": null,
       "source": "court"
-    },
-    {
-      "id": "f11",
-      "text": "There was no complaint to the High Court.",
-      "type": "procedural",
-      "date": null,
-      "source": "petitioner"
     }
   ],
   "legal_issues": [
     {
       "id": "i1",
-      "text": "Whether the proceedings before the Tribunal were ultra vires because there was no proper order of appointment, specifically whether an oral order by the Chief Justice is sufficient under sections 10(2) and 11 of the Bar Councils Act.",
+      "text": "Whether the proceedings before the Tribunal were ultra vires because there was no proper order of appointment, specifically whether an oral order is sufficient.",
       "framed_by": "petitioner"
     },
     {
       "id": "i2",
-      "text": "Whether the High Court had jurisdiction to refer the matter to the Tribunal in the absence of a complaint.",
+      "text": "Whether there was no complaint to the High Court and so it had no jurisdiction to refer the matter to the Tribunal.",
       "framed_by": "petitioner"
+    },
+    {
+      "id": "i3",
+      "text": "Jurisdiction of the Bar Council Tribunal and that of the Bombay High Court.",
+      "framed_by": "court"
     }
   ],
   "petitioner_arguments": [
     {
       "id": "pa1",
-      "text": "The proceedings before the Tribunal were ultra vires because there was no proper order of appointment. The order was oral and not judicial, so not valid.",
+      "text": "Proceedings before the Tribunal were ultra vires because there was no proper order of appointment; the order was oral and not judicial so not valid.",
       "supporting_facts": [
         "f3",
         "f4",
         "f5",
         "f7"
       ],
-      "legal_basis": "Bar Councils Act"
+      "legal_basis": null
     },
     {
       "id": "pa2",
       "text": "There was no complaint to the High Court and so it had no jurisdiction to refer the matter to the Tribunal.",
+      "supporting_facts": [],
+      "legal_basis": "Bar Councils Act"
+    }
+  ],
+  "respondent_arguments": [
+    {
+      "id": "ra1",
+      "text": "The record clearly shows that when it came to the notice of this Court it was decided to refer this case to the Bar Council under section 10(2) and accordingly a Tribunal was appointed under section 11(1) by the learned Chief Justice of this Court.",
       "supporting_facts": [
-        "f11"
+        "f6"
       ],
+      "legal_basis": "Bar Councils Act sections 10(2) and 11(1)"
+    },
+    {
+      "id": "ra2",
+      "text": "The High Court can refer a matter of this kind of its own motion under section 10(2) of the Bar Councils Act.",
+      "supporting_facts": [],
       "legal_basis": "Bar Councils Act section 10(2)"
     }
   ],
-  "respondent_arguments": [],
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "It is evident from all this that the fact that an oral order was made was not challenged. We cannot allow Mr. G to go behind that.",
+      "text": "The fact that an oral order was made was not challenged by Mr. G in written statements before Tribunal, in High Court, or in petition to Supreme Court; cannot allow Mr. G to go behind that.",
       "addresses_issue": "i1",
-      "key_observation": "Fact of oral order not challenged by petitioner in Tribunal, High Court, or Supreme Court."
+      "key_observation": "Fact of oral order not disputed."
     },
     {
       "id": "cr2",
-      "text": "Bar Councils Act does not lay down any procedure. All it says is - Section 10(2) the High Court may of its own motion so refer any case... and section 11(2) says - The Tribunal shall consist of not less than three members... appointed... by the Chief Justice. We agree it is necessary that there should be some record of the order on the files but, in our opinion, the order itself need not be a written one it can be an oral order given to a proper officer of the Court.",
+      "text": "Bar Councils Act does not lay down any procedure; section 10(2) allows High Court to refer of its own motion; section 11(2) says Tribunal shall consist of not less than three members appointed by Chief Justice. Necessary that there should be some record but order itself need not be written; can be oral order given to proper officer.",
       "addresses_issue": "i1",
-      "key_observation": "Oral order sufficient if recorded on files."
+      "key_observation": "Oral order sufficient if recorded appropriately."
     },
     {
       "id": "cr3",
-      "text": "In the present case, the letter No. G-1003 dated 29th April, 1953... and the letter No. E. 41-09/53 dated the 1st May, 1953... are a sufficient record... Mr. G was supplied with copies... As a matter of fact, we have seen the originals... names... in the Chief Justices handwriting with his initials underneath.",
+      "text": "Letters dated 29th April 1953 and 1st May 1953 are sufficient record; Mr. G supplied copies; Chief Justice's handwriting on files with initials is additional record.",
       "addresses_issue": "i1",
-      "key_observation": "Letters and Chief Justice's handwriting constitute sufficient record."
+      "key_observation": "Records exist confirming order."
     },
     {
       "id": "cr4",
-      "text": "We hold that an order recorded in the manner set out above is sufficient for the purposes of section 10(2) and 11(2) of the Bar Councils Act and hold that the Tribunal was validly appointed.",
-      "addresses_issue": "i1",
-      "key_observation": "Tribunal validly appointed."
-    },
-    {
-      "id": "cr5",
       "text": "This ignores the fact that the High Court can refer a matter of this kind of its own motion under section 10(2) of the Bar Councils Act.",
       "addresses_issue": "i2",
-      "key_observation": "No complaint required; High Court suo motu power."
+      "key_observation": "Own motion referral valid."
     }
   ],
   "holdings": [
     {
       "id": "h1",
-      "text": "An order appointing the Tribunal need not be written; an oral order given to a proper officer, recorded on files via letters and Chief Justice's handwriting, is sufficient under sections 10(2) and 11(2) of the Bar Councils Act.",
+      "text": "An order recorded in the manner set out above is sufficient for the purposes of section 10(2) and 11(2) of the Bar Councils Act and the Tribunal was validly appointed.",
       "resolves_issue": "i1",
       "in_favor_of": "respondent"
     },
     {
       "id": "h2",
-      "text": "High Court has jurisdiction to refer matter to Tribunal on its own motion under section 10(2) even without a complaint.",
+      "text": "High Court had jurisdiction to refer the matter to the Tribunal of its own motion under section 10(2).",
       "resolves_issue": "i2",
       "in_favor_of": "respondent"
     }
@@ -175,7 +180,7 @@
       "sections": [
         "Article 32"
       ],
-      "relevance": "Basis of the petition alleging breach of fundamental right"
+      "relevance": "Basis for the petition"
     },
     {
       "name": "Bar Councils Act",
@@ -184,29 +189,34 @@
         "Section 11(1)",
         "Section 11(2)"
       ],
-      "relevance": "Governs High Court's power to refer cases suo motu and Chief Justice's appointment of Tribunal; oral order with record held sufficient"
+      "relevance": "Governs referral to Tribunal by High Court and appointment of Tribunal; oral order with record sufficient"
     }
   ],
   "outcome": {
     "disposition": "dismissed",
-    "summary": "The Court rejected challenges to the jurisdiction of the Bar Council Tribunal and Bombay High Court, holding the oral appointment order validly recorded and High Court empowered to act suo motu under section 10(2) Bar Councils Act. Merits dealt with in connected case.",
+    "summary": "Court rejected Mr. G's objections on jurisdiction, holding that the Tribunal was validly appointed via oral order with sufficient record and that High Court could refer suo motu under section 10(2); merits dealt with in connected case.",
     "relief_granted": null,
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "We hold that an order recorded in the manner set out above is sufficient for the purposes of section 10(2) and 11(2) of the Bar Councils Act and hold that the Tribunal was validly appointed.",
+      "text": "We hold that an order recorded in the manner set out above is sufficient for the purposes of section 10(2) and 11(2) of the Bar Councils Act and hold that the Tribunal was validity appointed.",
       "speaker": "court",
       "significance": "Core holding on validity of oral order"
     },
     {
-      "text": "The High Court can refer a matter of this kind of its own motion under section 10(2) of the Bar Councils Act.",
+      "text": "It is evident from all this that the fact that an oral order was made was number challenged. We cannot allow Mr. G to go behind that.",
       "speaker": "court",
-      "significance": "Clarifies High Court's suo motu jurisdiction"
+      "significance": "Rejects challenge based on non-dispute of fact"
+    },
+    {
+      "text": "the High Court can refer a matter of this kind of its own motion under section 10(2) of the Bar Councils Act.",
+      "speaker": "court",
+      "significance": "Affirms High Court's suo motu power"
     }
   ],
   "_case_id": "1954_44",
   "_label": 0,
   "_text_length": 3524,
-  "_extracted_at": "2026-02-08T22:13:56.387461"
+  "_extracted_at": "2026-02-10T19:17:19.907016"
 }

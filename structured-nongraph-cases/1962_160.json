@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "case_name": "Commissioner of Income Tax v. Afco Private Ltd.",
+    "case_year": 1955,
+    "court": "Supreme Court of India",
+    "judges": [
+      "Shah J."
+    ],
+    "case_number": null,
+    "date_of_judgment": null
+  },
+  "facts": [
+    {
+      "id": "f1",
+      "text": "Afco Private Ltd., a private limited company, earned total income for the year ending March 31, 1955, computed at Rs. 49,843/- by Income-tax Tribunal.",
+      "type": "material",
+      "date": "1955-03-31",
+      "source": "court"
+    },
+    {
+      "id": "f2",
+      "text": "Company declared dividend of Rs. 11,712/- on July 13, 1955.",
+      "type": "material",
+      "date": "1955-07-13",
+      "source": "court"
+    },
+    {
+      "id": "f3",
+      "text": "Company declared additional dividend of Rs. 5,612/- before close of assessment year 1955-56.",
+      "type": "material",
+      "date": null,
+      "source": "court"
+    },
+    {
+      "id": "f4",
+      "text": "Aggregate dividends distributed were not less than 60% of total income reduced by income-tax and super-tax payable.",
+      "type": "admitted",
+      "date": null,
+      "source": "court"
+    },
+    {
+      "id": "f5",
+      "text": "Company claimed rebate at one anna in the rupee on amount computed per Schedule I, Part I, Item B read with s.2 of Finance Act 15 of 1955.",
+      "type": "procedural",
+      "date": null,
+      "source": "petitioner"
+    },
+    {
+      "id": "f6",
+      "text": "Income-tax Officer and Appellate Assistant Commissioner rejected claim as s.23A of Income-tax Act applicable to private company.",
+      "type": "procedural",
+      "date": null,
+      "source": "lower_court"
+    },
+    {
+      "id": "f7",
+      "text": "Income-tax Appellate Tribunal, Bombay, reversed ITO and AAC, holding rebate available if conditions in s.23A fulfilled.",
+      "type": "procedural",
+      "date": null,
+      "source": "lower_court"
+    },
+    {
+      "id": "f8",
+      "text": "Tribunal referred question to High Court of Bombay: Whether assessee entitled to rebate having distributed over 60%? HC answered in affirmative.",
+      "type": "procedural",
+      "date": null,
+      "source": "lower_court"
+    }
+  ],
+  "legal_issues": [
+    {
+      "id": "i1",
+      "text": "Whether on the facts and circumstances, the assessee company having distributed dividends of over 60% of total income less income-tax and super-tax is entitled to rebate of 1 anna per rupee on undistributed balance as per proviso to Item B, Part I, 1st Schedule to Finance Act 1955, notwithstanding being a private company to which s.23A could be applicable.",
+      "framed_by": "court"
+    }
+  ],
+  "petitioner_arguments": [
+    {
+      "id": "pa1",
+      "text": "Expression 'company to which provisions of s.23A cannot be made applicable' in Finance Act 1955 describes class of companies against which s.23A order can never be made; private companies excluded as s.23A applicable if dividend conditions not met.",
+      "supporting_facts": [
+        "f1",
+        "f5",
+        "f6"
+      ],
+      "legal_basis": "s.23A Income-tax Act; Finance Act 1955 Sch I Part I Item B"
+    }
+  ],
+  "respondent_arguments": [
+    {
+      "id": "ra1",
+      "text": "Expression 'cannot be made applicable' read with s.23A means rebate available if conditions in s.23A fulfilled i.e., dividends >=60%, even for private companies.",
+      "supporting_facts": [
+        "f2",
+        "f3",
+        "f4",
+        "f7"
+      ],
+      "legal_basis": "s.23A Income-tax Act; Finance Act 1955 Sch I Part I Item B"
+    }
+  ],
+  "court_reasoning": [
+    {
+      "id": "cr1",
+      "text": "Expression 'cannot be made applicable' means no order under s.23A justified in circumstances, not that s.23A never applicable to class; applicability depends on ITO order after checking sub-s.(9) exclusion and reasonableness of dividend.",
+      "addresses_issue": "i1",
+      "key_observation": "Legislature used 'cannot be made applicable' indicating depends on order, not statutory exclusion."
+    },
+    {
+      "id": "cr2",
+      "text": "s.23A enacted to prevent super-tax evasion via companies; rebate inducement for adequate dividends to avoid s.23A rigour.",
+      "addresses_issue": "i1",
+      "key_observation": "Private companies competent for s.23A order if conditions met."
+    },
+    {
+      "id": "cr3",
+      "text": "Legislative history: Prior Finance Acts conditioned rebate on no s.23A order made, causing delays; 1955 Act simplified to circumstances where order cannot be made, not excluding private companies as class.",
+      "addresses_issue": "i1",
+      "key_observation": "Phraseology differs from super-tax rebates explicitly for public companies."
+    }
+  ],
+  "holdings": [
+    {
+      "id": "h1",
+      "text": "Assessee private company entitled to rebate if dividends distributed such that s.23A order cannot be made in circumstances.",
+      "resolves_issue": "i1",
+      "in_favor_of": "respondent"
+    }
+  ],
+  "precedents_cited": [],
+  "statutes_cited": [
+    {
+      "name": "Income-tax Act",
+      "sections": [
+        "s.23A(1)",
+        "s.23A(9)",
+        "s.18(3)"
+      ],
+      "relevance": "Governs additional super-tax on undistributed profits if dividends <60%; exclusion for public interest companies; rebate tied to non-applicability."
+    },
+    {
+      "name": "Finance Act 15 of 1955",
+      "sections": [
+        "Schedule I Part I Item B proviso",
+        "s.2"
+      ],
+      "relevance": "Prescribes rebate of one anna per rupee for companies where s.23A cannot be made applicable and dividends arrangements met."
+    },
+    {
+      "name": "Indian Companies Act, 1913",
+      "sections": [
+        "Definition of private company"
+      ],
+      "relevance": "Private company not deemed public substantially interested per Explanation 1(b) to s.23A."
+    }
+  ],
+  "outcome": {
+    "disposition": "dismissed",
+    "summary": "Supreme Court holds High Court right; assessee Afco Private Ltd. entitled to rebate claimed under Finance Act 1955 as dividends distributed exceeded 60% threshold making s.23A inapplicable in circumstances.",
+    "relief_granted": "Rebate of one anna per rupee on undistributed balance allowed.",
+    "costs": null
+  },
+  "key_quotes": [
+    {
+      "text": "\"The Legislature has used the expression cannot be made applicable which clearly means that the applicability of s. 23A depends upon an order to be made by the Income-tax Officer, and not upon any exclusion by the provisions of the Act.\"",
+      "speaker": "court",
+      "significance": "Core interpretation favoring assessee."
+    },
+    {
+      "text": "\"In our judgment the Income-tax Appellate Tribunal and the High Court were right in so holding.\"",
+      "speaker": "court",
+      "significance": "Affirms lower courts' view on rebate eligibility."
+    }
+  ],
+  "_case_id": "1962_160",
+  "_label": 0,
+  "_text_length": 14866,
+  "_extracted_at": "2026-02-10T19:58:33.305750"
+}

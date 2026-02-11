@@ -4,7 +4,7 @@
     "case_year": 1958,
     "court": "Supreme Court of India",
     "judges": [
-      "Venkatarama Aiyar J."
+      "Venkatramana Aiyar J."
     ],
     "case_number": "Civil Appeal No. 149 of 1956",
     "date_of_judgment": "1958-04-25"
@@ -41,14 +41,14 @@
     {
       "id": "f5",
       "text": "Appellant went to Bombay on December 3, 1944, and on December 4, 1944, cancelled the power-of-attorney given to the agent.",
-      "type": "material",
+      "type": "procedural",
       "date": "1944-12-03 to 1944-12-04",
       "source": "court"
     },
     {
       "id": "f6",
       "text": "By notice dated December 6, 1944, appellant called upon agent to pay the amounts withdrawn.",
-      "type": "material",
+      "type": "procedural",
       "date": "1944-12-06",
       "source": "court"
     },
@@ -68,7 +68,7 @@
     },
     {
       "id": "f9",
-      "text": "Rs. 28,000 recovered from Chandratan and adjusted towards decree; balance of Rs. 2,02,442-13-9 written off at end of accounting year as irrecoverable.",
+      "text": "Rs. 28,000 recovered from Chandratan and adjusted towards decree; balance of Rs. 2,02,442-13-9 written off as irrecoverable at end of accounting year.",
       "type": "material",
       "date": null,
       "source": "court"
@@ -82,21 +82,21 @@
     },
     {
       "id": "f11",
-      "text": "Tribunal referred question to High Court Nagpur under s.66(1) of Indian Income-tax Act, 1922.",
+      "text": "On application of appellant, Tribunal referred question under s.66(1) of Indian Income-tax Act, 1922 to Nagpur High Court.",
       "type": "procedural",
       "date": null,
-      "source": "lower_court"
+      "source": "tribunal"
     },
     {
       "id": "f12",
-      "text": "High Court Nagpur answered question against appellant per Curtis v. J.G. Oldfield Ltd.; application under s.66A dismissed.",
+      "text": "Nagpur High Court held governed by Curtis v. J.G. Oldfield Ltd. and answered against appellant on December 22, 1954 in Misc. Civil Case No. 36 of 1954.",
       "type": "procedural",
       "date": "1954-12-22",
       "source": "lower_court"
     },
     {
       "id": "f13",
-      "text": "Appellant obtained special leave to appeal to Supreme Court under Art. 136.",
+      "text": "Application under s.66A dismissed; special leave under Art.136 obtained.",
       "type": "procedural",
       "date": null,
       "source": "court"
@@ -117,7 +117,7 @@
         "f3",
         "f9"
       ],
-      "legal_basis": "s.10(2)(xi) Indian Income-tax Act, 1922"
+      "legal_basis": "Section 10(2)(xi)"
     },
     {
       "id": "pa2",
@@ -126,24 +126,31 @@
         "f3",
         "f9"
       ],
-      "legal_basis": "s.10(2)(xv) Indian Income-tax Act, 1922"
+      "legal_basis": "Section 10(2)(xv)"
     },
     {
       "id": "pa3",
       "text": "It is a trading loss which must be taken into account in computing the profits under s.10(1) of the Act.",
       "supporting_facts": [
-        "f1",
-        "f2",
         "f3",
         "f9"
       ],
-      "legal_basis": "s.10(1) Indian Income-tax Act, 1922; ordinary commercial principles"
+      "legal_basis": "Section 10(1)"
+    },
+    {
+      "id": "pa4",
+      "text": "Curtis v. J.G. Oldfield Ltd. is distinguishable; loss incidental to business as in Venkatachalapathy Iyer v. CIT.",
+      "supporting_facts": [
+        "f2",
+        "f3"
+      ],
+      "legal_basis": "Venkatachalapathy Iyer v. CIT"
     }
   ],
   "respondent_arguments": [
     {
       "id": "ra1",
-      "text": "Amount not admissible deduction as not trading loss per Curtis v. J.G. Oldfield Ltd.",
+      "text": "Loss not admissible as deduction per Curtis v. J.G. Oldfield Ltd.; not trading loss.",
       "supporting_facts": [
         "f3",
         "f10"
@@ -152,7 +159,7 @@
     },
     {
       "id": "ra2",
-      "text": "No evidence that withdrawal by Chandratan was for purpose of making advance; power-of-attorney related to private affairs too.",
+      "text": "No evidence that withdrawal by Chandratan was for purpose of making advance; power-of-attorney covered private affairs too.",
       "supporting_facts": [
         "f2",
         "f3"
@@ -163,33 +170,45 @@
   "court_reasoning": [
     {
       "id": "cr1",
-      "text": "Deduction not admissible under s.10(2)(xi) as debt does not arise out of contract; merely journal entries do not import contractual liability.",
+      "text": "Deduction not admissible under s.10(2)(xi) as no contractual debt arises from misappropriation; merely journal entries.",
       "addresses_issue": "i1",
-      "key_observation": "Misappropriation in fraud and breach of obligations not contractual debt."
+      "key_observation": "Debt must arise from contract; misappropriation is fraud and breach, not contractual obligation."
     },
     {
       "id": "cr2",
-      "text": "Not admissible under s.10(2)(xv) as withdrawals without authority and in fraud not expenditure for business purpose.",
+      "text": "Not admissible under s.10(2)(xv) as withdrawals unauthorized and fraudulent, not expended for business purpose.",
       "addresses_issue": "i1",
-      "key_observation": "Not laid out or expended wholly and exclusively for business."
+      "key_observation": "Cannot be expenditure wholly and exclusively for business."
     },
     {
       "id": "cr3",
-      "text": "Loss from embezzlement by employee is trading loss under s.10(1) if arises out of carrying on business and incidental to it; business carried through agents, losses incidental to such employment.",
+      "text": "Profits under s.10(1) computed per ordinary commercial principles; deductions not exhaustive in s.10(2); loss from embezzlement by employee incidental to business as employment of agents necessary.",
       "addresses_issue": "i1",
-      "key_observation": "According to ordinary commercial principles, such losses must be deducted to arrive at true profits."
+      "key_observation": "Loss springs directly from carrying on business; human nature makes misappropriation possible."
     },
     {
       "id": "cr4",
-      "text": "Curtis v. J.G. Oldfield distinguished: there embezzlement de hors trade; here in banking/money-lending, operations on bank account continuous and incidental.",
+      "text": "Distinguishes theft by stranger (not incidental) from employee embezzlement.",
       "addresses_issue": "i1",
-      "key_observation": "Withdrawal in purported exercise of authority referable to character as agent."
+      "key_observation": "Fine distinction: loss as businessman vs. owner of property."
     },
     {
       "id": "cr5",
-      "text": "Agrees with Venkatachalapathy Iyer, Lords Dairy Farm, Motipur Sugar Factory: loss incidental to business.",
+      "text": "Curtis v. J.G. Oldfield distinguished: there, managing director's withdrawals de hors trade; here, agent in charge with authority to operate bank in money-lending business where continuous bank operations incidental.",
       "addresses_issue": "i1",
-      "key_observation": "No need to prove withdrawal for specific advance; authority to operate bank makes it business-related."
+      "key_observation": "Curtis fact-specific; not broad rule against post-collection embezzlement."
+    },
+    {
+      "id": "cr6",
+      "text": "Agrees with Venkatachalapathy Iyer, Lords Dairy Farm, Motipur Sugar Factory: employee defalcation is trading loss.",
+      "addresses_issue": "i1",
+      "key_observation": "Withdrawal in purported exercise of authority referable to agency."
+    },
+    {
+      "id": "cr7",
+      "text": "Power-of-attorney not extending to private affairs; funds were business funds.",
+      "addresses_issue": "i1",
+      "key_observation": "No such issue before IT authorities; their finding assumes business funds."
     }
   ],
   "holdings": [
@@ -211,7 +230,7 @@
       "case_name": "Income-tax Commissioner v. Chitnavis",
       "citation": "1932 L.R. 59 I.A. 290",
       "treatment": "followed",
-      "relevance": "Bad debts deductible under s.10(1) even without specific provision; account must take all losses for true profits."
+      "relevance": "Bad debts deductible under s.10(1) per commercial principles even without specific provision."
     },
     {
       "case_name": "Gresham Life Assurance Society v. Styles",
@@ -234,8 +253,8 @@
     {
       "case_name": "Ramaswami Chettiar v. Commissioner of Income-tax, Madras",
       "citation": "1930 I.L.R. 53 Mad. 904",
-      "treatment": "followed",
-      "relevance": "Theft by strangers not incidental; distinguishes employee embezzlement."
+      "treatment": "distinguished",
+      "relevance": "Theft by strangers not incidental; supports employee embezzlement allowable."
     },
     {
       "case_name": "Bansidhar Onkarmal v. Commissioner of Income-tax",
@@ -247,7 +266,7 @@
       "case_name": "Venkatachalapathy Iyer v. Commissioner of Income-tax",
       "citation": "1951 20 I.T.R. 363",
       "treatment": "followed",
-      "relevance": "Accountant short-totalling and misappropriating incidental to business."
+      "relevance": "Accountant's embezzlement by falsifying accounts incidental to business."
     },
     {
       "case_name": "Lords Dairy Farm Ltd. v. Commissioner of Income-tax",
@@ -259,54 +278,54 @@
       "case_name": "Motipur Sugar Factory Ltd. v. Commissioner of Income-tax",
       "citation": "1955 28 I.T.R. 128",
       "treatment": "followed",
-      "relevance": "Loss by robbery of employee entrusted with funds incidental."
+      "relevance": "Loss of funds entrusted to employee incidental to trade."
     }
   ],
   "statutes_cited": [
     {
       "name": "Indian Income-tax Act, 1922",
       "sections": [
-        "s.10(1)",
-        "s.10(2)(xi)",
-        "s.10(2)(xv)",
-        "s.66(1)",
-        "s.66A"
+        "Section 10(1)",
+        "Section 10(2)(xi)",
+        "Section 10(2)(xv)",
+        "Section 66(1)",
+        "Section 66A"
       ],
-      "relevance": "s.10(1) allows trading losses incidental to business; not under (2)(xi) or (2)(xv); reference under s.66(1)"
+      "relevance": "Loss deductible as trading loss under s.10(1); not under s.10(2)(xi) or (xv); reference under s.66(1)."
     },
     {
       "name": "Constitution of India",
       "sections": [
-        "Art. 136"
+        "Article 136"
       ],
       "relevance": "Special leave to appeal granted."
     }
   ],
   "outcome": {
     "disposition": "accepted",
-    "summary": "Appeal allowed; order of High Court set aside; question referred answered in affirmative that loss is deductible under s.10(1).",
-    "relief_granted": "Loss of Rs. 2,02,442-13-9 allowed as deduction.",
+    "summary": "Appeal allowed; order of High Court set aside; reference answered in affirmative holding the loss deductible under s.10(1).",
+    "relief_granted": "Deduction of Rs. 2,02,442-13-9 allowed in computing profits.",
     "costs": null
   },
   "key_quotes": [
     {
-      "text": "\"What are chargeable in income-tax in respect of a business are the profits and gains of a year and in assessing the amount of the profits and gains of a year account must necessarily be taken of all losses incurred, otherwise you would not arrive at the true profits and gains.\"",
-      "speaker": "court",
-      "significance": "Establishes necessity of deducting losses for true profits under s.10(1)."
-    },
-    {
-      "text": "\"The word profits is to be understood... in its natural and proper sense-in a sense which no commercial man would misunderstand.\"",
-      "speaker": "court",
-      "significance": "Affirms commercial principles govern computation of profits."
-    },
-    {
       "text": "\"If employment of agents is incidental to the carrying on of business, it must logically follow that losses which are incidental to such employment are also incidental to the carrying on of the business.\"",
       "speaker": "court",
       "significance": "Core reasoning for allowing embezzlement loss as trading loss."
+    },
+    {
+      "text": "\"Human nature being what it is, it is impossible to rule out the possibility of an employee taking advantage of his position as such employee and misappropriating the funds of his employer.\"",
+      "speaker": "court",
+      "significance": "Explains why such losses are incidental to business."
+    },
+    {
+      "text": "\"What are chargeable in income-tax in respect of a business are the profits and gains of a year and in assessing the amount of the profits and gains of a year account must necessarily be taken of all losses incurred.\"",
+      "speaker": "court",
+      "significance": "Cites Chitnavis on commercial computation of profits."
     }
   ],
   "_case_id": "1958_10",
   "_label": 1,
   "_text_length": 24213,
-  "_extracted_at": "2026-02-08T22:16:23.509773"
+  "_extracted_at": "2026-02-10T19:19:45.554739"
 }
