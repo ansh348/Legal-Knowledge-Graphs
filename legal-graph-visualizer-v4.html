@@ -13,36 +13,36 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0f0f1a; --sidebar-bg: rgba(20,20,35,0.95);
+      --bg-primary: #111111; --sidebar-bg: rgba(18,18,18,0.95);
       --text-primary: #e5e7eb; --text-secondary: #9ca3af; --text-muted: #6b7280;
       --input-bg: rgba(255,255,255,0.05); --input-border: rgba(255,255,255,0.1);
       --card-bg: rgba(255,255,255,0.02); --card-border: rgba(255,255,255,0.1);
-      --border-color: rgba(168,85,247,0.3);
+      --border-color: rgba(255,255,255,0.1);
       --scrollbar-track: rgba(255,255,255,0.05);
-      --scrollbar-thumb: rgba(168,85,247,0.3);
-      --scrollbar-thumb-hover: rgba(168,85,247,0.5);
+      --scrollbar-thumb: rgba(59,130,246,0.3);
+      --scrollbar-thumb-hover: rgba(59,130,246,0.5);
     }
     [data-theme="light"] {
-      --bg-primary: #f8fafc; --sidebar-bg: rgba(255,255,255,0.97);
-      --text-primary: #0f172a; --text-secondary: #334155; --text-muted: #64748b;
+      --bg-primary: #f5f3ee; --sidebar-bg: rgba(245,243,238,0.98);
+      --text-primary: #1a1a1a; --text-secondary: #4a4a4a; --text-muted: #787878;
       --input-bg: rgba(0,0,0,0.04); --input-border: rgba(0,0,0,0.12);
       --card-bg: rgba(0,0,0,0.03); --card-border: rgba(0,0,0,0.08);
-      --border-color: rgba(100,116,139,0.25);
+      --border-color: rgba(0,0,0,0.10);
       --scrollbar-track: rgba(0,0,0,0.04);
-      --scrollbar-thumb: rgba(100,116,139,0.3);
-      --scrollbar-thumb-hover: rgba(100,116,139,0.5);
+      --scrollbar-thumb: rgba(0,0,0,0.15);
+      --scrollbar-thumb-hover: rgba(0,0,0,0.25);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'IBM Plex Sans', system-ui, sans-serif; background: var(--bg-primary); overflow: hidden;
       transition: background 0.3s, color 0.3s; /* V1: smooth theme transition */ }
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: var(--scrollbar-track, rgba(255,255,255,0.05)); }
-    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb, rgba(168,85,247,0.3)); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover, rgba(168,85,247,0.5)); }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb, rgba(59,130,246,0.3)); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover, rgba(59,130,246,0.5)); }
     .btn { padding: 6px 12px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; font-size: 12px; transition: opacity 0.15s; }
     .btn:hover { opacity: 0.85; }
     .dropdown-item { width: 100%; padding: 10px 12px; background: transparent; border: none; color: var(--text-primary); font-size: 13px; cursor: pointer; text-align: left; border-radius: 6px; }
-    .dropdown-item:hover { background: rgba(168,85,247,0.15); }
+    .dropdown-item:hover { background: rgba(59,130,246,0.15); }
   </style>
 </head>
 <body>
@@ -9948,18 +9948,18 @@
 
     const THEMES = {
       dark: {
-        name: 'dark', bg: 'linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%)',
-        headerBg: 'linear-gradient(90deg, rgba(30,30,50,0.95) 0%, rgba(40,30,60,0.95) 100%)',
-        sidebarBg: 'rgba(20,20,35,0.95)', borderColor: 'rgba(168,85,247,0.3)',
+        name: 'dark', bg: 'linear-gradient(135deg, #111111 0%, #1a1a1a 50%, #1e1e1e 100%)',
+        headerBg: 'linear-gradient(90deg, rgba(25,25,25,0.95) 0%, rgba(30,30,30,0.95) 100%)',
+        sidebarBg: 'rgba(18,18,18,0.95)', borderColor: 'rgba(255,255,255,0.1)',
         textPrimary: '#e5e7eb', textSecondary: '#9ca3af', textMuted: '#6b7280',
         inputBg: 'rgba(255,255,255,0.05)', inputBorder: 'rgba(255,255,255,0.1)',
         cardBg: 'rgba(255,255,255,0.02)', cardBorder: 'rgba(255,255,255,0.1)'
       },
       light: {
-        name: 'light', bg: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%)',
-        headerBg: 'linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(248,250,252,0.97) 100%)',
-        sidebarBg: 'rgba(255,255,255,0.97)', borderColor: 'rgba(100,116,139,0.25)',
-        textPrimary: '#0f172a', textSecondary: '#334155', textMuted: '#64748b',
+        name: 'light', bg: 'linear-gradient(135deg, #f5f3ee 0%, #f0ede6 50%, #ebe8e0 100%)',
+        headerBg: 'rgba(245,243,238,0.98)',
+        sidebarBg: 'rgba(245,243,238,0.98)', borderColor: 'rgba(0,0,0,0.10)',
+        textPrimary: '#1a1a1a', textSecondary: '#4a4a4a', textMuted: '#787878',
         inputBg: 'rgba(0,0,0,0.04)', inputBorder: 'rgba(0,0,0,0.12)',
         cardBg: 'rgba(0,0,0,0.03)', cardBorder: 'rgba(0,0,0,0.08)'
       }
@@ -9998,7 +9998,7 @@
       );
     }
 
-    function ToulminView({ argumentId, getToulmin, getNodeText, currentTheme }) {
+    function ToulminView({ argumentId, getToulmin, getNodeText, currentTheme, theme: themeProp }) {
       const t = currentTheme || THEMES.dark;
       const toulmin = getToulmin(argumentId);
       if (!toulmin) return null;
@@ -10012,7 +10012,7 @@
         <div style={{ marginBottom: '20px' }}>
           <h4 style={{ margin: '0 0 12px 0', fontSize: '13px', color: t.textSecondary, textTransform: 'uppercase' }}>Toulmin Structure</h4>
           {toulmin.claim && (
-            <div style={{ padding: '8px 12px', marginBottom: '12px', background: t.cardBg, borderLeft: '3px solid #a855f7', borderRadius: '0 6px 6px 0', fontSize: '13px', color: t.textPrimary }}>
+            <div style={{ padding: '8px 12px', marginBottom: '12px', background: t.cardBg, borderLeft: '3px solid #3b82f6', borderRadius: '0 6px 6px 0', fontSize: '13px', color: t.textPrimary }}>
               <span style={{ fontSize: '11px', color: t.textSecondary, textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>Claim</span>
               {toulmin.claim}
             </div>
@@ -10025,7 +10025,7 @@
           {sections.map(sec => (
             toulmin[sec.key]?.length > 0 && (
               <div key={sec.key} style={{ marginBottom: '12px' }}>
-                <div style={{ fontSize: '11px', color: sec.color.text, marginBottom: '6px' }}>{sec.icon} {sec.label}</div>
+                <div style={{ fontSize: '11px', color: themeProp === 'dark' ? sec.color.text : sec.color.border, marginBottom: '6px' }}>{sec.icon} {sec.label}</div>
                 {toulmin[sec.key].map(node => (
                   <div key={node.id} style={{ padding: '8px 10px', marginBottom: '4px', background: t.cardBg, borderLeft: `2px solid ${sec.color.border}`, borderRadius: '0 4px 4px 0', fontSize: '12px' }}>
                     {getNodeText(node).substring(0, 80)}
@@ -10092,7 +10092,7 @@
                   return (
                     <div key={node.id} onClick={() => setSelectedNode(node)} style={{
                       display: 'flex', height: rowHeight, cursor: 'pointer',
-                      background: selectedNode?.id === node.id ? 'rgba(168,85,247,0.2)' : 'transparent',
+                      background: selectedNode?.id === node.id ? 'rgba(59,130,246,0.2)' : 'transparent',
                       borderBottom: `1px solid ${currentTheme.cardBorder}`, alignItems: 'center', transition: 'background 0.15s'
                     }}>
                       <div style={{ width: '120px', padding: '8px 12px', flexShrink: 0 }}>
@@ -10122,7 +10122,7 @@
     // ============================================================================
     // EXPORT DROPDOWN
     // ============================================================================
-    function ExportDropdown({ graphData, svgRef, stats, currentTheme }) {
+    function ExportDropdown({ graphData, svgRef, stats, currentTheme, accent }) {
       const t = currentTheme || THEMES.dark;
       const [isOpen, setIsOpen] = useState(false);
       const dropdownRef = useRef(null);
@@ -10150,7 +10150,7 @@
         if (!svgRef.current) return;
         const svgClone = svgRef.current.cloneNode(true);
         const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        bg.setAttribute('width', '100%'); bg.setAttribute('height', '100%'); bg.setAttribute('fill', t.name === 'dark' ? '#0f0f1a' : '#f8fafc');
+        bg.setAttribute('width', '100%'); bg.setAttribute('height', '100%'); bg.setAttribute('fill', t.name === 'dark' ? '#111111' : '#f5f3ee');
         svgClone.insertBefore(bg, svgClone.firstChild);
         const svgData = new XMLSerializer().serializeToString(svgClone);
         const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
@@ -10165,7 +10165,7 @@
         if (!svgRef.current) return;
         const svgClone = svgRef.current.cloneNode(true);
         const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        bg.setAttribute('width', '100%'); bg.setAttribute('height', '100%'); bg.setAttribute('fill', t.name === 'dark' ? '#0f0f1a' : '#f8fafc');
+        bg.setAttribute('width', '100%'); bg.setAttribute('height', '100%'); bg.setAttribute('fill', t.name === 'dark' ? '#111111' : '#f5f3ee');
         svgClone.insertBefore(bg, svgClone.firstChild);
         const svgData = new XMLSerializer().serializeToString(svgClone);
         const canvas = document.createElement('canvas');
@@ -10185,7 +10185,7 @@
       };
       return (
         <div ref={dropdownRef} style={{ position: 'relative' }}>
-          <button onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-haspopup="true" style={{ padding: '6px 12px', background: 'rgba(168,85,247,0.2)', border: '1px solid rgba(168,85,247,0.4)', borderRadius: '6px', color: '#d8b4fe', fontSize: '12px', cursor: 'pointer' }}>
+          <button onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-haspopup="true" style={{ padding: '6px 12px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '6px', color: accent?.blue || '#93c5fd', fontSize: '12px', cursor: 'pointer' }}>
             📤 Export
           </button>
           {isOpen && (
@@ -10233,7 +10233,7 @@
           .attr('cx', d => d.x * scale + offsetX).attr('cy', d => d.y * scale + offsetY)
           .attr('r', 2).attr('fill', d => NODE_COLORS[d.nodeType || d.type]?.border || '#666');
         viewportRef.current = svg.append('rect')
-          .attr('fill', 'none').attr('stroke', '#a855f7').attr('stroke-width', 1.5).attr('rx', 2);
+          .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 1.5).attr('rx', 2);
       }, [nodes, edges, width, height]);
 
       // Viewport effect — only updates the viewport rect
@@ -10317,6 +10317,21 @@
 
       const currentTheme = THEMES[theme];
 
+      const accent = useMemo(() => theme === 'dark' ? {
+        blue: '#93c5fd', green: '#6ee7b7', red: '#fca5a5',
+        yellow: '#fcd34d', pink: '#f472b6', purple: '#c7d2fe',
+        amber: '#f59e0b', blueMd: '#60a5fa', redMd: '#f87171', yellowMd: '#fbbf24'
+      } : {
+        blue: '#2563eb', green: '#059669', red: '#dc2626',
+        yellow: '#a16207', pink: '#be185d', purple: '#6d28d9',
+        amber: '#b45309', blueMd: '#3b82f6', redMd: '#dc2626', yellowMd: '#b45309'
+      }, [theme]);
+
+      const nodeTextColor = useCallback((type) => {
+        const c = NODE_COLORS[type];
+        return theme === 'dark' ? c?.text : c?.border;
+      }, [theme]);
+
       // Auto-dismiss toast
       useEffect(() => {
         if (!toast) return;
@@ -10352,7 +10367,7 @@
       const edgeColors = useMemo(() => {
         if (!graphData?.edges) return BASE_EDGE_COLORS;
         const dynamicColors = { ...BASE_EDGE_COLORS };
-        const palette = ['#c084fc', '#fb7185', '#fbbf24', '#34d399', '#60a5fa', '#a78bfa', '#f472b6', '#2dd4bf', '#facc15', '#4ade80'];
+        const palette = ['#60a5fa', '#fb7185', '#fbbf24', '#34d399', '#c084fc', '#a78bfa', '#f472b6', '#2dd4bf', '#facc15', '#4ade80'];
         let colorIdx = 0;
         graphData.edges.forEach(e => {
           if (e.relation && !dynamicColors[e.relation]) {
@@ -11020,9 +11035,11 @@
             return r + 14;
           })
           .attr('font-size', d => d.nodeType === 'outcome' || d.nodeType === 'holding' ? '11px' : '10px')
-          .attr('fill', d => NODE_COLORS[d.nodeType]?.text || '#ccc')
+          .attr('fill', d => (theme === 'dark' ? NODE_COLORS[d.nodeType]?.text : NODE_COLORS[d.nodeType]?.border) || '#ccc')
           .style('pointer-events', 'none')
-          .style('text-shadow', '0 1px 3px rgba(0,0,0,0.8), 0 0px 6px rgba(0,0,0,0.5)');
+          .style('text-shadow', theme === 'dark'
+            ? '0 1px 3px rgba(0,0,0,0.8), 0 0px 6px rgba(0,0,0,0.5)'
+            : '0 1px 2px rgba(255,255,255,0.9), 0 0px 4px rgba(255,255,255,0.7)');
 
         // Tick — includes self-loop handling (Step 6.1)
         simulation.on('tick', () => {
@@ -11164,16 +11181,16 @@
                 <option value="radial">Radial</option>
               </select>
 
-              <ExportDropdown graphData={graphData} svgRef={svgRef} stats={stats} currentTheme={currentTheme} />
+              <ExportDropdown graphData={graphData} svgRef={svgRef} stats={stats} currentTheme={currentTheme} accent={accent} />
               <button onClick={toggleTheme} aria-label="Toggle theme" style={{ padding: '6px 12px', background: currentTheme.inputBg, border: `1px solid ${currentTheme.inputBorder}`, borderRadius: '6px', color: currentTheme.textPrimary, fontSize: '12px', cursor: 'pointer' }}>
                 {theme === 'dark' ? '☀️' : '🌙'}
               </button>
 
-              <label style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', color: '#93c5fd' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', color: accent.blue }}>
                 📂 Load Graph
                 <input type="file" accept=".json" onChange={handleFileUpload} style={{ display: 'none' }} />
               </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', background: 'rgba(168,85,247,0.2)', border: '1px solid rgba(168,85,247,0.4)', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', color: '#d8b4fe' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', color: accent.blue }}>
                 📖 Load Ontology
                 <input type="file" accept=".json" onChange={handleOntologyUpload} style={{ display: 'none' }} />
               </label>
@@ -11201,8 +11218,8 @@
                       {searchMode === 'filter' ? `${filteredNodes.length} match${filteredNodes.length !== 1 ? 'es' : ''}` : searchMatchIds ? `${searchMatchIds.size} match${searchMatchIds.size !== 1 ? 'es' : ''}` : ''}
                     </div>
                     <div style={{ display: 'flex', gap: '4px' }}>
-                      <button onClick={() => setSearchMode('filter')} style={{ flex: 1, padding: '5px 8px', fontSize: '11px', borderRadius: '5px', cursor: 'pointer', border: `1px solid ${searchMode === 'filter' ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`, background: searchMode === 'filter' ? 'rgba(168,85,247,0.2)' : 'transparent', color: searchMode === 'filter' ? '#d8b4fe' : currentTheme.textSecondary }}>Filter</button>
-                      <button onClick={() => setSearchMode('highlight')} style={{ flex: 1, padding: '5px 8px', fontSize: '11px', borderRadius: '5px', cursor: 'pointer', border: `1px solid ${searchMode === 'highlight' ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`, background: searchMode === 'highlight' ? 'rgba(168,85,247,0.2)' : 'transparent', color: searchMode === 'highlight' ? '#d8b4fe' : currentTheme.textSecondary }}>Highlight</button>
+                      <button onClick={() => setSearchMode('filter')} style={{ flex: 1, padding: '5px 8px', fontSize: '11px', borderRadius: '5px', cursor: 'pointer', border: `1px solid ${searchMode === 'filter' ? 'rgba(59,130,246,0.5)' : currentTheme.cardBorder}`, background: searchMode === 'filter' ? 'rgba(59,130,246,0.2)' : 'transparent', color: searchMode === 'filter' ? accent.blue : currentTheme.textSecondary }}>Filter</button>
+                      <button onClick={() => setSearchMode('highlight')} style={{ flex: 1, padding: '5px 8px', fontSize: '11px', borderRadius: '5px', cursor: 'pointer', border: `1px solid ${searchMode === 'highlight' ? 'rgba(59,130,246,0.5)' : currentTheme.cardBorder}`, background: searchMode === 'highlight' ? 'rgba(59,130,246,0.2)' : 'transparent', color: searchMode === 'highlight' ? accent.blue : currentTheme.textSecondary }}>Highlight</button>
                     </div>
                   </div>
                 )}
@@ -11216,7 +11233,7 @@
                     onMouseEnter={e => e.currentTarget.style.transform = 'translateX(2px)'}
                     onMouseLeave={e => e.currentTarget.style.transform = 'translateX(0)'}>
                     <input type="checkbox" checked={filterTypes.has(type)} onChange={e => { const s = new Set(filterTypes); if (e.target.checked) s.add(type); else s.delete(type); setFilterTypes(s); }} style={{ accentColor: colors.border }} />
-                    <span style={{ color: colors.text, fontSize: '13px' }}>{colors.icon} {type === 'justification_set' ? 'Justification Set' : type.charAt(0).toUpperCase() + type.slice(1)}</span>
+                    <span style={{ color: nodeTextColor(type), fontSize: '13px' }}>{colors.icon} {type === 'justification_set' ? 'Justification Set' : type.charAt(0).toUpperCase() + type.slice(1)}</span>
                     <span style={{ marginLeft: 'auto', background: colors.bg, border: `1px solid ${colors.border}`, borderRadius: '10px', padding: '2px 8px', fontSize: '11px', color: colors.text }}>
                       {type === 'fact' ? stats?.facts : type === 'concept' ? stats?.concepts : type === 'issue' ? stats?.issues : type === 'argument' ? stats?.arguments : type === 'holding' ? stats?.holdings : type === 'precedent' ? stats?.precedents : type === 'outcome' ? (graphData?.outcome ? 1 : 0) : type === 'justification_set' ? stats?.js : 0}
                     </span>
@@ -11232,7 +11249,7 @@
                     {[
                       { label: 'Edges', value: stats.edges, color: '#3b82f6' },
                       { label: 'Chains', value: stats.chains, color: '#10b981' },
-                      { label: 'Clusters', value: clusters.length, color: '#a855f7' },
+                      { label: 'Clusters', value: clusters.length, color: '#3b82f6' },
                       { label: 'JS', value: stats.js, color: '#818cf8' },
                     ].map(s => (
                       <div key={s.label} style={{ background: currentTheme.cardBg, borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
@@ -11251,8 +11268,8 @@
                   {graphData.reasoning_chains.map((chain, idx) => (
                     <div key={chain.id} onClick={() => setHighlightedChain(highlightedChain === chain.id ? null : chain.id)} style={{
                       padding: '12px', marginBottom: '8px', cursor: 'pointer',
-                      background: highlightedChain === chain.id ? 'linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2))' : currentTheme.cardBg,
-                      border: `1px solid ${highlightedChain === chain.id ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`,
+                      background: highlightedChain === chain.id ? 'linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2))' : currentTheme.cardBg,
+                      border: `1px solid ${highlightedChain === chain.id ? 'rgba(59,130,246,0.5)' : currentTheme.cardBorder}`,
                       borderRadius: '10px', transition: 'all 0.2s'
                     }}>
                       <div style={{ fontSize: '13px', fontWeight: 600, marginBottom: '4px' }}>Chain {idx + 1}</div>
@@ -11262,7 +11279,7 @@
                     </div>
                   ))}
                   {highlightedChain && (
-                    <button onClick={() => setHighlightedChain(null)} style={{ width: '100%', padding: '8px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '6px', color: '#fca5a5', fontSize: '12px', cursor: 'pointer', marginTop: '8px' }}>
+                    <button onClick={() => setHighlightedChain(null)} style={{ width: '100%', padding: '8px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '6px', color: accent.red, fontSize: '12px', cursor: 'pointer', marginTop: '8px' }}>
                       Clear Highlight
                     </button>
                   )}
@@ -11273,7 +11290,7 @@
             {/* CENTER */}
             <main style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
               {/* Tabs */}
-              <div role="tablist" style={{ display: 'flex', gap: '4px', padding: '12px 16px', background: theme === 'dark' ? 'rgba(20,20,35,0.8)' : 'rgba(255,255,255,0.8)', borderBottom: `1px solid ${currentTheme.cardBorder}`, flexWrap: 'wrap' }}>
+              <div role="tablist" style={{ display: 'flex', gap: '4px', padding: '12px 16px', background: theme === 'dark' ? 'rgba(18,18,18,0.8)' : 'rgba(245,243,238,0.8)', borderBottom: `1px solid ${currentTheme.cardBorder}`, flexWrap: 'wrap' }}>
                 {[
                   { id: 'graph', label: '🕸️ Graph', key: '1', count: filteredNodes.length },
                   { id: 'cluster', label: '🧩 Clusters', key: '2', count: clusters.length },
@@ -11285,13 +11302,13 @@
                   <button key={tab.id} role="tab" id={`tab-${tab.id}`} aria-selected={activeTab === tab.id} onClick={() => setActiveTab(tab.id)} title={`Press ${tab.key}`} style={{
                     padding: '8px 16px', position: 'relative',
                     background: 'transparent',
-                    border: 'none', borderBottom: activeTab === tab.id ? '3px solid #a855f7' : '3px solid transparent',
+                    border: 'none', borderBottom: activeTab === tab.id ? '3px solid #3b82f6' : '3px solid transparent',
                     color: activeTab === tab.id ? currentTheme.textPrimary : currentTheme.textSecondary,
                     fontWeight: activeTab === tab.id ? 600 : 400,
                     fontSize: '13px', cursor: 'pointer', transition: 'all 0.2s'
                   }}>
                     {tab.label}
-                    {tab.count > 0 && <span style={{ marginLeft: '6px', padding: '1px 6px', background: activeTab === tab.id ? 'rgba(168,85,247,0.25)' : currentTheme.cardBg, borderRadius: '8px', fontSize: '10px', color: activeTab === tab.id ? '#c084fc' : currentTheme.textMuted }}>{tab.count}</span>}
+                    {tab.count > 0 && <span style={{ marginLeft: '6px', padding: '1px 6px', background: activeTab === tab.id ? 'rgba(59,130,246,0.25)' : currentTheme.cardBg, borderRadius: '8px', fontSize: '10px', color: activeTab === tab.id ? accent.blueMd : currentTheme.textMuted }}>{tab.count}</span>}
                   </button>
                 ))}
               </div>
@@ -11310,7 +11327,7 @@
                     if (tooltipX + 400 > containerRect.width) tooltipX = Math.max(16, containerRect.width - 416);
                     if (tooltipY < 16) tooltipY = 16;
                     return (
-                    <div style={{ position: 'absolute', top: `${tooltipY}px`, left: `${tooltipX}px`, background: theme === 'dark' ? 'rgba(20,20,35,0.98)' : 'rgba(255,255,255,0.98)', border: `2px solid ${NODE_COLORS[getNodeType(hoveredNode)]?.border || '#666'}`, borderRadius: '12px', padding: '12px 16px', maxWidth: '400px', zIndex: 1000, boxShadow: '0 8px 32px rgba(0,0,0,0.3)', pointerEvents: 'none' }}>
+                    <div style={{ position: 'absolute', top: `${tooltipY}px`, left: `${tooltipX}px`, background: theme === 'dark' ? 'rgba(18,18,18,0.98)' : 'rgba(255,255,255,0.98)', border: `2px solid ${NODE_COLORS[getNodeType(hoveredNode)]?.border || '#666'}`, borderRadius: '12px', padding: '12px 16px', maxWidth: '400px', zIndex: 1000, boxShadow: '0 8px 32px rgba(0,0,0,0.3)', pointerEvents: 'none' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                         <span style={{ fontSize: '20px' }}>{NODE_COLORS[getNodeType(hoveredNode)]?.icon}</span>
                         <span style={{ padding: '3px 8px', background: NODE_COLORS[getNodeType(hoveredNode)]?.bg, border: `1px solid ${NODE_COLORS[getNodeType(hoveredNode)]?.border}`, borderRadius: '10px', fontSize: '10px', textTransform: 'uppercase', fontWeight: 600, color: NODE_COLORS[getNodeType(hoveredNode)]?.text }}>{getNodeType(hoveredNode)}</span>
@@ -11322,10 +11339,10 @@
                   })()}
 
                   {/* Zoom Controls + Tools */}
-                  <div style={{ position: 'absolute', bottom: '16px', right: '16px', display: 'flex', flexDirection: 'column', gap: '8px', background: theme === 'dark' ? 'rgba(20,20,35,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: '8px', zIndex: 100 }}>
+                  <div style={{ position: 'absolute', bottom: '16px', right: '16px', display: 'flex', flexDirection: 'column', gap: '8px', background: theme === 'dark' ? 'rgba(18,18,18,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: '8px', zIndex: 100 }}>
                     {[
-                      { fn: zoomIn, label: '+', color: '#a855f7', title: 'Zoom In' },
-                      { fn: zoomOut, label: '−', color: '#a855f7', title: 'Zoom Out' },
+                      { fn: zoomIn, label: '+', color: '#3b82f6', title: 'Zoom In' },
+                      { fn: zoomOut, label: '−', color: '#3b82f6', title: 'Zoom Out' },
                       { fn: fitToScreen, label: '⊡', color: '#3b82f6', title: 'Fit' },
                       { fn: resetView, label: '↺', color: '#10b981', title: 'Reset' },
                     ].map(b => (
@@ -11347,14 +11364,14 @@
 
                   {/* Progressive loading indicator */}
                   {!showAllNodes && filteredNodes.length > maxVisibleNodes && (
-                    <div style={{ position: 'absolute', top: '16px', left: '16px', background: theme === 'dark' ? 'rgba(20,20,35,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '12px', zIndex: 100 }}>
+                    <div style={{ position: 'absolute', top: '16px', left: '16px', background: theme === 'dark' ? 'rgba(18,18,18,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '12px', zIndex: 100 }}>
                       <span style={{ fontSize: '12px', color: currentTheme.textSecondary }}>Showing {maxVisibleNodes} of {filteredNodes.length} nodes</span>
                       <button onClick={() => setShowAllNodes(true)} style={{ background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '6px', color: '#3b82f6', padding: '4px 12px', fontSize: '11px', cursor: 'pointer' }}>Load All</button>
                     </div>
                   )}
 
                   {/* V13: Collapsible edge legend */}
-                  <div style={{ position: 'absolute', bottom: '16px', left: '16px', background: theme === 'dark' ? 'rgba(20,20,35,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: edgeLegendCollapsed ? '8px 12px' : '12px', fontSize: '11px', maxHeight: '200px', overflow: 'auto', transition: 'all 0.2s' }}>
+                  <div style={{ position: 'absolute', bottom: '16px', left: '16px', background: theme === 'dark' ? 'rgba(18,18,18,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: edgeLegendCollapsed ? '8px 12px' : '12px', fontSize: '11px', maxHeight: '200px', overflow: 'auto', transition: 'all 0.2s' }}>
                     <div onClick={() => setEdgeLegendCollapsed(v => !v)} style={{ fontWeight: 600, color: currentTheme.textSecondary, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: edgeLegendCollapsed ? 0 : '8px' }}>
                       <span>EDGE TYPES ({presentRelations.length})</span>
                       <span style={{ fontSize: '10px', transition: 'transform 0.2s', transform: edgeLegendCollapsed ? 'rotate(-90deg)' : 'rotate(0deg)' }}>▼</span>
@@ -11373,7 +11390,7 @@
 
                   {/* Minimap */}
                   {filteredNodes.length > 10 && (
-                    <div style={{ position: 'absolute', bottom: '70px', right: '16px', background: theme === 'dark' ? 'rgba(20,20,35,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: '8px', zIndex: 100 }}>
+                    <div style={{ position: 'absolute', bottom: '70px', right: '16px', background: theme === 'dark' ? 'rgba(18,18,18,0.95)' : 'rgba(255,255,255,0.95)', border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '10px', padding: '8px', zIndex: 100 }}>
                       <div style={{ fontSize: '10px', color: currentTheme.textMuted, marginBottom: '4px', textAlign: 'center' }}>MINIMAP</div>
                       <Minimap nodes={filteredNodes} edges={filteredEdges} width={150} height={100} zoomTransform={zoomTransform} containerRef={containerRef} zoomRef={zoomRef} />
                     </div>
@@ -11391,7 +11408,7 @@
                   )}
 
                   {/* Keyboard shortcuts hint */}
-                  <div style={{ position: 'absolute', bottom: '4px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '12px', padding: '4px 12px', borderRadius: '6px', background: theme === 'dark' ? 'rgba(20,20,35,0.7)' : 'rgba(255,255,255,0.7)', fontSize: '10px', color: currentTheme.textMuted, zIndex: 50, pointerEvents: 'none' }}>
+                  <div style={{ position: 'absolute', bottom: '4px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '12px', padding: '4px 12px', borderRadius: '6px', background: theme === 'dark' ? 'rgba(18,18,18,0.7)' : 'rgba(255,255,255,0.7)', fontSize: '10px', color: currentTheme.textMuted, zIndex: 50, pointerEvents: 'none' }}>
                     <span>/ Search</span><span>Esc Deselect</span><span>+/- Zoom</span><span>0 Fit</span><span>1-6 Tabs</span>
                   </div>
                 </div>
@@ -11417,22 +11434,22 @@
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {clusters.map(cluster => (
                           <div key={cluster.concept_id} style={{
-                            background: currentTheme.cardBg, border: `1px solid ${expandedCluster === cluster.concept_id ? 'rgba(168,85,247,0.5)' : currentTheme.cardBorder}`,
+                            background: currentTheme.cardBg, border: `1px solid ${expandedCluster === cluster.concept_id ? 'rgba(59,130,246,0.5)' : currentTheme.cardBorder}`,
                             borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.2s'
                           }}>
                             {/* Cluster Header */}
                             <div onClick={() => setExpandedCluster(expandedCluster === cluster.concept_id ? null : cluster.concept_id)} style={{
                               padding: '16px 20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                              background: expandedCluster === cluster.concept_id ? 'rgba(168,85,247,0.1)' : 'transparent',
+                              background: expandedCluster === cluster.concept_id ? 'rgba(59,130,246,0.1)' : 'transparent',
                             }}>
                               <div>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
                                   <span style={{ fontSize: '16px' }}>⚖️</span>
-                                  <span style={{ fontSize: '15px', fontWeight: 600, color: '#d8b4fe' }}>{cluster.concept_label}</span>
+                                  <span style={{ fontSize: '15px', fontWeight: 600, color: accent.blue }}>{cluster.concept_label}</span>
                                   <span style={{
                                     padding: '3px 8px', borderRadius: '10px', fontSize: '10px', fontWeight: 600,
                                     background: cluster.logic === 'and' ? 'rgba(239,68,68,0.2)' : 'rgba(16,185,129,0.2)',
-                                    color: cluster.logic === 'and' ? '#fca5a5' : '#6ee7b7',
+                                    color: cluster.logic === 'and' ? accent.red : accent.green,
                                     border: `1px solid ${cluster.logic === 'and' ? 'rgba(239,68,68,0.4)' : 'rgba(16,185,129,0.4)'}`
                                   }}>{cluster.logic.toUpperCase()}</span>
                                 </div>
@@ -11450,7 +11467,7 @@
                                 {/* Requirements */}
                                 {cluster.requires.length > 0 && (
                                   <div style={{ marginBottom: '16px' }}>
-                                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#f472b6', marginBottom: '8px', textTransform: 'uppercase' }}>
+                                    <div style={{ fontSize: '12px', fontWeight: 600, color: accent.pink, marginBottom: '8px', textTransform: 'uppercase' }}>
                                       Ontology Requirements ({cluster.logic.toUpperCase()})
                                     </div>
                                     {cluster.requires.map((req, i) => {
@@ -11464,7 +11481,7 @@
                                           borderRadius: '6px', fontSize: '13px'
                                         }}>
                                           <span>{satisfied ? '✓' : '✗'}</span>
-                                          <span style={{ flex: 1, color: satisfied ? '#6ee7b7' : '#fca5a5' }}>{req}</span>
+                                          <span style={{ flex: 1, color: satisfied ? accent.green : accent.red }}>{req}</span>
                                           {satisfier && <span style={{ fontSize: '11px', color: currentTheme.textMuted, fontFamily: 'IBM Plex Mono, monospace' }}>← {satisfier}</span>}
                                         </div>
                                       );
@@ -11480,7 +11497,7 @@
                                   const colors = NODE_COLORS[singularType] || NODE_COLORS.fact;
                                   return (
                                     <div key={memberType} style={{ marginBottom: '12px' }}>
-                                      <div style={{ fontSize: '11px', color: colors.text, marginBottom: '6px', fontWeight: 600, textTransform: 'uppercase' }}>
+                                      <div style={{ fontSize: '11px', color: nodeTextColor(singularType), marginBottom: '6px', fontWeight: 600, textTransform: 'uppercase' }}>
                                         {colors.icon} {memberType} ({ids.length})
                                       </div>
                                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -11518,11 +11535,11 @@
                   {graphData?.reasoning_chains?.length > 0 ? (
                     graphData.reasoning_chains.map((chain, idx) => (
                       <div key={chain.id} style={{ marginBottom: '32px', background: currentTheme.cardBg, borderRadius: '16px', border: `1px solid ${currentTheme.cardBorder}`, padding: '24px' }}>
-                        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', background: 'linear-gradient(90deg, #a855f7, #ec4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', background: 'linear-gradient(90deg, #3b82f6, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                           Reasoning Chain {idx + 1}
                         </h3>
                         {chain.narrative && (
-                          <div style={{ background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.3)', borderRadius: '10px', padding: '16px', marginBottom: '20px', fontSize: '14px', lineHeight: 1.6, fontStyle: 'italic' }}>
+                          <div style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '10px', padding: '16px', marginBottom: '20px', fontSize: '14px', lineHeight: 1.6, fontStyle: 'italic' }}>
                             {chain.narrative}
                           </div>
                         )}
@@ -11534,9 +11551,9 @@
                             const colors = NODE_COLORS[type];
                             return (
                               <div key={key}>
-                                <div style={{ fontSize: '12px', color: colors.text, marginBottom: '8px', fontWeight: 600 }}>{colors.icon} {type.toUpperCase()}S</div>
+                                <div style={{ fontSize: '12px', color: nodeTextColor(type), marginBottom: '8px', fontWeight: 600 }}>{colors.icon} {type.toUpperCase()}S</div>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                                  {ids.map(id => { const n = nodeMap.get(id); return n && <div key={id} style={{ background: colors.bg, border: `1px solid ${colors.border}`, borderRadius: '8px', padding: '8px 12px', fontSize: '12px', maxWidth: '300px' }}>{getNodeText(n)}</div>; })}
+                                  {ids.map(id => { const n = nodeMap.get(id); return n && <div key={id} style={{ background: colors.bg, border: `1px solid ${colors.border}`, borderRadius: '8px', padding: '8px 12px', fontSize: '12px', maxWidth: '300px', color: colors.text }}>{getNodeText(n)}</div>; })}
                                 </div>
                               </div>
                             );
@@ -11548,10 +11565,10 @@
                             if (!js) return null;
                             return (
                               <div>
-                                <div style={{ fontSize: '12px', color: NODE_COLORS.justification_set.text, marginBottom: '8px', fontWeight: 600 }}>◆ JUSTIFICATION SET</div>
-                                <div style={{ background: NODE_COLORS.justification_set.bg, border: `1px solid ${NODE_COLORS.justification_set.border}`, borderRadius: '8px', padding: '12px', fontSize: '13px' }}>
+                                <div style={{ fontSize: '12px', color: nodeTextColor('justification_set'), marginBottom: '8px', fontWeight: 600 }}>◆ JUSTIFICATION SET</div>
+                                <div style={{ background: NODE_COLORS.justification_set.bg, border: `1px solid ${NODE_COLORS.justification_set.border}`, borderRadius: '8px', padding: '12px', fontSize: '13px', color: NODE_COLORS.justification_set.text }}>
                                   <div style={{ fontWeight: 600, marginBottom: '4px' }}>{js.label || js.id}</div>
-                                  <div style={{ fontSize: '11px', color: currentTheme.textMuted }}>Logic: {js.logic?.toUpperCase()} • Target: {js.target_id} • {js.is_primary ? 'PRIMARY' : 'SECONDARY'}</div>
+                                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)' }}>Logic: {js.logic?.toUpperCase()} • Target: {js.target_id} • {js.is_primary ? 'PRIMARY' : 'SECONDARY'}</div>
                                 </div>
                               </div>
                             );
@@ -11562,10 +11579,10 @@
                             const h = nodeMap.get(chain.holding_id);
                             return h && (
                               <div>
-                                <div style={{ fontSize: '12px', color: NODE_COLORS.holding.text, marginBottom: '8px', fontWeight: 600 }}>📜 HOLDING</div>
-                                <div style={{ background: NODE_COLORS.holding.bg, border: `1px solid ${NODE_COLORS.holding.border}`, borderRadius: '10px', padding: '14px', fontSize: '13px', lineHeight: 1.5 }}>
+                                <div style={{ fontSize: '12px', color: nodeTextColor('holding'), marginBottom: '8px', fontWeight: 600 }}>📜 HOLDING</div>
+                                <div style={{ background: NODE_COLORS.holding.bg, border: `1px solid ${NODE_COLORS.holding.border}`, borderRadius: '10px', padding: '14px', fontSize: '13px', lineHeight: 1.5, color: NODE_COLORS.holding.text }}>
                                   {getNodeText(h)}
-                                  {h.is_ratio && <span style={{ display: 'inline-block', marginLeft: '8px', padding: '2px 6px', background: 'rgba(245,158,11,0.3)', borderRadius: '6px', fontSize: '10px', color: '#fcd34d' }}>RATIO</span>}
+                                  {h.is_ratio && <span style={{ display: 'inline-block', marginLeft: '8px', padding: '2px 6px', background: 'rgba(245,158,11,0.3)', borderRadius: '6px', fontSize: '10px', color: accent.yellow }}>RATIO</span>}
                                 </div>
                               </div>
                             );
@@ -11614,7 +11631,7 @@
                       <label style={{ display: 'block', marginBottom: '8px', fontSize: '13px', color: currentTheme.textSecondary }}>Select Node(s) to Remove ({counterfactualNodes.size} selected):</label>
                       <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
                         {counterfactualNodes.size > 0 && (
-                          <button onClick={() => setCounterfactualNodes(new Set())} style={{ padding: '4px 12px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '6px', color: '#fca5a5', fontSize: '11px', cursor: 'pointer' }}>Clear All</button>
+                          <button onClick={() => setCounterfactualNodes(new Set())} style={{ padding: '4px 12px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '6px', color: accent.red, fontSize: '11px', cursor: 'pointer' }}>Clear All</button>
                         )}
                       </div>
                       {/* V15: Search/filter for counterfactual node selector */}
@@ -11636,7 +11653,7 @@
                                   const next = new Set(counterfactualNodes);
                                   if (e.target.checked) next.add(n.id); else next.delete(n.id);
                                   setCounterfactualNodes(next);
-                                }} style={{ accentColor: '#a855f7' }} />
+                                }} style={{ accentColor: '#3b82f6' }} />
                                 <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{getNodeText(n).substring(0, 80)}</span>
                               </label>
                             ))}
@@ -11667,12 +11684,12 @@
                         {/* Broken Requirements */}
                         {counterfactualResult.brokenRequirements.length > 0 && (
                           <div style={{ background: currentTheme.cardBg, border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '12px', padding: '20px' }}>
-                            <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#f472b6' }}>🔗 Broken Ontology Requirements ({counterfactualResult.brokenRequirements.length})</h4>
+                            <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: accent.pink }}>🔗 Broken Ontology Requirements ({counterfactualResult.brokenRequirements.length})</h4>
                             {counterfactualResult.brokenRequirements.map((br, i) => (
                               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', marginBottom: '6px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '6px' }}>
                                 <span style={{ color: '#ef4444' }}>✗</span>
                                 <div>
-                                  <div style={{ fontSize: '13px', color: '#fca5a5' }}>{br.requirement}</div>
+                                  <div style={{ fontSize: '13px', color: accent.red }}>{br.requirement}</div>
                                   <div style={{ fontSize: '11px', color: currentTheme.textMuted }}>Cluster: {br.cluster} ({br.logic.toUpperCase()})</div>
                                 </div>
                               </div>
@@ -11683,7 +11700,7 @@
                         {/* Affected Clusters */}
                         {counterfactualResult.affectedClusters.length > 0 && (
                           <div style={{ background: currentTheme.cardBg, border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '12px', padding: '20px' }}>
-                            <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#fbbf24' }}>🧩 Affected Clusters ({counterfactualResult.affectedClusters.length})</h4>
+                            <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: accent.yellowMd }}>🧩 Affected Clusters ({counterfactualResult.affectedClusters.length})</h4>
                             {counterfactualResult.affectedClusters.map((ac, i) => (
                               <div key={i} style={{ padding: '12px', marginBottom: '8px', background: ac.isFullyBroken ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)', border: `1px solid ${ac.isFullyBroken ? 'rgba(239,68,68,0.3)' : 'rgba(245,158,11,0.3)'}`, borderRadius: '8px' }}>
                                 <div style={{ fontWeight: 600, marginBottom: '4px' }}>{ac.concept_label}</div>
@@ -11704,7 +11721,7 @@
                               <div key={ah.id} style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '8px', padding: '12px', marginBottom: '8px' }}>
                                 <div style={{ fontWeight: 600, marginBottom: '4px' }}>{ah.id}</div>
                                 <div style={{ fontSize: '13px', marginBottom: '6px' }}>{ah.text}</div>
-                                {ah.reasons.map((r, i) => <div key={i} style={{ fontSize: '11px', color: '#f87171', marginTop: '2px' }}>→ {r}</div>)}
+                                {ah.reasons.map((r, i) => <div key={i} style={{ fontSize: '11px', color: accent.redMd, marginTop: '2px' }}>→ {r}</div>)}
                                 {ah.jsDetails.length > 0 && ah.jsDetails.map(js => (
                                   <div key={js.id} style={{ fontSize: '11px', color: currentTheme.textMuted, marginTop: '4px' }}>
                                     JS: {js.label || js.id} ({js.logic?.toUpperCase()})
@@ -11789,23 +11806,23 @@
                                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                                     <span style={{ fontSize: '12px' }}>{colors?.icon}</span>
                                     <span style={{ fontSize: '10px', textTransform: 'uppercase', color: colors?.text, fontWeight: 600 }}>{type}</span>
-                                    <span style={{ fontSize: '10px', color: currentTheme.textMuted, fontFamily: 'IBM Plex Mono, monospace' }}>{node.id}</span>
+                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.5)', fontFamily: 'IBM Plex Mono, monospace' }}>{node.id}</span>
                                     {node.confidence && <span style={{ fontSize: '10px', color: node.confidence === 'high' ? '#10b981' : '#f59e0b' }}>{node.confidence}</span>}
                                   </div>
                                   {/* FIX #6: Show surface_text when available */}
                                   {hasSurface ? (
                                     <div>
-                                      <div style={{ fontSize: '13px', color: currentTheme.textPrimary, fontStyle: 'italic', marginBottom: '4px', borderLeft: '2px solid rgba(168,85,247,0.4)', paddingLeft: '10px' }}>
+                                      <div style={{ fontSize: '13px', color: '#e5e7eb', fontStyle: 'italic', marginBottom: '4px', borderLeft: '2px solid rgba(59,130,246,0.4)', paddingLeft: '10px' }}>
                                         "{node.anchor.surface_text}"
                                       </div>
-                                      <div style={{ fontSize: '10px', color: currentTheme.textMuted, fontFamily: 'IBM Plex Mono, monospace' }}>
+                                      <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.5)', fontFamily: 'IBM Plex Mono, monospace' }}>
                                         {node.anchor.doc_id && `doc:${node.anchor.doc_id} `}
                                         {node.anchor.start_char != null && `chars:${node.anchor.start_char}-${node.anchor.end_char}`}
                                         {node.anchor.text_hash && ` hash:${node.anchor.text_hash}`}
                                       </div>
                                     </div>
                                   ) : (
-                                    <div style={{ fontSize: '13px', color: currentTheme.textPrimary }}>
+                                    <div style={{ fontSize: '13px', color: '#e5e7eb' }}>
                                       {getNodeText(node)}
                                     </div>
                                   )}
@@ -11827,14 +11844,14 @@
             <aside style={{ width: '360px', background: currentTheme.sidebarBg, borderLeft: `1px solid ${currentTheme.borderColor}`, display: 'flex', flexDirection: 'column', overflow: 'hidden', transition: 'background 0.3s, border-color 0.3s' }}>
               {selectedNode ? (
                 <div style={{ flex: 1, overflow: 'auto' }}>
-                  <div style={{ padding: '20px', background: NODE_COLORS[getNodeType(selectedNode)]?.bg || '#333', borderBottom: `2px solid ${NODE_COLORS[getNodeType(selectedNode)]?.border || '#666'}`, position: 'relative' }}>
-                    <button onClick={() => { setSelectedNode(null); setSelectedEdge(null); }} aria-label="Close detail panel" style={{ position: 'absolute', top: '12px', right: '12px', width: '28px', height: '28px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '6px', color: currentTheme.textMuted, cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+                  <div style={{ padding: '20px', background: NODE_COLORS[getNodeType(selectedNode)]?.bg || '#333', borderBottom: `2px solid ${NODE_COLORS[getNodeType(selectedNode)]?.border || '#666'}`, position: 'relative', color: NODE_COLORS[getNodeType(selectedNode)]?.text || '#fff' }}>
+                    <button onClick={() => { setSelectedNode(null); setSelectedEdge(null); }} aria-label="Close detail panel" style={{ position: 'absolute', top: '12px', right: '12px', width: '28px', height: '28px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '6px', color: 'rgba(255,255,255,0.6)', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
                       <span style={{ fontSize: '24px' }}>{NODE_COLORS[getNodeType(selectedNode)]?.icon}</span>
-                      <span style={{ padding: '4px 12px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', fontSize: '12px', textTransform: 'uppercase', fontWeight: 600 }}>{getNodeType(selectedNode)}</span>
-                      {selectedNode.novel && <span style={{ padding: '4px 10px', background: 'rgba(245,158,11,0.3)', border: '1px solid #f59e0b', borderRadius: '12px', fontSize: '11px', fontWeight: 600, color: '#fcd34d' }}>⭐ NOVEL</span>}
+                      <span style={{ padding: '4px 12px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', fontSize: '12px', textTransform: 'uppercase', fontWeight: 600, color: '#fff' }}>{getNodeType(selectedNode)}</span>
+                      {selectedNode.novel && <span style={{ padding: '4px 10px', background: 'rgba(245,158,11,0.3)', border: '1px solid #f59e0b', borderRadius: '12px', fontSize: '11px', fontWeight: 600, color: accent.yellow }}>⭐ NOVEL</span>}
                     </div>
-                    <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: currentTheme.textSecondary }}>{selectedNode.id}</div>
+                    <div style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>{selectedNode.id}</div>
                   </div>
 
                   <div style={{ padding: '20px' }}>
@@ -11846,7 +11863,7 @@
                     {selectedNode.anchor?.surface_text && (
                       <div style={{ marginBottom: '20px' }}>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: currentTheme.textSecondary, textTransform: 'uppercase' }}>Source Evidence</h4>
-                        <div style={{ background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.3)', borderRadius: '8px', padding: '12px', fontSize: '13px', fontStyle: 'italic', lineHeight: 1.6 }}>
+                        <div style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '8px', padding: '12px', fontSize: '13px', fontStyle: 'italic', lineHeight: 1.6 }}>
                           "{selectedNode.anchor.surface_text}"
                         </div>
                         <div style={{ marginTop: '6px', fontSize: '10px', color: currentTheme.textMuted, fontFamily: 'IBM Plex Mono, monospace' }}>
@@ -11878,12 +11895,12 @@
                             </span>
                           ))}
                           {selectedNode.logic && (
-                            <span style={{ padding: '5px 10px', background: 'rgba(129,140,248,0.2)', border: '1px solid rgba(129,140,248,0.4)', borderRadius: '16px', fontSize: '11px', fontWeight: 600, color: '#c7d2fe' }}>
+                            <span style={{ padding: '5px 10px', background: 'rgba(129,140,248,0.2)', border: '1px solid rgba(129,140,248,0.4)', borderRadius: '16px', fontSize: '11px', fontWeight: 600, color: accent.purple }}>
                               Logic: {selectedNode.logic.toUpperCase()}
                             </span>
                           )}
                           {selectedNode.is_primary !== undefined && (
-                            <span style={{ padding: '5px 10px', background: selectedNode.is_primary ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)', border: `1px solid ${selectedNode.is_primary ? 'rgba(16,185,129,0.4)' : 'rgba(245,158,11,0.4)'}`, borderRadius: '16px', fontSize: '11px', color: selectedNode.is_primary ? '#6ee7b7' : '#fcd34d' }}>
+                            <span style={{ padding: '5px 10px', background: selectedNode.is_primary ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)', border: `1px solid ${selectedNode.is_primary ? 'rgba(16,185,129,0.4)' : 'rgba(245,158,11,0.4)'}`, borderRadius: '16px', fontSize: '11px', color: selectedNode.is_primary ? accent.green : accent.yellow }}>
                               {selectedNode.is_primary ? 'PRIMARY' : 'SECONDARY'}
                             </span>
                           )}
@@ -11904,7 +11921,7 @@
                     </div>
 
                     {getNodeType(selectedNode) === 'argument' && (
-                      <ToulminView argumentId={selectedNode.id} getToulmin={getToulminStructure} getNodeText={getNodeText} currentTheme={currentTheme} />
+                      <ToulminView argumentId={selectedNode.id} getToulmin={getToulminStructure} getNodeText={getNodeText} currentTheme={currentTheme} theme={theme} />
                     )}
 
                     {/* Connections */}
@@ -11947,8 +11964,8 @@
                     {selectedEdge.support_group_ids?.length > 0 && <PropertyRow label="Support Groups" value={selectedEdge.support_group_ids.join(', ')} currentTheme={currentTheme} />}
                   </div>
                   <div style={{ marginTop: '20px' }}>
-                    <button onClick={() => { const sid = typeof selectedEdge.source === 'object' ? selectedEdge.source.id : selectedEdge.source; const n = nodeMap.get(sid); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '8px', color: '#93c5fd', cursor: 'pointer', marginBottom: '8px', fontSize: '13px' }}>View Source Node</button>
-                    <button onClick={() => { const tid = typeof selectedEdge.target === 'object' ? selectedEdge.target.id : selectedEdge.target; const n = nodeMap.get(tid); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(16,185,129,0.2)', border: '1px solid rgba(16,185,129,0.4)', borderRadius: '8px', color: '#6ee7b7', cursor: 'pointer', fontSize: '13px' }}>View Target Node</button>
+                    <button onClick={() => { const sid = typeof selectedEdge.source === 'object' ? selectedEdge.source.id : selectedEdge.source; const n = nodeMap.get(sid); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.4)', borderRadius: '8px', color: accent.blue, cursor: 'pointer', marginBottom: '8px', fontSize: '13px' }}>View Source Node</button>
+                    <button onClick={() => { const tid = typeof selectedEdge.target === 'object' ? selectedEdge.target.id : selectedEdge.target; const n = nodeMap.get(tid); if (n) { setSelectedNode(n); setSelectedEdge(null); } }} style={{ width: '100%', padding: '10px', background: 'rgba(16,185,129,0.2)', border: '1px solid rgba(16,185,129,0.4)', borderRadius: '8px', color: accent.green, cursor: 'pointer', fontSize: '13px' }}>View Target Node</button>
                   </div>
                 </div>
               ) : (
@@ -11981,11 +11998,11 @@
       static getDerivedStateFromError(error) { return { hasError: true, error }; }
       render() {
         if (this.state.hasError) return (
-          <div style={{ padding: '60px', textAlign: 'center', color: 'var(--text-primary, #e5e7eb)', background: 'var(--bg-primary, #0f0f1a)', height: '100vh' }}>
+          <div style={{ padding: '60px', textAlign: 'center', color: 'var(--text-primary, #e5e7eb)', background: 'var(--bg-primary, #111111)', height: '100vh' }}>
             <div style={{ fontSize: '48px', marginBottom: '16px' }}>⚠️</div>
             <h2>Something went wrong</h2>
             <p style={{ color: 'var(--text-secondary, #9ca3af)' }}>{this.state.error?.message}</p>
-            <button onClick={() => this.setState({ hasError: false, error: null })} style={{ marginTop: '20px', padding: '10px 24px', background: 'rgba(168,85,247,0.3)', border: '1px solid rgba(168,85,247,0.5)', borderRadius: '8px', color: '#d8b4fe', cursor: 'pointer' }}>Reset</button>
+            <button onClick={() => this.setState({ hasError: false, error: null })} style={{ marginTop: '20px', padding: '10px 24px', background: 'rgba(59,130,246,0.3)', border: '1px solid rgba(59,130,246,0.5)', borderRadius: '8px', color: 'var(--text-primary, #e5e7eb)', cursor: 'pointer' }}>Reset</button>
           </div>
         );
         return this.props.children;
