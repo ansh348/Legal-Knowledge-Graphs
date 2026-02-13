@@ -2020,7 +2020,7 @@
       "type": "holding",
       "text": "First question answered in the negative; second question in the affirmative on the first part, second part does not fall to be determined.",
       "anchor": null,
-      "resolves_issue": "i1,i2",
+      "resolves_issue": "i1",
       "is_ratio": true,
       "novel": false,
       "reasoning_summary": "Cumulative holdings on relevant considerations for estimate, justification for both additions, no double taxation issue arising.",
@@ -4372,19 +4372,6 @@
       "provenance": null
     },
     {
-      "id": "e_h9_resolves_i1,i2",
-      "source": "h9",
-      "target": "i1,i2",
-      "relation": "resolves",
-      "anchor": null,
-      "explanation": "Inferred from holding.resolves_issue field",
-      "confidence": "inferred",
-      "strength": "strong",
-      "support_group_ids": [],
-      "is_critical": false,
-      "provenance": null
-    },
-    {
       "id": "e_h9_determines_outcome",
       "source": "h9",
       "target": "outcome",
@@ -5224,6 +5211,32 @@
         "temperature": null,
         "timestamp": "2026-02-08T11:04:11.550928+00:00"
       }
+    },
+    {
+      "id": "e_h9_resolves_i1",
+      "source": "h9",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": null,
+      "explanation": "Inferred from holding.resolves_issue field",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h9_resolves_i2",
+      "source": "h9",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": null,
+      "explanation": "Inferred from holding.resolves_issue field",
+      "confidence": "inferred",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
     }
   ],
   "reasoning_chains": [
@@ -6319,7 +6332,6 @@
       "Edge e_920f3cc5_13: HIGH/MEDIUM confidence requires anchor",
       "Edge e_920f3cc5_17: HIGH/MEDIUM confidence requires anchor",
       "Edge e_920f3cc5_12: HIGH/MEDIUM confidence requires anchor",
-      "Edge e_h9_resolves_i1,i2: target 'i1,i2' not found",
       "repair_orphans: added 33 edges for 19 orphan nodes"
     ],
     "cluster_membership": {

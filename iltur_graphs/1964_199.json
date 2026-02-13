@@ -1691,7 +1691,7 @@
         "secondary_spans": [],
         "surface_text": "In view of the above, the answers to the two questions set out in the beginning of the judgment must be in the affirmative. The appeals are, therefore, dismissed with costs."
       },
-      "resolves_issue": "i1,i2",
+      "resolves_issue": "i1",
       "is_ratio": true,
       "novel": false,
       "reasoning_summary": "Assessments as individual (not representing beneficiaries) lawful under ss.3&4; maximum rate assessment legal.",
@@ -3746,27 +3746,6 @@
       "provenance": null
     },
     {
-      "id": "e_h5_resolves_i1,i2",
-      "source": "h5",
-      "target": "i1,i2",
-      "relation": "resolves",
-      "anchor": {
-        "doc_id": "sha256:eff6c623a122",
-        "start_char": 18950,
-        "end_char": 19040,
-        "text_hash": "6cefa99149d9600b",
-        "display_location": "0",
-        "secondary_spans": [],
-        "surface_text": "In view of the above, the answers to the two questions set out in the beginning of the judgment must be in the affirmative. The appeals are, therefore, dismissed with costs."
-      },
-      "explanation": null,
-      "confidence": "high",
-      "strength": "strong",
-      "support_group_ids": [],
-      "is_critical": false,
-      "provenance": null
-    },
-    {
       "id": "e_h5_determines_outcome",
       "source": "h5",
       "target": "outcome",
@@ -4462,6 +4441,48 @@
         "temperature": null,
         "timestamp": "2026-02-08T11:04:04.898952+00:00"
       }
+    },
+    {
+      "id": "e_h5_resolves_i1",
+      "source": "h5",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:eff6c623a122",
+        "start_char": 18950,
+        "end_char": 19040,
+        "text_hash": "6cefa99149d9600b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "In view of the above, the answers to the two questions set out in the beginning of the judgment must be in the affirmative. The appeals are, therefore, dismissed with costs."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h5_resolves_i2",
+      "source": "h5",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:eff6c623a122",
+        "start_char": 18950,
+        "end_char": 19040,
+        "text_hash": "6cefa99149d9600b",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "In view of the above, the answers to the two questions set out in the beginning of the judgment must be in the affirmative. The appeals are, therefore, dismissed with costs."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
     }
   ],
   "reasoning_chains": [
@@ -4754,7 +4775,6 @@
     "validation_warnings": [
       "Edge e5: 'supports' not valid for fact -> concept. Valid: claims_satisfies, negates, partially_satisfies, satisfies, triggers",
       "Edge e16: 'grounds' not valid for holding -> holding. Valid: conflicts_with, constrains, specializes, supports, undercuts",
-      "Edge e_h5_resolves_i1,i2: target 'i1,i2' not found",
       "repair_orphans: added 17 edges for 12 orphan nodes"
     ],
     "cluster_membership": {
