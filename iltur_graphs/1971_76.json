@@ -1444,7 +1444,7 @@
         "secondary_spans": [],
         "surface_text": "There is no dispute that in the present case the assessee was bound under sub-section 3-B to deduct the sum chargeable under the provisions of the Act at the time of payment of the retainer fees to the Montreal Company. Under sub-section 7 if the assessee did not deduct the amount of tax as required under the section it was to be deemed to be in default in respect of the tax."
       },
-      "resolves_issue": "null",
+      "resolves_issue": null,
       "is_ratio": true,
       "novel": false,
       "reasoning_summary": "Direct application of statutory provision requiring deduction at maximum rate on payments to non-residents.",
@@ -1466,7 +1466,7 @@
       "type": "holding",
       "text": "There was no provision in the agreement creating a contractual obligation on the assessee to bear the Indian tax liability on payments to the Montreal Company.",
       "anchor": null,
-      "resolves_issue": "null",
+      "resolves_issue": null,
       "is_ratio": true,
       "novel": false,
       "reasoning_summary": "Examination of agreement text shows no stipulation for tax payment without deduction.",
@@ -2617,27 +2617,6 @@
       }
     },
     {
-      "id": "e_h1_resolves_null",
-      "source": "h1",
-      "target": "null",
-      "relation": "resolves",
-      "anchor": {
-        "doc_id": "sha256:17275e6c9dac",
-        "start_char": 7185,
-        "end_char": 7850,
-        "text_hash": "14d9e6bd0cf2618a",
-        "display_location": "0",
-        "secondary_spans": [],
-        "surface_text": "There is no dispute that in the present case the assessee was bound under sub-section 3-B to deduct the sum chargeable under the provisions of the Act at the time of payment of the retainer fees to the Montreal Company. Under sub-section 7 if the assessee did not deduct the amount of tax as required under the section it was to be deemed to be in default in respect of the tax."
-      },
-      "explanation": null,
-      "confidence": "high",
-      "strength": "strong",
-      "support_group_ids": [],
-      "is_critical": false,
-      "provenance": null
-    },
-    {
       "id": "e_h1_contributes_to_outcome",
       "source": "h1",
       "target": "outcome",
@@ -2654,19 +2633,6 @@
       "explanation": null,
       "confidence": "high",
       "strength": "moderate",
-      "support_group_ids": [],
-      "is_critical": false,
-      "provenance": null
-    },
-    {
-      "id": "e_h2_resolves_null",
-      "source": "h2",
-      "target": "null",
-      "relation": "resolves",
-      "anchor": null,
-      "explanation": "Inferred from holding.resolves_issue field",
-      "confidence": "inferred",
-      "strength": "strong",
       "support_group_ids": [],
       "is_critical": false,
       "provenance": null
@@ -4248,8 +4214,6 @@
     "extraction_timestamp": "2026-02-08T05:18:40.667551",
     "retry_attempts": 0,
     "validation_warnings": [
-      "Edge e_h1_resolves_null: target 'null' not found",
-      "Edge e_h2_resolves_null: target 'null' not found",
       "repair_orphans: added 33 edges for 18 orphan nodes"
     ],
     "cluster_membership": {

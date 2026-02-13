@@ -2092,7 +2092,7 @@
         "secondary_spans": [],
         "surface_text": "Rajasthan, 1965 1 S.C.R. 933, reversed. Per Subba, Rao, J., Shah, Sikri, Shelat and Vaidialingam, JJ. Fundamental rights are the primordial rights"
       },
-      "resolves_issue": "i14",
+      "resolves_issue": null,
       "is_ratio": true,
       "novel": true,
       "reasoning_summary": "Previous decision wrong; correct early to prevent erosion of fundamental rights.",
@@ -2336,7 +2336,7 @@
         "secondary_spans": [],
         "surface_text": "The question of the amendability of the fundamental rights was considered by this Court earlier in two decisions, namely, Sri Sankari Prasad Singh Deo v. Union"
       },
-      "resolves_issue": "i13",
+      "resolves_issue": null,
       "is_ratio": true,
       "novel": false,
       "reasoning_summary": "Wrongly held amendments not law u/13(2); overrule to protect rights.",
@@ -3094,27 +3094,6 @@
       }
     },
     {
-      "id": "e_h1_resolves_i14",
-      "source": "h1",
-      "target": "i14",
-      "relation": "resolves",
-      "anchor": {
-        "doc_id": "sha256:ec2c237c6d96",
-        "start_char": 0,
-        "end_char": 35,
-        "text_hash": "237a3013c7b64c63",
-        "display_location": "0",
-        "secondary_spans": [],
-        "surface_text": "Rajasthan, 1965 1 S.C.R. 933, reversed. Per Subba, Rao, J., Shah, Sikri, Shelat and Vaidialingam, JJ. Fundamental rights are the primordial rights"
-      },
-      "explanation": null,
-      "confidence": "high",
-      "strength": "strong",
-      "support_group_ids": [],
-      "is_critical": false,
-      "provenance": null
-    },
-    {
       "id": "e_h1_determines_outcome",
       "source": "h1",
       "target": "outcome",
@@ -3811,27 +3790,6 @@
       "strength": "strong",
       "support_group_ids": [],
       "is_critical": true,
-      "provenance": null
-    },
-    {
-      "id": "e_h9_resolves_i13",
-      "source": "h9",
-      "target": "i13",
-      "relation": "resolves",
-      "anchor": {
-        "doc_id": "sha256:ec2c237c6d96",
-        "start_char": 515000,
-        "end_char": 516000,
-        "text_hash": "ae6f027126d9adda",
-        "display_location": "0",
-        "secondary_spans": [],
-        "surface_text": "The question of the amendability of the fundamental rights was considered by this Court earlier in two decisions, namely, Sri Sankari Prasad Singh Deo v. Union"
-      },
-      "explanation": null,
-      "confidence": "high",
-      "strength": "strong",
-      "support_group_ids": [],
-      "is_critical": false,
       "provenance": null
     },
     {
@@ -4817,8 +4775,6 @@
     "retry_attempts": 0,
     "validation_warnings": [
       "JSON parse error: Unterminated string starting at: line 1 column 3332 (char 3331)",
-      "Edge e_h1_resolves_i14: target 'i14' not found",
-      "Edge e_h9_resolves_i13: target 'i13' not found",
       "repair_orphans: added 29 edges for 17 orphan nodes"
     ],
     "cluster_membership": {

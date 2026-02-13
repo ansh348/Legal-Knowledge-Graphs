@@ -1617,7 +1617,7 @@
         "secondary_spans": [],
         "surface_text": "The first. question, therefore, should have been answered against the assessee and in favour of the Revenue. The appeals succeed and are allowed with costs. The answers, to both the questions are returned in favour of the Revenue."
       },
-      "resolves_issue": "i1;i2",
+      "resolves_issue": "i1",
       "is_ratio": true,
       "novel": false,
       "reasoning_summary": "Direct answers to referred questions based on above holdings; appeals allowed.",
@@ -2860,27 +2860,6 @@
       "provenance": null
     },
     {
-      "id": "e_h5_resolves_i1;i2",
-      "source": "h5",
-      "target": "i1;i2",
-      "relation": "resolves",
-      "anchor": {
-        "doc_id": "sha256:e763300b9213",
-        "start_char": 22000,
-        "end_char": 22300,
-        "text_hash": "43b312ca9acc21bc",
-        "display_location": "0",
-        "secondary_spans": [],
-        "surface_text": "The first. question, therefore, should have been answered against the assessee and in favour of the Revenue. The appeals succeed and are allowed with costs. The answers, to both the questions are returned in favour of the Revenue."
-      },
-      "explanation": null,
-      "confidence": "high",
-      "strength": "strong",
-      "support_group_ids": [],
-      "is_critical": false,
-      "provenance": null
-    },
-    {
       "id": "e_h5_determines_outcome",
       "source": "h5",
       "target": "outcome",
@@ -3850,6 +3829,48 @@
         "temperature": null,
         "timestamp": "2026-02-08T11:04:18.902261+00:00"
       }
+    },
+    {
+      "id": "e_h5_resolves_i1",
+      "source": "h5",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e763300b9213",
+        "start_char": 22000,
+        "end_char": 22300,
+        "text_hash": "43b312ca9acc21bc",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The first. question, therefore, should have been answered against the assessee and in favour of the Revenue. The appeals succeed and are allowed with costs. The answers, to both the questions are returned in favour of the Revenue."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h5_resolves_i2",
+      "source": "h5",
+      "target": "i2",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:e763300b9213",
+        "start_char": 22000,
+        "end_char": 22300,
+        "text_hash": "43b312ca9acc21bc",
+        "display_location": "0",
+        "secondary_spans": [],
+        "surface_text": "The first. question, therefore, should have been answered against the assessee and in favour of the Revenue. The appeals succeed and are allowed with costs. The answers, to both the questions are returned in favour of the Revenue."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
     }
   ],
   "reasoning_chains": [
@@ -4042,7 +4063,6 @@
     "extraction_timestamp": "2026-02-08T05:57:08.521624",
     "retry_attempts": 0,
     "validation_warnings": [
-      "Edge e_h5_resolves_i1;i2: target 'i1;i2' not found",
       "repair_orphans: added 34 edges for 20 orphan nodes"
     ],
     "cluster_membership": {
