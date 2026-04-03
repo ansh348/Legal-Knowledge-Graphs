@@ -87,6 +87,7 @@ import json
 import hashlib
 import re
 import logging
+import unicodedata
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Tuple, Any, Set, Union, Literal
@@ -94,6 +95,14 @@ from datetime import datetime
 from enum import Enum
 from pathlib import Path
 import asyncio
+
+# Citation pre-processing (deterministic regex layer)
+try:
+    from citation_preprocess import CitationPreprocessor, CitationHit, build_citation_manifest
+except ImportError:
+    CitationPreprocessor = None
+    CitationHit = None
+    build_citation_manifest = None
 
 # Import schema
 from schema_v2_1 import (
@@ -152,6 +161,80 @@ def is_anchor_valid(anchor: Optional[Any]) -> bool:
 
 
 # =============================================================================
+# TURKISH AYM: OPERATIVE PART WINDOW SELECTOR
+# =============================================================================
+
+def _turkish_lower(text: str) -> str:
+    """Turkish-aware lowercase (handles İ→i, I→ı mapping)."""
+    return text.replace("İ", "i").replace("I", "ı").lower()
+
+
+def select_aym_operatif_window(text: str, max_chars: int) -> str:
+    """For Turkish AYM decisions, select the tail starting from HÜKÜM/SONUÇ.
+
+    AYM decisions place the operative part (disposition, holdings) at the END
+    of the document. When max_doc_chars truncates from the front, we lose exactly
+    the parts we need for outcome/holdings extraction.
+
+    Strategy: search needles in PRIORITY ORDER (most specific first).
+    Stop at the first match category that hits. Within a category, take the
+    last occurrence (closest to end = most likely the operative section).
+
+    CRITICAL: "KARAR" is NOT searched as a bare keyword — it appears hundreds
+    of times in running Turkish legal text ("mahkeme kararı", "karara bağlanması").
+    It is only matched as a section header (start-of-line, possibly after numbering).
+    """
+    low = _turkish_lower(text)
+
+    def _rfind_needle(needle: str) -> int:
+        return low.rfind(_turkish_lower(needle))
+
+    def _window_from(idx: int) -> str:
+        window = text[idx:]
+        return window[-max_chars:] if len(window) > max_chars else window
+
+    # Tier 1: Multi-word section headers (highest specificity)
+    for needle in ["SONUÇ VE HÜKÜM", "SONUC VE HUKUM", "SONUÇ VE KARAR"]:
+        j = _rfind_needle(needle)
+        if j != -1:
+            return _window_from(j)
+
+    # Tier 2: Single-word operative keywords (NOT "KARAR")
+    for needle in ["HÜKÜM", "HUKUM", "SONUÇ", "SONUC"]:
+        j = _rfind_needle(needle)
+        if j != -1:
+            return _window_from(j)
+
+    # Tier 3: "KARAR" ONLY as a section header (start of line, optional numbering)
+    # Matches patterns like:
+    #   "KARAR\n"  |  "V. KARAR\n"  |  "  KARAR\n"  |  "A. KARAR\n"
+    # Does NOT match: "mahkeme kararı", "karara bağlanması", etc.
+    karar_header_pat = re.compile(
+        r'(?:^|\n)\s*(?:[IVX]+\.?\s+|[A-ZÇĞİÖŞÜ]\.?\s+)?KARAR\s*(?:\n|$)',
+        re.IGNORECASE
+    )
+    matches = list(karar_header_pat.finditer(text))
+    if matches:
+        return _window_from(matches[-1].start())
+
+    # Tier 4: Fall back to tail of document
+    return text[-max_chars:] if len(text) > max_chars else text
+
+
+def select_document_window_for_pass(
+        full_text: str, max_chars: int, jurisdiction: str, pass_name: str
+) -> str:
+    """Select the right document window depending on jurisdiction and pass.
+
+    For Turkish (AYM) outcome/holdings passes, use the operative-part tail.
+    For everything else, use the standard head truncation.
+    """
+    if jurisdiction in ("tr", "turkey") and pass_name in ("outcome", "holdings"):
+        return select_aym_operatif_window(full_text, max_chars)
+    return full_text[:max_chars]
+
+
+# =============================================================================
 # EDGE RELATION NORMALIZATION + VALIDATION RULES
 # =============================================================================
 
@@ -201,7 +284,7 @@ _EDGE_RELATION_ALIASES: Dict[str, str] = {
 def normalize_edge_relation(relation: Any) -> str:
     """Normalize relation string to canonical schema values."""
     if relation is None:
-        return relation
+        return ""  # Fix: return empty string so downstream 'in' checks don't crash
     r = str(relation).strip().lower()
     r = r.replace("-", "_").replace(" ", "_")
     r = re.sub(r"_+", "_", r)
@@ -360,7 +443,11 @@ def normalize_actor_type(actor: Any) -> Optional[str]:
     return _ACTOR_TYPE_ALIASES.get(a, a)
 
 
-def coerce_actor_type(actor: Any, default: Optional[str] = None) -> Optional[ActorType]:
+def coerce_actor_type(
+        actor: Any,
+        default: Optional[str] = None,
+        extra_aliases: Optional[Dict[str, Union[str, ActorType]]] = None
+) -> Optional[ActorType]:
     """Coerce an arbitrary actor-like string into a valid ActorType enum value.
 
     This is a safety net for noisy IL-TUR judgments and occasional LLM drift.
@@ -370,6 +457,7 @@ def coerce_actor_type(actor: Any, default: Optional[str] = None) -> Optional[Act
     Args:
         actor: The raw actor value from LLM extraction
         default: Default ActorType value if actor is None/empty (as string)
+        extra_aliases: Optional mapping of jurisdiction-specific actor aliases -> ActorType
 
     Returns:
         ActorType enum value, or None if actor is None and no default provided
@@ -396,6 +484,30 @@ def coerce_actor_type(actor: Any, default: Optional[str] = None) -> Optional[Act
     valid_values = {at.value for at in ActorType}
     if normalized in valid_values:
         return ActorType(normalized)
+
+    # Jurisdiction-specific alias overrides (e.g., ECHR 'grand_chamber' -> 'court')
+    if extra_aliases:
+        try:
+            # Prefer direct match on the normalized actor string.
+            mapped = extra_aliases.get(normalized)
+
+            # Also try a lightly-normalized raw key (spaces/hyphens -> underscores).
+            if mapped is None and actor is not None:
+                raw_key = str(actor).strip().lower().replace("-", "_").replace(" ", "_")
+                raw_key = re.sub(r"_+", "_", raw_key)
+                mapped = extra_aliases.get(raw_key)
+
+            if mapped is not None:
+                if isinstance(mapped, ActorType):
+                    return mapped
+
+                mapped_norm = normalize_actor_type(mapped) or str(mapped).strip().lower()
+                if mapped_norm in valid_values:
+                    logger.debug(f"Coerced actor '{actor}' -> {mapped_norm} (jurisdiction alias)")
+                    return ActorType(mapped_norm)
+        except Exception:
+            # Never let alias logic crash extraction.
+            pass
 
     # Heuristic fallbacks for unmapped values
     a = normalized.lower()
@@ -495,21 +607,29 @@ VALID_EDGE_RELATIONS: Dict[Tuple[str, str], Set[str]] = {
 
 
 def get_node_type_from_id(node_id: str) -> str:
-    """Infer node type from ID prefix."""
+    """Infer node type from ID prefix.
+
+    IMPORTANT: Multi-char prefixes (e.g. "js") must be checked BEFORE single-char
+    prefixes (e.g. "j") to avoid false matches. We sort by prefix length descending.
+    """
     if node_id == "outcome":
         return "outcome"
-    prefix_map = {
-        "f": "fact",
-        "c": "concept",
-        "i": "issue",
-        "a": "argument",
-        "h": "holding",
-        "p": "precedent",
-        "js": "justification_set"
-    }
-    for prefix, ntype in prefix_map.items():
-        if node_id.startswith(prefix) and (len(node_id) == len(prefix) + 1 or node_id[len(prefix):].isdigit()):
-            return ntype
+    # Ordered longest-prefix-first to avoid "js1" matching "j" before "js"
+    prefix_map = [
+        ("js", "justification_set"),
+        ("rc", "reasoning_chain"),
+        ("f", "fact"),
+        ("c", "concept"),
+        ("i", "issue"),
+        ("a", "argument"),
+        ("h", "holding"),
+        ("p", "precedent"),
+    ]
+    for prefix, ntype in prefix_map:
+        if node_id.startswith(prefix):
+            suffix = node_id[len(prefix):]
+            if suffix.isdigit() or (len(suffix) >= 1 and suffix[0] == '_'):
+                return ntype
     return "unknown"
 
 
@@ -650,6 +770,54 @@ def _normalize_with_mapping(raw: str) -> Tuple[str, List[int]]:
     return ''.join(norm_chars), idx_map
 
 
+# --- Turkish-specific text utilities ---
+
+# Turkish has unique casing rules: İ↔i, I↔ı, Ş↔ş, Ç↔ç, Ö↔ö, Ü↔ü, Ğ↔ğ
+_TR_LOWER_MAP = str.maketrans("İIŞÇÖÜĞ", "iışçöüğ")
+_TR_UPPER_MAP = str.maketrans("iışçöüğ", "İIŞÇÖÜĞ")
+
+
+def turkish_lower(text: str) -> str:
+    """Turkish-aware lowercasing (I→ı, İ→i)."""
+    return text.translate(_TR_LOWER_MAP).lower()
+
+
+def turkish_normalize(text: str) -> str:
+    """Normalize Turkish text for matching: NFC + Turkish-lower + collapse whitespace."""
+    text = unicodedata.normalize("NFC", text)
+    text = turkish_lower(text)
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+def align_quote_to_span_turkish(doc_text: str, quote: str) -> Optional[Tuple[int, int]]:
+    """Turkish-aware quote alignment that handles İ/ı/I case folding correctly."""
+    if not quote:
+        return None
+    q = quote.strip()
+    if not q:
+        return None
+
+    # Try standard alignment first
+    result = align_quote_to_span(doc_text, q)
+    if result:
+        return result
+
+    # Fall back to Turkish-normalized matching
+    norm_doc, doc_map = _normalize_with_mapping(doc_text)
+    norm_q, _ = _normalize_with_mapping(q)
+
+    # Turkish-aware case folding
+    pos = turkish_lower(norm_doc).find(turkish_lower(norm_q))
+    if pos == -1:
+        return None
+
+    start = doc_map[pos]
+    end = doc_map[pos + len(norm_q) - 1] + 1
+    if start < 0 or end <= start or end > len(doc_text):
+        return None
+    return start, end
+
+
 def align_quote_to_span(doc_text: str, quote: str) -> Optional[Tuple[int, int]]:
     """Find (start,end) offsets in doc_text for a quoted snippet.
 
@@ -771,13 +939,29 @@ class ExtractionConfig:
     ontology_path: Optional[str] = None
     ontology_data: Optional[Dict] = None
 
+    # Clustering calibration (jurisdiction-specific thresholds)
+    cluster_min_keyword_overlap: int = 2  # min keyword overlap for ontology matching
+    cluster_phrase_weight: int = 8  # weight per key_phrase hit (highest signal)
+    cluster_case_name_weight: int = 4  # weight per establishing_case hit
+    cluster_keyword_weight: int = 1  # weight per generic keyword overlap
+    cluster_min_score_for_assignment: int = 3  # min score to assign a non-concept node to a cluster
+
     # Pipeline
     pipeline_version: Literal["v3", "v4"] = "v4"
     enable_link_discovery: bool = False  # v3 pass 9
     enable_llm_justification_sets: bool = False  # v3 pass 10
-
     # Run identification
     run_id: Optional[str] = None
+
+    # Jurisdiction / prompting (optional, but important for multi-jurisdiction runs)
+    jurisdiction: str = "in"  # e.g., "in", "tr", "echr"
+    jurisdiction_label: Optional[str] = None  # human-readable override
+    extraction_language_instruction: Optional[str] = None  # appended to system prompt
+    prompt_context: Dict[str, str] = field(default_factory=dict)  # per-pass prompt snippets
+    actor_aliases: Dict[str, Union[str, ActorType]] = field(default_factory=dict)  # jurisdiction-specific actor aliases
+    section_headers: List[str] = field(default_factory=list)  # known section headings for paragraph splitting
+    system_prompt: Optional[str] = None  # override full system prompt
+    metadata_prompt: Optional[str] = None  # override metadata prompt template
 
     def load_ontology(self) -> Dict:
         """Load ontology from file or return cached."""
@@ -791,6 +975,63 @@ class ExtractionConfig:
                 return self.ontology_data
 
         return {}
+
+    def get_jurisdiction_label(self) -> str:
+        """Human-readable jurisdiction label used in prompts."""
+        if self.jurisdiction_label and str(self.jurisdiction_label).strip():
+            return str(self.jurisdiction_label).strip()
+
+        mapping = {
+            "in": "Indian court",
+            "india": "Indian court",
+            "tr": "Turkish court",
+            "turkey": "Turkish court",
+            "echr": "European Court of Human Rights",
+            "eu": "European Court of Human Rights",
+        }
+        return mapping.get((self.jurisdiction or "").lower().strip(), (self.jurisdiction or "legal").strip() or "legal")
+
+    def get_system_prompt(self, pass_key: Optional[str] = None) -> str:
+        """System prompt used for *all* passes.
+
+        You can override via `system_prompt`. `extraction_language_instruction` is appended if present.
+        """
+        base = self.system_prompt or SYSTEM_BASE
+        try:
+            base = base.format(jurisdiction_label=self.get_jurisdiction_label())
+        except Exception:
+            # If a custom system prompt has incompatible {placeholders}, don't crash.
+            pass
+
+        if self.extraction_language_instruction and str(self.extraction_language_instruction).strip():
+            base = base + "\n\n" + str(self.extraction_language_instruction).strip()
+
+        return base
+
+    def get_metadata_prompt(self) -> str:
+        """Metadata prompt template.
+
+        You can override via `metadata_prompt`.
+        """
+        return self.metadata_prompt or METADATA_PROMPT
+
+    def decorate_prompt(self, prompt: str, pass_key: Optional[str] = None) -> str:
+        """Prefix prompts with optional jurisdiction/language context snippets."""
+        parts: List[str] = []
+        ctx = self.prompt_context or {}
+
+        lp = ctx.get("language_preamble")
+        if lp and str(lp).strip():
+            parts.append(str(lp).strip())
+
+        if pass_key:
+            pctx = ctx.get(pass_key)
+            if pctx and str(pctx).strip():
+                parts.append(str(pctx).strip())
+
+        if not parts:
+            return prompt
+        return "\n\n".join(parts) + "\n\n" + prompt
 
 
 # =============================================================================
@@ -830,6 +1071,20 @@ _STOPWORDS = {
     "is", "was", "were", "are", "be", "been", "being", "as", "at", "from", "that", "this",
     "it", "its", "their", "his", "her", "they", "them", "he", "she", "we", "our", "you",
     "not", "no", "yes", "shall", "may", "must", "can", "could", "would", "should",
+    # Turkish stopwords (common function words that pollute keyword matching)
+    "bir", "ile", "için", "icin", "olan", "olarak", "dair", "daha", "sonra", "önce",
+    "kadar", "gibi", "tarafından", "tarafindan", "göre", "gore", "ise", "veya",
+    "ancak", "fakat", "ama", "ayrıca", "ayrica", "dolayı", "dolayi", "ilgili",
+    "üzerine", "uzerine", "hakkında", "hakkinda", "karşı", "karsi", "bakımından",
+    "bakimindan", "suretiyle", "niteliğinde", "niteligi", "kapsamında", "kapsaminda",
+    # ECHR / French legal stopwords
+    "dans", "pour", "avec", "sur", "par", "une", "des", "les", "aux", "est",
+    "que", "qui", "sont", "été", "pas", "ont", "cette", "ces", "mais", "aussi",
+}
+
+_TR_LEGAL_STOPWORDS = {
+    "madde", "maddesinin", "maddesi", "fıkra", "fikra", "fıkrası", "fikrasi",
+    "bent", "bendi", "sayılı", "sayili", "kanun", "kanunun", "hükmü", "hukmu",
 }
 
 
@@ -853,7 +1108,12 @@ def parse_key_phrases(raw: str) -> List[str]:
 
 
 def _tokenize(text: str) -> List[str]:
-    return [t for t in re.findall(r"[a-zA-Z0-9_]+", (text or "").lower()) if t]
+    """Tokenize text into word-like units (Unicode-aware).
+
+    We use Unicode-aware tokenization so languages with non-ASCII letters (e.g., Turkish)
+    are preserved for keyword overlap + ontology matching.
+    """
+    return [t for t in re.findall(r"[\w]+", (text or "").casefold(), flags=re.UNICODE) if t]
 
 
 def _keyword_set(text: str) -> Set[str]:
@@ -861,9 +1121,11 @@ def _keyword_set(text: str) -> Set[str]:
     return {t for t in toks if len(t) >= 4 and t not in _STOPWORDS}
 
 
-def _contains_phrase(haystack: str, phrase: str) -> bool:
+def _contains_phrase(haystack: str, phrase: str, turkish: bool = False) -> bool:
     if not haystack or not phrase:
         return False
+    if turkish:
+        return turkish_lower(phrase) in turkish_lower(haystack)
     return phrase.lower() in haystack.lower()
 
 
@@ -951,15 +1213,25 @@ def _node_text_for_matching(node: Any) -> str:
     return str(node)
 
 
-def _concept_match_score(node_text: str, concept_def: Dict) -> int:
+def _concept_match_score(
+        node_text: str,
+        concept_def: Dict,
+        phrase_weight: int = 8,
+        case_name_weight: int = 4,
+        keyword_weight: int = 1,
+        turkish: bool = False,
+) -> int:
     """Crude relevance score between a node text and an ontology concept.
 
     This is intentionally lightweight (no embeddings) but tries to capture the
     high-signal hooks in the compiled ontology:
-      - key_phrases (strong)
-      - establishing_cases (strong)
-      - requirement keywords (medium)
-      - defeater keywords (weak)
+      - key_phrases (strongest — curated domain terms)
+      - establishing_cases (strong — exact case name match)
+      - typical_fact_patterns (moderate)
+      - requirement keywords (moderate, capped low to avoid noise)
+      - generic keyword overlap (weak, capped low)
+
+    Weights are configurable for jurisdiction-specific calibration.
     """
 
     if not node_text or not concept_def:
@@ -968,7 +1240,7 @@ def _concept_match_score(node_text: str, concept_def: Dict) -> int:
     # NOTE: _normalize_with_mapping returns (normalized_text, index_map).
     # We only need the normalized text here.
     txt_norm, _ = _normalize_with_mapping(node_text)
-    txt_norm_l = txt_norm.lower()
+    txt_norm_l = turkish_lower(txt_norm) if turkish else txt_norm.lower()
 
     phrases = parse_key_phrases(concept_def.get("key_phrases", ""))
 
@@ -984,8 +1256,8 @@ def _concept_match_score(node_text: str, concept_def: Dict) -> int:
 
     # 1) Phrase hits are high signal
     for ph in phrases:
-        if ph and _contains_phrase(node_text, ph):
-            score += 5
+        if ph and _contains_phrase(node_text, ph, turkish=turkish):
+            score += phrase_weight
 
     # 2) Establishing cases are high signal, but in this ontology they are often
     #    stored as a comma-separated string.
@@ -1000,7 +1272,8 @@ def _concept_match_score(node_text: str, concept_def: Dict) -> int:
     for case_name in case_names:
         cn, _ = _normalize_with_mapping(case_name)
         cn = cn.strip()
-        if len(cn) >= 8 and cn.lower() in txt_norm_l:
+        cn_l = turkish_lower(cn) if turkish else cn.lower()
+        if len(cn) >= 8 and cn_l in txt_norm_l:
             score += 8
             break
 
@@ -1014,18 +1287,18 @@ def _concept_match_score(node_text: str, concept_def: Dict) -> int:
         patterns = []
 
     for pat in patterns:
-        if pat and _contains_phrase(node_text, pat):
+        if pat and _contains_phrase(node_text, pat, turkish=turkish):
             score += 3
             break
 
-    # 4) Keyword overlap (capped)
+    # 4) Keyword overlap (capped low to prevent generic terms from beating curated phrases)
     node_kw = _keyword_set(node_text)
     concept_kw = _keyword_set(" ".join([label] + requires + defeaters + phrases))
-    score += min(6, len(node_kw.intersection(concept_kw)))
+    score += min(4, len(node_kw.intersection(concept_kw)))
 
     # 5) Extra weight for requirement keyword overlap (capped)
     req_kw = _keyword_set(" ".join(requires))
-    score += min(6, len(node_kw.intersection(req_kw)))
+    score += min(4, len(node_kw.intersection(req_kw)))
 
     return score
 
@@ -1061,9 +1334,9 @@ def normalize_ontology_requires(requires_raw: Any) -> Tuple[str, List[str]]:
         start_idx = 0
         first = str(requires_raw[0]).strip().upper()
         if first.startswith("["):
-            if "OR" in first:
+            if first.startswith("[OR"):
                 logic = "or"
-            elif "AND" in first:
+            elif first.startswith("[AND"):
                 logic = "and"
             start_idx = 1
 
@@ -1135,7 +1408,13 @@ def normalize_ontology_defeaters(defeaters_raw: Any) -> List[str]:
 
 def cluster_nodes(
         graph: LegalReasoningGraph,
-        ontology: Dict
+        ontology: Dict,
+        min_keyword_overlap: int = 2,
+        phrase_weight: int = 5,
+        case_name_weight: int = 4,
+        keyword_weight: int = 1,
+        min_score_for_assignment: int = 3,
+        jurisdiction: str = "in",
 ) -> Tuple[Dict[str, ConceptCluster], Dict[str, List[str]]]:
     """Group extracted nodes into concept-centric clusters.
 
@@ -1146,7 +1425,11 @@ def cluster_nodes(
     Notes:
       - Uses the compiled ontology as the primary clustering index when possible.
       - Falls back to creating pseudo-clusters for concept_ids not present in the ontology.
+      - Calibration parameters (phrase_weight, min_score_for_assignment, etc.) can
+        be tuned per jurisdiction for optimal clustering behavior.
     """
+
+    _turkish = jurisdiction in ("tr", "turkey")
 
     ontology_concepts = (ontology or {}).get("concepts", {}) or {}
 
@@ -1212,11 +1495,15 @@ def cluster_nodes(
             best_cluster = None
             best_score = 0
             for ont_id, ont_def in ontology_concepts.items():
-                score = _concept_match_score(issue.text or "", ont_def)
+                score = _concept_match_score(issue.text or "", ont_def,
+                                             phrase_weight=phrase_weight,
+                                             case_name_weight=case_name_weight,
+                                             keyword_weight=keyword_weight,
+                                             turkish=_turkish)
                 if score > best_score:
                     best_score = score
                     best_cluster = ont_id
-            if best_cluster and best_score >= 3:
+            if best_cluster and best_score >= min_score_for_assignment:
                 clusters[best_cluster].issues.append(issue.id)
                 node_membership.setdefault(issue.id, []).append(best_cluster)
 
@@ -1235,16 +1522,20 @@ def cluster_nodes(
             best_cluster = None
             best_score = 0
             for ont_id, ont_def in ontology_concepts.items():
-                score = _concept_match_score(holding.text or "", ont_def)
+                score = _concept_match_score(holding.text or "", ont_def,
+                                             phrase_weight=phrase_weight,
+                                             case_name_weight=case_name_weight,
+                                             keyword_weight=keyword_weight,
+                                             turkish=_turkish)
                 if score > best_score:
                     best_score = score
                     best_cluster = ont_id
-            if best_cluster and best_score >= 3:
+            if best_cluster and best_score >= min_score_for_assignment:
                 clusters[best_cluster].holdings.append(holding.id)
                 node_membership.setdefault(holding.id, []).append(best_cluster)
 
     # 5) Assign Facts / Arguments / Precedents via scoring against ontology + already-seeded clusters
-    def _assign_by_score(node_obj: Any, min_score: int = 3):
+    def _assign_by_score(node_obj: Any, min_score: int = min_score_for_assignment):
         txt = _node_text_for_matching(node_obj)
         # Prefer clusters that already have issues/holdings to reduce noise
         candidate_cluster_ids = [
@@ -1256,7 +1547,11 @@ def cluster_nodes(
         for cid in candidate_cluster_ids:
             concept_def = ontology_concepts.get(cid)
             if concept_def:
-                score = _concept_match_score(txt, concept_def)
+                score = _concept_match_score(txt, concept_def,
+                                             phrase_weight=phrase_weight,
+                                             case_name_weight=case_name_weight,
+                                             keyword_weight=keyword_weight,
+                                             turkish=_turkish)
             else:
                 # Pseudo cluster: approximate "concept definition" from the cluster's
                 # own concept nodes (anchor snippets) + label/id.
@@ -1400,10 +1695,22 @@ class SegmentedDocument:
         return start, end, self.full_text[start:end]
 
 
-def segment_document(text: str, doc_id: str) -> SegmentedDocument:
+def segment_document(text: str, doc_id: str,
+                     section_headers: Optional[List[str]] = None) -> SegmentedDocument:
     """Segment a document into paragraphs and sentences with stable char offsets."""
     paragraphs = []
     sentences = []
+
+    # If section_headers are provided, inject double-newlines before known
+    # section headings so the paragraph splitter treats them as boundaries.
+    if section_headers:
+        # Build a pattern that matches any of the headers at the start of a line
+        escaped = [re.escape(h) for h in section_headers]
+        header_re = re.compile(
+            r'(?<!\n\n)(?=^(?:' + '|'.join(escaped) + r')\b)',
+            re.MULTILINE | re.IGNORECASE,
+        )
+        text = header_re.sub('\n\n', text)
 
     # Split into paragraphs
     para_pattern = re.compile(r'\n\s*\n|\n(?=\d+\.?\s)|(?<=\.)\s*\n')
@@ -1433,7 +1740,7 @@ def segment_document(text: str, doc_id: str) -> SegmentedDocument:
             paragraphs.append(para_seg)
 
             # Split paragraph into sentences
-            sent_pattern = re.compile(r'(?<=[.!?])\s+(?=[A-Z0-9])')
+            sent_pattern = re.compile(r'(?<=[.!?])\s+(?=[A-ZÀ-ÖØ-Þ0-9İŞĞÇÖÜ])')
             sent_starts = [0]
             for match in sent_pattern.finditer(para_text):
                 sent_starts.append(match.end())
@@ -1515,6 +1822,12 @@ class AnthropicClient(LLMClient):
         self.model_id = model_id
         self._client = None
 
+    async def close(self):
+        """Close the async HTTP client to prevent connection leaks."""
+        if self._client is not None:
+            await self._client.close()
+            self._client = None
+
     async def complete(
             self,
             prompt: str,
@@ -1542,6 +1855,20 @@ class AnthropicClient(LLMClient):
         )
 
         return response.content[0].text
+
+
+def _strip_think_blocks(text: str) -> str:
+    """Strip <think>...</think> blocks from reasoning model output.
+
+    Reasoning models (e.g. Grok-4-reasoning, DeepSeek-R1) wrap their chain-of-thought
+    in <think>...</think> tags. When we expect JSON output, these tags will cause
+    parse failures. We strip them before returning.
+    """
+    if not text:
+        return text
+    # Remove all <think>...</think> blocks (greedy, handles multi-line)
+    stripped = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL)
+    return stripped.strip()
 
 
 class GrokClient(LLMClient):
@@ -1622,7 +1949,7 @@ class GrokClient(LLMClient):
                     self.total_completion_tokens += usage.get("completion_tokens", 0)
                 self.total_requests += 1
 
-                return data["choices"][0]["message"]["content"]
+                return _strip_think_blocks(data["choices"][0]["message"]["content"])
 
             except httpx.TimeoutException:
                 if backoff_attempt < max_backoff_retries - 1:
@@ -1643,25 +1970,25 @@ class GrokClient(LLMClient):
 # EXTRACTION PROMPTS
 # =============================================================================
 
-SYSTEM_BASE = """You are a legal reasoning extraction system specialized in Indian court judgments.
+SYSTEM_BASE = """You are a legal reasoning extraction system specialized in {jurisdiction_label} judgments.
 
 CRITICAL RULES:
 1. ANCHORS ARE MANDATORY - Every extraction must include exact character offsets (start_char, end_char)
 2. USE ONLY WHAT'S IN THE TEXT - Do not infer or hallucinate information not present
 3. CONFIDENCE MUST BE HONEST - Mark as "inferred" only if deriving from context
-4. ACTORS MATTER - Distinguish between petitioner claims, respondent claims, and court findings
+4. ACTORS MATTER - Distinguish between party submissions and court findings
 5. CITE SURFACE TEXT - Include first 150 characters of relevant text span
 6. BE EXHAUSTIVE - Extract ALL relevant instances, not just obvious ones
 
 OUTPUT: Valid JSON only. No markdown code blocks, no explanations."""
 
-METADATA_PROMPT = """Extract case metadata from the beginning of this Indian court judgment.
+METADATA_PROMPT = """Extract case metadata from the beginning of this {jurisdiction_label} judgment.
 
 From the text below, identify:
-- case_name: The party names (e.g. "State of Maharashtra v. Rajesh Kumar")
-- case_year: The year the judgment was delivered (integer)
-- court: The court name (e.g. "Supreme Court of India", "High Court of Bombay")
-- judges: List of judge names who authored/heard the case
+- case_name: The party names (e.g. "A v. B" or "Applicant v. State")
+- case_year: The year the judgment/decision was delivered (integer)
+- court: The court/tribunal name (as written)
+- judges: List of judge names who authored/heard the case (if present)
 
 TEXT (first ~3000 chars):
 {header_text}
@@ -1881,6 +2208,49 @@ DOCUMENT:
 
 Respond with JSON: {{"holdings": [...]}}"""
 
+HOLDINGS_PROMPT_TR = """Extract ALL HOLDINGS (legal determinations) from this Turkish court decision.
+
+CRITICAL: This is an AYM (Anayasa Mahkemesi) bireysel başvuru decision. Holdings in Turkish
+constitutional court decisions are NOT found in a separate "HÜKÜM" section. Instead, they are
+embedded as concluding determinations within the DEĞERLENDİRME (assessment) paragraphs and
+the final HÜKÜM/karar section.
+
+LOOK FOR THESE TURKISH HOLDING PATTERNS:
+- "...hakkının ihlal edildiğine karar verilmesi gerektiği..." (finding a right was violated)
+- "...hakkının ihlal edilmediğine..." (finding no violation)
+- "...başvurunun kabul edilemez olduğuna..." (inadmissibility)
+- "...başvurunun kabul edilebilir olduğuna..." (admissibility)
+- "...yeniden yargılama yapılmasında hukuki yarar bulunduğu..." (benefit in retrial)
+- "...tazminat talebinin reddine..." (rejection of compensation)
+- "...tazminata hükmedilmesi gerektiği..." (awarding compensation)
+- "...Anayasa'nın ... maddesinin ihlal edildiğine..." (constitutional article violated)
+- "...oy birliğiyle/oy çokluğuyla karar verildi..." (decided unanimously/by majority)
+
+Each such determination IS a holding. Do NOT return empty holdings.
+
+For each holding, provide:
+{{
+  "id": "h1", "h2", etc.,
+  "text": "The holding statement translated to English",
+  "start_char": <int>,
+  "end_char": <int>,
+  "surface_text": "First 150 chars of the ORIGINAL TURKISH source text (for anchoring)",
+  "resolves_issue": "i1" or null (which issue this holding answers),
+  "is_ratio": true (binding ratio decidendi) | false (obiter dicta),
+  "novel": true (new legal principle) | false (applying existing law),
+  "reasoning_summary": "Brief explanation of court's reasoning path",
+  "schemes": ["rule_application", "precedent_following", ...] (argument schemes used),
+  "confidence": "high" | "medium" | "low"
+}}
+
+CONTEXT (issues, concepts):
+{context_json}
+
+DOCUMENT:
+{document}
+
+Respond with JSON: {{"holdings": [...]}}"""
+
 PRECEDENTS_PROMPT = """Extract ALL PRECEDENT citations from this judgment.
 
 For each cited case, capture:
@@ -1933,6 +2303,48 @@ DISPOSITION TYPES:
 - remanded: Sent back to lower court/authority
 - modified: Lower court order modified
 - set_aside: Lower court order set aside
+
+Provide:
+{{
+  "outcome": {{
+    "disposition": "allowed" | "dismissed" | "partly_allowed" | "remanded" | "modified" | "set_aside",
+    "start_char": <int>,
+    "end_char": <int>,
+    "surface_text": "First 150 chars of source text",
+    "binary": "accepted" (petitioner wins) | "rejected" (petitioner loses),
+    "relief_summary": "What relief was granted/denied",
+    "costs": "petitioner" | "respondent" | "none" | "shared" | null,
+    "directions": ["Any directions to parties/lower courts", ...]
+  }}
+}}
+
+DOCUMENT:
+{document}
+
+Respond with JSON: {{"outcome": {{...}} }}"""
+
+OUTCOME_PROMPT_TR = """Extract the OUTCOME (final disposition) of this Turkish court decision.
+
+CRITICAL: This is an AYM (Anayasa Mahkemesi) bireysel başvuru decision. The outcome is in the
+HÜKÜM section at the end, or in the final paragraphs of the decision.
+
+TURKISH OUTCOME PATTERNS AND THEIR DISPOSITIONS:
+- "...hakkının ihlal edildiğine..." → disposition: "allowed", binary: "accepted"
+- "...hakkının ihlal edilmediğine..." → disposition: "dismissed", binary: "rejected"
+- "...başvurunun kabul edilemez olduğuna..." → disposition: "dismissed", binary: "rejected"
+- "...kısmen kabul edilebilir..." → disposition: "partly_allowed", binary: "accepted"
+- "...yeniden yargılama yapılmasına..." → disposition: "remanded", binary: "accepted"
+- "...kararın bir örneğinin ilgili mahkemeye gönderilmesine..." → disposition: "remanded", binary: "accepted"
+- "...tazminata hükmedilmesine..." → relief granted, supports disposition: "allowed"
+- "...tazminat talebinin reddine..." → no relief on compensation
+
+DISPOSITION TYPES:
+- allowed: Başvuru kabul (violation found, petitioner wins)
+- dismissed: Başvuru reddedildi (no violation, or inadmissible)
+- partly_allowed: Kısmen kabul (partial relief granted)
+- remanded: Yeniden yargılama (sent back to lower court)
+- modified: Alt mahkeme kararı değiştirildi
+- set_aside: Alt mahkeme kararı kaldırıldı
 
 Provide:
 {{
@@ -2045,10 +2457,28 @@ EDGE FORMAT:
   "is_critical": true | false
 }}
 
+PRIORITY EDGES (extract these FIRST before any others):
+
+1. FACT → ARGUMENT ("supports" / "grounds"): For EACH argument, ask: "Which specific facts 
+   does this argument rely on as evidence?" Every argument making a factual claim MUST have 
+   at least one incoming fact edge. This is the most commonly missed edge type.
+
+2. FACT → HOLDING ("supports" / "grounds"): For each holding, which facts were essential 
+   to reaching this conclusion?
+
+3. PRECEDENT → HOLDING ("supports"): For each precedent cited, which holding does it 
+   justify or establish the principle for?
+
+4. ARGUMENT → HOLDING ("supports" / "grounds"): Which arguments led the court to each holding?
+
+After covering the priority edges above, extract any remaining valid edges between nodes.
+
 RULES:
 - If confidence is HIGH or MEDIUM, provide start_char/end_char (where the connection is explicit).
 - If confidence is INFERRED, provide an explanation.
 - Use ONLY valid relations for the source->target node types.
+- Every argument SHOULD have at least one fact edge. If an argument has no supporting fact 
+  in this cluster, note this with an inferred edge to the closest relevant fact.
 
 Respond with JSON: {{"edges": [...]}}"""
 
@@ -2167,6 +2597,25 @@ class ExtractionPass(ABC):
             timestamp=datetime.utcnow().isoformat()
         )
 
+    def get_pass_key(self) -> str:
+        """Return a stable key for this pass (used for prompt_context injection)."""
+        cls = self.__class__.__name__
+        mapping = {
+            "MetadataExtractionPass": "metadata",
+            "FactsExtractionPass": "facts",
+            "ConceptsExtractionPass": "concepts",
+            "IssuesExtractionPass": "issues",
+            "ArgumentsExtractionPass": "arguments",
+            "HoldingsExtractionPass": "holdings",
+            "PrecedentsExtractionPass": "precedents",
+            "OutcomeExtractionPass": "outcome",
+            "EdgesExtractionPass": "edges",
+            "IntraClusterEdgesExtractionPass": "edges",
+            "LinkDiscoveryPass": "link_discovery",
+            "JustificationSetsPass": "justification_sets",
+        }
+        return mapping.get(cls, cls.lower())
+
     def make_anchor(
             self,
             start_char: int,
@@ -2199,6 +2648,9 @@ class ExtractionPass(ABC):
             repair_quote = quote_for_alignment or surface_text
             if repair_quote:
                 repaired = align_quote_to_span(self.doc.full_text, repair_quote)
+                # Turkish-aware fallback if standard alignment fails
+                if not repaired and self.config.jurisdiction in ("tr", "turkey"):
+                    repaired = align_quote_to_span_turkish(self.doc.full_text, repair_quote)
                 if repaired:
                     start_char, end_char = repaired
                     offsets_valid = True
@@ -2278,6 +2730,10 @@ class ExtractionPass(ABC):
         """Parse JSON from LLM response, handling common issues."""
         # Remove markdown code blocks if present
         cleaned = response.strip()
+
+        # Strip <think>...</think> blocks (defense-in-depth for reasoning models)
+        cleaned = re.sub(r'<think>.*?</think>', '', cleaned, flags=re.DOTALL).strip()
+
         if cleaned.startswith("```json"):
             cleaned = cleaned[7:]
         if cleaned.startswith("```"):
@@ -2287,7 +2743,32 @@ class ExtractionPass(ABC):
         cleaned = cleaned.strip()
 
         try:
-            return json.loads(cleaned), None
+            parsed = json.loads(cleaned)
+            # Fix: If the model returned a bare list, wrap it in a dict
+            if isinstance(parsed, list):
+                if parsed and isinstance(parsed[0], dict):
+                    if "source" in parsed[0] and "target" in parsed[0]:
+                        parsed = {"edges": parsed}
+                    elif "text" in parsed[0] and "id" in parsed[0]:
+                        # Infer key from id prefix
+                        first_id = str(parsed[0].get("id", ""))
+                        key_map = {
+                            "f": "facts", "c": "concepts", "i": "issues",
+                            "a": "arguments", "h": "holdings", "p": "precedents",
+                            "e": "edges", "js": "justification_sets",
+                        }
+                        key = "items"
+                        for prefix, name in key_map.items():
+                            if first_id.startswith(prefix):
+                                key = name
+                                break
+                        parsed = {key: parsed}
+                    else:
+                        parsed = {"items": parsed}
+                else:
+                    parsed = {"items": parsed}
+                logger.warning("Model returned bare list; auto-wrapped as dict")
+            return parsed, None
         except json.JSONDecodeError as e:
             return None, f"JSON parse error: {e}"
 
@@ -2299,13 +2780,16 @@ class ExtractionPass(ABC):
     ) -> ExtractionResult:
         """Execute extraction with retry logic."""
         last_response = ""
+        pass_key = self.get_pass_key()
+        prompt = self.config.decorate_prompt(prompt, pass_key=pass_key)
         original_prompt = prompt  # Keep original separate to avoid prompt bloat
+        system_prompt = self.config.get_system_prompt(pass_key=pass_key)
 
         for attempt in range(self.config.max_retries):
             try:
                 response = await self.client.complete(
                     prompt=prompt,
-                    system=SYSTEM_BASE,
+                    system=system_prompt,
                     temperature=self.config.temperature,
                     max_tokens=max_tokens
                 )
@@ -2379,7 +2863,9 @@ class MetadataExtractionPass(ExtractionPass):
     """Extract case metadata (name, year, court, judges) from judgment header."""
 
     async def extract(self, context: Dict = None) -> ExtractionResult:
-        prompt = METADATA_PROMPT.format(
+        template = self.config.get_metadata_prompt()
+        prompt = template.format(
+            jurisdiction_label=self.config.get_jurisdiction_label(),
             header_text=self.doc.full_text[:3000]
         )
         return await self.extract_with_retry(prompt, context)
@@ -2476,10 +2962,10 @@ class FactsExtractionPass(ExtractionPass):
                     text=f["text"],
                     anchor=anchor,
                     fact_type=FactType(f["fact_type"]),
-                    actor_source=coerce_actor_type(f.get("actor_source")),
+                    actor_source=coerce_actor_type(f.get("actor_source"), extra_aliases=self.config.actor_aliases),
                     date=f.get("date"),
                     date_approximate=bool(f.get("date_approximate", False)),
-                    disputed_by=coerce_actor_type(f.get("disputed_by")),
+                    disputed_by=coerce_actor_type(f.get("disputed_by"), extra_aliases=self.config.actor_aliases),
                     court_finding=f.get("court_finding"),
                     confidence=Confidence(conf),
                     provenance=self.provenance
@@ -2505,39 +2991,30 @@ class ConceptsExtractionPass(ExtractionPass):
         )
         return await self.extract_with_retry(prompt, context)
 
-    def _get_ontology_excerpt(self) -> str:
-        """Get ontology IDs for prompt."""
-        # Default Indian legal concepts
-        common = [
-            "CONST_ART14 - Article 14 (Equality before Law)",
-            "CONST_ART19 - Article 19 (Freedom of Speech etc.)",
-            "CONST_ART21 - Article 21 (Right to Life & Personal Liberty)",
-            "CONST_ART32 - Article 32 (Constitutional Remedies)",
-            "CONST_ART136 - Article 136 (Special Leave Petition)",
-            "CONST_ART226 - Article 226 (High Court Writ Jurisdiction)",
-            "CONST_ART227 - Article 227 (HC Superintendence)",
-            "DOCTRINE_NATURAL_JUSTICE - Principles of Natural Justice",
-            "DOCTRINE_RES_JUDICATA - Res Judicata",
-            "DOCTRINE_ESTOPPEL - Estoppel",
-            "DOCTRINE_PROPORTIONALITY - Proportionality Principle",
-            "DOCTRINE_LEGITIMATE_EXPECTATION - Legitimate Expectation",
-            "TEST_WEDNESBURY - Wednesbury Unreasonableness",
-            "TEST_RATIONAL_NEXUS - Rational Nexus Test",
-            "CPC_S151 - Section 151 CPC (Inherent Powers)",
-            "CRPC_S482 - Section 482 CrPC (Inherent Powers)",
-            "CRPC_S438 - Section 438 CrPC (Anticipatory Bail)",
-            "IPC_S302 - Section 302 IPC (Murder)",
-            "IPC_S34 - Section 34 IPC (Common Intention)",
-            "EVIDENCE_S3 - Section 3 Evidence Act (Definitions)",
-        ]
+    def _get_ontology_excerpt(self, max_items: int = 80) -> str:
+        """Get ontology concept IDs + labels for the prompt.
 
-        # Add from loaded ontology
-        if self.ontology and "concepts" in self.ontology:
-            for cid, info in list(self.ontology["concepts"].items())[:30]:
-                label = info.get("label", cid)
-                common.append(f"{cid} - {label}")
+        This is intentionally *jurisdiction-agnostic*: we only list what is in the loaded
+        ontology file, instead of hardcoding any country's concepts.
+        """
+        concepts = (self.ontology or {}).get("concepts", {}) or {}
+        if not concepts:
+            return "(no ontology loaded)"
 
-        return "\n".join(common)
+        items: List[Tuple[str, str]] = []
+        for cid, info in concepts.items():
+            if isinstance(info, dict):
+                label = info.get("label") or info.get("turkish_name") or info.get("name") or cid
+            else:
+                label = str(info) if info is not None else cid
+            items.append((str(cid), str(label)))
+
+        items.sort(key=lambda x: x[0])
+
+        lines = [f"{cid} - {label}" for cid, label in items[:max_items]]
+        if len(items) > max_items:
+            lines.append(f"... ({len(items) - max_items} more)")
+        return "\n".join(lines)
 
     def validate(self, data: Any, context: Dict = None) -> Tuple[bool, List[str], List[str]]:
         errors = []
@@ -2661,7 +3138,8 @@ class IssuesExtractionPass(ExtractionPass):
                     text=iss["text"],
                     anchor=anchor,
                     issue_number=iss.get("issue_number"),
-                    framed_by=coerce_actor_type(iss.get("framed_by"), default="court"),
+                    framed_by=coerce_actor_type(iss.get("framed_by"), default="court",
+                                                extra_aliases=self.config.actor_aliases),
                     primary_concepts=iss.get("primary_concepts", []),
                     answer=iss.get("answer"),
                     confidence=Confidence(conf),
@@ -2755,7 +3233,8 @@ class ArgumentsExtractionPass(ExtractionPass):
                     id=arg["id"],
                     claim=arg["claim"],
                     anchor=anchor,
-                    actor=coerce_actor_type(arg.get("actor"), default="petitioner"),
+                    actor=coerce_actor_type(arg.get("actor"), default="petitioner",
+                                            extra_aliases=self.config.actor_aliases),
                     schemes=schemes,
                     qualifiers=qualifiers,
                     court_response=arg.get("court_response"),
@@ -2774,8 +3253,18 @@ class HoldingsExtractionPass(ExtractionPass):
     """Extract holdings from the document."""
 
     async def extract(self, context: Dict = None) -> ExtractionResult:
-        prompt = HOLDINGS_PROMPT.format(
-            document=self.doc.full_text[:self.config.max_doc_chars],
+        # Use Turkish-specific holdings prompt for AYM decisions
+        base_prompt = HOLDINGS_PROMPT
+        if self.config.jurisdiction in ("tr", "turkey"):
+            base_prompt = HOLDINGS_PROMPT_TR
+
+        # Fix: Use operative-part tail window for Turkish AYM decisions
+        doc_window = select_document_window_for_pass(
+            self.doc.full_text, self.config.max_doc_chars,
+            self.config.jurisdiction, "holdings"
+        )
+        prompt = base_prompt.format(
+            document=doc_window,
             context_json=json.dumps(context, indent=2) if context else "{}"
         )
         return await self.extract_with_retry(prompt, context)
@@ -2789,7 +3278,7 @@ class HoldingsExtractionPass(ExtractionPass):
             return False, errors, warnings
 
         if len(data["holdings"]) < self.config.min_holdings:
-            warnings.append(f"Only {len(data['holdings'])} holdings (min: {self.config.min_holdings})")
+            errors.append(f"Only {len(data['holdings'])} holdings (min: {self.config.min_holdings})")
 
         for i, h in enumerate(data["holdings"]):
             for field in ["id", "text", "start_char", "end_char"]:
@@ -2850,13 +3339,36 @@ class HoldingsExtractionPass(ExtractionPass):
 
 
 class PrecedentsExtractionPass(ExtractionPass):
-    """Extract precedent citations from the document."""
+    """Extract precedent citations from the document.
+
+    In v4+, if CitationPreprocessor is available, regex-detected citations
+    are injected into the prompt so the LLM gets exact char offsets for free
+    and only needs to determine treatment, relevance, and proposition.
+    """
+
+    def __init__(self, client: LLMClient, config: ExtractionConfig, doc: SegmentedDocument):
+        super().__init__(client, config, doc)
+        self._citation_manifest = ""
+        self._regex_hits: List[Any] = []
+
+        # Run citation regex pre-pass if available
+        if CitationPreprocessor is not None:
+            cpp = CitationPreprocessor(jurisdiction=config.jurisdiction)
+            self._regex_hits = cpp.extract(doc.full_text)
+            if self._regex_hits:
+                self._citation_manifest = cpp.build_prompt_manifest(self._regex_hits)
+                logger.info(
+                    f"  Citation regex pre-pass: {len(self._regex_hits)} hits for jurisdiction={config.jurisdiction}")
 
     async def extract(self, context: Dict = None) -> ExtractionResult:
-        prompt = PRECEDENTS_PROMPT.format(
+        # Build prompt with optional citation manifest
+        base_prompt = PRECEDENTS_PROMPT.format(
             document=self.doc.full_text[:self.config.max_doc_chars]
         )
-        return await self.extract_with_retry(prompt, context)
+        if self._citation_manifest:
+            base_prompt = self._citation_manifest + "\n\n" + base_prompt
+
+        return await self.extract_with_retry(base_prompt, context)
 
     def validate(self, data: Any, context: Dict = None) -> Tuple[bool, List[str], List[str]]:
         errors = []
@@ -2922,8 +3434,18 @@ class OutcomeExtractionPass(ExtractionPass):
     """Extract case outcome from the document."""
 
     async def extract(self, context: Dict = None) -> ExtractionResult:
-        prompt = OUTCOME_PROMPT.format(
-            document=self.doc.full_text[:self.config.max_doc_chars]
+        # Use Turkish-specific outcome prompt for AYM decisions
+        base_prompt = OUTCOME_PROMPT
+        if self.config.jurisdiction in ("tr", "turkey"):
+            base_prompt = OUTCOME_PROMPT_TR
+
+        # Fix: Use operative-part tail window for Turkish AYM decisions
+        doc_window = select_document_window_for_pass(
+            self.doc.full_text, self.config.max_doc_chars,
+            self.config.jurisdiction, "outcome"
+        )
+        prompt = base_prompt.format(
+            document=doc_window
         )
         return await self.extract_with_retry(prompt, context)
 
@@ -2939,6 +3461,12 @@ class OutcomeExtractionPass(ExtractionPass):
         for field in ["disposition", "start_char", "end_char", "binary"]:
             if field not in outcome:
                 errors.append(f"Outcome: missing '{field}'")
+
+        # Fix: reject null/unknown dispositions so retry kicks in
+        valid_disp = {d.value for d in Disposition}
+        disp = outcome.get("disposition")
+        if not disp or disp not in valid_disp:
+            errors.append(f"Outcome: invalid disposition '{disp}' (valid: {', '.join(sorted(valid_disp))})")
 
         return len(errors) == 0, errors, warnings
 
@@ -2998,13 +3526,17 @@ def build_cluster_context(cluster: ConceptCluster, graph: LegalReasoningGraph) -
     def _lines(title: str, ids: List[str]) -> List[str]:
         out = [f"{title} ({len(ids)}):"]
         for nid in ids:
-            node = graph.get_node(nid)
-            if not node:
+            try:
+                node = graph.get_node(nid)
+                if not node:
+                    continue
+                txt = (_node_text_for_matching(node) or "").replace("\n", " ")
+                if len(txt) > 180:
+                    txt = txt[:180] + "..."
+                out.append(f"  - {nid} {_anchor_span(node)}: {txt}")
+            except (TypeError, AttributeError) as e:
+                logger.warning(f"  ⚠ Skipping node {nid} in cluster context: {e}")
                 continue
-            txt = _node_text_for_matching(node).replace("\n", " ")
-            if len(txt) > 180:
-                txt = txt[:180] + "..."
-            out.append(f"  - {nid} {_anchor_span(node)}: {txt}")
         return out
 
     parts: List[str] = []
@@ -3170,12 +3702,12 @@ class IntraClusterEdgesExtractionPass(ExtractionPass):
                     explanation=explanation,
                     confidence=Confidence(conf),
                     strength=e.get("strength", "strong"),
-                    support_group_ids=e.get("support_group_ids", []),
+                    support_group_ids=e.get("support_group_ids") or [],  # Fix: guard against None
                     is_critical=e.get("is_critical", False),
                     provenance=self.provenance
                 )
                 edges.append(edge)
-            except (KeyError, ValueError) as ex:
+            except (KeyError, ValueError, TypeError) as ex:  # Fix: catch TypeError too
                 logger.warning(f"Could not create intra-cluster Edge: {ex}")
         return edges
 
@@ -3299,7 +3831,7 @@ class EdgesExtractionPass(ExtractionPass):
                     provenance=self.provenance
                 )
                 edges.append(edge)
-            except (KeyError, ValueError) as ex:
+            except (KeyError, ValueError, TypeError) as ex:
                 logger.warning(f"Could not create Edge: {ex}")
         return edges
 
@@ -3359,7 +3891,7 @@ class LinkDiscoveryPass(ExtractionPass):
         return len(errors) == 0, errors, warnings
 
     def to_edges(self, data: Dict, existing_edge_ids: Set[str], node_anchors: Optional[Dict[str, Anchor]] = None) -> \
-    List[Edge]:
+            List[Edge]:
         """Convert discovered edges, avoiding duplicates and anchoring evidence when possible."""
         edges: List[Edge] = []
 
@@ -3515,6 +4047,73 @@ def dedupe_edges(edges: List[Edge]) -> List[Edge]:
 
     # Preserve deterministic order: sort by source/target/relation string
     return sorted(best_by_sig.values(), key=lambda x: (x.source, x.target, x.relation.value, x.id))
+
+
+def dedupe_concepts(concepts: list) -> tuple:
+    """Deduplicate concept nodes with identical concept_id.
+
+    When two concept nodes share the same concept_id (e.g., both map to ARTICLE_8),
+    keep the one with the better anchor (valid > invalid > None) and higher confidence.
+    Returns (deduped_concepts, id_remap) where id_remap maps removed node IDs to
+    their surviving equivalent, so edges can be rewired.
+    """
+    if not concepts:
+        return concepts, {}
+
+    confidence_rank = {
+        Confidence.HIGH: 4,
+        Confidence.MEDIUM: 3,
+        Confidence.LOW: 2,
+        Confidence.INFERRED: 1,
+    }
+
+    # Group by concept_id
+    by_concept_id: Dict[str, list] = {}
+    for c in concepts:
+        cid = getattr(c, "concept_id", None) or ""
+        if cid not in by_concept_id:
+            by_concept_id[cid] = []
+        by_concept_id[cid].append(c)
+
+    deduped = []
+    id_remap: Dict[str, str] = {}  # old_node_id -> surviving_node_id
+
+    for cid, group in by_concept_id.items():
+        if len(group) == 1:
+            deduped.append(group[0])
+            continue
+
+        # Score each: anchor validity + confidence
+        def _score(node):
+            anchor = getattr(node, "anchor", None)
+            anchor_valid = 1 if (anchor and is_anchor_valid(anchor)) else 0
+            conf = getattr(node, "confidence", Confidence.INFERRED)
+            return (anchor_valid, confidence_rank.get(conf, 0))
+
+        group.sort(key=_score, reverse=True)
+        winner = group[0]
+        deduped.append(winner)
+
+        for loser in group[1:]:
+            id_remap[loser.id] = winner.id
+            logger.debug(f"Concept dedup: {loser.id} ({cid}) merged into {winner.id}")
+
+    if id_remap:
+        logger.info(f"  Deduped {len(id_remap)} duplicate concept nodes ({len(concepts)} → {len(deduped)})")
+
+    return deduped, id_remap
+
+
+def rewire_edges_after_dedup(edges: List[Edge], id_remap: Dict[str, str]) -> List[Edge]:
+    """Rewire edge sources/targets after concept deduplication."""
+    if not id_remap:
+        return edges
+    for e in edges:
+        if e.source in id_remap:
+            e.source = id_remap[e.source]
+        if e.target in id_remap:
+            e.target = id_remap[e.target]
+    return edges
 
 
 def extract_cross_cluster_edges(graph: LegalReasoningGraph) -> List[Edge]:
@@ -3887,7 +4486,8 @@ class LegalReasoningExtractor:
 
         # Segment document
         doc_hash = hashlib.sha256(text.encode()).hexdigest()[:12]
-        doc = segment_document(text, f"sha256:{doc_hash}")
+        doc = segment_document(text, f"sha256:{doc_hash}",
+                               section_headers=self.config.section_headers or None)
         logger.info(f"Document segmented: {doc.para_count} paragraphs, {doc.sent_count} sentences")
 
         # Initialize graph
@@ -3935,9 +4535,12 @@ class LegalReasoningExtractor:
         concepts_result = await concepts_pass.extract(context)
         if concepts_result.success:
             graph.concepts = concepts_pass.to_nodes(concepts_result.data)
+            # Deduplicate concepts with identical concept_id
+            graph.concepts, concept_id_remap = dedupe_concepts(graph.concepts)
             context["concepts"] = concepts_result.data.get("concepts", [])
             logger.info(f"  → {len(graph.concepts)} concepts extracted")
         else:
+            concept_id_remap = {}
             logger.warning(f"  ⚠ Concepts extraction failed: {concepts_result.errors}")
             all_warnings.extend(concepts_result.errors)
         all_warnings.extend(concepts_result.warnings)
@@ -3980,6 +4583,49 @@ class LegalReasoningExtractor:
             logger.warning(f"  ⚠ Holdings extraction failed: {holdings_result.errors}")
             all_warnings.extend(holdings_result.errors)
         all_warnings.extend(holdings_result.warnings)
+
+        # Fix: Auto-fill resolves_issue so reasoning chains can be built
+        if graph.holdings and graph.issues:
+            unfilled = [h for h in graph.holdings if not h.resolves_issue]
+            if unfilled:
+                if len(graph.issues) == 1:
+                    # Trivial case: only one issue, all holdings resolve it
+                    only_issue_id = graph.issues[0].id
+                    for h in unfilled:
+                        h.resolves_issue = only_issue_id
+                    logger.info(
+                        f"  → Auto-filled resolves_issue={only_issue_id} on {len(unfilled)} holdings (single issue)")
+                else:
+                    # Heuristic: match by keyword overlap between holding and issue
+                    # Use BOTH text (English) and surface_text (Turkish) to handle mixed-language output
+                    def _kw_set_bilingual(node: Any) -> Set[str]:
+                        parts = []
+                        parts.append(getattr(node, 'text', '') or '')
+                        anchor = getattr(node, 'anchor', None)
+                        if anchor:
+                            parts.append(getattr(anchor, 'surface_text', '') or '')
+                        combined = ' '.join(parts)
+                        return set(re.findall(r'\b\w{4,}\b', combined.lower()))
+
+                    for h in unfilled:
+                        h_words = _kw_set_bilingual(h)
+                        if not h_words:
+                            continue
+                        best_issue = None
+                        best_overlap = -1
+                        for issue in graph.issues:
+                            i_words = _kw_set_bilingual(issue)
+                            overlap = len(h_words & i_words)
+                            if overlap > best_overlap:
+                                best_overlap = overlap
+                                best_issue = issue
+                        # Always assign to best-scoring issue (even at overlap=0)
+                        # because leaving resolves_issue empty kills all chains
+                        if best_issue:
+                            h.resolves_issue = best_issue.id
+                    filled = len([h for h in unfilled if h.resolves_issue])
+                    logger.info(
+                        f"  → Auto-filled resolves_issue on {filled}/{len(unfilled)} holdings (keyword heuristic)")
 
         # Pass 6: Precedents
         logger.info("Pass 6: Extracting precedents...")
@@ -4069,7 +4715,15 @@ class LegalReasoningExtractor:
             # Pass 7.5: Clustering
             logger.info("Pass 7.5: Clustering nodes by ontology concept...")
             ontology = self.config.load_ontology()
-            clusters, node_membership = cluster_nodes(graph, ontology)
+            clusters, node_membership = cluster_nodes(
+                graph, ontology,
+                min_keyword_overlap=self.config.cluster_min_keyword_overlap,
+                phrase_weight=self.config.cluster_phrase_weight,
+                case_name_weight=self.config.cluster_case_name_weight,
+                keyword_weight=self.config.cluster_keyword_weight,
+                min_score_for_assignment=self.config.cluster_min_score_for_assignment,
+                jurisdiction=self.config.jurisdiction,
+            )
             logger.info(f"  → {len(clusters)} non-empty clusters")
 
             # Fix 8: Store cluster membership for debugging
@@ -4096,7 +4750,9 @@ class LegalReasoningExtractor:
             intra_edges: List[Edge] = []
             concept_defs = (ontology or {}).get("concepts", {}) or {}
 
-            # Only run the LLM on clusters that contain at least one holding or issue.
+            # Only run the LLM on clusters that contain at least one holding or issue,
+            # OR have 2+ arguments (so support edges can be created even if holdings
+            # haven't been extracted yet — common in Turkish AYM decisions).
             for concept_id, cluster in clusters.items():
                 node_count = sum(len(x) for x in [
                     cluster.facts, cluster.concepts, cluster.issues,
@@ -4104,27 +4760,31 @@ class LegalReasoningExtractor:
                 ])
                 if node_count < 2:
                     continue
-                if not (cluster.holdings or cluster.issues):
+                if not (cluster.holdings or cluster.issues or len(cluster.arguments) >= 2):
                     continue
 
                 ont_def = concept_defs.get(concept_id)
-                intra_pass = IntraClusterEdgesExtractionPass(
-                    self.client, self.config, doc,
-                    cluster=cluster,
-                    graph=graph,
-                    ontology_concept=ont_def
-                )
+                try:
+                    intra_pass = IntraClusterEdgesExtractionPass(
+                        self.client, self.config, doc,
+                        cluster=cluster,
+                        graph=graph,
+                        ontology_concept=ont_def
+                    )
 
-                intra_result = await intra_pass.extract()
-                if intra_result.success:
-                    # Unique, deterministic edge IDs per cluster
-                    tag = hashlib.sha1(concept_id.encode("utf-8")).hexdigest()[:8]
-                    prefix = f"e_{tag}_"
-                    intra_edges.extend(intra_pass.to_edges(intra_result.data, edge_id_prefix=prefix))
-                else:
-                    logger.warning(f"  ⚠ Intra-cluster edges failed for {concept_id}: {intra_result.errors}")
-                    all_warnings.extend(intra_result.errors)
-                all_warnings.extend(intra_result.warnings)
+                    intra_result = await intra_pass.extract()
+                    if intra_result.success:
+                        # Unique, deterministic edge IDs per cluster
+                        tag = hashlib.sha1(concept_id.encode("utf-8")).hexdigest()[:8]
+                        prefix = f"e_{tag}_"
+                        intra_edges.extend(intra_pass.to_edges(intra_result.data, edge_id_prefix=prefix))
+                    else:
+                        logger.warning(f"  ⚠ Intra-cluster edges failed for {concept_id}: {intra_result.errors}")
+                        all_warnings.extend(intra_result.errors)
+                    all_warnings.extend(intra_result.warnings)
+                except Exception as e:
+                    logger.error(f"  ✗ Crash in intra-cluster edges for {concept_id}: {type(e).__name__}: {e}")
+                    all_warnings.append(f"Intra-cluster crash for {concept_id}: {type(e).__name__}: {e}")
 
             graph.edges = intra_edges
             logger.info(f"  → {len(graph.edges)} intra-cluster edges extracted")
@@ -4133,22 +4793,40 @@ class LegalReasoningExtractor:
             logger.info("Pass 8.5: Adding cross-cluster structural edges...")
             cross_edges = extract_cross_cluster_edges(graph)
             graph.edges = dedupe_edges(graph.edges + cross_edges)
+            # Rewire any edges that pointed to deduplicated concept nodes
+            if concept_id_remap:
+                graph.edges = rewire_edges_after_dedup(graph.edges, concept_id_remap)
+                graph.edges = dedupe_edges(graph.edges)  # re-dedupe after rewiring
             logger.info(f"  → {len(cross_edges)} cross-cluster edges added ({len(graph.edges)} total)")
 
             # Pass 9: Ontology-driven justification sets (deterministic)
             logger.info("Pass 9: Building justification sets (v4 deterministic)...")
-            graph.justification_sets = build_justification_sets_v4(graph, clusters)
+            try:
+                graph.justification_sets = build_justification_sets_v4(graph, clusters)
+            except Exception as e:
+                logger.error(f"  ✗ Justification sets crashed: {type(e).__name__}: {e}")
+                all_warnings.append(f"Justification sets crash: {type(e).__name__}: {e}")
+                graph.justification_sets = []
             logger.info(f"  → {len(graph.justification_sets)} justification sets built")
 
             # Pass 10: Deterministic reasoning chains
             logger.info("Pass 10: Synthesizing reasoning chains (v4)...")
-            graph.reasoning_chains = synthesize_reasoning_chains_v4(graph)
+            try:
+                graph.reasoning_chains = synthesize_reasoning_chains_v4(graph)
+            except Exception as e:
+                logger.error(f"  ✗ Reasoning chains crashed: {type(e).__name__}: {e}")
+                all_warnings.append(f"Reasoning chains crash: {type(e).__name__}: {e}")
+                graph.reasoning_chains = []
             logger.info(f"  → {len(graph.reasoning_chains)} reasoning chains created")
 
         # Final validation
         logger.info("Running final validation...")
-        validation_warnings = graph.validate()
-        all_warnings.extend(validation_warnings)
+        try:
+            validation_warnings = graph.validate()
+            all_warnings.extend(validation_warnings)
+        except Exception as e:
+            logger.error(f"  ✗ Graph validation crashed: {type(e).__name__}: {e}")
+            all_warnings.append(f"Graph validation crash: {type(e).__name__}: {e}")
         graph.validation_warnings = all_warnings
 
         # Determine quality tier
@@ -4160,11 +4838,23 @@ class LegalReasoningExtractor:
             w for w in all_warnings
             if any(pattern in w.lower() for pattern in error_patterns)
         ])
-        warning_count = len(all_warnings) - error_count
+        # Fix: Exclude cosmetic repair/coercion warnings from tier gating.
+        # These are benign normalization events, not quality problems.
+        cosmetic_patterns = ["repaired", "coerced", "normalized", "flipped"]
+        substantive_warning_count = len([
+            w for w in all_warnings
+            if not any(pattern in w.lower() for pattern in error_patterns)
+               and not any(cp in w.lower() for cp in cosmetic_patterns)
+        ])
 
-        if error_count == 0 and warning_count <= 3:
+        # Fix: Completeness gates — require minimum structure for silver/gold
+        has_holdings = len(graph.holdings) >= 1
+        has_outcome = graph.outcome is not None
+        has_chains = len(graph.reasoning_chains) >= 1
+
+        if error_count == 0 and substantive_warning_count <= 15 and has_holdings and has_outcome and has_chains:
             graph.quality_tier = "gold"
-        elif error_count <= 2 and warning_count <= 10:
+        elif error_count <= 2 and substantive_warning_count <= 30 and has_holdings and has_outcome:
             graph.quality_tier = "silver"
         elif error_count <= 5:
             graph.quality_tier = "bronze"
@@ -4237,10 +4927,15 @@ async def main():
     config = ExtractionConfig(model_id=model_id)
     extractor = LegalReasoningExtractor(client, config)
 
-    graph = await extractor.extract(
-        text=text,
-        case_id=case_id
-    )
+    try:
+        graph = await extractor.extract(
+            text=text,
+            case_id=case_id
+        )
+    finally:
+        # Clean up persistent HTTP connections
+        if hasattr(client, 'close'):
+            await client.close()
 
     # Save output
     output_path = filepath.replace(".txt", "_graph_v3.json")

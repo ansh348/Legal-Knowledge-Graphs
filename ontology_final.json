@@ -1,0 +1,3494 @@
+{
+  "ontology_version": "md_compiled_v1",
+  "source_file": "3bcc2e4f-1a18-455e-bb3a-c2b0f01708f3.md",
+  "compiled_at": "2026-02-02T15:52:50.598854+00:00",
+  "concepts": {
+    "DOCTRINE_BASIC_STRUCTURE": {
+      "label": "Basic Structure",
+      "kind": "doctrine",
+      "type": "constitutional_principle",
+      "parent": "None (sui generis)",
+      "establishing_cases": "Kesavananda Bharati v. State of Kerala (1973), Minerva Mills v. UOI (1980), I.R. Coelho v. State of TN (2007)",
+      "requires": [
+        "[AND]",
+        "Constitutional amendment under Article 368",
+        "Amendment \"damages/emasculates/destroys/abrogates\" basic features"
+      ],
+      "alternatives": [
+        "[OR - any basic feature violation suffices]",
+        "Judicial review power violated",
+        "Federalism destroyed",
+        "Secularism abrogated",
+        "Democratic structure removed",
+        "Rule of law eliminated"
+      ],
+      "defeaters": [
+        "Amendment does not alter basic features",
+        "Incidental effect without substantial damage",
+        "Amendment pre-dates April 24, 1973 (per Waman Rao)"
+      ],
+      "typical_edge_pattern": "(Constitutional_Amendment) --[challenges]--> (Basic_Structure) --[if violated]--> (Amendment_Void)",
+      "key_phrases": "\"emasculate basic features\", \"destroy identity of Constitution\", \"beyond Parliament's constituent power\"",
+      "id_original": "DOCTRINE_BASIC_STRUCTURE"
+    },
+    "DOCTRINE_PROPORTIONALITY_TEST": {
+      "label": "Proportionality Test",
+      "kind": "standard",
+      "type": "judicial_review_standard",
+      "parent": "Due Process/Maneka Gandhi Framework",
+      "establishing_cases": "Modern Dental College v. State of MP (2016), K.S. Puttaswamy I (2017), K.S. Puttaswamy II/Aadhaar (2018)",
+      "requires": [
+        "[AND - four prongs]",
+        "Legitimate aim (the measure pursues a lawful/legitimate objective)",
+        "Suitability / rational connection (the measure is capable of achieving that aim)",
+        "Necessity / least restrictive means (no equally effective but less restrictive alternative)",
+        "Balancing / proportionality stricto sensu (overall benefits outweigh the rights infringement; fair balance)"
+      ],
+      "alternatives": [
+        "None - all prongs must pass"
+      ],
+      "defeaters": [
+        "No legitimate aim",
+        "Less restrictive alternatives available",
+        "Disproportionate impact on rights",
+        "No rational nexus"
+      ],
+      "typical_edge_pattern": "(State_Action) --[tested against]--> (Proportionality_Test) --[if failed]--> (Unconstitutional)",
+      "key_phrases": "\"legitimate aim\", \"rational nexus\", \"least restrictive means\", \"proportionality stricto sensu\"",
+      "id_original": "DOCTRINE_PROPORTIONALITY_TEST"
+    },
+    "DOCTRINE_MANIFEST_ARBITRARINESS": {
+      "label": "Manifest Arbitrariness",
+      "kind": "standard",
+      "type": "judicial_review_standard",
+      "parent": "Article 14 (supplements Reasonable Classification)",
+      "establishing_cases": "Shayara Bano v. UOI (2017), Navtej Singh Johar v. UOI (2018), Joseph Shine v. UOI (2018)",
+      "requires": [
+        "[OR - any one suffices]",
+        "Legislation is \"capricious\"",
+        "Legislation is \"irrational\"",
+        "Legislation \"without adequate determining principle\"",
+        "Legislation is \"excessive and disproportionate\"",
+        "Non-classification: failure to recognize degrees of harm"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Rational basis and determining principle present",
+        "Policy decision within legislative wisdom",
+        "Public interest justification"
+      ],
+      "typical_edge_pattern": "(Legislation) --[challenged as]--> (Manifestly_Arbitrary) --[if established]--> (Violates_Art14)",
+      "key_phrases": "\"manifestly arbitrary\", \"capriciously\", \"irrationally\", \"without determining principle\"",
+      "id_original": "DOCTRINE_MANIFEST_ARBITRARINESS"
+    },
+    "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS": {
+      "label": "Maneka Gandhi Framework (Due Process)",
+      "kind": "doctrine",
+      "type": "constitutional_principle",
+      "parent": "Golden Triangle (Articles 14, 19, 21 interlinked)",
+      "establishing_cases": "Maneka Gandhi v. UOI (1978), R.C. Cooper v. UOI (1970)",
+      "requires": [
+        "[AND - Golden Triangle test]",
+        "Procedure established by law exists",
+        "Procedure must be \"right, just and fair\"",
+        "Procedure must not be \"arbitrary, fanciful or oppressive\"",
+        "Must satisfy Article 14 (non-arbitrariness)",
+        "Must satisfy Article 19 (reasonableness if applicable)",
+        "Must conform to principles of natural justice"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Express statutory exclusion of natural justice",
+        "Emergency situations",
+        "Clear legislative intent excluding procedural requirements"
+      ],
+      "typical_edge_pattern": "(State_Action) --[must satisfy]--> (Maneka_Gandhi_Test) --[if failed]--> (Unconstitutional)",
+      "key_phrases": "\"just, fair and reasonable\", \"right and just and fair\", \"not arbitrary, fanciful or oppressive\", \"Golden Triangle\"",
+      "id_original": "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS"
+    },
+    "DOCTRINE_REASONABLE_CLASSIFICATION_ARTICLE_14_TWIN_TEST": {
+      "label": "Reasonable Classification (Article 14 Twin Test)",
+      "kind": "standard",
+      "type": "judicial_review_standard",
+      "parent": "Article 14 equality",
+      "establishing_cases": "State of WB v. Anwar Ali Sarkar (1952), Ram Krishna Dalmia v. Tendolkar (1958)",
+      "requires": [
+        "[AND - twin test]",
+        "Intelligible differentia (a clear, non-arbitrary basis for classification)",
+        "Rational nexus (the differentia has a rational relation to the object sought to be achieved)"
+      ],
+      "alternatives": [
+        "None - both required"
+      ],
+      "defeaters": [
+        "No intelligible differentia (arbitrary grouping)",
+        "No rational nexus to legislative object",
+        "Over-inclusion/under-inclusion without justification"
+      ],
+      "typical_edge_pattern": "(Classification) --[twin test]--> (Valid if both satisfied) OR (Violates Art14 if fails)",
+      "key_phrases": "\"intelligible differentia\", \"rational nexus\", \"reasonable classification\"",
+      "id_original": "DOCTRINE_REASONABLE_CLASSIFICATION_ARTICLE_14_TWIN_TEST"
+    },
+    "DOCTRINE_WEDNESBURY_UNREASONABLENESS": {
+      "label": "Wednesbury Unreasonableness",
+      "kind": "standard",
+      "type": "judicial_review_standard (secondary review)",
+      "parent": "Common law; supplements Article 14",
+      "establishing_cases": "Om Kumar v. UOI (2000), Tata Cellular v. UOI (1994)",
+      "requires": [
+        "[OR - any one suffices]",
+        "Decision based on irrelevant considerations",
+        "Decision ignores relevant considerations",
+        "Decision \"so outrageous that no sensible person could have arrived at it\""
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Fundamental rights involved (proportionality applies instead)",
+        "Decision within reasonable range of outcomes",
+        "Policy matter within executive domain"
+      ],
+      "typical_edge_pattern": "(Administrative_Decision) --[challenged]--> (Wednesbury_Test) --[if failed]--> (Quashed)",
+      "key_phrases": "\"so unreasonable that no reasonable authority\", \"outrageous in defiance of logic\", \"secondary review\"",
+      "id_original": "DOCTRINE_WEDNESBURY_UNREASONABLENESS"
+    },
+    "DOCTRINE_LEGITIMATE_EXPECTATION": {
+      "label": "Legitimate Expectation",
+      "kind": "doctrine",
+      "type": "administrative_principle (procedural fairness)",
+      "parent": "Natural Justice; Article 14 fairness",
+      "establishing_cases": "State of Kerala v. K.G. Madhavan Pillai (1988), Food Corporation v. Kamdhenu (1993)",
+      "requires": [
+        "[OR - source of expectation]",
+        "Express promise or assurance by public authority",
+        "Consistent past practice/established pattern",
+        "Representation creating reasonable expectation"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Overriding public interest",
+        "Change in statutory provisions",
+        "Misrepresentation by claimant",
+        "Expectation contrary to law"
+      ],
+      "typical_edge_pattern": "(Promise/Practice) --[creates]--> (Legitimate_Expectation) --[if breached]--> (Action_Vitiated)",
+      "key_phrases": "\"reasonable expectation\", \"consistent past practice\", \"express promise\", \"fair play in action\"",
+      "id_original": "DOCTRINE_LEGITIMATE_EXPECTATION"
+    },
+    "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM": {
+      "label": "Natural Justice - Audi Alteram Partem",
+      "kind": "doctrine",
+      "type": "natural_justice_principle",
+      "parent": "Articles 14, 21",
+      "establishing_cases": "Maneka Gandhi v. UOI (1978), A.K. Kraipak v. UOI (1969)",
+      "requires": [
+        "[AND]",
+        "Notice of proposed action",
+        "Reasonable opportunity to be heard",
+        "Fair hearing before adverse decision",
+        "Speaking order/reasoned decision"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Urgency/emergency (post-decision hearing may suffice)",
+        "Statutory exclusion (subject to Art 14 challenge)",
+        "Purely administrative (non-quasi-judicial) actions",
+        "Conclusion obvious and hearing could not make difference"
+      ],
+      "typical_edge_pattern": "(Adverse_Action) --[requires]--> (Notice + Hearing) --[if omitted]--> (Order_Void)",
+      "key_phrases": "\"no one shall be condemned unheard\", \"fair opportunity to answer\", \"speaking order\"",
+      "id_original": "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM"
+    },
+    "DOCTRINE_HARMONIOUS_CONSTRUCTION": {
+      "label": "Harmonious Construction",
+      "kind": "doctrine",
+      "type": "interpretation_canon",
+      "parent": null,
+      "establishing_cases": "CIT v. Hindustan Bulk Carriers (2003) - five principles",
+      "requires": [
+        "[AND - five principles]",
+        "Avoid a head‑on clash between provisions (prefer a reading that reconciles them)",
+        "Construe provisions harmoniously so each can operate in its proper sphere",
+        "One provision should not defeat another unless they are truly irreconcilable",
+        "Give effect to both provisions as far as possible (prefer coexistence over nullification)",
+        "Avoid a construction that renders any provision redundant, otiose, or dead letter"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Irreconcilable conflict",
+        "Clear legislative intent for one to prevail",
+        "Later enactment expressly overrides earlier"
+      ],
+      "typical_edge_pattern": "(Conflicting_Provisions) --[harmonious construction]--> (Both_Given_Effect)",
+      "key_phrases": "\"avoid head-on clash\", \"construe harmoniously\", \"neither provision rendered otiose\"",
+      "id_original": "DOCTRINE_HARMONIOUS_CONSTRUCTION"
+    },
+    "DOCTRINE_PITH_AND_SUBSTANCE": {
+      "label": "Pith and Substance",
+      "kind": "doctrine",
+      "type": "constitutional_principle (federalism)",
+      "parent": "Article 246 and Seventh Schedule",
+      "establishing_cases": "State of Bombay v. F.N. Balsara (1951), Kartar Singh v. State of Punjab (1994)",
+      "requires": [
+        "[AND]",
+        "Challenge to legislative competence based on List entries",
+        "Court determines \"true nature and character\" of legislation",
+        "Dominant character must fall within enacting body's list"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Legislation in pith and substance belongs to another list",
+        "Cannot validate legislation if substance clearly outside jurisdiction"
+      ],
+      "typical_edge_pattern": "(Legislation) --[pith and substance]--> (Valid if dominant character in correct list)",
+      "key_phrases": "\"true nature and character\", \"dominant purpose\", \"incidental encroachment\"",
+      "id_original": "DOCTRINE_PITH_AND_SUBSTANCE"
+    },
+    "DOCTRINE_READING_DOWN": {
+      "label": "Reading Down",
+      "kind": "doctrine",
+      "type": "interpretation_canon",
+      "parent": "Presumption of constitutionality",
+      "establishing_cases": "Kedar Nath Singh v. State of Bihar (1962), State of Bombay v. FN Balsara (1951)",
+      "requires": [
+        "[AND]",
+        "Provision capable of two interpretations",
+        "One interpretation constitutional, other unconstitutional",
+        "Reading down possible without rewriting",
+        "Legislative intent not frustrated by narrower reading"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Only one reasonable interpretation possible",
+        "Reading down would rewrite statute",
+        "Core of provision is unconstitutional"
+      ],
+      "typical_edge_pattern": "(Overbroad_Provision) --[read down]--> (Narrower_Constitutional_Interpretation)",
+      "key_phrases": "\"read down to save constitutionality\", \"presumption of constitutionality\"",
+      "id_original": "DOCTRINE_READING_DOWN"
+    },
+    "CONCEPT_MURDER": {
+      "label": "Murder",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 103",
+        "IPC 302"
+      ],
+      "old_refs": [
+        "IPC 302"
+      ],
+      "new_refs": [
+        "BNS 103"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_MURDER",
+      "requires": [
+        "[AND]",
+        "Actus reus: act causing death of a human being",
+        "Mens rea: intention to cause death (IPC 300 firstly / BNS 101 firstly) OR intention to cause bodily injury known to be likely to cause death (IPC 300 secondly / BNS 101 secondly) OR intention to cause bodily injury sufficient in the ordinary course of nature to cause death (IPC 300 thirdly / BNS 101 thirdly) OR knowledge that the act is so imminently dangerous that it must in all probability cause death (IPC 300 fourthly / BNS 101 fourthly)",
+        "Death actually results from the act",
+        "The act constitutes culpable homicide amounting to murder (i.e., does not fall within any of the five exceptions to IPC 300 / BNS 101)"
+      ],
+      "defeaters": [
+        "Right of private defence (IPC 96-106 / BNS 34-44)",
+        "Insanity / unsoundness of mind (IPC 84 / BNS 22)",
+        "Accident without criminal intent or knowledge (IPC 80 / BNS 20)",
+        "Act of a child under 7 years (IPC 82 / BNS 17) or under 12 with immature understanding (IPC 83 / BNS 18)",
+        "Sudden and grave provocation — Exception 1 to IPC 300 / BNS 101 (reduces to culpable homicide not amounting to murder)",
+        "Right of private defence exceeded in good faith — Exception 2 to IPC 300 / BNS 101",
+        "Public servant acting in good faith for public justice — Exception 3 to IPC 300 / BNS 101",
+        "Sudden fight in heat of passion without premeditation — Exception 4 to IPC 300 / BNS 101",
+        "Consent of victim above 18 years — Exception 5 to IPC 300 / BNS 101"
+      ],
+      "typical_edge_pattern": "(Accused_Act) --[causes]--> (Death_of_Victim) --[with]--> (Mens_Rea_Intention/Knowledge) --[not within exceptions]--> (Conviction_IPC302/BNS103)",
+      "key_phrases": "\"committed murder\", \"Section 302\", \"BNS 103\", \"intention to kill\", \"culpable homicide amounting to murder\", \"murdered the deceased\", \"bodily injury sufficient in the ordinary course of nature to cause death\", \"imminently dangerous act\"",
+      "establishing_cases": "Virsa Singh v. State of Punjab (1958), Rajwant Singh v. State of Kerala (1966), State of AP v. R. Punnayya (1977), Maqsoodan v. State of UP (1983)"
+    },
+    "CONCEPT_CULPABLE_HOMICIDE": {
+      "label": "Culpable Homicide",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 105",
+        "IPC 304"
+      ],
+      "old_refs": [
+        "IPC 304"
+      ],
+      "new_refs": [
+        "BNS 105"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_CULPABLE_HOMICIDE",
+      "requires": [
+        "[AND]",
+        "Actus reus: act causing death of a human being",
+        "Mens rea (any one): intention of causing death (IPC 299 firstly / BNS 100 firstly) OR intention of causing such bodily injury as is likely to cause death (IPC 299 secondly / BNS 100 secondly) OR knowledge that the act is likely to cause death (IPC 299 thirdly / BNS 100 thirdly)",
+        "Death actually results",
+        "The act falls within one of the five exceptions to IPC 300 / BNS 101 (reducing it from murder) OR the mens rea does not reach the threshold for murder"
+      ],
+      "defeaters": [
+        "Right of private defence (IPC 96-106 / BNS 34-44)",
+        "Insanity / unsoundness of mind (IPC 84 / BNS 22)",
+        "Accident without criminal intent or knowledge (IPC 80 / BNS 20)",
+        "Act of a child under 7 (IPC 82 / BNS 17)",
+        "Act done under duress / coercion (IPC 94 / BNS 32)",
+        "No intention or knowledge — death purely accidental and not negligent"
+      ],
+      "typical_edge_pattern": "(Accused_Act) --[causes]--> (Death_of_Victim) --[with]--> (Lower_Mens_Rea OR Exception_to_Murder) --[established]--> (Conviction_IPC304/BNS105)",
+      "key_phrases": "\"culpable homicide not amounting to murder\", \"Section 304\", \"BNS 105\", \"Part I\", \"Part II\", \"knowledge that act likely to cause death\", \"intention to cause bodily injury likely to cause death\", \"Exception 1 to Section 300\"",
+      "establishing_cases": "State of AP v. R. Punnayya (1977), K.M. Nanavati v. State of Maharashtra (1962), Pulicherla Nagaraju v. State of AP (2006), Smt. Jasvinder Kaur v. State of Punjab (2023)"
+    },
+    "CONCEPT_DEATH_BY_NEGLIGENCE": {
+      "label": "Death By Negligence",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 106",
+        "IPC 304A"
+      ],
+      "old_refs": [
+        "IPC 304A"
+      ],
+      "new_refs": [
+        "BNS 106"
+      ],
+      "notes": [
+        "**Punishment 2yr→5yr; medical practitioner provisions added**"
+      ],
+      "id_original": "CONCEPT_DEATH_BY_NEGLIGENCE",
+      "requires": [
+        "[AND]",
+        "Death of a person is caused",
+        "Death is caused by a rash or negligent act of the accused",
+        "No intention to cause death or knowledge that the act is likely to cause death",
+        "The act amounts to criminal rashness or criminal negligence (not mere civil negligence)"
+      ],
+      "defeaters": [
+        "Act was not rash or negligent — it was a pure accident with no fault",
+        "Reasonable care was exercised (standard of care satisfied)",
+        "Contributory negligence of the victim (mitigating but not always a complete defense)",
+        "Act done under necessity or emergency",
+        "For medical practitioners under BNS 106(2): registered medical practitioner performing medical procedure — gross negligence must be shown (not simple negligence)"
+      ],
+      "typical_edge_pattern": "(Rash/Negligent_Act) --[causes]--> (Death_of_Person) --[without intention]--> (Conviction_IPC304A/BNS106)",
+      "key_phrases": "\"death by negligence\", \"Section 304A\", \"BNS 106\", \"rash or negligent act\", \"criminal negligence\", \"death caused by rash and negligent act\", \"gross negligence\", \"medical negligence\"",
+      "establishing_cases": "Jacob Mathew v. State of Punjab (2005), Empress of India v. Idu Beg (1881), Juggankhan v. State of MP (1965), Alister Anthony Pareira v. State of Maharashtra (2012)"
+    },
+    "CONCEPT_DOWRY_DEATH": {
+      "label": "Dowry Death",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 80",
+        "IPC 304B"
+      ],
+      "old_refs": [
+        "IPC 304B"
+      ],
+      "new_refs": [
+        "BNS 80"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_DOWRY_DEATH",
+      "requires": [
+        "[AND]",
+        "Death of a woman",
+        "Death occurs otherwise than under normal circumstances",
+        "Death occurs within seven years of marriage",
+        "It is shown that soon before her death she was subjected to cruelty or harassment by her husband or any relative of the husband",
+        "Such cruelty or harassment was in connection with demand for dowry"
+      ],
+      "defeaters": [
+        "Death occurred under normal circumstances (natural death / disease)",
+        "Death occurred beyond seven years of marriage (statutory presumption under IPC 113B IEA / BSA 118 does not apply, though general law may still apply)",
+        "No evidence of cruelty or harassment 'soon before death'",
+        "Cruelty/harassment was unrelated to dowry demand",
+        "Accused proves that no dowry demand was made"
+      ],
+      "typical_edge_pattern": "(Death_of_Woman_within_7yrs) --[under abnormal circumstances]--> (Cruelty/Dowry_Demand_Shown) --[presumption under IEA 113B/BSA 118]--> (Conviction_IPC304B/BNS80)",
+      "key_phrases": "\"dowry death\", \"Section 304B\", \"BNS 80\", \"soon before her death\", \"cruelty in connection with dowry demand\", \"death within seven years of marriage\", \"otherwise than under normal circumstances\", \"presumption as to dowry death\"",
+      "establishing_cases": "Shanti v. State of Haryana (1991), Kans Raj v. State of Punjab (2000), Pawan Kumar v. State of Haryana (1998), Satvir Singh v. State of Punjab (2001)"
+    },
+    "CONCEPT_ATTEMPT_MURDER": {
+      "label": "Attempt Murder",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 109",
+        "IPC 307"
+      ],
+      "old_refs": [
+        "IPC 307"
+      ],
+      "new_refs": [
+        "BNS 109"
+      ],
+      "notes": [
+        "Life = \"remainder of natural life\" clarified"
+      ],
+      "id_original": "CONCEPT_ATTEMPT_MURDER",
+      "requires": [
+        "[AND]",
+        "The accused did an act towards the commission of murder",
+        "The act was done with such intention or knowledge and under such circumstances that, if the accused had caused death, they would have been guilty of murder",
+        "The act went beyond mere preparation and constituted a direct move towards commission of the offense",
+        "Death did not result (if death results, the charge is murder, not attempt)"
+      ],
+      "defeaters": [
+        "Right of private defence (IPC 96-106 / BNS 34-44)",
+        "Insanity / unsoundness of mind (IPC 84 / BNS 22)",
+        "Lack of mens rea — no intention or knowledge requisite for murder",
+        "Act was merely preparatory and did not cross the threshold into attempt",
+        "Injuries are simple or trivial — may indicate lesser offense (IPC 324/326 / BNS 118/119) rather than attempt to murder"
+      ],
+      "typical_edge_pattern": "(Accused_Act) --[with murderous intent]--> (Victim_Injured/Not_Dead) --[act beyond preparation]--> (Conviction_IPC307/BNS109)",
+      "key_phrases": "\"attempt to murder\", \"Section 307\", \"BNS 109\", \"intended to commit murder\", \"with such intention or knowledge\", \"did an act towards the commission of murder\", \"if he by that act caused death would have been guilty of murder\", \"life imprisonment for the remainder of natural life\"",
+      "establishing_cases": "State of Maharashtra v. Balram Bama Patil (1983), Vasant Vithu Jadhav v. State of Maharashtra (2004), R. Prakash v. State of Karnataka (2004), Sarju Prasad v. State of Bihar (1965)"
+    },
+    "CONCEPT_RAPE_DEFINITION": {
+      "label": "Rape Definition",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 63",
+        "IPC 375"
+      ],
+      "old_refs": [
+        "IPC 375"
+      ],
+      "new_refs": [
+        "BNS 63"
+      ],
+      "notes": [
+        "**Age of consent for married woman 15→18 (implements Independent Thought v. UOI)**"
+      ],
+      "id_original": "CONCEPT_RAPE_DEFINITION",
+      "requires": [
+        "[OR — any clause of IPC 375 / BNS 63]",
+        "Penetration of penis into vagina, mouth, urethra, or anus of a woman, or making her do so with him or another person",
+        "Insertion of any object or body part (not penis) into vagina, urethra, or anus of a woman, or making her do so",
+        "Manipulation of any body part of a woman to cause penetration into her vagina, urethra, or anus, or making her do so",
+        "Application of mouth to the vagina, anus, or urethra of a woman, or making her do so",
+        "[AND with any one of the following circumstances]: Against her will / Without her consent / With consent obtained by fear of death or hurt / With consent under misconception of being lawfully married / Consent given while of unsound mind or intoxicated / With or without consent when under 18 years of age / When she is unable to communicate consent"
+      ],
+      "defeaters": [
+        "Valid free consent of the woman (above 18 years, not obtained by coercion, fear, misconception, or intoxication)",
+        "Medical procedure or intervention (not sexual in nature)",
+        "Accused proves mistaken belief of lawful marriage (extremely narrow — jurisprudentially contested)",
+        "Note: Marital rape exception for wife above 18 still exists under IPC 375 Exception 2 / BNS 63 Exception 2 but is under constitutional challenge"
+      ],
+      "typical_edge_pattern": "(Sexual_Act) --[without consent / against will]--> (Penetration/Insertion Proven) --[victim's age/circumstances]--> (Offense_IPC375/BNS63_Established)",
+      "key_phrases": "\"rape\", \"Section 375\", \"BNS 63\", \"without her consent\", \"against her will\", \"penetration\", \"sexual assault\", \"consent obtained by fear\", \"age of consent\", \"sexual intercourse\"",
+      "establishing_cases": "Tukaram v. State of Maharashtra (Mathura case) (1979), State of Punjab v. Gurmit Singh (1996), Independent Thought v. Union of India (2017), State of Rajasthan v. Shambhu Kewat (2023)"
+    },
+    "CONCEPT_RAPE_PUNISHMENT": {
+      "label": "Rape Punishment",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 64",
+        "IPC 376"
+      ],
+      "old_refs": [
+        "IPC 376"
+      ],
+      "new_refs": [
+        "BNS 64"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_RAPE_PUNISHMENT",
+      "requires": [
+        "[AND]",
+        "The offense of rape under IPC 375 / BNS 63 is established",
+        "Determination of applicable punishment category: simple rape (IPC 376(1) / BNS 64(1)) — minimum 10 years RI extendable to life; OR aggravated rape by specified persons (IPC 376(2) / BNS 64(2)) — minimum 10 years RI extendable to life imprisonment for remainder of natural life; OR rape of woman under 16 (IPC 376(3) / BNS 65(1)) — minimum 20 years extendable to life; OR rape of woman under 12 — minimum 20 years or life or death",
+        "Court determines appropriate sentence within statutory range"
+      ],
+      "defeaters": [
+        "Acquittal on charge of rape (offense not established)",
+        "Compromise between parties — NOT permissible in rape cases (Shimbhu v. State of Haryana, 2014)",
+        "Note: No defeater reduces mandatory minimum sentence — court must impose at least the statutory minimum unless recording special and adequate reasons under proviso"
+      ],
+      "typical_edge_pattern": "(Rape_Offense_Established) --[categorization]--> (Simple/Aggravated/Minor_Victim) --[sentencing]--> (Punishment_IPC376/BNS64)",
+      "key_phrases": "\"punishment for rape\", \"Section 376\", \"BNS 64\", \"rigorous imprisonment not less than ten years\", \"imprisonment for life\", \"aggravated rape\", \"remainder of natural life\", \"special and adequate reasons\"",
+      "establishing_cases": "State of Rajasthan v. Shera Ram (2012), Shimbhu v. State of Haryana (2014), Mukesh v. State (NCT of Delhi) (Nirbhaya case) (2017), Nipun Saxena v. Union of India (2019)"
+    },
+    "CONCEPT_GANG_RAPE": {
+      "label": "Gang Rape",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 70(1)",
+        "IPC 376D"
+      ],
+      "old_refs": [
+        "IPC 376D"
+      ],
+      "new_refs": [
+        "BNS 70(1)"
+      ],
+      "notes": [
+        "Consolidated"
+      ],
+      "id_original": "CONCEPT_GANG_RAPE",
+      "requires": [
+        "[AND]",
+        "Rape as defined under IPC 375 / BNS 63 is committed",
+        "The rape is committed by one or more persons constituting a group, acting in furtherance of their common intention",
+        "Each person in the group is deemed to have committed rape (constructive liability)",
+        "The group consists of two or more persons (IPC 376D required 'one or more'; BNS 70(1) requires group action)"
+      ],
+      "defeaters": [
+        "Rape itself is not established",
+        "Accused was not part of the group or did not share common intention",
+        "Accused proves they were not present at the scene and had no prior concert",
+        "General defenses: insanity (IPC 84 / BNS 22), minority (IPC 82-83 / BNS 17-18)"
+      ],
+      "typical_edge_pattern": "(Group_of_Persons) --[common intention]--> (Rape_Committed) --[each person deemed to commit rape]--> (Conviction_IPC376D/BNS70(1))",
+      "key_phrases": "\"gang rape\", \"Section 376D\", \"BNS 70\", \"group of persons\", \"acting in furtherance of common intention\", \"each person deemed to have committed rape\", \"minimum twenty years\", \"imprisonment for remainder of natural life\"",
+      "establishing_cases": "Mukesh v. State (NCT of Delhi) (Nirbhaya case) (2017), Priya Patel v. State of MP (2006), State of Rajasthan v. Noore Khan (2018)"
+    },
+    "CONCEPT_SEXUAL_INTERCOURSE_BY_DECEIT": {
+      "label": "Sexual Intercourse By Deceit",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 69",
+        "NEW"
+      ],
+      "old_refs": [
+        "NEW"
+      ],
+      "new_refs": [
+        "BNS 69"
+      ],
+      "notes": [
+        "**NEW - false promise of marriage, up to 10 years**"
+      ],
+      "id_original": "CONCEPT_SEXUAL_INTERCOURSE_BY_DECEIT",
+      "requires": [
+        "[AND]",
+        "Sexual intercourse with a woman",
+        "The intercourse is not constituting the offense of rape",
+        "Sexual intercourse is obtained by deceitful means: false promise of employment or promotion, or by inducement or by suppressing identity, including by impersonating, or by false promise of marriage with no intention of fulfilling the same",
+        "The promise or representation was made without genuine intention to honor it"
+      ],
+      "defeaters": [
+        "Promise of marriage was genuine at the time of making but failed due to subsequent circumstances (genuine breach vs. fraudulent inducement — Pramod Suryabhan Pawar v. State of Maharashtra, 2019)",
+        "No deceit — the woman had full knowledge and gave free voluntary consent",
+        "The act constitutes rape under BNS 63 (charge under BNS 69 is subsidiary)",
+        "General defenses: insanity (BNS 22), act of minor (BNS 17-18)"
+      ],
+      "typical_edge_pattern": "(False_Promise/Deceit) --[induces]--> (Sexual_Intercourse) --[consent vitiated by deceit]--> (Conviction_BNS69)",
+      "key_phrases": "\"sexual intercourse by deceit\", \"BNS 69\", \"false promise of marriage\", \"deceitful means\", \"suppressing identity\", \"impersonation\", \"inducement\", \"false promise of employment\", \"consent by deception\"",
+      "establishing_cases": "Pramod Suryabhan Pawar v. State of Maharashtra (2019), Deepak Gulati v. State of Haryana (2013), Anurag Soni v. State of Chhattisgarh (2019)"
+    },
+    "CONCEPT_THEFT": {
+      "label": "Theft",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 303/305(a)",
+        "IPC 378-379"
+      ],
+      "old_refs": [
+        "IPC 378-379"
+      ],
+      "new_refs": [
+        "BNS 303/305(a)"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_THEFT",
+      "requires": [
+        "[AND]",
+        "Moveable property involved",
+        "The property is taken out of the possession of another person without that person's consent",
+        "The taking is dishonest — the accused intends to cause wrongful gain to themselves or wrongful loss to the possessor (IPC 378 / BNS 303)",
+        "The accused moves the property in order to such taking"
+      ],
+      "defeaters": [
+        "Bona fide claim of right over the property (IPC 79 / BNS 19 — act done in good faith believing justified by law)",
+        "Consent of the person in possession",
+        "Property is immovable (theft applies only to moveable property)",
+        "Taking was not dishonest — no intention of wrongful gain or loss",
+        "General defenses: insanity (IPC 84 / BNS 22), minority (IPC 82-83 / BNS 17-18)"
+      ],
+      "typical_edge_pattern": "(Accused) --[moves]--> (Moveable_Property) --[out of possession of owner]--> (Without_Consent + Dishonest_Intention) --[established]--> (Conviction_IPC379/BNS305)",
+      "key_phrases": "\"theft\", \"Section 378\", \"Section 379\", \"BNS 303\", \"BNS 305\", \"dishonestly takes moveable property\", \"out of the possession of any person\", \"without consent\", \"moves that property\", \"intending to take dishonestly\"",
+      "establishing_cases": "K.N. Mehra v. State of Rajasthan (1957), Pyare Lal Bhargava v. State of Rajasthan (1963), Avtar Singh v. State of Punjab (1965)"
+    },
+    "CONCEPT_SNATCHING": {
+      "label": "Snatching",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 304",
+        "NEW"
+      ],
+      "old_refs": [
+        "NEW"
+      ],
+      "new_refs": [
+        "BNS 304"
+      ],
+      "notes": [
+        "**NEW offense - \"suddenly or quickly or forcibly seizes\" - up to 3 years**"
+      ],
+      "id_original": "CONCEPT_SNATCHING",
+      "requires": [
+        "[AND]",
+        "The accused suddenly or quickly or forcibly seizes or secures moveable property from another person",
+        "The act of seizing or snatching is from the person or in the presence of the person",
+        "No weapon is used and no attempt to cause death, hurt, or wrongful restraint (otherwise it becomes robbery)"
+      ],
+      "defeaters": [
+        "Force used amounts to 'voluntarily causing hurt' — offense escalates to robbery (BNS 309)",
+        "Bona fide claim of right",
+        "Consent of the person from whom property is taken",
+        "General defenses: insanity (BNS 22), minority (BNS 17-18)"
+      ],
+      "typical_edge_pattern": "(Accused) --[suddenly/forcibly seizes]--> (Moveable_Property_from_Person) --[no weapon/hurt]--> (Conviction_BNS304)",
+      "key_phrases": "\"snatching\", \"BNS 304\", \"suddenly or quickly or forcibly seizes\", \"secures moveable property\", \"snatched from the person\", \"up to three years imprisonment\"",
+      "establishing_cases": "Note: BNS 304 is a new provision with no pre-existing IPC equivalent; landmark cases are yet to develop. Courts may draw on robbery/theft jurisprudence for analogous principles."
+    },
+    "CONCEPT_ROBBERY_DACOITY": {
+      "label": "Robbery/Dacoity",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 309-310",
+        "IPC 390-391"
+      ],
+      "old_refs": [
+        "IPC 390-391"
+      ],
+      "new_refs": [
+        "BNS 309-310"
+      ],
+      "notes": [
+        "Consolidated (Robbery: BNS 309; Dacoity: BNS 310)"
+      ],
+      "id_original": "CONCEPT_ROBBERY/DACOITY",
+      "requires": [
+        "[OR — Robbery or Dacoity]",
+        "ROBBERY (IPC 390 / BNS 309): [AND] Theft or extortion is committed + the offender voluntarily causes or attempts to cause death, hurt, or wrongful restraint OR puts or attempts to put the person in fear of instant death, hurt, or wrongful restraint to commit or carry away the stolen property or retain it",
+        "DACOITY (IPC 391 / BNS 310): [AND] Robbery is committed + five or more persons conjointly commit or attempt to commit the robbery"
+      ],
+      "defeaters": [
+        "No theft or extortion was committed (foundational offense not established)",
+        "No use or threat of force (remains theft, not robbery)",
+        "Fewer than five persons involved (dacoity charge fails; may still be robbery)",
+        "Right of private defence (IPC 96-106 / BNS 34-44)",
+        "Bona fide claim of right over property",
+        "General defenses: insanity, minority"
+      ],
+      "typical_edge_pattern": "(Theft/Extortion) --[with force or fear]--> (Robbery_IPC390/BNS309) --[if 5+ persons]--> (Dacoity_IPC391/BNS310)",
+      "key_phrases": "\"robbery\", \"dacoity\", \"Section 390\", \"Section 391\", \"BNS 309\", \"BNS 310\", \"voluntarily causing hurt\", \"fear of instant death\", \"five or more persons conjointly\", \"gang robbery\"",
+      "establishing_cases": "Thakore Karansinhji Bhavansinhji v. State of Gujarat (1989), State of Maharashtra v. Joseph Mingel Koli (1997), Phool Kumar v. State of NCT of Delhi (2014)"
+    },
+    "CONCEPT_CRIMINAL_BREACH_TRUST": {
+      "label": "Criminal Breach Trust",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 316(1)-(4)",
+        "IPC 405-409"
+      ],
+      "old_refs": [
+        "IPC 405-409"
+      ],
+      "new_refs": [
+        "BNS 316(1)-(4)"
+      ],
+      "notes": [
+        "**All CBT consolidated; punishment 3yr→5yr**"
+      ],
+      "id_original": "CONCEPT_CRIMINAL_BREACH_TRUST",
+      "requires": [
+        "[AND]",
+        "The accused was entrusted with property OR had dominion over property",
+        "The accused dishonestly misappropriated or converted the property to their own use",
+        "OR the accused dishonestly used or disposed of the property in violation of any direction of law prescribing the mode in which such trust is to be discharged, or of any legal contract made",
+        "The entrustment was in the capacity of: general person (IPC 405 / BNS 316(1)) OR carrier/warehouse-keeper/clerk/servant (IPC 406-408 / BNS 316(2)-(3)) OR public servant/banker/merchant/agent (IPC 409 / BNS 316(4))"
+      ],
+      "defeaters": [
+        "No entrustment of property — accused had independent possession/ownership",
+        "No dishonest intention — the conversion or use was bona fide",
+        "Property was used within the terms of the trust or contract",
+        "Civil dispute — mere breach of contract without dishonest intent does not constitute CBT",
+        "General defenses: insanity (IPC 84 / BNS 22), mistake of fact in good faith (IPC 76/79 / BNS 14/19)"
+      ],
+      "typical_edge_pattern": "(Entrustment_of_Property) --[to Accused]--> (Dishonest_Misappropriation/Conversion) --[in violation of trust]--> (Conviction_IPC405-409/BNS316)",
+      "key_phrases": "\"criminal breach of trust\", \"Section 405\", \"Section 406\", \"Section 409\", \"BNS 316\", \"entrusted with property\", \"dishonestly misappropriated\", \"dominion over property\", \"in violation of legal contract\", \"converted to his own use\"",
+      "establishing_cases": "Jaswantrai Manilal Akhaney v. State of Bombay (1956), R.K. Dalmia v. Delhi Administration (1962), Rashmi Kumar v. Mahesh Kumar Bhada (1997), Velji Raghavji Patel v. State of Maharashtra (1965)"
+    },
+    "CONCEPT_CHEATING": {
+      "label": "Cheating",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 318",
+        "IPC 415-420"
+      ],
+      "old_refs": [
+        "IPC 415-420"
+      ],
+      "new_refs": [
+        "BNS 318"
+      ],
+      "notes": [
+        "Combined"
+      ],
+      "id_original": "CONCEPT_CHEATING",
+      "requires": [
+        "[AND]",
+        "The accused deceived another person (the victim)",
+        "The deception was practiced by: fraudulently or dishonestly inducing the deceived person to deliver property to any person, OR to consent to retain property, OR to intentionally induce the person deceived to do or omit to do anything which they would not do or omit if not so deceived (IPC 415 / BNS 318)",
+        "The deception caused damage or harm to the person deceived in body, mind, reputation, or property",
+        "For cheating and dishonestly inducing delivery (IPC 420 / BNS 318): the accused also induced the victim to deliver property or valuable security or to make, alter, or destroy a document"
+      ],
+      "defeaters": [
+        "No deception — the representation was true or believed to be true in good faith",
+        "No dishonest or fraudulent intention at inception (mere breach of promise vs. initial fraudulent intent)",
+        "Victim suffered no damage or harm",
+        "Civil dispute — mere failure to fulfill a promise without initial deception does not constitute cheating",
+        "General defenses: insanity (IPC 84 / BNS 22), mistake of fact (IPC 76/79 / BNS 14/19)"
+      ],
+      "typical_edge_pattern": "(Deception_by_Accused) --[induces]--> (Victim_Delivers_Property/Does_Act) --[causing harm/damage]--> (Conviction_IPC415-420/BNS318)",
+      "key_phrases": "\"cheating\", \"Section 415\", \"Section 420\", \"BNS 318\", \"deceived\", \"fraudulently induced\", \"dishonestly induced delivery of property\", \"valuable security\", \"cheated and dishonestly induced\"",
+      "establishing_cases": "Hridaya Ranjan Prasad Verma v. State of Bihar (2000), Vimla v. Delhi Administration (1963), Mahadeo Prasad v. State of WB (1954), S.W. Palanitkar v. State of Bihar (2002)"
+    },
+    "CONCEPT_SEDITION_TO_SOVEREIGNTY": {
+      "label": "Sedition→Sovereignty",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 152",
+        "IPC 124A"
+      ],
+      "old_refs": [
+        "IPC 124A"
+      ],
+      "new_refs": [
+        "BNS 152"
+      ],
+      "notes": [
+        "**IPC 124A (\"sedition\") replaced by BNS 152 (\"acts endangering sovereignty, unity and integrity of India\"). Punishment: imprisonment for life OR up to 7 years; also liable to fine. Text expressly references secession/armed rebellion/subversive activities/separatist feelings.**"
+      ],
+      "id_original": "CONCEPT_SEDITION→SOVEREIGNTY",
+      "requires": [
+        "[AND — under BNS 152]",
+        "Acts or attempts to excite or attempts to excite secession or armed rebellion or subversive activities",
+        "OR encourages feelings of separatist activities endangering sovereignty or unity and integrity of India",
+        "OR engages in or commits any such act",
+        "Such act must endanger the sovereignty, unity, and integrity of India",
+        "Note: Under old IPC 124A (sedition — now replaced): words or signs or visible representation brought or attempted to bring into hatred or contempt or excited or attempted to excite disaffection towards the Government established by law"
+      ],
+      "defeaters": [
+        "Expression of disapprobation of government measures/actions without exciting disaffection (IPC 124A Explanation 2-3)",
+        "Legitimate criticism of government policy without incitement to violence",
+        "Freedom of speech and expression under Article 19(1)(a) — act does not fall within reasonable restrictions under Article 19(2)",
+        "No tendency to incite violence or create public disorder (Kedar Nath Singh v. State of Bihar, 1962)",
+        "Mere expression of opinion without incitement to armed rebellion, secession, or subversive activities (under BNS 152)"
+      ],
+      "typical_edge_pattern": "(Act/Speech) --[excites/encourages]--> (Secession/Armed_Rebellion/Separatism) --[endangers]--> (Sovereignty/Unity/Integrity_of_India) --[established]--> (Conviction_IPC124A/BNS152)",
+      "key_phrases": "\"sedition\", \"Section 124A\", \"BNS 152\", \"sovereignty, unity and integrity\", \"acts endangering sovereignty\", \"secession\", \"armed rebellion\", \"subversive activities\", \"separatist feelings\", \"disaffection towards the Government\"",
+      "establishing_cases": "Kedar Nath Singh v. State of Bihar (1962), Balwant Singh v. State of Punjab (1995), S.G. Vombatkere v. Union of India (2022 — Supreme Court kept IPC 124A in abeyance pending review), Vinod Dua v. Union of India (2021)"
+    },
+    "CONCEPT_COMMON_INTENTION": {
+      "label": "Common Intention",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 3(5)",
+        "IPC 34"
+      ],
+      "old_refs": [
+        "IPC 34"
+      ],
+      "new_refs": [
+        "BNS 3(5)"
+      ],
+      "notes": [
+        "Now in definitions"
+      ],
+      "id_original": "CONCEPT_COMMON_INTENTION",
+      "requires": [
+        "[AND]",
+        "A criminal act is committed by two or more persons",
+        "The criminal act is done in furtherance of the common intention of all",
+        "Pre-arranged plan or prior meeting of minds is not necessary — common intention can develop on the spot during the course of the transaction and can be inferred from the conduct of the accused and circumstances of the case (Pandurang v. State of Hyderabad, 1955)",
+        "Active participation — each person need not perform every part of the offense, but must participate in some manner in the criminal act"
+      ],
+      "defeaters": [
+        "No common intention — each person acted independently with separate intentions",
+        "Accused was merely present at the scene but did not share the common intention",
+        "Common intention was for a different offense than what was actually committed (unless the committed offense was a probable consequence)",
+        "Accused had withdrawn from the common design before commission of the offense"
+      ],
+      "typical_edge_pattern": "(Two_or_More_Persons) --[pre-arranged plan/common intention]--> (Criminal_Act_Committed) --[each liable for act done in furtherance]--> (Constructive_Liability_IPC34/BNS3(5))",
+      "key_phrases": "\"common intention\", \"Section 34\", \"BNS 3(5)\", \"in furtherance of common intention\", \"pre-arranged plan\", \"prior meeting of minds\", \"each of several persons\", \"constructive liability\", \"acted in concert\"",
+      "establishing_cases": "Mahbub Shah v. King Emperor (1945), Pandurang v. State of Hyderabad (1955), Surendra Chauhan v. State of MP (2000), Dukhmochan Pandey v. State of Bihar (1957)"
+    },
+    "CONCEPT_DEFAMATION": {
+      "label": "Defamation",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 356",
+        "IPC 499-500"
+      ],
+      "old_refs": [
+        "IPC 499-500"
+      ],
+      "new_refs": [
+        "BNS 356"
+      ],
+      "notes": [
+        "**Community service added as punishment option**"
+      ],
+      "id_original": "CONCEPT_DEFAMATION",
+      "requires": [
+        "[AND]",
+        "The accused made or published an imputation concerning another person",
+        "The imputation was made by words (spoken or written), or by signs, or by visible representation",
+        "The imputation was intended to harm, or knowing or having reason to believe that it would harm, the reputation of the person",
+        "The imputation lowered the moral or intellectual character, or character in respect of caste/calling, or the credit of that person, or caused it to be believed that the body of that person is in a loathsome state"
+      ],
+      "defeaters": [
+        "First Exception (Truth for public good): imputation is true and publication is for public good (IPC 499 Ex.1 / BNS 356)",
+        "Second Exception: public conduct of public servant (IPC 499 Ex.2 / BNS 356)",
+        "Third Exception: conduct of any person touching a public question (IPC 499 Ex.3 / BNS 356)",
+        "Fourth Exception: substantially true report of court proceedings (IPC 499 Ex.4 / BNS 356)",
+        "Fifth to Tenth Exceptions: merits of cases, merits of public performance, censure by authority, complaint to authority, good faith caution, imputation in good faith (IPC 499 Exs.5-10 / BNS 356)",
+        "Consent of the person defamed",
+        "Community service as alternative punishment under BNS 356"
+      ],
+      "typical_edge_pattern": "(Imputation_by_Accused) --[published]--> (Harms_Reputation_of_Person) --[none of the 10 exceptions apply]--> (Conviction_IPC499-500/BNS356)",
+      "key_phrases": "\"defamation\", \"Section 499\", \"Section 500\", \"BNS 356\", \"imputation concerning\", \"harm the reputation\", \"by words either spoken or intended to be read\", \"lowering moral or intellectual character\", \"community service\"",
+      "establishing_cases": "Subramanian Swamy v. Union of India (2016), R. Rajagopal v. State of TN (1994), Kiran Bedi v. Committee of Inquiry (1989)"
+    },
+    "CONCEPT_CRIMINAL_INTIMIDATION": {
+      "label": "Criminal Intimidation",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 351",
+        "IPC 503-506"
+      ],
+      "old_refs": [
+        "IPC 503-506"
+      ],
+      "new_refs": [
+        "BNS 351"
+      ],
+      "notes": [
+        "Consolidated"
+      ],
+      "id_original": "CONCEPT_CRIMINAL_INTIMIDATION",
+      "requires": [
+        "[AND]",
+        "The accused threatens another person",
+        "The threat is to cause: injury to the person, reputation, or property of the threatened person OR to the person, reputation, or property of anyone in whom the threatened person is interested",
+        "The threat is made with intent to cause alarm to the person threatened, OR to cause that person to do any act which they are not legally bound to do, or omit to do any act which they are legally entitled to do"
+      ],
+      "defeaters": [
+        "Threat was not to cause injury — mere expression of displeasure or warning",
+        "No intent to cause alarm or to coerce the threatened person",
+        "The threatened act was something the person was legally bound to do anyway",
+        "Conditional threat that is lawful (e.g., legitimate legal action)",
+        "General defenses: insanity (IPC 84 / BNS 22), minority (IPC 82-83 / BNS 17-18)"
+      ],
+      "typical_edge_pattern": "(Accused) --[threatens injury to]--> (Person/Reputation/Property) --[with intent to cause alarm or coerce]--> (Conviction_IPC503-506/BNS351)",
+      "key_phrases": "\"criminal intimidation\", \"Section 503\", \"Section 506\", \"BNS 351\", \"threatens to cause injury\", \"intent to cause alarm\", \"threat of death\", \"threat of grievous hurt\", \"extortion by threat\"",
+      "establishing_cases": "Manik Taneja v. State of Karnataka (2015), Narayan Dutt Tiwari v. State of UP (2014), State of WB v. Mohit Mondal (2019)"
+    },
+    "CONCEPT_ATTEMPT": {
+      "label": "Attempt",
+      "kind": "definition",
+      "synonyms": [
+        "BNS 62",
+        "IPC 511"
+      ],
+      "old_refs": [
+        "IPC 511"
+      ],
+      "new_refs": [
+        "BNS 62"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_ATTEMPT",
+      "requires": [
+        "[AND]",
+        "The accused intended to commit a particular offense",
+        "The accused did an act towards the commission of that offense",
+        "The act went beyond mere preparation — it was a direct move towards commission",
+        "The offense was not completed (if completed, the substantive offense is charged)",
+        "The offense attempted must be one punishable with imprisonment (IPC 511 / BNS 62)"
+      ],
+      "defeaters": [
+        "Act was merely preparatory and did not cross into the attempt stage",
+        "Voluntary withdrawal/abandonment before the act becomes an attempt (contested in Indian law — not a statutory defense but may be relevant)",
+        "Impossibility — factual impossibility is generally not a defense; legal impossibility may be (State of Maharashtra v. Mohd. Yakub, 1980)",
+        "General defenses: insanity (IPC 84 / BNS 22), minority (IPC 82-83 / BNS 17-18)",
+        "Right of private defence (IPC 96-106 / BNS 34-44)"
+      ],
+      "typical_edge_pattern": "(Intention_to_Commit_Offense) --[act beyond preparation]--> (Attempt_Not_Completed) --[established]--> (Punishment_half_of_maximum_IPC511/BNS62)",
+      "key_phrases": "\"attempt to commit\", \"Section 511\", \"BNS 62\", \"last act done towards commission\", \"beyond mere preparation\", \"not completed\", \"attempted to commit\", \"half of the longest term of imprisonment\"",
+      "establishing_cases": "State of Maharashtra v. Mohd. Yakub (1980), Malkiat Singh v. State of Punjab (1970), Abhayanand Mishra v. State of Bihar (1961), Queen Empress v. Lizzie Donohew (1886)"
+    },
+    "CONCEPT_ARREST_WITHOUT_WARRANT": {
+      "label": "Arrest Without Warrant",
+      "kind": "definition",
+      "synonyms": [
+        "35",
+        "41"
+      ],
+      "old_refs": [
+        "41"
+      ],
+      "new_refs": [
+        "35"
+      ],
+      "notes": [
+        "**35(7): No arrest for infirm/elderly (60+) for offences punishable <3 years without prior permission of an officer not below the rank of Deputy Superintendent of Police**"
+      ],
+      "id_original": "CONCEPT_ARREST_WITHOUT_WARRANT",
+      "requires": [
+        "[OR — any of the following grounds under CrPC 41 / BNSS 35]",
+        "Person commits a cognizable offense in the presence of a police officer",
+        "Credible information or reasonable suspicion that the person has committed a cognizable offense punishable with imprisonment up to 7 years — AND the officer has reason to believe arrest is necessary to: prevent further offense, ensure proper investigation, prevent tampering with evidence, prevent influencing witnesses, ensure court appearance (CrPC 41(1)(b)(ii) / BNSS 35)",
+        "Person is a proclaimed offender",
+        "Person possesses stolen property or is reasonably suspected of having it",
+        "Person obstructs a police officer in duty or escapes lawful custody",
+        "Person is a military deserter",
+        "Person subject to an order under another law requiring arrest",
+        "BNSS 35(7): No arrest for infirm/elderly (60+) for offences punishable with less than 3 years without prior permission of officer not below DSP rank"
+      ],
+      "defeaters": [
+        "Offense is non-cognizable (arrest requires warrant unless exceptions apply)",
+        "The conditions under CrPC 41(1)(b)(ii) / BNSS 35 are not satisfied — arrest is not necessary",
+        "Arnesh Kumar v. State of Bihar (2014) guidelines not followed for offenses with punishment up to 7 years: checklist/notice of appearance not served",
+        "BNSS 35(7) protection: person is elderly (60+)/infirm and offense punishable with less than 3 years, and DSP permission not obtained",
+        "Arrest is arbitrary or in violation of Article 22 (grounds of arrest not communicated)"
+      ],
+      "typical_edge_pattern": "(Cognizable_Offense) --[credible information / in presence of officer]--> (Grounds for Arrest Exist + Necessity Established) --[arrest made]--> (Arrest_CrPC41/BNSS35)",
+      "key_phrases": "\"arrest without warrant\", \"Section 41\", \"BNSS 35\", \"cognizable offense\", \"credible information\", \"reason to believe\", \"Arnesh Kumar guidelines\", \"necessity of arrest\", \"notice of appearance\", \"infirm or elderly\"",
+      "establishing_cases": "Joginder Kumar v. State of UP (1994), D.K. Basu v. State of WB (1997), Arnesh Kumar v. State of Bihar (2014), Lalita Kumari v. Government of UP (2014), Satender Kumar Antil v. CBI (2022)"
+    },
+    "CONCEPT_MAINTENANCE": {
+      "label": "Maintenance",
+      "kind": "definition",
+      "synonyms": [
+        "125",
+        "144"
+      ],
+      "old_refs": [
+        "125"
+      ],
+      "new_refs": [
+        "144"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_MAINTENANCE",
+      "requires": [
+        "[AND]",
+        "Applicant belongs to a specified category: wife (including divorced wife who has not remarried), legitimate or illegitimate minor child (whether married or not), legitimate or illegitimate major child unable to maintain themselves by reason of physical or mental abnormality, father or mother unable to maintain themselves",
+        "The person against whom maintenance is claimed has sufficient means",
+        "The person against whom maintenance is claimed has refused or neglected to maintain the applicant",
+        "Application is made before a Magistrate of the first class (CrPC 125 / BNSS 144)"
+      ],
+      "defeaters": [
+        "Wife is living in adultery (CrPC 125(4) / BNSS 144)",
+        "Wife has refused to live with her husband without sufficient reason (CrPC 125(4) / BNSS 144)",
+        "Wife and husband are living separately by mutual consent (CrPC 125(4) / BNSS 144)",
+        "Divorced wife has remarried",
+        "Divorced wife has received the whole of the sum agreed upon or ordered as customary payment on divorce",
+        "Child has attained majority and is able to maintain themselves (not applicable to handicapped children)",
+        "The person from whom maintenance is claimed does not have sufficient means"
+      ],
+      "typical_edge_pattern": "(Applicant_Wife/Child/Parent) --[unable to maintain self]--> (Person with Sufficient Means Neglects/Refuses) --[application to Magistrate]--> (Maintenance_Order_CrPC125/BNSS144)",
+      "key_phrases": "\"maintenance\", \"Section 125\", \"BNSS 144\", \"neglect or refusal to maintain\", \"wife unable to maintain herself\", \"sufficient means\", \"interim maintenance\", \"maintenance of wife, children and parents\"",
+      "establishing_cases": "Mohd. Ahmed Khan v. Shah Bano Begum (1985), Rajnesh v. Neha (2021), Chaturbhuj v. Sita Bai (2008), Kamala v. M.R. Mohanan (2021)"
+    },
+    "CONCEPT_FIR": {
+      "label": "Fir",
+      "kind": "definition",
+      "synonyms": [
+        "154",
+        "173"
+      ],
+      "old_refs": [
+        "154"
+      ],
+      "new_refs": [
+        "173"
+      ],
+      "notes": [
+        "**Electronic filing explicit; Zero FIR statutory recognition; 173(3): preliminary inquiry for 3-7yr offences with DSP approval**"
+      ],
+      "id_original": "CONCEPT_FIR",
+      "requires": [
+        "[AND]",
+        "Information relating to the commission of a cognizable offense is received",
+        "The information is given to an officer in charge of a police station (CrPC 154 / BNSS 173)",
+        "If given orally, it must be reduced to writing and read over to the informant and signed by the informant",
+        "A copy of the FIR must be given to the informant free of cost",
+        "The substance of the information must be entered in a book to be kept in the prescribed form (station diary / daily diary)",
+        "Under BNSS 173: electronic filing of FIR is explicitly recognized; Zero FIR (FIR can be filed at any police station regardless of jurisdiction) has statutory recognition; BNSS 173(3): preliminary inquiry permitted for offenses punishable between 3-7 years with DSP approval"
+      ],
+      "defeaters": [
+        "Information does not disclose a cognizable offense (police may refuse to register FIR — but Lalita Kumari mandates registration if cognizable offense is disclosed)",
+        "Information is vague or does not contain sufficient detail to constitute a cognizable offense",
+        "Court-ordered FIR registration under CrPC 156(3) / BNSS 175(3) — if police refuse, Magistrate can direct registration",
+        "FIR is an abuse of process — quashable under CrPC 482 / BNSS 528"
+      ],
+      "typical_edge_pattern": "(Information_of_Cognizable_Offense) --[given to SHO]--> (FIR_Registered_CrPC154/BNSS173) --[investigation commences]--> (Police_Investigation)",
+      "key_phrases": "\"First Information Report\", \"FIR\", \"Section 154\", \"BNSS 173\", \"cognizable offense\", \"information in writing\", \"Zero FIR\", \"electronic filing\", \"preliminary inquiry\", \"station diary entry\", \"duty to register\"",
+      "establishing_cases": "Lalita Kumari v. Government of UP (2014), State of Haryana v. Bhajan Lal (1992), T.T. Antony v. State of Kerala (2001), CBI v. Tapan Kumar Singh (2003)"
+    },
+    "CONCEPT_POLICE_EXAMINATION": {
+      "label": "Police Examination",
+      "kind": "definition",
+      "synonyms": [
+        "161",
+        "180"
+      ],
+      "old_refs": [
+        "161"
+      ],
+      "new_refs": [
+        "180"
+      ],
+      "notes": [
+        "Renumbered with enhancements"
+      ],
+      "id_original": "CONCEPT_POLICE_EXAMINATION",
+      "requires": [
+        "[AND]",
+        "Investigation of a cognizable offense is in progress",
+        "The police officer investigating the case may examine orally any person supposed to be acquainted with the facts and circumstances of the case (CrPC 161 / BNSS 180)",
+        "Such person is bound to answer truly all questions (except answers that would expose them to a criminal charge, penalty, or forfeiture)",
+        "The police officer shall reduce the statement to writing (if deemed necessary)",
+        "The statement shall not be signed by the person making it (CrPC 162 / BNSS 181)"
+      ],
+      "defeaters": [
+        "Person is not bound to answer questions that have a tendency to expose them to a criminal charge (right against self-incrimination — Article 20(3))",
+        "Statement not recorded in the manner prescribed — irregularity may affect evidentiary value",
+        "Statement to police is not admissible as substantive evidence (CrPC 162 / BNSS 181) — can only be used for contradiction during cross-examination"
+      ],
+      "typical_edge_pattern": "(Police_Investigation) --[examines witness/person]--> (Oral_Statement_CrPC161/BNSS180) --[reduced to writing]--> (Usable_Only_for_Contradiction_CrPC162/BNSS181)",
+      "key_phrases": "\"police examination\", \"Section 161\", \"BNSS 180\", \"Section 162\", \"BNSS 181\", \"statement to police\", \"bound to answer truly\", \"not signed by person\", \"not admissible as substantive evidence\", \"used for contradiction\"",
+      "establishing_cases": "Tahsildar Singh v. State of UP (1959), State of UP v. Singhara Singh (1964), Rattan Singh v. State of HP (1997)"
+    },
+    "CONCEPT_CONFESSION_RECORDING": {
+      "label": "Confession Recording",
+      "kind": "definition",
+      "synonyms": [
+        "164",
+        "183"
+      ],
+      "old_refs": [
+        "164"
+      ],
+      "new_refs": [
+        "183"
+      ],
+      "notes": [
+        "**BNSS 183: confessions/statements may also be recorded by audio-video electronic means (in the presence of the accused’s advocate).**"
+      ],
+      "id_original": "CONCEPT_CONFESSION_RECORDING",
+      "requires": [
+        "[AND]",
+        "Confession or statement must be recorded by a Metropolitan Magistrate or Judicial Magistrate (CrPC 164 / BNSS 183)",
+        "Before recording, the Magistrate must explain to the person that they are not bound to make a confession and that if they do, it may be used as evidence against them",
+        "The Magistrate must satisfy themselves that the confession is being made voluntarily and not under any inducement, threat, or promise",
+        "The confession must be recorded in the manner provided for recording evidence (CrPC 281 / BNSS 316)",
+        "A memorandum must be made at the foot of the record signed by the Magistrate",
+        "Under BNSS 183: confession/statement may also be recorded by audio-video electronic means in the presence of the accused's advocate"
+      ],
+      "defeaters": [
+        "Confession not recorded by a Magistrate — inadmissible (CrPC 164 / BNSS 183)",
+        "Magistrate failed to explain that the confession was voluntary and need not be made",
+        "Insufficient cooling-off period — reflection time not given (minimum 24 hours typically required by courts)",
+        "Evidence of inducement, threat, promise, or coercion affecting voluntariness",
+        "Procedural non-compliance (unsigned, not read over, advocate not present for audio-video recording under BNSS)"
+      ],
+      "typical_edge_pattern": "(Accused) --[voluntary confession before]--> (Magistrate_CrPC164/BNSS183) --[procedural compliance]--> (Admissible_Confession)",
+      "key_phrases": "\"confession recorded under Section 164\", \"BNSS 183\", \"judicial confession\", \"voluntary confession\", \"before a Magistrate\", \"not under inducement threat or promise\", \"audio-video recording\", \"cooling off period\"",
+      "establishing_cases": "Sarwan Singh v. State of Punjab (1957), Shivappa v. State of Karnataka (1995), Ram Singh v. Sonia (2007), State of UP v. Singhara Singh (1964)"
+    },
+    "CONCEPT_ACCUSED_EXAMINATION": {
+      "label": "Accused Examination",
+      "kind": "definition",
+      "synonyms": [
+        "313",
+        "351"
+      ],
+      "old_refs": [
+        "313"
+      ],
+      "new_refs": [
+        "351"
+      ],
+      "notes": [
+        "Renumbered (CrPC 313 → BNSS 351)"
+      ],
+      "id_original": "CONCEPT_ACCUSED_EXAMINATION",
+      "requires": [
+        "[AND]",
+        "The prosecution evidence has been completed / prosecution closes its case",
+        "The court must examine the accused personally (CrPC 313 / BNSS 351)",
+        "The purpose is to enable the accused to explain any circumstances appearing in evidence against them",
+        "The accused shall not be administered an oath while being examined",
+        "The accused may refuse to answer or give false answers — no penalty for false answers (but court may draw adverse inference)",
+        "The examination must cover each material circumstance/incriminating material appearing against the accused"
+      ],
+      "defeaters": [
+        "Failure to put material circumstances to the accused vitiates the trial — prejudice must be shown (may lead to retrial)",
+        "Omission to examine under Section 313/351 is an irregularity, not illegality per se — depends on whether prejudice was caused",
+        "Accused's right to silence under Article 20(3) — but Section 313/351 is not hit by Article 20(3) as it is not on oath"
+      ],
+      "typical_edge_pattern": "(Prosecution_Evidence_Completed) --[court examines accused]--> (Accused_Explains_Circumstances_CrPC313/BNSS351) --[answers/silence noted]--> (Court_Evaluates_Explanation)",
+      "key_phrases": "\"examination of accused\", \"Section 313\", \"BNSS 351\", \"personally examined\", \"explain circumstances\", \"not on oath\", \"each material circumstance\", \"opportunity to explain incriminating evidence\", \"adverse inference\"",
+      "establishing_cases": "Shivaji Sahabrao Bobade v. State of Maharashtra (1973), Reena Hazarika v. State of Assam (2019), Basavaraj R. Patil v. State of Karnataka (2000), Asraf Ali v. State of Assam (2008)"
+    },
+    "CONCEPT_ADD_ACCUSED": {
+      "label": "Add Accused",
+      "kind": "definition",
+      "synonyms": [
+        "319",
+        "358"
+      ],
+      "old_refs": [
+        "319"
+      ],
+      "new_refs": [
+        "358"
+      ],
+      "notes": [
+        "Renumbered (CrPC 319 → BNSS 358)"
+      ],
+      "id_original": "CONCEPT_ADD_ACCUSED",
+      "requires": [
+        "[AND]",
+        "A trial is in progress before a court (Sessions Court or Magistrate)",
+        "From the evidence adduced during trial, it appears that a person not being the accused has committed the offense for which the accused is being tried or an offense connected with or arising out of the same facts",
+        "The court may proceed against such person for the offense (CrPC 319 / BNSS 358)",
+        "The power can be exercised at any stage of the inquiry or trial before judgment is pronounced",
+        "The standard of satisfaction is higher than prima facie — court must be satisfied that there is sufficient material/evidence to proceed"
+      ],
+      "defeaters": [
+        "Evidence does not disclose prima facie case against the proposed accused",
+        "Trial has concluded and judgment has been pronounced — power cannot be exercised post-judgment",
+        "Power exercised mechanically without application of mind",
+        "Proposed accused has already been investigated and deliberately discharged / not charge-sheeted — court must still evaluate evidence independently"
+      ],
+      "typical_edge_pattern": "(Trial_in_Progress) --[evidence reveals involvement of other person]--> (Court_Exercises_CrPC319/BNSS358) --[summoning order]--> (New_Accused_Added_to_Trial)",
+      "key_phrases": "\"power to add accused\", \"Section 319\", \"BNSS 358\", \"proceed against other persons\", \"evidence during trial\", \"summoning additional accused\", \"any person not being the accused\", \"same transaction\"",
+      "establishing_cases": "Hardeep Singh v. State of Punjab (2014), S. Mohammed Ispahani v. Yogendra Shukla (1946), Sarabjit Singh v. State of Punjab (2009), Rajesh v. State of Haryana (2019)"
+    },
+    "CONCEPT_APPEAL_ACQUITTAL": {
+      "label": "Appeal Acquittal",
+      "kind": "definition",
+      "synonyms": [
+        "378",
+        "419"
+      ],
+      "old_refs": [
+        "378"
+      ],
+      "new_refs": [
+        "419"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_APPEAL_ACQUITTAL",
+      "requires": [
+        "[AND]",
+        "An order of acquittal has been passed by a court",
+        "Appeal is filed by: the State Government against acquittal in cases instituted on complaint by the State or on police report (CrPC 378(1) / BNSS 419(1)); OR the complainant against acquittal (CrPC 378(4) / BNSS 419(4) — with leave of the court); OR the Central Government in certain cases",
+        "The appeal must demonstrate that the acquittal is: perverse, or based on erroneous appreciation of evidence, or involves misreading/non-consideration of material evidence, or the trial court's view was not a possible view on the evidence",
+        "Appellate court's power to interfere with acquittal is narrower than with conviction — requires substantial and compelling reasons"
+      ],
+      "defeaters": [
+        "Acquittal is based on a reasonable/plausible view of evidence — appellate court should not disturb if two views are possible",
+        "Presumption of innocence reinforced by acquittal — double presumption",
+        "Appeal filed beyond limitation period",
+        "No leave granted to complainant under CrPC 378(4) / BNSS 419(4)",
+        "No substantial or compelling reasons to overturn acquittal"
+      ],
+      "typical_edge_pattern": "(Acquittal_by_Trial_Court) --[appeal by State/Complainant]--> (Appellate_Court_Reviews_CrPC378/BNSS419) --[if perverse/erroneous]--> (Acquittal_Reversed)",
+      "key_phrases": "\"appeal against acquittal\", \"Section 378\", \"BNSS 419\", \"perverse acquittal\", \"two views possible\", \"substantial and compelling reasons\", \"misappreciation of evidence\", \"double presumption of innocence\", \"leave to appeal\"",
+      "establishing_cases": "Chandrappa v. State of Karnataka (2007), Atley v. State of UP (1955), Sanwat Singh v. State of Rajasthan (1961), K. Gopal Reddy v. State of AP (1979)"
+    },
+    "CONCEPT_REGULAR_BAIL": {
+      "label": "Regular Bail",
+      "kind": "definition",
+      "synonyms": [
+        "437",
+        "480"
+      ],
+      "old_refs": [
+        "437"
+      ],
+      "new_refs": [
+        "480"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_REGULAR_BAIL",
+      "requires": [
+        "[AND]",
+        "The accused is in custody (arrested or in judicial custody)",
+        "Application for bail is made before: Magistrate's Court under CrPC 437 / BNSS 480 (for non-bailable offenses not punishable with death or life imprisonment); OR Court of Session / High Court under CrPC 439 / BNSS 483",
+        "Court considers: nature and gravity of the offense, character/antecedents of the accused, likelihood of fleeing from justice, likelihood of tampering with evidence or influencing witnesses, reasonable grounds for believing the accused is not guilty",
+        "For offenses not punishable with death or life imprisonment: bail is the rule, jail is the exception"
+      ],
+      "defeaters": [
+        "Reasonable grounds exist to believe the accused is guilty of an offense punishable with death or life imprisonment (CrPC 437(1) proviso / BNSS 480(1) proviso)",
+        "Previous conviction for offense punishable with death, life, or 7+ years",
+        "Likelihood of absconding or fleeing justice",
+        "Likelihood of tampering with evidence or influencing witnesses",
+        "Risk to the complainant or victim",
+        "Accused may commit similar offense if released",
+        "Investigation may be prejudiced"
+      ],
+      "typical_edge_pattern": "(Accused_in_Custody) --[bail application]--> (Court_Considers_Factors_CrPC437/BNSS480) --[if no disqualifying conditions]--> (Bail_Granted_with_Conditions)",
+      "key_phrases": "\"regular bail\", \"Section 437\", \"BNSS 480\", \"bail is the rule, jail is the exception\", \"reasonable grounds\", \"nature and gravity of accusation\", \"likelihood of absconding\", \"tampering with evidence\", \"non-bailable offense\"",
+      "establishing_cases": "Sanjay Chandra v. CBI (2012), State of Rajasthan v. Balchand (1977), Gudikanti Narasimhulu v. Public Prosecutor (1978), Satender Kumar Antil v. CBI (2022)"
+    },
+    "CONCEPT_UNDERTRIAL_DETENTION": {
+      "label": "Undertrial Detention",
+      "kind": "definition",
+      "synonyms": [
+        "436A",
+        "479"
+      ],
+      "old_refs": [
+        "436A"
+      ],
+      "new_refs": [
+        "479"
+      ],
+      "notes": [
+        "**First-time offender: bail on bond after 1/3 of maximum sentence; 479(2): multiple pending cases = ineligible**"
+      ],
+      "id_original": "CONCEPT_UNDERTRIAL_DETENTION",
+      "requires": [
+        "[AND — conditions for mandatory bail under CrPC 436A / BNSS 479]",
+        "The accused is an undertrial prisoner",
+        "The accused has undergone detention for a period extending to one-half of the maximum period of imprisonment specified for the offense charged (CrPC 436A / BNSS 479)",
+        "The court shall release the person on personal bond with or without sureties",
+        "Under BNSS 479: first-time offender is entitled to bail on personal bond after serving one-third of the maximum sentence",
+        "BNSS 479(2): ineligible if the person has other pending cases — multiple pending cases disqualify the person"
+      ],
+      "defeaters": [
+        "The offense charged is punishable with death — Section 436A/479 does not apply",
+        "Court records reasons in writing why the person should not be released",
+        "Multiple pending cases against the undertrial (BNSS 479(2))",
+        "Public Prosecutor opposes with material showing release would prejudice ongoing trial"
+      ],
+      "typical_edge_pattern": "(Undertrial_Detained) --[served half of max sentence]--> (Mandatory_Bail_CrPC436A/BNSS479) --[unless death penalty offense or multiple cases]--> (Release_on_Bond)",
+      "key_phrases": "\"undertrial detention\", \"Section 436A\", \"BNSS 479\", \"half of the maximum period\", \"one-third for first-time offender\", \"personal bond\", \"default bail\", \"statutory bail\", \"mandatory release\", \"multiple pending cases\"",
+      "establishing_cases": "Hussain v. Union of India (2017), Bhim Singh v. Union of India (2015), Re: Inhuman Conditions in 1382 Prisons (2016), Supreme Court Legal Aid Committee v. Union of India (1994)"
+    },
+    "CONCEPT_ANTICIPATORY_BAIL": {
+      "label": "Anticipatory Bail",
+      "kind": "definition",
+      "synonyms": [
+        "438",
+        "482"
+      ],
+      "old_refs": [
+        "438"
+      ],
+      "new_refs": [
+        "482"
+      ],
+      "notes": [
+        "**482(4): Anticipatory bail does not apply to arrests for offences under BNS s.65 and BNS s.70(2). (Verify other sub-section differences separately.)**"
+      ],
+      "id_original": "CONCEPT_ANTICIPATORY_BAIL",
+      "requires": [
+        "[AND]",
+        "The applicant has reason to believe that they may be arrested on an accusation of having committed a non-bailable offense",
+        "Application is made before: the High Court or the Court of Session (CrPC 438 / BNSS 482)",
+        "The court considers: nature and gravity of the accusation, antecedents of the applicant, possibility of applicant fleeing justice, whether the accusation is made to humiliate/injure the applicant",
+        "Court may grant bail with conditions: availability for interrogation, not making inducements/threats to witnesses, not leaving India without permission, other conditions under CrPC 438(2) / BNSS 482",
+        "BNSS 482(4): anticipatory bail does NOT apply to offenses under BNS 65 (rape of minor under 16) and BNS 70(2) (gang rape of minor)"
+      ],
+      "defeaters": [
+        "Accusation is for an offense excluded from anticipatory bail (BNS 65 / BNS 70(2) under BNSS 482(4))",
+        "Prima facie case of serious nature against applicant — custodial interrogation necessary",
+        "Applicant is likely to flee jurisdiction",
+        "Applicant is likely to tamper with evidence or influence witnesses",
+        "Apprehension of arrest is not genuine or bona fide",
+        "Accusation involves offenses against women/children where custodial investigation is essential"
+      ],
+      "typical_edge_pattern": "(Apprehension_of_Arrest) --[application before HC/Sessions]--> (Court_Evaluates_CrPC438/BNSS482) --[if no disqualifying conditions]--> (Anticipatory_Bail_Granted_with_Conditions)",
+      "key_phrases": "\"anticipatory bail\", \"Section 438\", \"BNSS 482\", \"reason to believe arrest may be made\", \"pre-arrest bail\", \"non-bailable offense\", \"direction for release on bail\", \"custodial interrogation\", \"humiliate or injure\"",
+      "establishing_cases": "Gurbaksh Singh Sibbia v. State of Punjab (1980), Sushila Aggarwal v. State (NCT of Delhi) (2020), Siddharam Satlingappa Mhetre v. State of Maharashtra (2011), Bhadresh Bipinbhai Sheth v. State of Gujarat (2016)"
+    },
+    "CONCEPT_BAIL_HC_SESSIONS": {
+      "label": "Bail Hc Sessions",
+      "kind": "definition",
+      "synonyms": [
+        "439",
+        "483"
+      ],
+      "old_refs": [
+        "439"
+      ],
+      "new_refs": [
+        "483"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_BAIL_HC_SESSIONS",
+      "requires": [
+        "[AND]",
+        "The accused is in custody or has been released on bail by a lower court",
+        "Application for bail is made before the High Court or Court of Session (CrPC 439 / BNSS 483)",
+        "The HC/Sessions Court has wide discretionary power — broader than that of Magistrate under CrPC 437 / BNSS 480",
+        "Court considers: prima facie case, gravity of the charge, severity of punishment, likelihood of absconding, character/standing of accused, health and age of accused, whether the accused was involved in other crimes",
+        "HC/Sessions Court can grant bail even in cases punishable with death or life imprisonment (unlike Magistrate)"
+      ],
+      "defeaters": [
+        "Very serious nature of offense and strong prima facie case",
+        "Likelihood of absconding or fleeing justice",
+        "Likelihood of tampering with evidence or influencing witnesses",
+        "Risk of repetition of similar offenses",
+        "Bail conditions violated (bail can be cancelled under CrPC 439(2) / BNSS 483(2))",
+        "Trial court has already granted/refused bail on proper consideration — appellate court should not interfere unless perverse"
+      ],
+      "typical_edge_pattern": "(Accused_in_Custody/Bail_Refused_by_Lower_Court) --[application to HC/Sessions]--> (Wider_Discretion_CrPC439/BNSS483) --[consideration of factors]--> (Bail_Granted/Refused/Cancelled)",
+      "key_phrases": "\"Section 439\", \"BNSS 483\", \"bail by High Court\", \"bail by Sessions Court\", \"special powers\", \"cancel bail\", \"wider discretion\", \"prima facie case\", \"gravity of charge\", \"bail pending trial\"",
+      "establishing_cases": "State of Rajasthan v. Balchand (1977), Kalyan Chandra Sarkar v. Rajesh Ranjan (2004), Puran v. Rambilas (2001), Neeru Yadav v. State of UP (2014)"
+    },
+    "CONCEPT_INHERENT_POWERS_HC": {
+      "label": "Inherent Powers Hc",
+      "kind": "definition",
+      "synonyms": [
+        "482",
+        "528"
+      ],
+      "old_refs": [
+        "482"
+      ],
+      "new_refs": [
+        "528"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_INHERENT_POWERS_HC",
+      "requires": [
+        "[OR — three purposes of inherent power under CrPC 482 / BNSS 528]",
+        "To give effect to any order under the Code (CrPC / BNSS)",
+        "To prevent abuse of the process of any court",
+        "To secure the ends of justice",
+        "The power is exercisable only by the High Court",
+        "The power is inherent — it is not conferred by the Code but saved/preserved by CrPC 482 / BNSS 528"
+      ],
+      "defeaters": [
+        "Express provision in the Code covers the situation — inherent power should not be exercised if a specific remedy exists",
+        "Exercise of inherent power would be contrary to express provisions of the Code",
+        "Matter involves disputed questions of fact requiring trial (quashing inappropriate)",
+        "FIR/complaint discloses a cognizable offense on its face — the bar in State of Haryana v. Bhajan Lal (1992) categories not met",
+        "Frivolous or vexatious application for quashing"
+      ],
+      "typical_edge_pattern": "(Abuse_of_Process / Injustice) --[petition under CrPC482/BNSS528]--> (HC_Inherent_Power) --[if ends of justice require]--> (FIR/Complaint/Proceedings_Quashed)",
+      "key_phrases": "\"inherent powers\", \"Section 482\", \"BNSS 528\", \"quashing of FIR\", \"quashing of complaint\", \"abuse of process\", \"ends of justice\", \"nothing in this Code shall limit or affect the inherent powers\", \"prevent abuse\"",
+      "establishing_cases": "State of Haryana v. Bhajan Lal (1992), R.P. Kapur v. State of Punjab (1960), Parbatbhai Aahir v. State of Gujarat (2017), Neeharika Infrastructure v. State of Maharashtra (2021)"
+    },
+    "CONCEPT_DEFINITIONS": {
+      "label": "Definitions",
+      "kind": "definition",
+      "synonyms": [
+        "2",
+        "3"
+      ],
+      "old_refs": [
+        "3"
+      ],
+      "new_refs": [
+        "2"
+      ],
+      "notes": [
+        "**\"Document\" explicitly includes electronic/digital records**"
+      ],
+      "id_original": "CONCEPT_DEFINITIONS",
+      "requires": [
+        "[AND — foundational definitions under IEA 3 / BSA 2]",
+        "Key definitions that underpin the entire evidence framework:",
+        "\"Court\" includes all Judges and Magistrates and all persons legally authorized to take evidence (IEA 3 / BSA 2)",
+        "\"Fact\" means anything capable of being perceived by the senses or any mental condition of which a person is conscious (IEA 3 / BSA 2)",
+        "\"Document\" means any matter expressed or described upon any substance by means of letters, figures, or marks — BSA 2 explicitly includes electronic and digital records",
+        "\"Evidence\" means and includes: (i) all statements which the court permits or requires to be made before it (oral evidence), and (ii) all documents including electronic records produced for inspection (documentary evidence) (IEA 3 / BSA 2)",
+        "\"Relevant\" fact is one connected with another in the ways described in sections relating to relevancy",
+        "\"Proved\" / \"Disproved\" / \"Not proved\" — three degrees of proof defined"
+      ],
+      "defeaters": [
+        "Definitions are foundational and do not have 'defeaters' per se — they are definitional provisions",
+        "Challenge may arise if a particular item does not fall within the statutory definition (e.g., whether a particular electronic record qualifies as a 'document')",
+        "Ambiguity in application of definitions to novel contexts (digital evidence, AI-generated records)"
+      ],
+      "typical_edge_pattern": "(Fact/Document/Evidence) --[meets definition under IEA 3/BSA 2]--> (Classifiable as Evidence) --[if relevant]--> (Admissible_Subject_to_Rules)",
+      "key_phrases": "\"definitions\", \"Section 3 IEA\", \"BSA 2\", \"document\", \"electronic record\", \"fact\", \"evidence\", \"proved\", \"disproved\", \"not proved\", \"relevant fact\", \"oral evidence\", \"documentary evidence\"",
+      "establishing_cases": "Anvar P.V. v. P.K. Basheer (2014) — electronic record as document, State of Maharashtra v. Praful B. Desai (2003) — video evidence as testimony, Arjun Panditrao Khotkar v. Kailash Kushanrao Gorantyal (2020) — definition of electronic evidence"
+    },
+    "CONCEPT_RES_GESTAE": {
+      "label": "Res Gestae",
+      "kind": "definition",
+      "synonyms": [
+        "4",
+        "6"
+      ],
+      "old_refs": [
+        "6"
+      ],
+      "new_refs": [
+        "4"
+      ],
+      "notes": [
+        "\"or relevant facts\" added"
+      ],
+      "id_original": "CONCEPT_RES_GESTAE",
+      "requires": [
+        "[AND — under IEA 6 / BSA 4]",
+        "Facts that form part of the same transaction as the fact in issue",
+        "The facts must be so connected with the fact in issue as to form part of the same transaction (whether they occurred at the same time and place, or at different times and places)",
+        "Under BSA 4: 'or relevant facts' has been added — broadening the scope slightly",
+        "Spontaneity — the statement or act must be contemporaneous with the main event and be a spontaneous reaction, not a result of afterthought or reflection"
+      ],
+      "defeaters": [
+        "Statement or fact is not part of the same transaction — there is a temporal or logical gap",
+        "Statement was made after time for reflection/fabrication — not spontaneous",
+        "Statement is a narrative of a past event, not a reaction to it",
+        "The connection between the fact and the fact in issue is too remote"
+      ],
+      "typical_edge_pattern": "(Statement/Fact) --[contemporaneous with and forms part of same transaction]--> (Fact_in_Issue) --[admissible as res gestae]--> (Evidence_IEA6/BSA4)",
+      "key_phrases": "\"res gestae\", \"Section 6\", \"BSA 4\", \"part of the same transaction\", \"contemporaneous\", \"spontaneous\", \"forming part of same transaction\", \"too closely connected to be separated\"",
+      "establishing_cases": "R v. Bedingfield (1879) (distinguished in Indian law), Gentela Vijayavardhan Rao v. State of AP (1996), Sukhar v. State of UP (1999), Patel Hiralal Joitaram v. State of Gujarat (2001)"
+    },
+    "CONCEPT_CONFESSION_ADMISSIBILITY": {
+      "label": "Confession Admissibility",
+      "kind": "definition",
+      "synonyms": [
+        "22",
+        "24-29"
+      ],
+      "old_refs": [
+        "24-29"
+      ],
+      "new_refs": [
+        "22"
+      ],
+      "notes": [
+        "**CONSOLIDATED: \"Coercion\" explicitly added; clearer timeline**"
+      ],
+      "id_original": "CONCEPT_CONFESSION_ADMISSIBILITY",
+      "requires": [
+        "[AND — under IEA 24-29 / BSA 22]",
+        "The confession must be relevant (an admission by accused of the offense charged)",
+        "The confession must be voluntary — not caused by any inducement, threat, or promise (IEA 24 / BSA 22)",
+        "The inducement, threat, or promise must have reference to the charge against the accused",
+        "The inducement, threat, or promise must be from a person in authority",
+        "Under BSA 22: 'coercion' has been explicitly added alongside inducement, threat, and promise",
+        "If initially involuntary, it becomes admissible if the court believes the impression caused by the inducement/threat/promise has been fully removed (IEA 28 / BSA 22)"
+      ],
+      "defeaters": [
+        "Confession was caused by inducement, threat, promise, or coercion from a person in authority (IEA 24 / BSA 22) — inadmissible",
+        "Confession was made to a police officer — inadmissible (IEA 25 / BSA 23)",
+        "Confession was made while in police custody — inadmissible unless made in the immediate presence of a Magistrate (IEA 26 / BSA 23)",
+        "Retracted confession — admissible but requires corroboration as a matter of prudence",
+        "Co-accused confession — not substantive evidence against other accused, only corroborative (IEA 30 / BSA 24)"
+      ],
+      "typical_edge_pattern": "(Confession_by_Accused) --[voluntary, not under inducement/threat/promise/coercion]--> (Not to Police / In Presence of Magistrate) --[admissible]--> (Evidence_IEA24-29/BSA22)",
+      "key_phrases": "\"confession\", \"admissibility of confession\", \"Section 24\", \"Section 25\", \"Section 26\", \"BSA 22\", \"inducement threat or promise\", \"coercion\", \"voluntary confession\", \"person in authority\", \"retracted confession\"",
+      "establishing_cases": "Pakala Narayana Swami v. Emperor (1939), State of UP v. Deoman Upadhyaya (1960), Nandini Satpathy v. P.L. Dani (1978), Kartar Singh v. State of Punjab (1994)"
+    },
+    "CONCEPT_CONFESSION_POLICE": {
+      "label": "Confession Police",
+      "kind": "definition",
+      "synonyms": [
+        "23",
+        "25-26"
+      ],
+      "old_refs": [
+        "25-26"
+      ],
+      "new_refs": [
+        "23"
+      ],
+      "notes": [
+        "Combined"
+      ],
+      "id_original": "CONCEPT_CONFESSION_POLICE",
+      "requires": [
+        "[AND — the exclusionary rule under IEA 25-26 / BSA 23]",
+        "The statement amounts to a confession (admission of guilt for the offense charged)",
+        "The confession is made to a police officer (IEA 25 / BSA 23) — absolutely inadmissible regardless of voluntariness",
+        "OR the confession is made while the person is in police custody (IEA 26 / BSA 23) — inadmissible UNLESS made in the immediate presence of a Magistrate",
+        "The rationale is protection against police coercion and torture"
+      ],
+      "defeaters": [
+        "Statement does not amount to a confession — it is merely an admission or exculpatory statement (admissible as such)",
+        "Confession made in the immediate presence of a Magistrate even while in police custody (IEA 26 exception / BSA 23)",
+        "Discovery of fact pursuant to confession — that portion is admissible under IEA 27 / BSA 23 proviso (the discovery, not the confession itself)",
+        "Person making statement is not a 'police officer' as defined in law (revenue officers, customs officers may or may not qualify — R.S. Nayak v. A.R. Antulay, 1984)"
+      ],
+      "typical_edge_pattern": "(Confession_to_Police_Officer) --[IEA 25/BSA 23 bar]--> (Inadmissible) UNLESS (Made_in_Immediate_Presence_of_Magistrate)",
+      "key_phrases": "\"confession to police\", \"Section 25\", \"Section 26\", \"BSA 23\", \"inadmissible\", \"police custody\", \"immediate presence of Magistrate\", \"police officer\", \"exclusionary rule\", \"protection against police coercion\"",
+      "establishing_cases": "Dagdu v. State of Maharashtra (1977), State of UP v. Deoman Upadhyaya (1960), R.S. Nayak v. A.R. Antulay (1984), Aghnoo Nagesia v. State of Bihar (1966)"
+    },
+    "CONCEPT_DISCOVERY_CONFESSION": {
+      "label": "Discovery Confession",
+      "kind": "definition",
+      "synonyms": [
+        "23 (proviso)",
+        "27"
+      ],
+      "old_refs": [
+        "27"
+      ],
+      "new_refs": [
+        "23 (proviso)"
+      ],
+      "notes": [
+        "Included as proviso"
+      ],
+      "id_original": "CONCEPT_DISCOVERY_CONFESSION",
+      "requires": [
+        "[AND — under IEA 27 / BSA 23 proviso]",
+        "An accused person is in police custody",
+        "The accused makes a statement (which may otherwise be inadmissible as a confession to police)",
+        "The statement leads to the discovery of a fact",
+        "Only so much of the statement as relates distinctly to the fact thereby discovered is admissible",
+        "The discovery must be of a fact not previously known to the police",
+        "The fact must actually be discovered as a consequence of the information"
+      ],
+      "defeaters": [
+        "The fact was already known to the police or had been discovered independently — no 'discovery' pursuant to the statement",
+        "The entire confession is sought to be admitted — only the portion distinctly relating to the discovery is admissible",
+        "The connection between the statement and the discovery is not established",
+        "The discovery is planted or staged by the police",
+        "The object/fact supposedly discovered was in an accessible place and could have been found without the statement"
+      ],
+      "typical_edge_pattern": "(Statement_by_Accused_in_Custody) --[leads to]--> (Discovery_of_Fact) --[only portion relating to fact discovered admissible]--> (Admissible_IEA27/BSA23_Proviso)",
+      "key_phrases": "\"discovery pursuant to confession\", \"Section 27\", \"BSA 23 proviso\", \"fact discovered\", \"so much of the information\", \"distinctly relates to the fact thereby discovered\", \"pointing out\", \"recovery of weapon\", \"discovery memo\"",
+      "establishing_cases": "Pulukuri Kottaya v. Emperor (1947), State of UP v. Deoman Upadhyaya (1960), Anter Singh v. State of Rajasthan (2004), Geejaganda Nagesha v. State of Karnataka (2019)"
+    },
+    "CONCEPT_CO_ACCUSED_CONFESSION": {
+      "label": "Co Accused Confession",
+      "kind": "definition",
+      "synonyms": [
+        "24",
+        "30"
+      ],
+      "old_refs": [
+        "30"
+      ],
+      "new_refs": [
+        "24"
+      ],
+      "notes": [
+        "**Trial-in-absentia = joint trial for this section**"
+      ],
+      "id_original": "CONCEPT_CO_ACCUSED_CONFESSION",
+      "requires": [
+        "[AND — under IEA 30 / BSA 24]",
+        "Two or more persons are being tried jointly for the same offense",
+        "One of the co-accused makes a confession affecting himself AND another co-accused",
+        "The confession is proved (i.e., properly recorded and admissible against the maker)",
+        "The court MAY take into consideration such confession against the other co-accused as well as the maker",
+        "Under BSA 24: trial in absentia is treated as a joint trial for the purposes of this section"
+      ],
+      "defeaters": [
+        "Co-accused's confession is not substantive evidence — it is only a 'relevant consideration', not evidence per se (Kashmira Singh v. State of MP, 1952)",
+        "Confession of co-accused alone cannot form the basis of conviction — requires independent corroboration",
+        "Co-accused are not being tried jointly — Section 30/24 does not apply",
+        "Confession is retracted and there is no corroboration",
+        "Confession is unreliable or obtained improperly (inadmissible even against the maker)"
+      ],
+      "typical_edge_pattern": "(Co-Accused_A_Confesses) --[affecting Co-Accused_B]--> (Joint_Trial) --[court may consider against B]--> (Requires_Independent_Corroboration_IEA30/BSA24)",
+      "key_phrases": "\"co-accused confession\", \"Section 30\", \"BSA 24\", \"jointly tried\", \"confession affecting co-accused\", \"not substantive evidence\", \"requires corroboration\", \"relevant consideration\", \"trial in absentia\"",
+      "establishing_cases": "Kashmira Singh v. State of MP (1952), Hari Charan Kurmi v. State of Bihar (1964), Bhuboni Sahu v. The King (1949), Nathu v. State of UP (1956)"
+    },
+    "CONCEPT_DYING_DECLARATION": {
+      "label": "Dying Declaration",
+      "kind": "definition",
+      "synonyms": [
+        "26",
+        "32"
+      ],
+      "old_refs": [
+        "32"
+      ],
+      "new_refs": [
+        "26"
+      ],
+      "notes": [
+        "**Restructured into 8 subsections**"
+      ],
+      "id_original": "CONCEPT_DYING_DECLARATION",
+      "requires": [
+        "[AND — under IEA 32(1) / BSA 26]",
+        "The declarant has died (or the statement is by a person whose death is the subject of inquiry)",
+        "The statement relates to the cause of the declarant's death OR relates to any of the circumstances of the transaction which resulted in the death",
+        "The statement was made by the person who was under the expectation of death (though actual expectation of death is not strictly required under Indian law unlike English law)",
+        "Under BSA 26: restructured into 8 subsections for clarity",
+        "The statement can be oral, written, or by gestures (if the person is unable to speak)"
+      ],
+      "defeaters": [
+        "Declarant did not actually die and the case is not one where their death is in question (IEA 32 / BSA 26 does not apply)",
+        "Statement does not relate to the cause of death or circumstances of the transaction resulting in death",
+        "Statement is unreliable — declarant was in a state of mind where they could not make a coherent/truthful statement (unconscious, heavily medicated, tutored)",
+        "Multiple dying declarations that are contradictory — the most reliable one is accepted",
+        "Statement is not recorded properly (no attestation, no doctor's fitness certificate though not mandatory, suspicious circumstances)",
+        "Dying declaration is a result of tutoring or prompting by interested parties"
+      ],
+      "typical_edge_pattern": "(Person_Dies) --[had made statement about cause/circumstances of death]--> (Dying_Declaration_IEA32/BSA26) --[if reliable and consistent]--> (Substantive_Evidence_Sufficient_for_Conviction)",
+      "key_phrases": "\"dying declaration\", \"Section 32\", \"BSA 26\", \"cause of death\", \"circumstances of the transaction resulting in death\", \"statement of deceased\", \"expectation of death\", \"fit state of mind\", \"sole basis for conviction\"",
+      "establishing_cases": "Laxman v. State of Maharashtra (2002), Pakala Narayana Swami v. Emperor (1939), Khushal Rao v. State of Bombay (1958), Paniben v. State of Gujarat (1992)"
+    },
+    "CONCEPT_EXPERT_OPINION": {
+      "label": "Expert Opinion",
+      "kind": "definition",
+      "synonyms": [
+        "39",
+        "45"
+      ],
+      "old_refs": [
+        "45"
+      ],
+      "new_refs": [
+        "39"
+      ],
+      "notes": [
+        "**\"Any other field\" added; Examiner of Electronic Evidence (IT Act) recognized**"
+      ],
+      "id_original": "CONCEPT_EXPERT_OPINION",
+      "requires": [
+        "[AND — under IEA 45 / BSA 39]",
+        "The court needs an opinion on a point of: foreign law, science, art, handwriting, finger impressions, or 'any other field' (added by BSA 39)",
+        "The opinion is given by a person specially skilled in such field (expert)",
+        "The expert's opinion is relevant and admissible as evidence",
+        "Under BSA 39: Examiner of Electronic Evidence under the IT Act is recognized as an expert",
+        "Expert must be qualified by training, study, or experience in the relevant field"
+      ],
+      "defeaters": [
+        "Expert is not qualified in the relevant field — lacks necessary training or experience",
+        "Expert opinion is not corroborated by other evidence — expert opinion is advisory, not binding on the court",
+        "Expert opinion is based on incomplete or incorrect data/material",
+        "Opposing expert opinion creates genuine doubt — court must weigh competing opinions",
+        "Expert opinion on a point that is not beyond the competence of the court — court is the ultimate expert on law",
+        "Expert has a bias or interest in the outcome"
+      ],
+      "typical_edge_pattern": "(Point_of_Science/Art/Handwriting/Electronic_Evidence) --[expert opinion sought]--> (Expert_Gives_Opinion_IEA45/BSA39) --[court evaluates]--> (Advisory_Evidence_Not_Binding)",
+      "key_phrases": "\"expert opinion\", \"Section 45\", \"BSA 39\", \"specially skilled\", \"opinion of expert\", \"handwriting expert\", \"forensic expert\", \"medical opinion\", \"Examiner of Electronic Evidence\", \"corroboration required\"",
+      "establishing_cases": "Ramesh Kumar Dey v. State of Tripura (2014), State of HP v. Jai Lal (1999), Murari Lal v. State of MP (1980), Dodhi Amma v. K. Ayyasami (2001)"
+    },
+    "CONCEPT_ELECTRONIC_EVIDENCE": {
+      "label": "Electronic Evidence",
+      "kind": "definition",
+      "synonyms": [
+        "63",
+        "65B"
+      ],
+      "old_refs": [
+        "65B"
+      ],
+      "new_refs": [
+        "63"
+      ],
+      "notes": [
+        "**MAJOR: \"Communication device\" explicit; MANDATORY certificate in prescribed format; HASH value required; signed by person in charge AND expert**"
+      ],
+      "id_original": "CONCEPT_ELECTRONIC_EVIDENCE",
+      "requires": [
+        "[AND — under IEA 65B / BSA 63]",
+        "The evidence is an electronic record (as defined in IT Act 2000)",
+        "The electronic record must be accompanied by a certificate under IEA 65B(4) / BSA 63(4)",
+        "The certificate must: identify the electronic record, describe the manner of its production, give particulars of the device used, and be signed by a person occupying a responsible official position in relation to the device",
+        "Under BSA 63: certificate must be in the prescribed format; hash value of the electronic record is MANDATORY; certificate must be signed BOTH by the person in charge of the device AND by an expert",
+        "The computer output was produced during the period when the computer was regularly used for lawful activities, and the information was regularly fed into the computer in the ordinary course"
+      ],
+      "defeaters": [
+        "No certificate under IEA 65B(4) / BSA 63(4) — electronic evidence is inadmissible (Anvar P.V. v. P.K. Basheer, 2014)",
+        "Certificate does not comply with prescribed format or hash value requirement (under BSA 63)",
+        "Electronic record has been tampered with — hash value mismatch",
+        "Chain of custody of the electronic device/record not established",
+        "Computer was not functioning properly during the relevant period",
+        "The original electronic record is available and secondary evidence rules should not apply (primary evidence preferred)",
+        "Certificate signed by an unqualified or unauthorized person"
+      ],
+      "typical_edge_pattern": "(Electronic_Record) --[with valid 65B/63 certificate + hash value]--> (Admissible_Electronic_Evidence) --[court evaluates authenticity]--> (Evidence_Weighed)",
+      "key_phrases": "\"electronic evidence\", \"Section 65B\", \"BSA 63\", \"certificate\", \"hash value\", \"electronic record\", \"computer output\", \"communication device\", \"digital evidence\", \"Anvar P.V. compliance\", \"prescribed format\"",
+      "establishing_cases": "Anvar P.V. v. P.K. Basheer (2014), Arjun Panditrao Khotkar v. Kailash Kushanrao Gorantyal (2020), Shafhi Mohammad v. State of HP (2018), Tomaso Bruno v. State of UP (2015) (declared per incuriam by Khotkar, 2020)"
+    },
+    "CONCEPT_BURDEN_OF_PROOF": {
+      "label": "Burden Of Proof",
+      "kind": "definition",
+      "synonyms": [
+        "101-104",
+        "104-107"
+      ],
+      "old_refs": [
+        "101-104"
+      ],
+      "new_refs": [
+        "104-107"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_BURDEN_OF_PROOF",
+      "requires": [
+        "[AND — under IEA 101-104 / BSA 104-107]",
+        "The burden of proof lies on the person who asserts a fact (IEA 101 / BSA 104)",
+        "In criminal cases: the prosecution bears the burden of proving guilt beyond reasonable doubt",
+        "The burden of proof as to a particular fact lies on the person who wishes the court to believe in its existence (IEA 103 / BSA 106)",
+        "The burden of proving any fact especially within the knowledge of a person lies on that person (IEA 106 / BSA 109)",
+        "The standard of proof in criminal cases is 'beyond reasonable doubt'; in civil cases it is 'preponderance of probabilities'"
+      ],
+      "defeaters": [
+        "Statutory presumptions shift the burden to the accused (e.g., IPC 304B / BNS 80 for dowry death presumption under IEA 113B / BSA 118)",
+        "Reverse onus clauses in special legislation (NDPS Act, Prevention of Corruption Act) — accused must prove certain facts",
+        "Prosecution fails to discharge initial burden — accused need not even present defense (no case to answer)",
+        "Prosecution creates reasonable doubt by its own evidence — acquittal follows without defense evidence"
+      ],
+      "typical_edge_pattern": "(Prosecution_Alleges_Offense) --[must prove beyond reasonable doubt]--> (Burden_on_Prosecution_IEA101/BSA104) --[unless statutory presumption shifts burden]--> (Burden_Shifts_to_Accused)",
+      "key_phrases": "\"burden of proof\", \"Section 101\", \"Section 106\", \"BSA 104\", \"BSA 109\", \"beyond reasonable doubt\", \"preponderance of probability\", \"onus of proof\", \"who asserts must prove\", \"especially within the knowledge of\", \"reverse burden\"",
+      "establishing_cases": "Woolmington v. DPP (1935 — adopted in Indian law), Shambhu Nath Mehra v. State of Ajmer (1956), Rang Bahadur Singh v. State of UP (2000), Dataram Singh v. State of UP (2018)"
+    },
+    "CONCEPT_COURT_PRESUMPTION": {
+      "label": "Court Presumption",
+      "kind": "definition",
+      "synonyms": [
+        "114",
+        "119"
+      ],
+      "old_refs": [
+        "114"
+      ],
+      "new_refs": [
+        "119"
+      ],
+      "notes": [
+        "Renumbered"
+      ],
+      "id_original": "CONCEPT_COURT_PRESUMPTION",
+      "requires": [
+        "[AND — under IEA 114 / BSA 119]",
+        "The court may presume the existence of any fact which it thinks likely to have happened, regard being had to: the common course of natural events, human conduct, and public and private business, in their relation to the facts of the particular case",
+        "The presumption is discretionary ('may presume'), not mandatory ('shall presume')",
+        "The illustrations to IEA 114 / BSA 119 provide specific examples of presumable facts (e.g., stolen property found with a person soon after theft, man in possession of stolen property recently after theft is either thief or receiver)"
+      ],
+      "defeaters": [
+        "Presumption is rebuttable — accused can lead evidence to show that the presumed fact does not exist",
+        "The connection between the base fact and the presumed fact is too remote or speculative",
+        "Presumption cannot replace proof — it supplements evidence, does not substitute for it",
+        "Other evidence contradicts the presumption",
+        "The illustration under IEA 114 / BSA 119 is merely indicative, not exhaustive — court must independently evaluate whether presumption is warranted in the specific case"
+      ],
+      "typical_edge_pattern": "(Base_Fact_Established) --[common course of events/human conduct]--> (Court_May_Presume_IEA114/BSA119) --[rebuttable]--> (Presumption_Unless_Rebutted)",
+      "key_phrases": "\"court may presume\", \"Section 114\", \"BSA 119\", \"natural presumption\", \"common course of natural events\", \"human conduct\", \"stolen property recently in possession\", \"presumption of fact\", \"rebuttable presumption\", \"illustration (a)\"",
+      "establishing_cases": "Earabhadrappa v. State of Karnataka (1983), Trimbak Bapu Godbole v. Dattaji Pandurang (1890), Sanatan Naskar v. State of WB (2010), State of Rajasthan v. Kashi Ram (2006)"
+    }
+  },
+  "patterns": {
+    "doctrine_invocation": {
+      "signals": [
+        "This brings into play",
+        "attracts the doctrine of",
+        "invokes the principle of",
+        "falls within the ambit of",
+        "brings into operation",
+        "triggers the application of",
+        "squarely falls under",
+        "this makes it necessary to analyse",
+        "takes in",
+        "is a facet of",
+        "is an essential element of",
+        "is intrinsic to",
+        "emanates from",
+        "flows from"
+      ],
+      "creates_edge": {
+        "source_role": "Fact",
+        "relation": "TRIGGERS",
+        "target_role": "Doctrine"
+      },
+      "relation": "triggers",
+      "confidence": "high",
+      "example": "\"This makes it necessary to analyse the origins of privacy and to trace its evolution\" - K.S. Puttaswamy (2017)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "doctrine_invocation"
+    },
+    "constitutional_nexus": {
+      "signals": [
+        "is a part of",
+        "is implicit in",
+        "is recognized as dimensions of",
+        "is guaranteed under",
+        "forms part of",
+        "is traceable to",
+        "can be traced to Articles",
+        "is a fundamental right which can be traced to"
+      ],
+      "creates_edge": {
+        "source_role": "Right",
+        "relation": "DERIVED_FROM",
+        "target_role": "Constitutional_Provision"
+      },
+      "relation": "derived_from",
+      "confidence": "high",
+      "example": "\"right to privacy is a part of fundamental rights which can be traced to Articles 14, 19 and 21\" - K.S. Puttaswamy (2017)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "constitutional_nexus"
+    },
+    "requirement_failure": {
+      "signals": [
+        "does not satisfy",
+        "fails to meet",
+        "is violative of",
+        "falls foul of",
+        "cannot be sustained",
+        "is not saved under",
+        "is hit by",
+        "does not come within",
+        "cannot pass muster",
+        "suffers from the vice of",
+        "does not answer the test of",
+        "is disproportionate to",
+        "fails the test of",
+        "is inconsistent with"
+      ],
+      "creates_edge": {
+        "source_role": "Fact_Pattern",
+        "relation": "FAILS",
+        "target_role": "Legal_Requirement"
+      },
+      "relation": "fails",
+      "confidence": "high",
+      "example": "\"Section 66A cannot possibly be said to create an offence which falls within the expression 'decency' or 'morality'\" - Shreya Singhal (2015)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "requirement_failure"
+    },
+    "conjunctive_satisfaction_and_logic": {
+      "signals": [
+        "taken together",
+        "read with",
+        "in conjunction with",
+        "coupled with",
+        "read together",
+        "considered in totality",
+        "cumulatively",
+        "all the three requirements",
+        "each of the ingredients must be satisfied",
+        "must satisfy all conditions",
+        "sine qua non",
+        "the twin conditions"
+      ],
+      "creates_edge": {
+        "source_role": "Multiple_Facts",
+        "relation": "JOINTLY_SATISFY",
+        "target_role": "Test"
+      },
+      "relation": "jointly_satisfy",
+      "confidence": "high",
+      "example": "\"three-fold criteria of legality, legitimacy of aims, and proportionality\" - K.S. Puttaswamy (2017)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "conjunctive_satisfaction (AND logic)"
+    },
+    "disjunctive_sufficiency_or_logic": {
+      "signals": [
+        "either...or",
+        "any one of the following",
+        "independently of",
+        "alternatively",
+        "or else",
+        "in any of these cases",
+        "on any of the grounds",
+        "even one of",
+        "any ground",
+        "by itself sufficient"
+      ],
+      "creates_edge": {
+        "source_role": "Single_Fact",
+        "relation": "SUFFICES_FOR",
+        "target_role": "Test"
+      },
+      "relation": "suffices_for",
+      "confidence": "medium",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "disjunctive_sufficiency (OR logic)"
+    },
+    "primary_holding": {
+      "signals": [
+        "We hold that",
+        "We are of the considered view that",
+        "We are therefore of the view that",
+        "We accordingly hold",
+        "In our considered view",
+        "For the foregoing reasons, we hold",
+        "We have no hesitation in holding",
+        "We declare",
+        "We direct",
+        "We affirm",
+        "We uphold",
+        "We strike down",
+        "We quash",
+        "It must therefore be held"
+      ],
+      "creates_edge": {
+        "source_role": "Analysis",
+        "relation": "CONCLUDES_WITH",
+        "target_role": "Holding"
+      },
+      "relation": "concludes_with",
+      "confidence": "high",
+      "example": "\"we hold that bail covers both-release on one's own bond, with or without sureties\" - Moti Ram v. State of M.P. (1978)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "primary_holding"
+    },
+    "ratio_decidendi_marker": {
+      "signals": [
+        "the ratio of the judgment",
+        "the principle upon which the case is decided",
+        "the ratio decidendi of this case",
+        "we lay down",
+        "we authoritatively hold",
+        "the law declared by this Court",
+        "this proposition is binding",
+        "forms the basis of the decision"
+      ],
+      "creates_edge": {
+        "source_role": "Holding",
+        "relation": "CREATES",
+        "target_role": "Binding_Precedent"
+      },
+      "relation": "creates",
+      "confidence": "high",
+      "example": "\"The only thing binding in a judge's decision is the principle upon which the case is decided\" - Union of India v. Dhanwanti Devi",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "ratio_decidendi_marker"
+    },
+    "obiter_dicta_marker": {
+      "signals": [
+        "We may observe",
+        "We may note",
+        "We hasten to add",
+        "It may be mentioned",
+        "In passing, we note",
+        "merely an observation",
+        "not necessary for the decision",
+        "by way of observation",
+        "we need not express any opinion",
+        "we leave open",
+        "we do not decide",
+        "does not arise for decision"
+      ],
+      "creates_edge": {
+        "source_role": "Observation",
+        "relation": "MARKED_AS",
+        "target_role": "Obiter_Dictum"
+      },
+      "relation": "marked_as",
+      "confidence": "high",
+      "example": "\"obiter dictum is a mere observation or remark made by the Court, by way of aid, while deciding the actual issue\" - Arun Kumar Agrawal v. State of MP",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "obiter_dicta_marker"
+    },
+    "proportionality_structuring": {
+      "signals": [
+        "legitimate aim",
+        "legitimate goal",
+        "of sufficient importance to warrant overriding",
+        "rationally connected to",
+        "suitable means of furthering this goal",
+        "suitability or rational connection stage",
+        "necessary in that there are no alternative measures",
+        "least restrictive means",
+        "necessity stage",
+        "proportionality stricto sensu",
+        "balancing stage",
+        "proper relation between"
+      ],
+      "creates_edge": {
+        "source_role": "Impugned_Measure",
+        "relation": "EVALUATED_UNDER",
+        "target_role": "Proportionality_Prong"
+      },
+      "relation": "evaluated_under",
+      "confidence": "high",
+      "example": "\"a four-fold test: (a) legitimate goal stage, (b) suitability or rational connection stage, (c) necessity stage, (d) balancing stage\" - K.S. Puttaswamy/Aadhaar (2018)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "proportionality_structuring"
+    },
+    "test_prong_navigation": {
+      "signals": [
+        "Coming to the first limb",
+        "On the first prong",
+        "As regards the first requirement",
+        "turning to the second test",
+        "on the question of",
+        "insofar as the requirement of...is concerned",
+        "having dealt with...we now turn to",
+        "satisfies the first condition",
+        "fails on the second prong",
+        "stands satisfied",
+        "does not stand the scrutiny of"
+      ],
+      "creates_edge": {
+        "source_role": "Test_Prong",
+        "relation": "RESULT",
+        "target_role": "Pass/Fail"
+      },
+      "relation": "result",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "test_prong_navigation"
+    },
+    "alternative_sufficiency_arguendo": {
+      "signals": [
+        "Even assuming",
+        "Even if we accept",
+        "Assuming without conceding",
+        "Even otherwise",
+        "For the sake of argument, even if",
+        "arguendo",
+        "Even on the assumption that",
+        "Granting that",
+        "Be that as it may",
+        "Even taking the case at its highest"
+      ],
+      "creates_edge": {
+        "source_role": "Alternative_Argument",
+        "relation": "FAILS_INDEPENDENTLY",
+        "target_role": "Separate_Ground"
+      },
+      "relation": "fails_independently",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "alternative_sufficiency (arguendo)"
+    },
+    "following_precedent": {
+      "signals": [
+        "As held in",
+        "Following the ratio in",
+        "We respectfully agree with the view taken in",
+        "The law laid down by this Court in",
+        "This view has been followed and reiterated by",
+        "The decision is binding on this Court",
+        "We approve the decision in",
+        "Judicial discipline obliges them to follow it",
+        "The principle laid down in [case] governs the present case"
+      ],
+      "creates_edge": {
+        "source_role": "Precedent",
+        "relation": "FOLLOWS",
+        "target_role": "Current_Holding"
+      },
+      "relation": "follows",
+      "confidence": "high",
+      "example": "\"judicial discipline obliges them to follow it, regardless of their doubts about its correctness\" - Central Board of Dawoodi Bohra Community (2005)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "following_precedent"
+    },
+    "distinguishing_precedent": {
+      "signals": [
+        "The facts in the present case are distinguishable",
+        "That case turned on",
+        "The said decision is not applicable in the present case because",
+        "That case was concerned with [X], whereas the present case involves [Y]",
+        "The ratio of that decision has no application to the facts of this case",
+        "[Case] stands on a different footing",
+        "The said ruling is not squarely applicable"
+      ],
+      "creates_edge": {
+        "source_role": "Precedent",
+        "relation": "DISTINGUISHED",
+        "target_role": "Current_Holding"
+      },
+      "relation": "distinguished",
+      "confidence": "high",
+      "example": "\"The facts of the present case is clearly distinguishable from the facts of the case dealt with by the Hon'ble Supreme Court\" - A.Radhika vs Wilson Sundararaj",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "distinguishing_precedent"
+    },
+    "doubting_precedent": {
+      "signals": [
+        "We have reservations about the correctness of",
+        "The correctness of... needs reconsideration",
+        "We express our doubt about the view taken in",
+        "We are not inclined to follow",
+        "With great respect, we are unable to agree with",
+        "The matter may be placed for hearing before a Bench consisting of a quorum larger",
+        "We direct that the matter be referred to a larger Bench"
+      ],
+      "creates_edge": {
+        "source_role": "Precedent",
+        "relation": "DOUBTED",
+        "target_role": "Current_Holding"
+      },
+      "relation": "doubted",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "doubting_precedent"
+    },
+    "overruling_precedent": {
+      "signals": [
+        "We overrule the decision in",
+        "The law laid down in... is no longer good law",
+        "The earlier decision stands overruled",
+        "We depart from the previous decision",
+        "We disapprove the decision in",
+        "The decision in [case] cannot be treated as good law",
+        "The majority view was erroneous",
+        "The law stated in... is hereby overruled"
+      ],
+      "creates_edge": {
+        "source_role": "Precedent",
+        "relation": "OVERRULED",
+        "target_role": "Current_Holding"
+      },
+      "relation": "overruled",
+      "confidence": "high",
+      "example": "\"There is nothing in our Constitution which prevents us from departing from a previous decision if we are convinced of its error\" - Bengal Immunity Co. v. State of Bihar (1955)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "overruling_precedent"
+    },
+    "explaining_precedent": {
+      "signals": [
+        "The true ratio of that decision is",
+        "That case must be understood as",
+        "The ratio decidendi of the judgment is",
+        "What the Court meant to say in that case was",
+        "The decision is only an authority for what it actually decides",
+        "A decision is an authority for what it decides and not what can logically be deduced therefrom"
+      ],
+      "creates_edge": {
+        "source_role": "Precedent",
+        "relation": "EXPLAINED",
+        "target_role": "Current_Holding"
+      },
+      "relation": "explained",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "explaining_precedent"
+    },
+    "binding_larger_bench": {
+      "signals": [
+        "The law laid down by this Court in a decision delivered by a Bench of larger strength is binding on any subsequent Bench of lesser or coequal strength",
+        "A Bench of lesser quorum cannot disagree",
+        "The decision of a Constitution Bench binds",
+        "The Bench strength is determinative of the binding nature"
+      ],
+      "creates_edge": {
+        "source_role": "Larger_Bench_Decision",
+        "relation": "BINDS",
+        "target_role": "Smaller_Bench"
+      },
+      "relation": "binds",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "binding_larger_bench"
+    },
+    "article_141_binding": {
+      "signals": [
+        "The law declared by the Supreme Court shall be binding on all courts within the territory of India",
+        "Article 141 of the Constitution mandates",
+        "Article 141 which lays down that the law declared by this Court shall be binding"
+      ],
+      "creates_edge": {
+        "source_role": "Supreme_Court_Decision",
+        "relation": "BINDING_Art141",
+        "target_role": "All_Courts_India"
+      },
+      "relation": "binding_art141",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "article_141_binding"
+    },
+    "persuasive_only": {
+      "signals": [
+        "The decision has only persuasive value",
+        "None of these decisions are binding upon Supreme Court but they are authorities of high persuasive value",
+        "Foreign judgments and obiter dicta are not binding",
+        "This can be accepted as a persuasive precedent",
+        "A persuasive precedent is one which the judges are under no obligation to follow"
+      ],
+      "creates_edge": {
+        "source_role": "Foreign_Judgment/High_Court/Obiter",
+        "relation": "PERSUASIVE",
+        "target_role": "Current_Court"
+      },
+      "relation": "persuasive",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "persuasive_only"
+    },
+    "per_incuriam": {
+      "signals": [
+        "A decision should be treated as given per incuriam when it is given in ignorance of the terms of a statute",
+        "The decision is per incuriam",
+        "A decision rendered by ignorance of a previous binding decision",
+        "Such a decision would not be binding as a judicial precedent"
+      ],
+      "creates_edge": {
+        "source_role": "Per_Incuriam_Decision",
+        "relation": "NOT_BINDING",
+        "target_role": "Current_Court"
+      },
+      "relation": "not_binding",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "per_incuriam"
+    },
+    "sub_silentio": {
+      "signals": [
+        "A decision passes sub silentio, in the technical sense, when the particular point of law involved in the decision is not perceived by the court",
+        "Precedents sub silentio are not regarded as authoritative",
+        "A decision which is not express and is not founded on reasons"
+      ],
+      "creates_edge": {
+        "source_role": "Sub_Silentio_Decision",
+        "relation": "NOT_AUTHORITATIVE",
+        "target_role": "Current_Court"
+      },
+      "relation": "not_authoritative",
+      "confidence": "high",
+      "example": null,
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null,
+      "id_original": "sub_silentio"
+    },
+    "deferred_application": {
+      "signals": [
+        "We shall deal with this contention later",
+        "We shall presently see",
+        "We shall revert to this aspect",
+        "This issue shall be addressed presently",
+        "We shall advert to this aspect subsequently",
+        "as will be discussed presently"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": "\"As we shall presently see, there is nothing said in either case from which it may be possible to hold that the law laid down... is 'no longer good law'\" - Supreme Court Bar Association v. UOI (1998)",
+      "resolution_logic": "Search FORWARD for resumption markers (\"Reverting to...\", \"Coming now to...\", \"We now address...\") or topic-matching paragraphs",
+      "graph_implication": "Creates DEFERRED_EDGE; marks node with \"awaits_resolution\" property",
+      "strength": null,
+      "id_original": "deferred_application"
+    },
+    "noted_above": {
+      "signals": [
+        "As noted above",
+        "As stated above",
+        "As already observed",
+        "As discussed above",
+        "As indicated earlier",
+        "From the foregoing discussion"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": null,
+      "resolution_logic": "Search BACKWARD for paragraphs containing explicit legal holdings, factual findings, or referenced precedent; semantic similarity + entity matching",
+      "graph_implication": "Creates BACK_REFERENCE edge; current reasoning DEPENDS on earlier established facts/law",
+      "strength": null,
+      "id_original": "noted_above"
+    },
+    "aforesaid_facts": {
+      "signals": [
+        "The aforesaid facts",
+        "The aforesaid judgment",
+        "The above discussion",
+        "From the admitted position",
+        "The admitted facts",
+        "The undisputed facts"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": null,
+      "resolution_logic": "Resolve to Facts section or most recent factual narrative; \"aforesaid\" = immediately preceding material",
+      "graph_implication": "Creates FACTUAL_DEPENDENCY edge; holdings CONDITIONAL on factual findings",
+      "strength": null,
+      "id_original": "aforesaid_facts"
+    },
+    "sequential_doctrine": {
+      "signals": [
+        "Having held that... the question of... assumes importance",
+        "Once it is established that... the consequence is",
+        "Having so held... we proceed to consider"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": "\"Having held that Article 21 is violated, the question of proportionality assumes importance\"",
+      "resolution_logic": "Doctrine A → Doctrine B dependency; track \"having held\" to identify primary doctrine",
+      "graph_implication": "Creates DOCTRINAL_CHAIN edge (transitive support); CRITICAL - if Doctrine A fails, chain collapses",
+      "strength": null,
+      "id_original": "sequential_doctrine"
+    },
+    "golden_triangle_interconnection": {
+      "signals": [
+        "The trinity exists between Article 14, Article 19 and Article 21",
+        "read together",
+        "taken together",
+        "interplay between"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": "\"A seven-Judge Bench held that a trinity exists between Article 14, Article 19 and Article 21. All these articles have to be read together\" - Maneka Gandhi",
+      "resolution_logic": "Multiple provisions form interconnected doctrine; violation of one triggers all",
+      "graph_implication": "Creates CONJUNCTIVE_DEPENDENCY edges; mutually reinforcing doctrinal base",
+      "strength": null,
+      "id_original": "golden_triangle_interconnection"
+    },
+    "hypothetical_concession": {
+      "signals": [
+        "Even if we were to accept",
+        "Even assuming",
+        "Even granting",
+        "Assuming but not deciding",
+        "Assuming without deciding",
+        "Proceeding on the assumption that",
+        "For argument's sake",
+        "Granting for the moment"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": "\"Even assuming the petitioner's contention to be correct, the relief cannot be granted for procedural reasons\"",
+      "resolution_logic": "Rhetorical concession; judge provisionally accepts premise but shows conclusion fails anyway",
+      "graph_implication": "Creates HYPOTHETICAL_CONCESSION edge; ALTERNATIVE_REASONING - holding STRENGTHENED not dependent on this path",
+      "strength": null,
+      "id_original": "hypothetical_concession"
+    },
+    "but_for_causation": {
+      "signals": [
+        "Had the authority granted a hearing",
+        "If the procedure had been followed",
+        "But for the defect in",
+        "Had the notice been properly served",
+        "Were it not for the procedural irregularity"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": "\"Had this last opportunity to produce the accused been afforded, the order was legal and valid\" - Narata Ram v. State of H.P.",
+      "resolution_logic": "Identifies causal factor - if X happened differently, outcome Y would follow; indicates what was DETERMINATIVE",
+      "graph_implication": "Creates DETERMINATIVE_FACTOR edge; CRITICAL causal link",
+      "strength": null,
+      "id_original": "but_for_causation"
+    },
+    "distinguishing_counterfactual": {
+      "signals": [
+        "The position would have been different if",
+        "Had the facts been",
+        "Unlike the present case",
+        "The distinguishing feature",
+        "In contradistinction to"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": null,
+      "resolution_logic": "Judge identifies why cited precedent doesn't apply; track precedent + factual difference + why material",
+      "graph_implication": "Creates DISTINGUISHING_EDGE; marks precedent as INAPPLICABLE with reason_node attached",
+      "strength": null,
+      "id_original": "distinguishing_counterfactual"
+    },
+    "single_factor_determinism": {
+      "signals": [
+        "On this ground alone",
+        "This alone is sufficient to",
+        "This by itself is fatal to",
+        "This single circumstance",
+        "For this reason alone",
+        "This ground independently suffices"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": "\"Therefore, it is on this ground alone the impugned order deserves to be set aside\" - Prapbakaran (2010)",
+      "resolution_logic": "ONE factor is SUFFICIENT for outcome; remaining factors are surplus",
+      "graph_implication": "Creates DETERMINATIVE edge marked as SUFFICIENT; other edges marked as SURPLUS_TO_REQUIREMENTS - **HIGH VALUE for identifying CRITICAL edges**",
+      "strength": null,
+      "id_original": "single_factor_determinism"
+    },
+    "sufficient_conditions_disjunctive": {
+      "signals": [
+        "Any one of these grounds suffices",
+        "Each of these is independently sufficient",
+        "On either of these grounds"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": null,
+      "resolution_logic": "Multiple independent grounds - holding survives if ANY one stands",
+      "graph_implication": "Creates DISJUNCTIVE_SUPPORT structure; OR-connected edges where holding survives if any single edge valid",
+      "strength": null,
+      "id_original": "sufficient_conditions_disjunctive"
+    },
+    "sufficient_conditions_conjunctive": {
+      "signals": [
+        "These grounds cumulatively establish",
+        "Taken together, these factors",
+        "The combined effect of these",
+        "All these factors point to"
+      ],
+      "creates_edge": null,
+      "relation": null,
+      "confidence": null,
+      "example": null,
+      "resolution_logic": "Multiple factors together create sufficient grounds - no single factor sufficient alone",
+      "graph_implication": "Creates CONJUNCTIVE_SUPPORT structure; AND-connected edges where ALL must hold",
+      "strength": null,
+      "id_original": "sufficient_conditions_conjunctive"
+    }
+  },
+  "stats": {
+    "pattern_count": 32,
+    "doctrine_count": 11,
+    "mapping_concept_count": 43,
+    "mapping_row_count": 45,
+    "total_concept_count": 54,
+    "doctrine_only_count": 7,
+    "standard_count": 4,
+    "doctrine_plus_standard_count": 11,
+    "doctrine_count_note": "In this file, doctrine_count historically equals doctrines+standards (see doctrine_only_count + standard_count)."
+  },
+  "statute_mappings": {
+    "rows": [
+      {
+        "category": "Homicide Offenses",
+        "old": "IPC 302",
+        "new": "BNS 103",
+        "concept": "MURDER",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "Homicide Offenses",
+        "old": "IPC 304",
+        "new": "BNS 105",
+        "concept": "CULPABLE_HOMICIDE",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "Homicide Offenses",
+        "old": "IPC 304A",
+        "new": "BNS 106",
+        "concept": "DEATH_BY_NEGLIGENCE",
+        "changes": "**Punishment 2yr→5yr; medical practitioner provisions added**"
+      },
+      {
+        "category": "Homicide Offenses",
+        "old": "IPC 304B",
+        "new": "BNS 80",
+        "concept": "DOWRY_DEATH",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "Homicide Offenses",
+        "old": "IPC 307",
+        "new": "BNS 109",
+        "concept": "ATTEMPT_MURDER",
+        "changes": "Life = \"remainder of natural life\" clarified"
+      },
+      {
+        "category": "Sexual Offenses",
+        "old": "IPC 375",
+        "new": "BNS 63",
+        "concept": "RAPE_DEFINITION",
+        "changes": "**Age of consent for married woman 15→18 (implements Independent Thought v. UOI)**"
+      },
+      {
+        "category": "Sexual Offenses",
+        "old": "IPC 376",
+        "new": "BNS 64",
+        "concept": "RAPE_PUNISHMENT",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "Sexual Offenses",
+        "old": "IPC 376D",
+        "new": "BNS 70(1)",
+        "concept": "GANG_RAPE",
+        "changes": "Consolidated"
+      },
+      {
+        "category": "Sexual Offenses",
+        "old": "NEW",
+        "new": "BNS 69",
+        "concept": "SEXUAL_INTERCOURSE_BY_DECEIT",
+        "changes": "**NEW - false promise of marriage, up to 10 years**"
+      },
+      {
+        "category": "Property Offenses",
+        "old": "IPC 378-379",
+        "new": "BNS 303/305(a)",
+        "concept": "THEFT",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "Property Offenses",
+        "old": "NEW",
+        "new": "BNS 304",
+        "concept": "SNATCHING",
+        "changes": "**NEW offense - \"suddenly or quickly or forcibly seizes\" - up to 3 years**"
+      },
+      {
+        "category": "Property Offenses",
+        "old": "IPC 390-391",
+        "new": "BNS 309-310",
+        "concept": "ROBBERY/DACOITY",
+        "changes": "Consolidated (Robbery: BNS 309; Dacoity: BNS 310)"
+      },
+      {
+        "category": "Property Offenses",
+        "old": "IPC 405-409",
+        "new": "BNS 316(1)-(4)",
+        "concept": "CRIMINAL_BREACH_TRUST",
+        "changes": "**All CBT consolidated; punishment 3yr→5yr**"
+      },
+      {
+        "category": "Property Offenses",
+        "old": "IPC 415-420",
+        "new": "BNS 318",
+        "concept": "CHEATING",
+        "changes": "Combined"
+      },
+      {
+        "category": "Sedition Replacement (MAJOR CHANGE)",
+        "old": "IPC 124A",
+        "new": "BNS 152",
+        "concept": "SEDITION→SOVEREIGNTY",
+        "changes": "**IPC 124A replaced with BNS 152; punishment: life OR up to 7 years; liable to fine; scope includes secession/armed rebellion/subversive activities.**"
+      },
+      {
+        "category": "Other Key Mappings",
+        "old": "IPC 34",
+        "new": "BNS 3(5)",
+        "concept": "COMMON_INTENTION",
+        "changes": "Now in definitions"
+      },
+      {
+        "category": "Other Key Mappings",
+        "old": "IPC 499-500",
+        "new": "BNS 356",
+        "concept": "DEFAMATION",
+        "changes": "**Community service added as punishment option**"
+      },
+      {
+        "category": "Other Key Mappings",
+        "old": "IPC 503-506",
+        "new": "BNS 351",
+        "concept": "CRIMINAL_INTIMIDATION",
+        "changes": "Consolidated"
+      },
+      {
+        "category": "Other Key Mappings",
+        "old": "IPC 511",
+        "new": "BNS 62",
+        "concept": "ATTEMPT",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "Other Key Mappings",
+        "old": "IPC 377",
+        "new": "REPEALED",
+        "concept": "-",
+        "changes": "Per Navtej Singh Johar (2018)"
+      },
+      {
+        "category": "Other Key Mappings",
+        "old": "IPC 497",
+        "new": "REPEALED",
+        "concept": "-",
+        "changes": "Per Joseph Shine (2018)"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "41",
+        "new": "35",
+        "concept": "ARREST_WITHOUT_WARRANT",
+        "changes": "**35(7): No arrest for infirm/elderly (60+) for offences punishable <3 years without prior permission of an officer not below rank of Deputy Superintendent of Police**"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "125",
+        "new": "144",
+        "concept": "MAINTENANCE",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "154",
+        "new": "173",
+        "concept": "FIR",
+        "changes": "**Electronic filing explicit; Zero FIR statutory recognition; 173(3): preliminary inquiry for 3-7yr offences with DSP approval**"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "161",
+        "new": "180",
+        "concept": "POLICE_EXAMINATION",
+        "changes": "Renumbered with enhancements"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "164",
+        "new": "183",
+        "concept": "CONFESSION_RECORDING",
+        "changes": "**BNSS 183: may also be recorded by audio-video electronic means (in presence of advocate).**"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "313",
+        "new": "351",
+        "concept": "ACCUSED_EXAMINATION",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "319",
+        "new": "358",
+        "concept": "ADD_ACCUSED",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "378",
+        "new": "419",
+        "concept": "APPEAL_ACQUITTAL",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "437",
+        "new": "480",
+        "concept": "REGULAR_BAIL",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "436A",
+        "new": "479",
+        "concept": "UNDERTRIAL_DETENTION",
+        "changes": "**First-time offender: bail on bond after 1/3 of maximum sentence; 479(2): multiple pending cases = ineligible**"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "438",
+        "new": "482",
+        "concept": "ANTICIPATORY_BAIL",
+        "changes": "**482(4): Anticipatory bail does not apply to arrests for offences under BNS s.65 and BNS s.70(2).**"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "439",
+        "new": "483",
+        "concept": "BAIL_HC_SESSIONS",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.2 CrPC to BNSS Key Mappings",
+        "old": "482",
+        "new": "528",
+        "concept": "INHERENT_POWERS_HC",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "3",
+        "new": "2",
+        "concept": "DEFINITIONS",
+        "changes": "**\"Document\" explicitly includes electronic/digital records**"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "6",
+        "new": "4",
+        "concept": "RES_GESTAE",
+        "changes": "\"or relevant facts\" added"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "24-29",
+        "new": "22",
+        "concept": "CONFESSION_ADMISSIBILITY",
+        "changes": "**CONSOLIDATED: \"Coercion\" explicitly added; clearer timeline**"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "25-26",
+        "new": "23",
+        "concept": "CONFESSION_POLICE",
+        "changes": "Combined"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "27",
+        "new": "23 (proviso)",
+        "concept": "DISCOVERY_CONFESSION",
+        "changes": "Included as proviso"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "30",
+        "new": "24",
+        "concept": "CO_ACCUSED_CONFESSION",
+        "changes": "**Trial-in-absentia = joint trial for this section**"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "32",
+        "new": "26",
+        "concept": "DYING_DECLARATION",
+        "changes": "**Restructured into 8 subsections**"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "45",
+        "new": "39",
+        "concept": "EXPERT_OPINION",
+        "changes": "**\"Any other field\" added; Examiner of Electronic Evidence (IT Act) recognized**"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "65B",
+        "new": "63",
+        "concept": "ELECTRONIC_EVIDENCE",
+        "changes": "**MAJOR: \"Communication device\" explicit; MANDATORY certificate in prescribed format; HASH value required; signed by person in charge AND expert**"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "101-104",
+        "new": "104-107",
+        "concept": "BURDEN_OF_PROOF",
+        "changes": "Renumbered"
+      },
+      {
+        "category": "4.3 IEA to BSA Key Mappings",
+        "old": "114",
+        "new": "119",
+        "concept": "COURT_PRESUMPTION",
+        "changes": "Renumbered"
+      }
+    ],
+    "by_concept": {
+      "CONCEPT_MURDER": {
+        "old": [
+          "IPC 302"
+        ],
+        "new": [
+          "BNS 103"
+        ],
+        "category_examples": [
+          "Homicide Offenses"
+        ]
+      },
+      "CONCEPT_CULPABLE_HOMICIDE": {
+        "old": [
+          "IPC 304"
+        ],
+        "new": [
+          "BNS 105"
+        ],
+        "category_examples": [
+          "Homicide Offenses"
+        ]
+      },
+      "CONCEPT_DEATH_BY_NEGLIGENCE": {
+        "old": [
+          "IPC 304A"
+        ],
+        "new": [
+          "BNS 106"
+        ],
+        "category_examples": [
+          "Homicide Offenses"
+        ]
+      },
+      "CONCEPT_DOWRY_DEATH": {
+        "old": [
+          "IPC 304B"
+        ],
+        "new": [
+          "BNS 80"
+        ],
+        "category_examples": [
+          "Homicide Offenses"
+        ]
+      },
+      "CONCEPT_ATTEMPT_MURDER": {
+        "old": [
+          "IPC 307"
+        ],
+        "new": [
+          "BNS 109"
+        ],
+        "category_examples": [
+          "Homicide Offenses"
+        ]
+      },
+      "CONCEPT_RAPE_DEFINITION": {
+        "old": [
+          "IPC 375"
+        ],
+        "new": [
+          "BNS 63"
+        ],
+        "category_examples": [
+          "Sexual Offenses"
+        ]
+      },
+      "CONCEPT_RAPE_PUNISHMENT": {
+        "old": [
+          "IPC 376"
+        ],
+        "new": [
+          "BNS 64"
+        ],
+        "category_examples": [
+          "Sexual Offenses"
+        ]
+      },
+      "CONCEPT_GANG_RAPE": {
+        "old": [
+          "IPC 376D"
+        ],
+        "new": [
+          "BNS 70(1)"
+        ],
+        "category_examples": [
+          "Sexual Offenses"
+        ]
+      },
+      "CONCEPT_SEXUAL_INTERCOURSE_BY_DECEIT": {
+        "old": [
+          "NEW"
+        ],
+        "new": [
+          "BNS 69"
+        ],
+        "category_examples": [
+          "Sexual Offenses"
+        ]
+      },
+      "CONCEPT_THEFT": {
+        "old": [
+          "IPC 378-379"
+        ],
+        "new": [
+          "BNS 303/305(a)"
+        ],
+        "category_examples": [
+          "Property Offenses"
+        ]
+      },
+      "CONCEPT_SNATCHING": {
+        "old": [
+          "NEW"
+        ],
+        "new": [
+          "BNS 304"
+        ],
+        "category_examples": [
+          "Property Offenses"
+        ]
+      },
+      "CONCEPT_ROBBERY_DACOITY": {
+        "old": [
+          "IPC 390-391"
+        ],
+        "new": [
+          "BNS 309-310"
+        ],
+        "category_examples": [
+          "Property Offenses"
+        ]
+      },
+      "CONCEPT_CRIMINAL_BREACH_TRUST": {
+        "old": [
+          "IPC 405-409"
+        ],
+        "new": [
+          "BNS 316(1)-(4)"
+        ],
+        "category_examples": [
+          "Property Offenses"
+        ]
+      },
+      "CONCEPT_CHEATING": {
+        "old": [
+          "IPC 415-420"
+        ],
+        "new": [
+          "BNS 318"
+        ],
+        "category_examples": [
+          "Property Offenses"
+        ]
+      },
+      "CONCEPT_SEDITION_TO_SOVEREIGNTY": {
+        "old": [
+          "IPC 124A"
+        ],
+        "new": [
+          "BNS 152"
+        ],
+        "category_examples": [
+          "Sedition Replacement (MAJOR CHANGE)"
+        ]
+      },
+      "CONCEPT_COMMON_INTENTION": {
+        "old": [
+          "IPC 34"
+        ],
+        "new": [
+          "BNS 3(5)"
+        ],
+        "category_examples": [
+          "Other Key Mappings"
+        ]
+      },
+      "CONCEPT_DEFAMATION": {
+        "old": [
+          "IPC 499-500"
+        ],
+        "new": [
+          "BNS 356"
+        ],
+        "category_examples": [
+          "Other Key Mappings"
+        ]
+      },
+      "CONCEPT_CRIMINAL_INTIMIDATION": {
+        "old": [
+          "IPC 503-506"
+        ],
+        "new": [
+          "BNS 351"
+        ],
+        "category_examples": [
+          "Other Key Mappings"
+        ]
+      },
+      "CONCEPT_ATTEMPT": {
+        "old": [
+          "IPC 511"
+        ],
+        "new": [
+          "BNS 62"
+        ],
+        "category_examples": [
+          "Other Key Mappings"
+        ]
+      },
+      "CONCEPT_ARREST_WITHOUT_WARRANT": {
+        "old": [
+          "41"
+        ],
+        "new": [
+          "35"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_MAINTENANCE": {
+        "old": [
+          "125"
+        ],
+        "new": [
+          "144"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_FIR": {
+        "old": [
+          "154"
+        ],
+        "new": [
+          "173"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_POLICE_EXAMINATION": {
+        "old": [
+          "161"
+        ],
+        "new": [
+          "180"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_CONFESSION_RECORDING": {
+        "old": [
+          "164"
+        ],
+        "new": [
+          "183"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_ACCUSED_EXAMINATION": {
+        "old": [
+          "313"
+        ],
+        "new": [
+          "351"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_ADD_ACCUSED": {
+        "old": [
+          "319"
+        ],
+        "new": [
+          "358"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_APPEAL_ACQUITTAL": {
+        "old": [
+          "378"
+        ],
+        "new": [
+          "419"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_REGULAR_BAIL": {
+        "old": [
+          "437"
+        ],
+        "new": [
+          "480"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_UNDERTRIAL_DETENTION": {
+        "old": [
+          "436A"
+        ],
+        "new": [
+          "479"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_ANTICIPATORY_BAIL": {
+        "old": [
+          "438"
+        ],
+        "new": [
+          "482"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_BAIL_HC_SESSIONS": {
+        "old": [
+          "439"
+        ],
+        "new": [
+          "483"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_INHERENT_POWERS_HC": {
+        "old": [
+          "482"
+        ],
+        "new": [
+          "528"
+        ],
+        "category_examples": [
+          "4.2 CrPC to BNSS Key Mappings"
+        ]
+      },
+      "CONCEPT_DEFINITIONS": {
+        "old": [
+          "3"
+        ],
+        "new": [
+          "2"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_RES_GESTAE": {
+        "old": [
+          "6"
+        ],
+        "new": [
+          "4"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_CONFESSION_ADMISSIBILITY": {
+        "old": [
+          "24-29"
+        ],
+        "new": [
+          "22"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_CONFESSION_POLICE": {
+        "old": [
+          "25-26"
+        ],
+        "new": [
+          "23"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_DISCOVERY_CONFESSION": {
+        "old": [
+          "27"
+        ],
+        "new": [
+          "23 (proviso)"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_CO_ACCUSED_CONFESSION": {
+        "old": [
+          "30"
+        ],
+        "new": [
+          "24"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_DYING_DECLARATION": {
+        "old": [
+          "32"
+        ],
+        "new": [
+          "26"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_EXPERT_OPINION": {
+        "old": [
+          "45"
+        ],
+        "new": [
+          "39"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_ELECTRONIC_EVIDENCE": {
+        "old": [
+          "65B"
+        ],
+        "new": [
+          "63"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_BURDEN_OF_PROOF": {
+        "old": [
+          "101-104"
+        ],
+        "new": [
+          "104-107"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      },
+      "CONCEPT_COURT_PRESUMPTION": {
+        "old": [
+          "114"
+        ],
+        "new": [
+          "119"
+        ],
+        "category_examples": [
+          "4.3 IEA to BSA Key Mappings"
+        ]
+      }
+    }
+  },
+  "id_aliases": {
+    "concepts_old_to_new": {
+      "DOCTRINE_BASIC_STRUCTURE": "DOCTRINE_BASIC_STRUCTURE",
+      "DOCTRINE_PROPORTIONALITY_TEST": "DOCTRINE_PROPORTIONALITY_TEST",
+      "DOCTRINE_MANIFEST_ARBITRARINESS": "DOCTRINE_MANIFEST_ARBITRARINESS",
+      "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS": "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS",
+      "DOCTRINE_REASONABLE_CLASSIFICATION_ARTICLE_14_TWIN_TEST": "DOCTRINE_REASONABLE_CLASSIFICATION_ARTICLE_14_TWIN_TEST",
+      "DOCTRINE_WEDNESBURY_UNREASONABLENESS": "DOCTRINE_WEDNESBURY_UNREASONABLENESS",
+      "DOCTRINE_LEGITIMATE_EXPECTATION": "DOCTRINE_LEGITIMATE_EXPECTATION",
+      "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM": "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM",
+      "DOCTRINE_HARMONIOUS_CONSTRUCTION": "DOCTRINE_HARMONIOUS_CONSTRUCTION",
+      "DOCTRINE_PITH_AND_SUBSTANCE": "DOCTRINE_PITH_AND_SUBSTANCE",
+      "DOCTRINE_READING_DOWN": "DOCTRINE_READING_DOWN",
+      "CONCEPT_MURDER": "CONCEPT_MURDER",
+      "CONCEPT_CULPABLE_HOMICIDE": "CONCEPT_CULPABLE_HOMICIDE",
+      "CONCEPT_DEATH_BY_NEGLIGENCE": "CONCEPT_DEATH_BY_NEGLIGENCE",
+      "CONCEPT_DOWRY_DEATH": "CONCEPT_DOWRY_DEATH",
+      "CONCEPT_ATTEMPT_MURDER": "CONCEPT_ATTEMPT_MURDER",
+      "CONCEPT_RAPE_DEFINITION": "CONCEPT_RAPE_DEFINITION",
+      "CONCEPT_RAPE_PUNISHMENT": "CONCEPT_RAPE_PUNISHMENT",
+      "CONCEPT_GANG_RAPE": "CONCEPT_GANG_RAPE",
+      "CONCEPT_SEXUAL_INTERCOURSE_BY_DECEIT": "CONCEPT_SEXUAL_INTERCOURSE_BY_DECEIT",
+      "CONCEPT_THEFT": "CONCEPT_THEFT",
+      "CONCEPT_SNATCHING": "CONCEPT_SNATCHING",
+      "CONCEPT_ROBBERY/DACOITY": "CONCEPT_ROBBERY_DACOITY",
+      "CONCEPT_CRIMINAL_BREACH_TRUST": "CONCEPT_CRIMINAL_BREACH_TRUST",
+      "CONCEPT_CHEATING": "CONCEPT_CHEATING",
+      "CONCEPT_SEDITION→SOVEREIGNTY": "CONCEPT_SEDITION_TO_SOVEREIGNTY",
+      "CONCEPT_COMMON_INTENTION": "CONCEPT_COMMON_INTENTION",
+      "CONCEPT_DEFAMATION": "CONCEPT_DEFAMATION",
+      "CONCEPT_CRIMINAL_INTIMIDATION": "CONCEPT_CRIMINAL_INTIMIDATION",
+      "CONCEPT_ATTEMPT": "CONCEPT_ATTEMPT",
+      "CONCEPT_ARREST_WITHOUT_WARRANT": "CONCEPT_ARREST_WITHOUT_WARRANT",
+      "CONCEPT_MAINTENANCE": "CONCEPT_MAINTENANCE",
+      "CONCEPT_FIR": "CONCEPT_FIR",
+      "CONCEPT_POLICE_EXAMINATION": "CONCEPT_POLICE_EXAMINATION",
+      "CONCEPT_CONFESSION_RECORDING": "CONCEPT_CONFESSION_RECORDING",
+      "CONCEPT_ACCUSED_EXAMINATION": "CONCEPT_ACCUSED_EXAMINATION",
+      "CONCEPT_ADD_ACCUSED": "CONCEPT_ADD_ACCUSED",
+      "CONCEPT_APPEAL_ACQUITTAL": "CONCEPT_APPEAL_ACQUITTAL",
+      "CONCEPT_REGULAR_BAIL": "CONCEPT_REGULAR_BAIL",
+      "CONCEPT_UNDERTRIAL_DETENTION": "CONCEPT_UNDERTRIAL_DETENTION",
+      "CONCEPT_ANTICIPATORY_BAIL": "CONCEPT_ANTICIPATORY_BAIL",
+      "CONCEPT_BAIL_HC_SESSIONS": "CONCEPT_BAIL_HC_SESSIONS",
+      "CONCEPT_INHERENT_POWERS_HC": "CONCEPT_INHERENT_POWERS_HC",
+      "CONCEPT_DEFINITIONS": "CONCEPT_DEFINITIONS",
+      "CONCEPT_RES_GESTAE": "CONCEPT_RES_GESTAE",
+      "CONCEPT_CONFESSION_ADMISSIBILITY": "CONCEPT_CONFESSION_ADMISSIBILITY",
+      "CONCEPT_CONFESSION_POLICE": "CONCEPT_CONFESSION_POLICE",
+      "CONCEPT_DISCOVERY_CONFESSION": "CONCEPT_DISCOVERY_CONFESSION",
+      "CONCEPT_CO_ACCUSED_CONFESSION": "CONCEPT_CO_ACCUSED_CONFESSION",
+      "CONCEPT_DYING_DECLARATION": "CONCEPT_DYING_DECLARATION",
+      "CONCEPT_EXPERT_OPINION": "CONCEPT_EXPERT_OPINION",
+      "CONCEPT_ELECTRONIC_EVIDENCE": "CONCEPT_ELECTRONIC_EVIDENCE",
+      "CONCEPT_BURDEN_OF_PROOF": "CONCEPT_BURDEN_OF_PROOF",
+      "CONCEPT_COURT_PRESUMPTION": "CONCEPT_COURT_PRESUMPTION"
+    },
+    "concepts_new_to_old": {
+      "DOCTRINE_BASIC_STRUCTURE": "DOCTRINE_BASIC_STRUCTURE",
+      "DOCTRINE_PROPORTIONALITY_TEST": "DOCTRINE_PROPORTIONALITY_TEST",
+      "DOCTRINE_MANIFEST_ARBITRARINESS": "DOCTRINE_MANIFEST_ARBITRARINESS",
+      "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS": "DOCTRINE_MANEKA_GANDHI_FRAMEWORK_DUE_PROCESS",
+      "DOCTRINE_REASONABLE_CLASSIFICATION_ARTICLE_14_TWIN_TEST": "DOCTRINE_REASONABLE_CLASSIFICATION_ARTICLE_14_TWIN_TEST",
+      "DOCTRINE_WEDNESBURY_UNREASONABLENESS": "DOCTRINE_WEDNESBURY_UNREASONABLENESS",
+      "DOCTRINE_LEGITIMATE_EXPECTATION": "DOCTRINE_LEGITIMATE_EXPECTATION",
+      "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM": "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM",
+      "DOCTRINE_HARMONIOUS_CONSTRUCTION": "DOCTRINE_HARMONIOUS_CONSTRUCTION",
+      "DOCTRINE_PITH_AND_SUBSTANCE": "DOCTRINE_PITH_AND_SUBSTANCE",
+      "DOCTRINE_READING_DOWN": "DOCTRINE_READING_DOWN",
+      "CONCEPT_MURDER": "CONCEPT_MURDER",
+      "CONCEPT_CULPABLE_HOMICIDE": "CONCEPT_CULPABLE_HOMICIDE",
+      "CONCEPT_DEATH_BY_NEGLIGENCE": "CONCEPT_DEATH_BY_NEGLIGENCE",
+      "CONCEPT_DOWRY_DEATH": "CONCEPT_DOWRY_DEATH",
+      "CONCEPT_ATTEMPT_MURDER": "CONCEPT_ATTEMPT_MURDER",
+      "CONCEPT_RAPE_DEFINITION": "CONCEPT_RAPE_DEFINITION",
+      "CONCEPT_RAPE_PUNISHMENT": "CONCEPT_RAPE_PUNISHMENT",
+      "CONCEPT_GANG_RAPE": "CONCEPT_GANG_RAPE",
+      "CONCEPT_SEXUAL_INTERCOURSE_BY_DECEIT": "CONCEPT_SEXUAL_INTERCOURSE_BY_DECEIT",
+      "CONCEPT_THEFT": "CONCEPT_THEFT",
+      "CONCEPT_SNATCHING": "CONCEPT_SNATCHING",
+      "CONCEPT_ROBBERY_DACOITY": "CONCEPT_ROBBERY/DACOITY",
+      "CONCEPT_CRIMINAL_BREACH_TRUST": "CONCEPT_CRIMINAL_BREACH_TRUST",
+      "CONCEPT_CHEATING": "CONCEPT_CHEATING",
+      "CONCEPT_SEDITION_TO_SOVEREIGNTY": "CONCEPT_SEDITION→SOVEREIGNTY",
+      "CONCEPT_COMMON_INTENTION": "CONCEPT_COMMON_INTENTION",
+      "CONCEPT_DEFAMATION": "CONCEPT_DEFAMATION",
+      "CONCEPT_CRIMINAL_INTIMIDATION": "CONCEPT_CRIMINAL_INTIMIDATION",
+      "CONCEPT_ATTEMPT": "CONCEPT_ATTEMPT",
+      "CONCEPT_ARREST_WITHOUT_WARRANT": "CONCEPT_ARREST_WITHOUT_WARRANT",
+      "CONCEPT_MAINTENANCE": "CONCEPT_MAINTENANCE",
+      "CONCEPT_FIR": "CONCEPT_FIR",
+      "CONCEPT_POLICE_EXAMINATION": "CONCEPT_POLICE_EXAMINATION",
+      "CONCEPT_CONFESSION_RECORDING": "CONCEPT_CONFESSION_RECORDING",
+      "CONCEPT_ACCUSED_EXAMINATION": "CONCEPT_ACCUSED_EXAMINATION",
+      "CONCEPT_ADD_ACCUSED": "CONCEPT_ADD_ACCUSED",
+      "CONCEPT_APPEAL_ACQUITTAL": "CONCEPT_APPEAL_ACQUITTAL",
+      "CONCEPT_REGULAR_BAIL": "CONCEPT_REGULAR_BAIL",
+      "CONCEPT_UNDERTRIAL_DETENTION": "CONCEPT_UNDERTRIAL_DETENTION",
+      "CONCEPT_ANTICIPATORY_BAIL": "CONCEPT_ANTICIPATORY_BAIL",
+      "CONCEPT_BAIL_HC_SESSIONS": "CONCEPT_BAIL_HC_SESSIONS",
+      "CONCEPT_INHERENT_POWERS_HC": "CONCEPT_INHERENT_POWERS_HC",
+      "CONCEPT_DEFINITIONS": "CONCEPT_DEFINITIONS",
+      "CONCEPT_RES_GESTAE": "CONCEPT_RES_GESTAE",
+      "CONCEPT_CONFESSION_ADMISSIBILITY": "CONCEPT_CONFESSION_ADMISSIBILITY",
+      "CONCEPT_CONFESSION_POLICE": "CONCEPT_CONFESSION_POLICE",
+      "CONCEPT_DISCOVERY_CONFESSION": "CONCEPT_DISCOVERY_CONFESSION",
+      "CONCEPT_CO_ACCUSED_CONFESSION": "CONCEPT_CO_ACCUSED_CONFESSION",
+      "CONCEPT_DYING_DECLARATION": "CONCEPT_DYING_DECLARATION",
+      "CONCEPT_EXPERT_OPINION": "CONCEPT_EXPERT_OPINION",
+      "CONCEPT_ELECTRONIC_EVIDENCE": "CONCEPT_ELECTRONIC_EVIDENCE",
+      "CONCEPT_BURDEN_OF_PROOF": "CONCEPT_BURDEN_OF_PROOF",
+      "CONCEPT_COURT_PRESUMPTION": "CONCEPT_COURT_PRESUMPTION"
+    },
+    "patterns_old_to_new": {
+      "doctrine_invocation": "doctrine_invocation",
+      "constitutional_nexus": "constitutional_nexus",
+      "requirement_failure": "requirement_failure",
+      "conjunctive_satisfaction (AND logic)": "conjunctive_satisfaction_and_logic",
+      "disjunctive_sufficiency (OR logic)": "disjunctive_sufficiency_or_logic",
+      "primary_holding": "primary_holding",
+      "ratio_decidendi_marker": "ratio_decidendi_marker",
+      "obiter_dicta_marker": "obiter_dicta_marker",
+      "proportionality_structuring": "proportionality_structuring",
+      "test_prong_navigation": "test_prong_navigation",
+      "alternative_sufficiency (arguendo)": "alternative_sufficiency_arguendo",
+      "following_precedent": "following_precedent",
+      "distinguishing_precedent": "distinguishing_precedent",
+      "doubting_precedent": "doubting_precedent",
+      "overruling_precedent": "overruling_precedent",
+      "explaining_precedent": "explaining_precedent",
+      "binding_larger_bench": "binding_larger_bench",
+      "article_141_binding": "article_141_binding",
+      "persuasive_only": "persuasive_only",
+      "per_incuriam": "per_incuriam",
+      "sub_silentio": "sub_silentio",
+      "deferred_application": "deferred_application",
+      "noted_above": "noted_above",
+      "aforesaid_facts": "aforesaid_facts",
+      "sequential_doctrine": "sequential_doctrine",
+      "golden_triangle_interconnection": "golden_triangle_interconnection",
+      "hypothetical_concession": "hypothetical_concession",
+      "but_for_causation": "but_for_causation",
+      "distinguishing_counterfactual": "distinguishing_counterfactual",
+      "single_factor_determinism": "single_factor_determinism",
+      "sufficient_conditions_disjunctive": "sufficient_conditions_disjunctive",
+      "sufficient_conditions_conjunctive": "sufficient_conditions_conjunctive"
+    },
+    "patterns_new_to_old": {
+      "doctrine_invocation": "doctrine_invocation",
+      "constitutional_nexus": "constitutional_nexus",
+      "requirement_failure": "requirement_failure",
+      "conjunctive_satisfaction_and_logic": "conjunctive_satisfaction (AND logic)",
+      "disjunctive_sufficiency_or_logic": "disjunctive_sufficiency (OR logic)",
+      "primary_holding": "primary_holding",
+      "ratio_decidendi_marker": "ratio_decidendi_marker",
+      "obiter_dicta_marker": "obiter_dicta_marker",
+      "proportionality_structuring": "proportionality_structuring",
+      "test_prong_navigation": "test_prong_navigation",
+      "alternative_sufficiency_arguendo": "alternative_sufficiency (arguendo)",
+      "following_precedent": "following_precedent",
+      "distinguishing_precedent": "distinguishing_precedent",
+      "doubting_precedent": "doubting_precedent",
+      "overruling_precedent": "overruling_precedent",
+      "explaining_precedent": "explaining_precedent",
+      "binding_larger_bench": "binding_larger_bench",
+      "article_141_binding": "article_141_binding",
+      "persuasive_only": "persuasive_only",
+      "per_incuriam": "per_incuriam",
+      "sub_silentio": "sub_silentio",
+      "deferred_application": "deferred_application",
+      "noted_above": "noted_above",
+      "aforesaid_facts": "aforesaid_facts",
+      "sequential_doctrine": "sequential_doctrine",
+      "golden_triangle_interconnection": "golden_triangle_interconnection",
+      "hypothetical_concession": "hypothetical_concession",
+      "but_for_causation": "but_for_causation",
+      "distinguishing_counterfactual": "distinguishing_counterfactual",
+      "single_factor_determinism": "single_factor_determinism",
+      "sufficient_conditions_disjunctive": "sufficient_conditions_disjunctive",
+      "sufficient_conditions_conjunctive": "sufficient_conditions_conjunctive"
+    }
+  }
+}

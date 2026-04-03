@@ -1,0 +1,1120 @@
+[03:26:01] INFO     ============================================================
+[03:26:01] INFO     HUDOC Turkish ECHR Case Scraper v2
+[03:26:01] INFO     Started: 2026-02-20T03:26:01.221455
+[03:26:01] INFO     ============================================================
+[03:26:01] INFO     Output:          C:\Users\anshu\PycharmProjects\seriousWork\echr_turkey_cases
+[03:26:01] INFO     Threads:         8
+[03:26:01] INFO     Importance:      1-3
+[03:26:01] INFO     Settlements:     included
+[03:26:01] INFO     Min text length: 0 chars
+[03:26:01] INFO     Per-thread delay: 0.25s
+[03:26:01] INFO     
+[1/4] Fetching metadata from HUDOC...
+[03:26:02] INFO     Total Turkish ECHR cases on HUDOC: 7134
+[03:26:02] INFO       Fetched 500/7134 metadata records (500 kept)
+[03:26:03] INFO       Fetched 1000/7134 metadata records (1000 kept)
+[03:26:05] INFO       Fetched 1500/7134 metadata records (1500 kept)
+[03:26:06] INFO       Fetched 2000/7134 metadata records (2000 kept)
+[03:26:07] INFO       Fetched 2500/7134 metadata records (2500 kept)
+[03:26:08] INFO       Fetched 3000/7134 metadata records (3000 kept)
+[03:26:09] INFO       Fetched 3500/7134 metadata records (3500 kept)
+[03:26:11] INFO       Fetched 4000/7134 metadata records (4000 kept)
+[03:26:12] INFO       Fetched 4500/7134 metadata records (4500 kept)
+[03:26:13] INFO       Fetched 5000/7134 metadata records (5000 kept)
+[03:26:14] INFO       Fetched 5500/7134 metadata records (5500 kept)
+[03:26:15] INFO       Fetched 6000/7134 metadata records (6000 kept)
+[03:26:16] INFO       Fetched 6500/7134 metadata records (6500 kept)
+[03:26:19] INFO       Fetched 7000/7134 metadata records (7000 kept)
+[03:26:20] INFO       Fetched 7134/7134 metadata records (7134 kept)
+[03:26:20] INFO     Metadata complete: 7134 cases
+[03:26:20] INFO     Saved unfiltered metadata: echr_turkey_cases\metadata_all.csv (7134 cases)
+[03:26:20] INFO     
+──────────────────────────────────────────────────
+[03:26:20] INFO     Dataset distribution (before filtering):
+[03:26:20] INFO       Importance: {'1': 120, '2': 112, '3': 773, '4': 6129}
+[03:26:20] INFO       Collection: {'CHAMBER': 3503, 'DECISION': 2996, 'GRANDCHAMBER': 60, 'JUDGMENT': 575}
+[03:26:20] INFO       Conclusion: {'(empty)': 78, 'inadmissible': 1423, 'other': 273, 'settlement/struck': 1582, 'violation': 3778}
+[03:26:20] INFO       Labels:     {0: 1536, 1: 3642, 'unknown': 1956}
+[03:26:20] INFO     ──────────────────────────────────────────────────
+
+[03:26:20] INFO     [2/4] Applying quality filters...
+[03:26:20] INFO     Filtering results:
+[03:26:20] INFO       Before:              7134
+[03:26:20] INFO       Skipped (importance): 6129
+[03:26:20] INFO       Skipped (settlement): 0
+[03:26:20] INFO       Skipped (collection): 0
+[03:26:20] INFO       Kept:                1005
+[03:26:20] INFO     
+──────────────────────────────────────────────────
+[03:26:20] INFO     Dataset distribution (after filtering):
+[03:26:20] INFO       Importance: {'1': 120, '2': 112, '3': 773}
+[03:26:20] INFO       Collection: {'CHAMBER': 879, 'DECISION': 66, 'GRANDCHAMBER': 60}
+[03:26:20] INFO       Conclusion: {'inadmissible': 50, 'other': 35, 'settlement/struck': 16, 'violation': 904}
+[03:26:20] INFO       Labels:     {0: 118, 1: 824, 'unknown': 63}
+[03:26:20] INFO     ──────────────────────────────────────────────────
+
+[03:26:20] INFO     Saved filtered metadata: echr_turkey_cases\metadata.csv (1005 cases)
+[03:26:20] INFO     Building labels manifest...
+[03:26:20] INFO     Labels manifest: 1005 entries, 942 with binary labels
+[03:26:20] INFO     
+[3/4] Downloading full texts (1005 cases)...
+[03:26:26] DEBUG    Failed: CASE OF UMAR KARATEPE v. TURKEY
+[03:26:26] DEBUG    Failed: CASE OF DİNK v. TURKEY
+[03:26:26] DEBUG    Failed: CASE OF SERDAR YİĞİT AND OTHERS v. TURKEY
+[03:26:26] DEBUG    Failed: CASE OF AYAN v. TURKEY
+[03:26:26] DEBUG    Failed: CASE OF ÖZPINAR v. TURKEY
+[03:26:26] DEBUG    Failed: CASE OF TİMTİK v. TURKEY
+[03:26:26] DEBUG    Failed: CASE OF NUR RADYO VE TELEVIZYON YAYINCILIGI A.S. v. TURKEY (no. 2)
+[03:26:27] DEBUG    Failed: CASE OF ÖLMEZ AND OTHERS v. TURKEY
+[03:26:32] DEBUG    Failed: CASE OF TURAN BİÇER v. TURKEY
+[03:26:32] DEBUG    Failed: CASE OF SERVET GÜNDÜZ AND OTHERS v. TURKEY
+[03:26:32] DEBUG    Failed: CASE OF POYRAZ v. TURKEY
+[03:26:32] DEBUG    Failed: CASE OF S.S. BALIKLIÇEŞME BELDESI TAR. KAL. KOOPERATİFİ v. TURKEY
+[03:26:32] DEBUG    Failed: CASE OF HÜSEYİN AK AND OTHERS v. TURKEY
+[03:26:32] DEBUG    Failed: CASE OF CİĞERHUN ÖNER v. TURKEY (No. 2)
+[03:26:33] DEBUG    Failed: CASE OF BERÜ v. TURKEY
+[03:26:33] DEBUG    Failed: CASE OF SAFAK v. TURKEY
+[03:26:37] DEBUG    Failed: CASE OF EKDAL AND OTHERS v. TURKEY
+[03:26:38] DEBUG    Failed: CASE OF MENTEŞ v. TURKEY (No. 2)
+[03:26:38] DEBUG    Failed: CASE OF GEREKSAR AND OTHERS v. TURKEY
+[03:26:38] DEBUG    Failed: CASE OF EBCİN v. TURKEY
+[03:26:38] DEBUG    Failed: CASE OF YAZGÜL YILMAZ v. TURKEY
+[03:26:38] DEBUG    Failed: CASE OF GÜLİZAR TUNCER v. TURKEY
+[03:26:39] DEBUG    Failed: CASE OF FATİH TAŞ v. TURKEY
+[03:26:39] DEBUG    Failed: CASE OF BÖLÜKBAŞ AND OTHERS v. TURKEY
+[03:26:43] DEBUG    Failed: CASE OF VELİ YALÇIN v. TURKEY
+[03:26:44] DEBUG    Failed: CASE OF İÇEN v. TURKEY
+[03:26:44] DEBUG    Failed: CASE OF GÜNAYDIN TURİZM VE İNŞAAT TİCARET ANONİM ŞİRKETİI v. TURKEY
+[03:26:45] DEBUG    Failed: CASE OF SABRİ GÜNEŞ v. TURKEY
+[03:26:45] DEBUG    Failed: CASE OF PULATLI v. TURKEY
+[03:26:46] DEBUG    Failed: CASE OF AYGÜN v. TURKEY
+[03:26:46] DEBUG    Failed: CASE OF ŞİŞMAN AND OTHERS v. TURKEY
+[03:26:46] DEBUG    Failed: CASE OF METİN v. TURKEY
+[03:26:49] DEBUG    Failed: CASE OF VEYSEL ŞAHİN v. TURKEY
+[03:26:49] INFO       [50/1005] ok=17  skip=0  short=0  fail=33
+[03:26:49] DEBUG    Failed: CASE OF ACET AND OTHERS v. TURKEY
+[03:26:50] DEBUG    Failed: CASE OF DÜLEK AND OTHERS v. TURKEY
+[03:26:50] DEBUG    Failed: CASE OF HALAT v. TURKEY
+[03:26:51] DEBUG    Failed: CASE OF PAÇACI AND OTHERS v. TURKEY
+[03:26:52] DEBUG    Failed: CASE OF RECEP KURT v. TURKEY
+[03:26:52] DEBUG    Failed: CASE OF İZGİ v. TURKEY
+[03:26:52] DEBUG    Failed: CASE OF ERÇEP v. TURKEY
+[03:26:54] DEBUG    Failed: CASE OF ALTINOK v. TURKEY
+[03:26:55] DEBUG    Failed: CASE OF  CENGİZ KILIÇ v. TURKEY
+[03:26:55] DEBUG    Failed: CASE OF İYİLİK v. TURKEY
+[03:26:56] DEBUG    Failed: CASE OF FETİ DEMİRTAŞ v. TURKEY
+[03:26:56] DEBUG    Failed: CASE OF ASICI v. TURKEY (No. 2)
+[03:26:57] DEBUG    Failed: CASE OF ŞİMŞEK v. TURKEY
+[03:27:00] DEBUG    Failed: CASE OF ÜMMÜHAN KAPLAN v. TURKEY
+[03:27:00] DEBUG    Failed: CASE OF İLKER ENSAR UYANIK v. TURKEY
+[03:27:00] DEBUG    Failed: CASE OF DİRİÖZ v. TURKEY
+[03:27:02] DEBUG    Failed: CASE OF SAVDA v. TURKEY
+[03:27:02] DEBUG    Failed: CASE OF KAYAK v. TURKEY
+[03:27:03] DEBUG    Failed: CASE OF ALKAYA v. TURKEY
+[03:27:03] DEBUG    Failed: CASE OF NİHAYET ARICI AND OTHERS v. TURKEY
+[03:27:03] DEBUG    Failed: CASE OF SÜZER AND EKSEN HOLDİNG A.Ş. v. TURKEY
+[03:27:05] DEBUG    Failed: CASE OF BAYAR AND GÜRBÜZ v. TURKEY
+[03:27:06] DEBUG    Failed: CASE OF ÖZMEN v. TURKEY
+[03:27:06] DEBUG    Failed: CASE OF GÜLAY ÇETİN v. TURKEY
+[03:27:08] DEBUG    Failed: CASE OF AYDAN v. TURKEY
+[03:27:08] DEBUG    Failed: CASE OF SALİH SALMAN KILIÇ v. TURKEY
+[03:27:08] INFO       [100/1005] ok=41  skip=0  short=0  fail=59
+[03:27:09] DEBUG    Failed: CASE OF SÜZER v. TURKEY
+[03:27:09] DEBUG    Failed: CASE OF GÜN AND OTHERS v. TURKEY
+[03:27:10] DEBUG    Failed: CASE OF DİNÇ AND ÇAKIR v. TURKEY
+[03:27:11] DEBUG    Failed: CASE OF MATER v. TURKEY
+[03:27:12] DEBUG    Failed: CASE OF ABİK v. TURKEY
+[03:27:12] DEBUG    Failed: CASE OF ÜRFİ ÇETİNKAYA v. TURKEY
+[03:27:14] DEBUG    Failed: CASE OF ÜMİT BİLGİÇ v. TURKEY
+[03:27:14] DEBUG    Failed: CASE OF HÜSEYİN KAPLAN v. TURKEY
+[03:27:16] DEBUG    Failed: CASE OF YALÇINKAYA AND OTHERS v. TURKEY
+[03:27:18] DEBUG    Failed: CASE OF MAKBULE KAYMAZ AND OTHERS v. TURKEY
+[03:27:18] DEBUG    Failed: CASE OF ALİCAN DEMİR v. TURKEY
+[03:27:18] DEBUG    Failed: CASE OF ORUK v. TURKEY
+[03:27:18] DEBUG    Failed: CASE OF CAMEKAN v. TURKEY
+[03:27:19] DEBUG    Failed: CASE OF ERGEZEN v. TURKEY
+[03:27:20] DEBUG    Failed: CASE OF ŞIK v. TURKEY
+[03:27:21] DEBUG    Failed: CASE OF NEDİM ŞENER v. TURKEY
+[03:27:23] DEBUG    Failed: CASE OF ERDOĞAN GÖKÇE v. TURKEY
+[03:27:23] INFO       [150/1005] ok=74  skip=0  short=0  fail=76
+[03:27:23] DEBUG    Failed: CASE OF HEBAT ASLAN AND FİRAS ASLAN v. TURKEY
+[03:27:24] DEBUG    Failed: CASE OF CUMHURİYETÇİ EĞİTİM VE KÜLTÜR MERKEZİ VAKFI v. TURKEY
+[03:27:25] DEBUG    Failed: CASE OF YOSLUN v. TURKEY
+[03:27:25] DEBUG    Failed: CASE OF AKDEMİR AND EVİN v. TURKEY
+[03:27:26] DEBUG    Failed: CASE OF DOĞAN ALTUN v. TURKEY
+[03:27:26] DEBUG    Failed: CASE OF ÖZBENT AND OTHERS v. TURKEY
+[03:27:27] DEBUG    Failed: CASE OF ÖZÇELEBİ v. TURKEY
+[03:27:29] DEBUG    Failed: CASE OF BALTA AND DEMİR v. TURKEY
+[03:27:30] DEBUG    Failed: CASE OF SARIDAŞ v. TURKEY
+[03:27:31] DEBUG    Failed: CASE OF GÜRTAŞ YAPI TİCARET VE PAZARLAMA A. Ş. v. TURKEY
+[03:27:33] DEBUG    Failed: CASE OF ŞAKAR AND OTHERS v. TURKEY
+[03:27:33] DEBUG    Failed: CASE OF TANIŞMA v. TURKEY
+[03:27:33] DEBUG    Failed: CASE OF SEFER YILMAZ ET MERYEM YILMAZ v. TURKEY
+[03:27:34] DEBUG    Failed: CASE OF PARTY FOR A DEMOCRATIC SOCIETY (DTP)  AND OTHERS v. TURKEY
+[03:27:34] DEBUG    Failed: CASE OF YAVUZ SELİM GÜLER v. TURKEY
+[03:27:35] DEBUG    Failed: CASE OF GÖRMÜŞ AND OTHERS v. TURKEY
+[03:27:35] DEBUG    Failed: CASE OF SODAN v. TURKEY
+[03:27:37] DEBUG    Failed: CASE OF ERDENER v. TURKEY
+[03:27:38] DEBUG    Failed: CASE OF CAVİT TINARLIOĞLU v. TURKEY
+[03:27:39] DEBUG    Failed: CASE OF ÖZTÜNÇ v. TURKEY
+[03:27:39] DEBUG    Failed: CASE OF CİVEK v. TURKEY
+[03:27:40] DEBUG    Failed: CASE OF M.G. v. TURKEY
+[03:27:40] DEBUG    Failed: CASE OF GÖKBULUT v. TURKEY
+[03:27:41] DEBUG    Failed: CASE OF VEDAT DOĞRU v. TURKEY
+[03:27:43] DEBUG    Failed: CASE OF KALKAN v. TURKEY
+[03:27:45] DEBUG    Failed: CASE OF SÜLEYMAN ÇELEBİ AND OTHERS v. TURKEY
+[03:27:45] DEBUG    Failed: CASE OF KARABEYOĞLU v. TURKEY
+[03:27:45] DEBUG    Failed: CASE OF ENVER AYDEMİR v. TURKEY
+[03:27:46] INFO       [200/1005] ok=96  skip=0  short=0  fail=104
+[03:27:46] DEBUG    Failed: CASE OF ASSOCIATION FOR SOLIDARITY WITH JEHOVAH'S WITNESSES AND OTHERS v. TURKEY
+[03:27:46] DEBUG    Failed: CASE OF ŞAHİN KUŞ v. TURKEY
+[03:27:46] DEBUG    Failed: CASE OF CEVAT ÖZEL v. TURKEY
+[03:27:47] DEBUG    Failed: CASE OF HALİME KILIÇ v. TURKEY
+[03:27:48] DEBUG    Failed: CASE OF ALİ OSMAN ÖZMEN v. TURKEY
+[03:27:50] DEBUG    Failed: CASE OF EĞİTİM VE BİLİM EMEKÇİLERİ SENDİKASI AND OTHERS v. TURKEY
+[03:27:51] DEBUG    Failed: CASE OF AYDOĞDU v. TURKEY
+[03:27:52] DEBUG    Failed: CASE OF A.Ş. v. TURKEY
+[03:27:52] DEBUG    Failed: CASE OF SAVDA v. TURKEY (No. 2)
+[03:27:52] DEBUG    Failed: CASE OF KERİMAN TEKİN AND OTHERS v. TURKEY
+[03:27:52] DEBUG    Failed: CASE OF KERMAN v. TURKEY
+[03:27:53] DEBUG    Failed: CASE OF DÖKMECİ v. TURKEY
+[03:27:53] DEBUG    Failed: CASE OF SARIHAN v. TURKEY
+[03:27:56] DEBUG    Failed: CASE OF KUTLU AND OTHERS v. TURKEY
+[03:27:57] DEBUG    Failed: CASE OF İRFAN GÜZEL v. TURKEY
+[03:27:58] DEBUG    Failed: CASE OF SARIGÜL v. TURKEY
+[03:27:58] DEBUG    Failed: CASE OF CUMHURİYETÇİ EĞİTİM VE KÜLTÜR MERKEZİ VAKFI v. TURKEY
+[03:28:00] DEBUG    Failed: CASE OF ҪEVİKEL v. TURKEY
+[03:28:00] DEBUG    Failed: CASE OF EKER v. TURKEY
+[03:28:00] DEBUG    Failed: CASE OF ALİ ÇETİN v. TURKEY
+[03:28:01] INFO       [250/1005] ok=126  skip=0  short=0  fail=124
+[03:28:01] DEBUG    Failed: CASE OF TARMAN v. TURKEY
+[03:28:03] DEBUG    Failed: CASE OF AGİT DEMİR v. TURKEY
+[03:28:04] DEBUG    Failed: CASE OF UZAN v. TURKEY
+[03:28:05] DEBUG    Failed: CASE OF ZEHRA FOUNDATION AND OTHERS v. TURKEY
+[03:28:05] DEBUG    Failed: CASE OF YİRDEM AND OTHERS v. TURKEY
+[03:28:05] DEBUG    Failed: CASE OF KASAT v. TURKEY
+[03:28:06] DEBUG    Failed: CASE OF GÜNANA AND OTHERS v. TURKEY
+[03:28:07] DEBUG    Failed: CASE OF GÖMİ v. TURKEY
+[03:28:08] DEBUG    Failed: CASE OF CUMHURİYETÇİ EĞİTİM VE KÜLTÜR MERKEZİ VAKFI v. TURKEY
+[03:28:09] DEBUG    Failed: CASE OF UZAN AND OTHERS v. TURKEY
+[03:28:09] DEBUG    Failed: CASE OF YAVAŞ AND OTHERS v. TURKEY
+[03:28:11] DEBUG    Failed: CASE OF MART AND OTHERS v. TURKEY
+[03:28:11] DEBUG    Failed: CASE OF DIMOPULOS v. TURKEY
+[03:28:12] DEBUG    Failed: CASE OF TARAK AND DEPE v. TURKEY
+[03:28:13] DEBUG    Failed: CASE OF AKTAŞ AND ASLANİSKENDER v. TURKEY
+[03:28:15] DEBUG    Failed: CASE OF MEHMET ULUSOY AND OTHERS v. TURKEY
+[03:28:15] DEBUG    Failed: CASE OF MİHR FOUNDATION v. TURKEY
+[03:28:16] DEBUG    Failed: CASE OF GÜRBÜZ AND BAYAR v. TURKEY
+[03:28:18] DEBUG    Failed: CASE OF ADANA TAYAD v. TURKEY
+[03:28:18] DEBUG    Failed: CASE OF AYDOĞAN AND DARA RADYO TELEVIZYON YAYINCILIK ANONIM ŞIRKETI v. TURKEY
+[03:28:18] INFO       [300/1005] ok=156  skip=0  short=0  fail=144
+[03:28:18] DEBUG    Failed: CASE OF KABOĞLU AND ORAN v. TURKEY (No. 2)
+[03:28:19] DEBUG    Failed: CASE OF İMREK v. TURKEY
+[03:28:20] DEBUG    Failed: CASE OF AKIN v. TURKEY
+[03:28:21] DEBUG    Failed: CASE OF ATILLA TAŞ v. TURKEY
+[03:28:22] DEBUG    Failed: CASE OF DICKINSON v. TURKEY
+[03:28:22] DEBUG    Failed: CASE OF RAMAZAN DEMİR v. TURKEY
+[03:28:23] DEBUG    Failed: CASE OF N.Ç. v. TURKEY
+[03:28:25] DEBUG    Failed: CASE OF SARAÇ AND OTHERS v. TURKEY
+[03:28:25] DEBUG    Failed: CASE OF MURAT AKSOY v. TURKEY
+[03:28:25] DEBUG    Failed: CASE OF AKDENİZ AND OTHERS v. TURKEY
+[03:28:25] DEBUG    Failed: CASE OF KERESTECIOĞLU DEMIR v. TURKEY
+[03:28:27] DEBUG    Failed: CASE OF SEDAT DOĞAN v. TURKEY
+[03:28:27] DEBUG    Failed: CASE OF NAKİ ET AMED SPORTİF FAALİYETLER KULÜBÜ DERNEĞİ v. TURKEY
+[03:28:30] DEBUG    Failed: CASE OF İBRAHİM TOKMAK v. TURKEY
+[03:28:31] DEBUG    Failed: CASE OF YEL AND OTHERS v. TURKEY
+[03:28:31] DEBUG    Failed: CASE OF BULAÇ v. TURKEY
+[03:28:32] DEBUG    Failed: CASE OF AKGÜN v. TURKEY
+[03:28:32] DEBUG    Failed: CASE OF TERCAN v. TURKEY
+[03:28:32] DEBUG    Failed: CASE OF MELİKE v. TURKEY
+[03:28:33] DEBUG    Failed: CASE OF KEMAL BAYRAM v. TURKEY
+[03:28:33] DEBUG    Failed: CASE OF TUNCER BAKIRHAN v. TURKEY
+[03:28:35] DEBUG    Failed: CASE OF YAVUZ ÖZDEN v. TURKEY
+[03:28:37] DEBUG    Failed: CASE OF VEDAT ŞORLİ v. TURKEY
+[03:28:37] DEBUG    Failed: CASE OF MEHMET ÇİFTCİ v. TURKEY
+[03:28:38] DEBUG    Failed: CASE OF AKPAZ SOCIÉTÉ À RESPONSABILITÉ LIMITÉE v. TURKEY
+[03:28:38] DEBUG    Failed: CASE OF MEHMET ÇİFTÇİ AND SUAT İNCEDERE v. TURKEY
+[03:28:38] DEBUG    Failed: CASE OF İLKER DENİZ YÜCEL v. TURKEY
+[03:28:39] DEBUG    Failed: CASE OF KOZAN v. TURKEY
+[03:28:39] DEBUG    Failed: CASE OF NUH UZUN AND OTHERS v. TURKEY
+[03:28:41] DEBUG    Failed: CASE OF SİLGİR v. TURKEY
+[03:28:42] DEBUG    Failed: CASE OF YEŞİLLER VE SOL GELECEK PARTİSİ v. TURKEY
+[03:28:43] DEBUG    Failed: CASE OF M.N. AND OTHERS v. TURKEY
+[03:28:44] INFO       [350/1005] ok=174  skip=0  short=0  fail=176
+[03:28:45] DEBUG    Failed: CASE OF ETE v. TÜRKİYE
+[03:28:45] DEBUG    Failed: CASE OF TANER KILIÇ  v. TURKEY (No. 2)
+[03:28:45] DEBUG    Failed: CASE OF AKKAD v. TURKEY
+[03:28:45] DEBUG    Failed: CASE OF DİMİCİ v. TURKEY
+[03:28:46] DEBUG    Failed: CASE OF İKİZTAŞ ELEKTRİK TAAHHÜT TİCARET VE SANAYİ LİMİTED ŞİRKETİ v. TÜRKİYE
+[03:28:47] DEBUG    Failed: CASE OF YÜKSEKDAĞ ŞENOĞLU AND OTHERS v. TÜRKİYE
+[03:28:47] DEBUG    Failed: CASE OF IŞGIN v. TÜRKİYE
+[03:28:49] DEBUG    Failed: CASE OF ARNAVUTKÖY GREEK ORTHODOX TAKSIARHIS CHURCH FOUNDATION v. TÜRKİYE
+[03:28:50] DEBUG    Failed: CASE OF ÇİÇEK AND OTHERS v. TÜRKİYE
+[03:28:51] DEBUG    Failed: CASE OF ABDULLAH KILIÇ v. TÜRKİYE
+[03:28:51] DEBUG    Failed: CASE OF CHIEF RABBINATE OF THE JEWISH COMMUNITY OF İZMİR v. TÜRKİYE
+[03:28:51] DEBUG    Failed: CASE OF TELEK AND OTHERS v. TÜRKİYE
+[03:28:52] DEBUG    Failed: CASE OF DEMİRAY v. TÜRKİYE
+[03:28:53] DEBUG    Failed: CASE OF DEMIRTAŞ AND YÜKSEKDAĞ ŞENOĞLU v. TÜRKİYE
+[03:28:53] DEBUG    Failed: CASE OF KAZAN v. TÜRKİYE
+[03:28:55] DEBUG    Failed: CASE OF SARISU PEHLİVAN v. TÜRKİYE
+[03:28:56] DEBUG    Failed: CASE OF KAYMAK AND OTHERS v. TÜRKİYE
+[03:28:57] DEBUG    Failed: CASE OF OSMAN AND ALTAY v. TÜRKİYE
+[03:28:57] DEBUG    Failed: CASE OF YAŞAROĞLU v. TÜRKİYE
+[03:28:58] DEBUG    Failed: CASE OF A.A.K. v. TÜRKİYE
+[03:28:59] DEBUG    Failed: CASE OF U.Y. v. TÜRKIYE
+[03:28:59] INFO       [400/1005] ok=203  skip=0  short=0  fail=197
+[03:29:00] DEBUG    Failed: CASE OF DURUKAN AND BİROL v. TÜRKİYE
+[03:29:01] DEBUG    Failed: CASE OF ERDAL MUHAMMET ARSLAN AND OTHERS v. TÜRKİYE
+[03:29:03] DEBUG    Failed: CASE OF DEDE v. TÜRKİYE
+[03:29:03] DEBUG    Failed: CASE OF KANATLI v. TÜRKİYE
+[03:29:04] DEBUG    Failed: CASE OF SÖZEN v. TÜRKİYE
+[03:29:04] DEBUG    Failed: CASE OF ALPASLAN v. TÜRKİYE
+[03:29:05] DEBUG    Failed: CASE OF SELÇUK v. TÜRKİYE
+[03:29:06] DEBUG    Failed: CASE OF YASAK v. TÜRKİYE
+[03:29:07] DEBUG    Failed: CASE OF CEYHAN v. TÜRKİYE
+[03:29:07] INFO       [450/1005] ok=244  skip=0  short=0  fail=206
+[03:29:09] DEBUG    Failed: CASE OF SELAHATTİN DEMİRTAŞ v. TÜRKİYE (No. 4)
+[03:29:10] DEBUG    Failed: CASE OF İ.Ç. v. TÜRKİYE
+[03:29:10] DEBUG    Failed: CASE OF KANDEMİR v. TÜRKİYE
+[03:29:12] INFO       [500/1005] ok=291  skip=0  short=0  fail=209
+[03:29:18] DEBUG    Failed: CASE OF EKINCI v. TURKEY
+[03:29:18] DEBUG    Failed: CASE OF IBRAHIM AKSOY v. TURKEY
+[03:29:18] DEBUG    Failed: CASE OF TANRIBILIR v. TURKEY
+[03:29:19] DEBUG    Failed: CASE OF BÜYÜKDAG v. TURKEY
+[03:29:19] DEBUG    Failed: CASE OF BERKTAY v. TURKEY
+[03:29:20] DEBUG    Failed: CASE OF ALTAY v. TURKEY
+[03:29:20] DEBUG    Failed: CASE OF KAMIL T. SÜREK v. TURKEY
+[03:29:23] DEBUG    Failed: CASE OF SARI v. TURKEY AND DENMARK
+[03:29:23] DEBUG    Failed: CASE OF E.K. v. TURKEY
+[03:29:24] DEBUG    Failed: CASE OF ABDURRAHMAN ORAK v. TURKEY
+[03:29:24] INFO       [550/1005] ok=331  skip=0  short=0  fail=219
+[03:29:25] DEBUG    Failed: CASE OF YAGMURDERELI v. TURKEY
+[03:29:26] DEBUG    Failed: CASE OF ERDOGAN v. TURKEY
+[03:29:26] DEBUG    Failed: CASE OF ALI EROL v. TURKEY
+[03:29:26] DEBUG    Failed: CASE OF SIDDIK YASA v. TURKEY
+[03:29:26] DEBUG    Failed: CASE OF SEHER KARATAS v. TURKEY
+[03:29:29] DEBUG    Failed: CASE OF KARAKOC AND OTHERS v. TURKEY
+[03:29:29] DEBUG    Failed: CASE OF ALGÜR v. TURKEY
+[03:29:31] DEBUG    Failed: CASE OF DALKILIC v. TURKEY
+[03:29:31] DEBUG    Failed: CASE OF AYSE ÖZTÜRK v. TURKEY
+[03:29:32] DEBUG    Failed: CASE OF DICLE FOR THE DEMOCRATIC PARTY (DEP) OF TURKEY v. TURKEY
+[03:29:32] DEBUG    Failed: CASE OF YALÇIN KÜÇÜK v. TURKEY
+[03:29:32] DEBUG    Failed: CASE OF ZEYNEP AVCI v. TURKEY
+[03:29:34] DEBUG    Failed: CASE OF YASAR KEMAL GÖKÇELİ v. TURKEY
+[03:29:35] DEBUG    Failed: CASE OF C.S.Y. v. TURKEY
+[03:29:35] DEBUG    Failed: CASE OF YILTAS YILDIZ TURISTIK TESISLERI A.S. v. TURKEY
+[03:29:37] DEBUG    Failed: CASE OF SEVGI ERDOGAN v. TURKEY
+[03:29:38] DEBUG    Failed: CASE OF AYSE TEPE v. TURKEY
+[03:29:38] DEBUG    Failed: CASE OF ESEN v. TURKEY
+[03:29:38] DEBUG    Failed: CASE OF YAZ v. TURKEY
+[03:29:40] DEBUG    Failed: CASE OF KARKIN v. TURKEY
+[03:29:40] DEBUG    Failed: CASE OF KIZILYAPRAK v. TURKEY
+[03:29:40] DEBUG    Failed: CASE OF SOCIALIST PARTY OF TURKEY (STP) AND OTHERS v. TURKEY
+[03:29:41] INFO       [600/1005] ok=359  skip=0  short=0  fail=241
+[03:29:43] DEBUG    Failed: CASE OF MEHDİ ZANA v. TURKEY (No. 2)
+[03:29:45] DEBUG    Failed: CASE OF ABDULLAH AYDIN v. TURKEY
+[03:29:45] DEBUG    Failed: CASE OF MAMAC AND OTHERS v. TURKEY
+[03:29:45] DEBUG    Failed: CASE OF MEHMET SALIH AND ABDULSAMET CAKMAK v. TURKEY
+[03:29:46] DEBUG    Failed: CASE OF SARIKAYA v. TURKEY
+[03:29:46] DEBUG    Failed: CASE OF SADAK v. TURKEY
+[03:29:47] DEBUG    Failed: CASE OF YURTTAS v. TURKEY
+[03:29:48] DEBUG    Failed: CASE OF AYDIN AND YUNUS v. TURKEY
+[03:29:49] DEBUG    Failed: CASE OF BAKBAK v. TURKEY
+[03:29:50] DEBUG    Failed: CASE OF ZARAKOLU AND BELGE ULUSLARARASI YAYINCILIK v. TURKEY
+[03:29:50] DEBUG    Failed: CASE OF ERKEK v. TURKEY
+[03:29:51] DEBUG    Failed: CASE OF K. v. TURKEY
+[03:29:52] DEBUG    Failed: CASE OF O. v. TURKEY
+[03:29:52] DEBUG    Failed: CASE OF HAYDAR YILDIRIM AND OTHERS v. TURKEY
+[03:29:53] DEBUG    Failed: CASE OF I.R.S. AND OTHERS v. TURKEY
+[03:29:54] DEBUG    Failed: CASE OF A.A. AND OTHERS v. TURKEY
+[03:29:55] DEBUG    Failed: CASE OF KÜRKÇÜ v. TURKEY
+[03:29:56] DEBUG    Failed: CASE OF OKUTAN v. TURKEY
+[03:29:56] DEBUG    Failed: CASE OF İPRAHIM ÜLGER v. TURKEY
+[03:29:58] DEBUG    Failed: CASE OF Y.B. AND OTHERS v. TURKEY
+[03:29:58] DEBUG    Failed: CASE OF ZENGİN v. TURKEY
+[03:29:58] DEBUG    Failed: CASE OF SEYHAN v. TURKEY
+[03:30:01] DEBUG    Failed: CASE OF CANEVİ AND OTHERS v. TURKEY
+[03:30:02] DEBUG    Failed: CASE OF BARAN v. TURKEY
+[03:30:02] INFO       [650/1005] ok=385  skip=0  short=0  fail=265
+[03:30:03] DEBUG    Failed: CASE OF A.K. AND V.K. v. TURKEY
+[03:30:03] DEBUG    Failed: CASE OF CEYHAN DEMİR AND OTHERS v. TURKEY
+[03:30:03] DEBUG    Failed: CASE OF SUNAL v. TURKEY
+[03:30:04] DEBUG    Failed: CASE OF ŞAHİN AND OTHERS v. TURKEY
+[03:30:04] DEBUG    Failed: CASE OF  BİYAN v. TURKEY
+[03:30:05] DEBUG    Failed: CASE OF PAKDEMİRLİ v. TURKEY
+[03:30:07] DEBUG    Failed: CASE OF GEZİCİ v. TURKEY
+[03:30:08] DEBUG    Failed: CASE OF AY v. TURKEY
+[03:30:08] DEBUG    Failed: CASE OF GÜNGÖR v. TURKEY
+[03:30:09] DEBUG    Failed: CASE OF POLAT v. TURKEY
+[03:30:09] DEBUG    Failed: CASE OF KİMRAN v. TURKEY
+[03:30:09] DEBUG    Failed: CASE OF MÜSLIM v. TURKEY
+[03:30:10] DEBUG    Failed: DEMOCRACY AND CHANGE PARTY AND OTHERS v. TURKEY
+[03:30:13] DEBUG    Failed: CASE OF ACUNBAY v. TURKEY
+[03:30:13] DEBUG    Failed: CASE OF DİNLER v. TURKEY
+[03:30:14] DEBUG    Failed: CASE OF EMEK PARTİSİ AND ŞENOL v. TURKEY
+[03:30:15] DEBUG    Failed: CASE OF TUNÇ  v. TURKEY
+[03:30:16] DEBUG    Failed: CASE OF I.R.S. AND OTHERS  v. TURKEY
+[03:30:16] DEBUG    Failed: CASE OF GÜLTEKİN AND OTHERS v. TURKEY
+[03:30:18] DEBUG    Failed: CASE OF DALAN v. TURKEY
+[03:30:18] DEBUG    Failed: CASE OF KILINÇ AND OTHERS v. TURKEY
+[03:30:18] DEBUG    Failed: CASE OF HASAN KILIC v. TURKEY
+[03:30:19] DEBUG    Failed: CASE OF İ.Ö. v. TURKEY
+[03:30:19] DEBUG    Failed: CASE OF TEMEL AND TAŞKIN v. TURKEY
+[03:30:20] DEBUG    Failed: CASE OF S.B. AND H.T. v. TURKEY
+[03:30:22] DEBUG    Failed: CASE OF GÜNERİ AND OTHERS v. TURKEY
+[03:30:22] DEBUG    Failed: CASE OF ÖNDER v. TURKEY
+[03:30:23] INFO       [700/1005] ok=408  skip=0  short=0  fail=292
+[03:30:24] DEBUG    Failed: CASE OF FATMA KAÇAR v. TURKEY
+[03:30:24] DEBUG    Failed: CASE OF KOLU v. TURKEY
+[03:30:25] DEBUG    Failed: CASE OF SADEGÜL ÖZDEMİR v. TURKEY
+[03:30:25] DEBUG    Failed: CASE OF HAMIYET KAPLAN AND OTHERS v. TURKEY
+[03:30:26] DEBUG    Failed: CASE OF ERTAŞ AYDIN AND OTHERS v. TURKEY
+[03:30:26] DEBUG    Failed: CASE OF BULĞA AND OTHERS v. TURKEY
+[03:30:29] DEBUG    Failed: CASE OF ÇELİK AND YILDIZ v. TURKEY
+[03:30:29] DEBUG    Failed: CASE OF GULLU v. TURKEY
+[03:30:30] DEBUG    Failed: CASE OF GÜNAYDIN  v. TURKEY
+[03:30:30] DEBUG    Failed: CASE OF TEKİN YILDIZ v. TURKEY
+[03:30:31] DEBUG    Failed: CASE OF UYAN v. TURKEY
+[03:30:32] DEBUG    Failed: CASE OF SİNAN EREN v. TURKEY
+[03:30:32] DEBUG    Failed: CASE OF GÜRBÜZ v. TURKEY
+[03:30:32] DEBUG    Failed: CASE OF KURUÇAY v. TURKEY
+[03:30:35] DEBUG    Failed: CASE OF BAYRAK AND OTHERS v. TURKEY
+[03:30:36] DEBUG    Failed: CASE OF AYDIN EREN AND OTHERS v. TURKEY
+[03:30:36] DEBUG    Failed: CASE OF BILEN v. TURKEY
+[03:30:36] DEBUG    Failed: CASE OF DOĞANAY v. TURKEY
+[03:30:37] DEBUG    Failed: CASE OF ODABAŞI AND KOÇAK v. TURKEY
+[03:30:38] DEBUG    Failed: CASE OF İZMİR SAVAŞ KARŞITLARI DERNEĞİ AND OTHERS v. TURKEY
+[03:30:38] DEBUG    Failed: CASE OF ADEM YILMAZ AND OTHERS v. TURKEY
+[03:30:39] DEBUG    Failed: CASE OF OZGUR RADYO-SES RADYO TELEVIZYON YAYIN YAPIM VE TANITIM AS. v. TURKEY (No. 1)
+[03:30:42] DEBUG    Failed: CASE OF YILTAS YILDIZ TURISTIK TESISLERI A.S. v. TURKEY
+[03:30:42] DEBUG    Failed: CASE OF AYDIN TATLAV v. TURKEY
+[03:30:42] DEBUG    Failed: CASE OF HALIT CELEBI v. TURKEY
+[03:30:43] DEBUG    Failed: CASE OF D. AND OTHERS v. TURKEY
+[03:30:43] INFO       [750/1005] ok=432  skip=0  short=0  fail=318
+[03:30:45] DEBUG    Failed: CASE OF GÖK AND OTHERS v. TURKEY
+[03:30:45] DEBUG    Failed: CASE OF YAŞAROĞLU v. TURKEY
+[03:30:45] DEBUG    Failed: CASE OF EBRU AND TAYFUN ENGİN ÇOLAK v. TURKEY
+[03:30:46] DEBUG    Failed: CASE OF H.M. v. TURKEY
+[03:30:47] DEBUG    Failed: CASE OF SÖYLEMEZ v. TURKEY
+[03:30:48] DEBUG    Failed: CASE OF ARAC v. TURKEY
+[03:30:49] DEBUG    Failed: CASE OF GÖÇMEN v. TURKEY
+[03:30:49] DEBUG    Failed: CASE OF SULTAN ÖNER AND OTHERS v. TURKEY
+[03:30:50] DEBUG    Failed: CASE OF KÖK v. TURKEY
+[03:30:51] DEBUG    Failed: CASE OF HUYLU v. TURKEY
+[03:30:51] DEBUG    Failed: CASE OF METİN TURAN v. TURKEY
+[03:30:53] DEBUG    Failed: CASE OF FAZIL AHMET TAMER v. TURKEY
+[03:30:53] DEBUG    Failed: CASE OF TANYAR AND KÜÇÜKERGİN v. TURKEY
+[03:30:54] DEBUG    Failed: CASE OF YAZICI v. TURKEY
+[03:30:55] DEBUG    Failed: CASE OF PAŞA AND ERKAN EROL v. TURKEY
+[03:30:55] DEBUG    Failed: CASE OF TÜRKMEN v. TURKEY
+[03:30:56] DEBUG    Failed: CASE OF GÖMİ AND OTHERS v. TURKEY
+[03:30:56] DEBUG    Failed: CASE OF GULER AND CALISKAN v. TURKEY
+[03:30:57] DEBUG    Failed: CASE OF N.A. AND OTHERS  v. TURKEY
+[03:30:59] DEBUG    Failed: CASE OF EKİNCİ AND AKALIN v. TURKEY
+[03:31:01] DEBUG    Failed: CASE OF FALAKAOĞLU AND SAYGILI v. TURKEY
+[03:31:01] DEBUG    Failed: CASE OF MENTEŞ v. TURKEY
+[03:31:02] DEBUG    Failed: CASE OF ÜNSAL v. TURKEY
+[03:31:02] DEBUG    Failed: CASE OF BENLI v. TURKEY
+[03:31:02] DEBUG    Failed: CASE OF SALGIN v. TURKEY
+[03:31:03] DEBUG    Failed: CASE OF ERKAN ORHAN v. TURKEY
+[03:31:03] DEBUG    Failed: CASE OF ÇİLOĞLU AND OTHERS v. TURKEY
+[03:31:05] DEBUG    Failed: CASE OF TALAT TUNÇ v. TURKEY
+[03:31:07] DEBUG    Failed: CASE OF APOSTOLİDİ AND OTHERS v. TURKEY
+[03:31:07] DEBUG    Failed: CASE OF KAVAKÇI v. TURKEY
+[03:31:07] INFO       [800/1005] ok=452  skip=0  short=0  fail=348
+[03:31:07] DEBUG    Failed: CASE OF SILAY v. TURKEY
+[03:31:08] DEBUG    Failed: CASE OF ILICAK v. TURKEY
+[03:31:08] DEBUG    Failed: CASE OF USLU v. TURKEY
+[03:31:09] DEBUG    Failed: CASE OF SOYSAL v. TURKEY
+[03:31:09] DEBUG    Failed: CASE OF HÜSEYİN YILDIRIM v. TURKEY
+[03:31:10] DEBUG    Failed: CASE OF ULUSOY AND OTHERS v. TURKEY
+[03:31:12] DEBUG    Failed: CASE OF KAMIL UZUN v. TURKEY
+[03:31:13] DEBUG    Failed: CASE OF BAKAN v. TURKEY
+[03:31:15] DEBUG    Failed: CASE OF LEMKE v. TURKEY
+[03:31:15] DEBUG    Failed: CASE OF EKREM v. TURKEY
+[03:31:16] DEBUG    Failed: CASE OF FAHRİYE ÇALIŞKAN v. TURKEY
+[03:31:16] DEBUG    Failed: CASE OF KARATEPE v. TURKEY
+[03:31:16] DEBUG    Failed: CASE OF KOZACIOĞLU v. TURKEY
+[03:31:17] DEBUG    Failed: CASE OF DÖLEK v. TURKEY
+[03:31:18] DEBUG    Failed: CASE OF ASAN v. TURKEY
+[03:31:19] DEBUG    Failed: CASE OF MERAL v. TURKEY
+[03:31:20] DEBUG    Failed: CASE OF NUR RADYO VE TELEVİZYON YAYINCILIĞI A.Ş. v. TURKEY
+[03:31:20] DEBUG    Failed: CASE OF ÖZGÜR RADYO-SES RADYO TELEVIZYON YAYIN YAPIM VE TANITIM A.Ş. v. TURKEY (No. 2)
+[03:31:21] DEBUG    Failed: CASE OF KARAKOYUN AND TURAN v. TURKEY
+[03:31:22] DEBUG    Failed: CASE OF NACARYAN AND DERYAN v. TURKEY
+[03:31:23] DEBUG    Failed: CASE OF SAYGILI AND OTHERS v. TURKEY
+[03:31:23] DEBUG    Failed: ERDOGAN v. TURKEY
+[03:31:24] DEBUG    Failed: CASE OF KARAMAN v. TURKEY
+[03:31:24] DEBUG    Failed: CASE OF MOSTAFA AND OTHERS v. TURKEY
+[03:31:25] DEBUG    Failed: CASE OF ABDULKADİR AKTAŞ v. TURKEY
+[03:31:26] DEBUG    Failed: CASE OF MANSUROĞLU v. TURKEY
+[03:31:26] DEBUG    Failed: CASE OF TAŞTAN v. TURKEY
+[03:31:27] DEBUG    Failed: CASE OF HÜSEYİN TURAN v. TURKEY
+[03:31:27] INFO       [850/1005] ok=474  skip=0  short=0  fail=376
+[03:31:29] DEBUG    Failed: CASE OF HÜSEYİN ŞİMŞEK v. TURKEY
+[03:31:30] DEBUG    Failed: CASE OF ABDULLAH YILMAZ  v. TURKEY
+[03:31:31] DEBUG    Failed: CASE OF KUTLULAR v. TURKEY
+[03:31:31] DEBUG    Failed: CASE OF KARADUMAN AND OTHERS v. TURKEY
+[03:31:32] DEBUG    Failed: CASE OF ŞAHİN KARATAŞ v. TURKEY
+[03:31:32] DEBUG    Failed: CASE OF TÜM v. TURKEY
+[03:31:33] DEBUG    Failed: CASE OF DOĞAN v. TURKEY
+[03:31:34] DEBUG    Failed: CASE OF FENER RUM PATRİKLİĞİ (ECUMENICAL PATRIARCHY) v. TURKEY
+[03:31:36] DEBUG    Failed: CASE OF YILMAZ AND KILIÇ v. TURKEY
+[03:31:36] DEBUG    Failed: CASE OF YÜREKLİ v. TURKEY
+[03:31:37] DEBUG    Failed: CASE OF KOKTEPE v. TURKEY
+[03:31:38] DEBUG    Failed: CASE OF AKTAN v. TURKEY
+[03:31:38] DEBUG    Failed: CASE OF IŞILDAK v. TURKEY
+[03:31:39] DEBUG    Failed: CASE OF MESUTOĞLU v. TURKEY
+[03:31:39] DEBUG    Failed: CASE OF SALİHOĞLU v. TURKEY
+[03:31:40] DEBUG    Failed: CASE OF KILAVUZ v. TURKEY
+[03:31:41] DEBUG    Failed: CASE OF UYAN v. TURKEY (No. 2)
+[03:31:41] DEBUG    Failed: CASE OF NEHYET GÜNAY AND OTHERS v. TURKEY
+[03:31:42] DEBUG    Failed: CASE OF GÜZEL ERDAGÖZ v. TURKEY
+[03:31:44] INFO       [900/1005] ok=505  skip=0  short=0  fail=395
+[03:31:45] DEBUG    Failed: CASE OF KAYASU v. TURKEY
+[03:31:46] DEBUG    Failed: CASE OF ÖMER AYDIN v. TURKEY
+[03:31:47] DEBUG    Failed: CASE OF ANCEL v. TURKEY
+[03:31:47] DEBUG    Failed: CASE OF BALCI v. TURKEY
+[03:31:48] DEBUG    Failed: CASE OF BOZCAADA KIMISIS TEODOKU RUM ORTODOKS KILISESI VAKFI  v. TURKEY
+[03:31:49] DEBUG    Failed: CASE OF HOROZ v. TURKEY
+[03:31:49] DEBUG    Failed: CASE OF TURNALI v. TURKEY
+[03:31:49] DEBUG    Failed: CASE OF MECAİL ÖZEL v. TURKEY
+[03:31:50] DEBUG    Failed: CASE OF SOYKAN v. TURKEY
+[03:31:52] DEBUG    Failed: CASE OF ÜNAL AKPINAR İNŞAAT İMALAT SANAYİ VE TİCARET S.A. AND AKPINAR YAPI SANAYİ S.A. v. TURKEY
+[03:31:52] DEBUG    Failed: CASE OF GÜNAYDIN TURİZM VE İNŞAAT TİCARET ANONİM ŞİRKETİ v. TURKEY
+[03:31:54] DEBUG    Failed: CASE OF BAHÇECİ AND TURAN v. TURKEY
+[03:31:54] DEBUG    Failed: CASE OF KESER AND KÖMÜRCÜ v. TURKEY
+[03:31:54] DEBUG    Failed: CASE OF KARA v. TURKEY
+[03:31:55] DEBUG    Failed: CASE OF DANESHPAYEH v. TURKEY
+[03:31:55] DEBUG    Failed: CASE OF OSMANAĞAOĞLU v. TURKEY
+[03:31:57] DEBUG    Failed: CASE OF OKÇU v. TURKEY
+[03:31:59] DEBUG    Failed: CASE OF BOZCAADA KİMİSİS TEODOKU RUM ORTODOKS KİLİSESİ VAKFI  v. TURKEY (No. 2)
+[03:32:01] DEBUG    Failed: CASE OF SERKAN YILMAZ AND OTHERS v. TURKEY
+[03:32:01] DEBUG    Failed: CASE OF ÖVÜS v. TURKEY
+[03:32:01] DEBUG    Failed: CASE OF ÖZBEK AND OTHERS v. TURKEY
+[03:32:01] DEBUG    Failed: CASE OF TUNCE AND OTHERS v. TURKEY
+[03:32:02] DEBUG    Failed: CASE OF AHMET AKMAN v. TURKEY
+[03:32:02] DEBUG    Failed: CASE OF SELİN ASLI ÖZTÜRK v. TURKEY
+[03:32:03] DEBUG    Failed: CASE OF KÖKTEPE v. TURKEY
+[03:32:06] DEBUG    Failed: CASE OF YUNUS AKTAŞ AND OTHERS v. TURKEY
+[03:32:06] DEBUG    Failed: CASE OF KOP v. TURKEY
+[03:32:07] DEBUG    Failed: CASE OF DAVRAN v. TURKEY
+[03:32:07] DEBUG    Failed: CASE OF YUSUF GEZER v. TURKEY
+[03:32:07] INFO       [950/1005] ok=526  skip=0  short=0  fail=424
+[03:32:08] DEBUG    Failed: CASE OF OSMAN YILMAZ v. TURKEY
+[03:32:08] DEBUG    Failed: CASE OF AYTAŞ AND OTHERS v. TURKEY
+[03:32:08] DEBUG    Failed: CASE OF SAVAS v. TURKEY
+[03:32:09] DEBUG    Failed: CASE OF BURAK HUN v. TURKEY
+[03:32:11] DEBUG    Failed: CASE OF KALENDER v. TURKEY
+[03:32:12] DEBUG    Failed: CASE OF TUNA v. TURKEY
+[03:32:13] DEBUG    Failed: CASE OF AKDAŞ v. TURKEY
+[03:32:15] DEBUG    Failed: CASE OF KEMAL TAŞKIN AND OTHERS v. TURKEY
+[03:32:15] DEBUG    Failed: CASE OF BÖLÜKBAS AND OTHERS v. TURKEY
+[03:32:15] DEBUG    Failed: CASE OF ALKES v. TURKEY
+[03:32:15] DEBUG    Failed: CASE OF GÜVERCIN v. TURKEY
+[03:32:15] DEBUG    Failed: CASE OF YOLDAŞ v. TURKEY
+[03:32:17] DEBUG    Failed: CASE OF AHMET ARSLAN AND OTHERS v. TURKEY
+[03:32:18] DEBUG    Failed: CASE OF NURTEN DENIZ BULBUL v. TURKEY
+[03:32:19] DEBUG    Failed: CASE OF ERKAN İNAN v. TURKEY
+[03:32:20] DEBUG    Failed: CASE OF EKSI AND OCAK v. TURKEY
+[03:32:20] DEBUG    Failed: CASE OF TURGUT AND OTHERS v. TURKEY
+[03:32:20] DEBUG    Failed: CASE OF AŞICI v. TURKEY
+[03:32:20] DEBUG    Failed: CASE OF LÜTFI DEMİRCİ AND OTHERS v. TURKEY
+[03:32:21] DEBUG    Failed: CASE OF GÖRKAN v. TURKEY
+[03:32:22] DEBUG    Failed: CASE OF YIGITDOGAN v. TURKEY
+[03:32:24] DEBUG    Failed: CASE OF ORHAN ÇAÇAN v. TURKEY
+[03:32:26] DEBUG    Failed: CASE OF ÖZBEK v. TURKEY
+[03:32:26] DEBUG    Failed: CASE OF PERİŞAN AND OTHERS v. TURKEY
+[03:32:26] DEBUG    Failed: CASE OF SARICA AND DİLAVER v. TURKEY
+[03:32:26] DEBUG    Failed: CASE OF NEJDET ŞAHİN AND PERİHAN ŞAHİN v. TURKEY
+[03:32:27] DEBUG    Failed: CASE OF POSLU AND OTHERS v. TURKEY
+[03:32:27] DEBUG    Failed: CASE OF SAPAN v. TURKEY
+[03:32:28] DEBUG    Failed: CASE OF WOLF-SORG v. TURKEY
+[03:32:28] INFO       [1000/1005] ok=547  skip=0  short=0  fail=453
+[03:32:30] DEBUG    Failed: CASE OF AŞICI AND OTHERS v. TURKEY
+[03:32:32] DEBUG    Failed: CASE OF GÖZEL AND ÖZER v. TURKEY
+[03:32:32] DEBUG    Failed: CASE OF YETİŞ AND OTHERS v. TURKEY
+[03:32:32] DEBUG    Failed: CASE OF KEÇECİOĞLU AND OTHERS v. TURKEY
+[03:32:32] INFO       [1005/1005] ok=548  skip=0  short=0  fail=457
+[03:32:32] INFO     
+[4/4] Done!
+[03:32:32] INFO       Downloaded: 548
+[03:32:32] INFO       Skipped:    0  (already existed)
+[03:32:32] INFO       Too short:  0  (< 0 chars)
+[03:32:32] INFO       Failed:     457
+[03:32:32] INFO       Files:      548
+[03:32:32] INFO       Size:       36.4 MB
+[03:32:32] INFO       Text sizes: p25=27KB  p50=50KB  p75=80KB
+[03:32:32] INFO       Directory:  C:\Users\anshu\PycharmProjects\seriousWork\echr_turkey_cases
+[03:32:32] INFO     
+  Tip: Re-run the same command to retry 457 failed downloads (existing files are skipped automatically).
+[03:32:32] INFO     
+────────────────────────────────────────────────────────────
+[03:32:32] INFO     To extract legal reasoning graphs from these cases:
+[03:32:32] INFO       python run_iltur.py \
+[03:32:32] INFO         --dataset echr \
+[03:32:32] INFO         --local_dir echr_turkey_cases \
+[03:32:32] INFO         --ontology echr_ontology_compiled_v3_1.json \
+[03:32:32] INFO         --jurisdiction echr \
+[03:32:32] INFO         --n 100 --concurrent 10
+[03:32:32] INFO     ────────────────────────────────────────────────────────────
+[03:35:07] INFO     ============================================================
+[03:35:07] INFO     HUDOC Turkish ECHR Case Scraper v2
+[03:35:07] INFO     Started: 2026-02-20T03:35:07.629063
+[03:35:07] INFO     ============================================================
+[03:35:07] INFO     Output:          C:\Users\anshu\PycharmProjects\seriousWork\echr_turkey_cases
+[03:35:07] INFO     Threads:         8
+[03:35:07] INFO     Importance:      1-3
+[03:35:07] INFO     Settlements:     included
+[03:35:07] INFO     Min text length: 0 chars
+[03:35:07] INFO     Per-thread delay: 0.25s
+[03:35:07] INFO     
+[1/4] Fetching metadata from HUDOC...
+[03:35:08] INFO     Total Turkish ECHR cases on HUDOC: 7134
+[03:35:08] INFO       Fetched 500/7134 metadata records (500 kept)
+[03:35:10] INFO       Fetched 1000/7134 metadata records (1000 kept)
+[03:35:11] INFO       Fetched 1500/7134 metadata records (1500 kept)
+[03:35:13] INFO       Fetched 2000/7134 metadata records (2000 kept)
+[03:35:14] INFO       Fetched 2500/7134 metadata records (2500 kept)
+[03:35:15] INFO       Fetched 3000/7134 metadata records (3000 kept)
+[03:35:17] INFO       Fetched 3500/7134 metadata records (3500 kept)
+[03:35:18] INFO       Fetched 4000/7134 metadata records (4000 kept)
+[03:35:19] INFO       Fetched 4500/7134 metadata records (4500 kept)
+[03:35:20] INFO       Fetched 5000/7134 metadata records (5000 kept)
+[03:35:22] INFO       Fetched 5500/7134 metadata records (5500 kept)
+[03:35:23] INFO       Fetched 6000/7134 metadata records (6000 kept)
+[03:35:24] INFO       Fetched 6500/7134 metadata records (6500 kept)
+[03:35:27] INFO       Fetched 7000/7134 metadata records (7000 kept)
+[03:35:28] INFO       Fetched 7134/7134 metadata records (7134 kept)
+[03:35:28] INFO     Metadata complete: 7134 cases
+[03:35:28] INFO     Saved unfiltered metadata: echr_turkey_cases\metadata_all.csv (7134 cases)
+[03:35:28] INFO     
+──────────────────────────────────────────────────
+[03:35:28] INFO     Dataset distribution (before filtering):
+[03:35:28] INFO       Importance: {'1': 120, '2': 112, '3': 773, '4': 6129}
+[03:35:28] INFO       Collection: {'CHAMBER': 3503, 'DECISION': 2996, 'GRANDCHAMBER': 60, 'JUDGMENT': 575}
+[03:35:28] INFO       Conclusion: {'(empty)': 78, 'inadmissible': 1423, 'other': 273, 'settlement/struck': 1582, 'violation': 3778}
+[03:35:28] INFO       Labels:     {0: 1536, 1: 3642, 'unknown': 1956}
+[03:35:28] INFO     ──────────────────────────────────────────────────
+
+[03:35:28] INFO     [2/4] Applying quality filters...
+[03:35:28] INFO     Filtering results:
+[03:35:28] INFO       Before:              7134
+[03:35:28] INFO       Skipped (importance): 6129
+[03:35:28] INFO       Skipped (settlement): 0
+[03:35:28] INFO       Skipped (collection): 0
+[03:35:28] INFO       Kept:                1005
+[03:35:28] INFO     
+──────────────────────────────────────────────────
+[03:35:28] INFO     Dataset distribution (after filtering):
+[03:35:28] INFO       Importance: {'1': 120, '2': 112, '3': 773}
+[03:35:28] INFO       Collection: {'CHAMBER': 879, 'DECISION': 66, 'GRANDCHAMBER': 60}
+[03:35:28] INFO       Conclusion: {'inadmissible': 50, 'other': 35, 'settlement/struck': 16, 'violation': 904}
+[03:35:28] INFO       Labels:     {0: 118, 1: 824, 'unknown': 63}
+[03:35:28] INFO     ──────────────────────────────────────────────────
+
+[03:35:28] INFO     Saved filtered metadata: echr_turkey_cases\metadata.csv (1005 cases)
+[03:35:28] INFO     Building labels manifest...
+[03:35:28] INFO     Labels manifest: 1005 entries, 942 with binary labels
+[03:35:28] INFO     
+[3/4] Downloading full texts (1005 cases)...
+[03:35:34] DEBUG    Failed: CASE OF TİMTİK v. TURKEY
+[03:35:34] DEBUG    Failed: CASE OF UMAR KARATEPE v. TURKEY
+[03:35:34] DEBUG    Failed: CASE OF ÖZPINAR v. TURKEY
+[03:35:34] DEBUG    Failed: CASE OF DİNK v. TURKEY
+[03:35:34] DEBUG    Failed: CASE OF AYAN v. TURKEY
+[03:35:34] DEBUG    Failed: CASE OF NUR RADYO VE TELEVIZYON YAYINCILIGI A.S. v. TURKEY (no. 2)
+[03:35:34] DEBUG    Failed: CASE OF SERDAR YİĞİT AND OTHERS v. TURKEY
+[03:35:34] DEBUG    Failed: CASE OF ÖLMEZ AND OTHERS v. TURKEY
+[03:35:40] DEBUG    Failed: CASE OF CİĞERHUN ÖNER v. TURKEY (No. 2)
+[03:35:40] DEBUG    Failed: CASE OF SERVET GÜNDÜZ AND OTHERS v. TURKEY
+[03:35:40] DEBUG    Failed: CASE OF S.S. BALIKLIÇEŞME BELDESI TAR. KAL. KOOPERATİFİ v. TURKEY
+[03:35:40] DEBUG    Failed: CASE OF TURAN BİÇER v. TURKEY
+[03:35:40] DEBUG    Failed: CASE OF POYRAZ v. TURKEY
+[03:35:40] DEBUG    Failed: CASE OF BERÜ v. TURKEY
+[03:35:40] DEBUG    Failed: CASE OF HÜSEYİN AK AND OTHERS v. TURKEY
+[03:35:40] DEBUG    Failed: CASE OF SAFAK v. TURKEY
+[03:35:45] DEBUG    Failed: CASE OF GEREKSAR AND OTHERS v. TURKEY
+[03:35:45] DEBUG    Failed: CASE OF YAZGÜL YILMAZ v. TURKEY
+[03:35:45] DEBUG    Failed: CASE OF BÖLÜKBAŞ AND OTHERS v. TURKEY
+[03:35:47] DEBUG    Failed: CASE OF EKDAL AND OTHERS v. TURKEY
+[03:35:47] DEBUG    Failed: CASE OF GÜLİZAR TUNCER v. TURKEY
+[03:35:47] DEBUG    Failed: CASE OF MENTEŞ v. TURKEY (No. 2)
+[03:35:47] DEBUG    Failed: CASE OF EBCİN v. TURKEY
+[03:35:47] DEBUG    Failed: CASE OF FATİH TAŞ v. TURKEY
+[03:35:51] DEBUG    Failed: CASE OF VELİ YALÇIN v. TURKEY
+[03:35:51] DEBUG    Failed: CASE OF PULATLI v. TURKEY
+[03:35:51] DEBUG    Failed: CASE OF SABRİ GÜNEŞ v. TURKEY
+[03:35:53] DEBUG    Failed: CASE OF İÇEN v. TURKEY
+[03:35:53] DEBUG    Failed: CASE OF AYGÜN v. TURKEY
+[03:35:53] DEBUG    Failed: CASE OF GÜNAYDIN TURİZM VE İNŞAAT TİCARET ANONİM ŞİRKETİI v. TURKEY
+[03:35:53] DEBUG    Failed: CASE OF ŞİŞMAN AND OTHERS v. TURKEY
+[03:35:53] DEBUG    Failed: CASE OF METİN v. TURKEY
+[03:35:56] DEBUG    Failed: CASE OF VEYSEL ŞAHİN v. TURKEY
+[03:35:56] INFO       [50/1005] ok=0  skip=17  short=0  fail=33
+[03:35:56] DEBUG    Failed: CASE OF ACET AND OTHERS v. TURKEY
+[03:35:56] DEBUG    Failed: CASE OF DÜLEK AND OTHERS v. TURKEY
+[03:35:58] DEBUG    Failed: CASE OF PAÇACI AND OTHERS v. TURKEY
+[03:35:58] DEBUG    Failed: CASE OF ERÇEP v. TURKEY
+[03:35:58] DEBUG    Failed: CASE OF RECEP KURT v. TURKEY
+[03:36:00] DEBUG    Failed: CASE OF HALAT v. TURKEY
+[03:36:00] DEBUG    Failed: CASE OF İZGİ v. TURKEY
+[03:36:02] DEBUG    Failed: CASE OF ALTINOK v. TURKEY
+[03:36:02] DEBUG    Failed: CASE OF  CENGİZ KILIÇ v. TURKEY
+[03:36:02] DEBUG    Failed: CASE OF İYİLİK v. TURKEY
+[03:36:04] DEBUG    Failed: CASE OF FETİ DEMİRTAŞ v. TURKEY
+[03:36:04] DEBUG    Failed: CASE OF ASICI v. TURKEY (No. 2)
+[03:36:04] DEBUG    Failed: CASE OF ŞİMŞEK v. TURKEY
+[03:36:05] DEBUG    Failed: CASE OF ÜMMÜHAN KAPLAN v. TURKEY
+[03:36:05] DEBUG    Failed: CASE OF İLKER ENSAR UYANIK v. TURKEY
+[03:36:08] DEBUG    Failed: CASE OF DİRİÖZ v. TURKEY
+[03:36:08] DEBUG    Failed: CASE OF KAYAK v. TURKEY
+[03:36:08] DEBUG    Failed: CASE OF SAVDA v. TURKEY
+[03:36:09] DEBUG    Failed: CASE OF ALKAYA v. TURKEY
+[03:36:09] DEBUG    Failed: CASE OF NİHAYET ARICI AND OTHERS v. TURKEY
+[03:36:09] DEBUG    Failed: CASE OF SÜZER AND EKSEN HOLDİNG A.Ş. v. TURKEY
+[03:36:11] DEBUG    Failed: CASE OF BAYAR AND GÜRBÜZ v. TURKEY
+[03:36:11] DEBUG    Failed: CASE OF ÖZMEN v. TURKEY
+[03:36:13] DEBUG    Failed: CASE OF SALİH SALMAN KILIÇ v. TURKEY
+[03:36:15] DEBUG    Failed: CASE OF GÜLAY ÇETİN v. TURKEY
+[03:36:15] INFO       [100/1005] ok=0  skip=42  short=0  fail=58
+[03:36:15] DEBUG    Failed: CASE OF AYDAN v. TURKEY
+[03:36:16] DEBUG    Failed: CASE OF MATER v. TURKEY
+[03:36:16] DEBUG    Failed: CASE OF ABİK v. TURKEY
+[03:36:16] DEBUG    Failed: CASE OF SÜZER v. TURKEY
+[03:36:16] DEBUG    Failed: CASE OF GÜN AND OTHERS v. TURKEY
+[03:36:16] DEBUG    Failed: CASE OF DİNÇ AND ÇAKIR v. TURKEY
+[03:36:19] DEBUG    Failed: CASE OF ÜRFİ ÇETİNKAYA v. TURKEY
+[03:36:20] DEBUG    Failed: CASE OF ÜMİT BİLGİÇ v. TURKEY
+[03:36:20] DEBUG    Failed: CASE OF YALÇINKAYA AND OTHERS v. TURKEY
+[03:36:21] DEBUG    Failed: CASE OF CAMEKAN v. TURKEY
+[03:36:21] DEBUG    Failed: CASE OF HÜSEYİN KAPLAN v. TURKEY
+[03:36:22] DEBUG    Failed: CASE OF ALİCAN DEMİR v. TURKEY
+[03:36:22] DEBUG    Failed: CASE OF ORUK v. TURKEY
+[03:36:22] DEBUG    Failed: CASE OF MAKBULE KAYMAZ AND OTHERS v. TURKEY
+[03:36:24] DEBUG    Failed: CASE OF ERGEZEN v. TURKEY
+[03:36:26] DEBUG    Failed: CASE OF ŞIK v. TURKEY
+[03:36:26] DEBUG    Failed: CASE OF NEDİM ŞENER v. TURKEY
+[03:36:27] DEBUG    Failed: CASE OF HEBAT ASLAN AND FİRAS ASLAN v. TURKEY
+[03:36:27] INFO       [150/1005] ok=0  skip=74  short=0  fail=76
+[03:36:27] DEBUG    Failed: CASE OF ERDOĞAN GÖKÇE v. TURKEY
+[03:36:27] DEBUG    Failed: CASE OF CUMHURİYETÇİ EĞİTİM VE KÜLTÜR MERKEZİ VAKFI v. TURKEY
+[03:36:29] DEBUG    Failed: CASE OF YOSLUN v. TURKEY
+[03:36:29] DEBUG    Failed: CASE OF AKDEMİR AND EVİN v. TURKEY
+[03:36:31] DEBUG    Failed: CASE OF ÖZBENT AND OTHERS v. TURKEY
+[03:36:31] DEBUG    Failed: CASE OF DOĞAN ALTUN v. TURKEY
+[03:36:31] DEBUG    Failed: CASE OF ÖZÇELEBİ v. TURKEY
+[03:36:32] DEBUG    Failed: CASE OF SARIDAŞ v. TURKEY
+[03:36:32] DEBUG    Failed: CASE OF BALTA AND DEMİR v. TURKEY
+[03:36:33] DEBUG    Failed: CASE OF GÜRTAŞ YAPI TİCARET VE PAZARLAMA A. Ş. v. TURKEY
+[03:36:35] DEBUG    Failed: CASE OF TANIŞMA v. TURKEY
+[03:36:35] DEBUG    Failed: CASE OF ŞAKAR AND OTHERS v. TURKEY
+[03:36:37] DEBUG    Failed: CASE OF SEFER YILMAZ ET MERYEM YILMAZ v. TURKEY
+[03:36:37] DEBUG    Failed: CASE OF PARTY FOR A DEMOCRATIC SOCIETY (DTP)  AND OTHERS v. TURKEY
+[03:36:37] DEBUG    Failed: CASE OF YAVUZ SELİM GÜLER v. TURKEY
+[03:36:38] DEBUG    Failed: CASE OF GÖRMÜŞ AND OTHERS v. TURKEY
+[03:36:38] DEBUG    Failed: CASE OF SODAN v. TURKEY
+[03:36:38] DEBUG    Failed: CASE OF ERDENER v. TURKEY
+[03:36:40] DEBUG    Failed: CASE OF CAVİT TINARLIOĞLU v. TURKEY
+[03:36:40] DEBUG    Failed: CASE OF ÖZTÜNÇ v. TURKEY
+[03:36:42] DEBUG    Failed: CASE OF CİVEK v. TURKEY
+[03:36:42] DEBUG    Failed: CASE OF M.G. v. TURKEY
+[03:36:43] DEBUG    Failed: CASE OF SÜLEYMAN ÇELEBİ AND OTHERS v. TURKEY
+[03:36:45] DEBUG    Failed: CASE OF GÖKBULUT v. TURKEY
+[03:36:45] DEBUG    Failed: CASE OF VEDAT DOĞRU v. TURKEY
+[03:36:45] DEBUG    Failed: CASE OF KALKAN v. TURKEY
+[03:36:46] DEBUG    Failed: CASE OF ŞAHİN KUŞ v. TURKEY
+[03:36:46] INFO       [200/1005] ok=0  skip=97  short=0  fail=103
+[03:36:47] DEBUG    Failed: CASE OF ASSOCIATION FOR SOLIDARITY WITH JEHOVAH'S WITNESSES AND OTHERS v. TURKEY
+[03:36:48] DEBUG    Failed: CASE OF CEVAT ÖZEL v. TURKEY
+[03:36:48] DEBUG    Failed: CASE OF KARABEYOĞLU v. TURKEY
+[03:36:49] DEBUG    Failed: CASE OF ENVER AYDEMİR v. TURKEY
+[03:36:50] DEBUG    Failed: CASE OF HALİME KILIÇ v. TURKEY
+[03:36:50] DEBUG    Failed: CASE OF EĞİTİM VE BİLİM EMEKÇİLERİ SENDİKASI AND OTHERS v. TURKEY
+[03:36:50] DEBUG    Failed: CASE OF ALİ OSMAN ÖZMEN v. TURKEY
+[03:36:52] DEBUG    Failed: CASE OF AYDOĞDU v. TURKEY
+[03:36:53] DEBUG    Failed: CASE OF A.Ş. v. TURKEY
+[03:36:53] DEBUG    Failed: CASE OF SAVDA v. TURKEY (No. 2)
+[03:36:53] DEBUG    Failed: CASE OF KERİMAN TEKİN AND OTHERS v. TURKEY
+[03:36:54] DEBUG    Failed: CASE OF KERMAN v. TURKEY
+[03:36:56] DEBUG    Failed: CASE OF SARIHAN v. TURKEY
+[03:36:56] DEBUG    Failed: CASE OF KUTLU AND OTHERS v. TURKEY
+[03:36:56] DEBUG    Failed: CASE OF DÖKMECİ v. TURKEY
+[03:37:00] DEBUG    Failed: CASE OF SARIGÜL v. TURKEY
+[03:37:00] DEBUG    Failed: CASE OF CUMHURİYETÇİ EĞİTİM VE KÜLTÜR MERKEZİ VAKFI v. TURKEY
+[03:37:00] DEBUG    Failed: CASE OF İRFAN GÜZEL v. TURKEY
+[03:37:00] DEBUG    Failed: CASE OF ҪEVİKEL v. TURKEY
+[03:37:01] DEBUG    Failed: CASE OF EKER v. TURKEY
+[03:37:01] DEBUG    Failed: CASE OF TARMAN v. TURKEY
+[03:37:01] INFO       [250/1005] ok=0  skip=126  short=0  fail=124
+[03:37:01] DEBUG    Failed: CASE OF AGİT DEMİR v. TURKEY
+[03:37:01] DEBUG    Failed: CASE OF ALİ ÇETİN v. TURKEY
+[03:37:05] DEBUG    Failed: CASE OF UZAN v. TURKEY
+[03:37:05] DEBUG    Failed: CASE OF ZEHRA FOUNDATION AND OTHERS v. TURKEY
+[03:37:05] DEBUG    Failed: CASE OF YİRDEM AND OTHERS v. TURKEY
+[03:37:05] DEBUG    Failed: CASE OF KASAT v. TURKEY
+[03:37:06] DEBUG    Failed: CASE OF GÜNANA AND OTHERS v. TURKEY
+[03:37:06] DEBUG    Failed: CASE OF GÖMİ v. TURKEY
+[03:37:07] DEBUG    Failed: CASE OF CUMHURİYETÇİ EĞİTİM VE KÜLTÜR MERKEZİ VAKFI v. TURKEY
+[03:37:07] DEBUG    Failed: CASE OF UZAN AND OTHERS v. TURKEY
+[03:37:11] DEBUG    Failed: CASE OF YAVAŞ AND OTHERS v. TURKEY
+[03:37:11] DEBUG    Failed: CASE OF MART AND OTHERS v. TURKEY
+[03:37:11] DEBUG    Failed: CASE OF DIMOPULOS v. TURKEY
+[03:37:11] DEBUG    Failed: CASE OF TARAK AND DEPE v. TURKEY
+[03:37:12] DEBUG    Failed: CASE OF AKTAŞ AND ASLANİSKENDER v. TURKEY
+[03:37:12] DEBUG    Failed: CASE OF MİHR FOUNDATION v. TURKEY
+[03:37:12] DEBUG    Failed: CASE OF MEHMET ULUSOY AND OTHERS v. TURKEY
+[03:37:14] DEBUG    Failed: CASE OF GÜRBÜZ AND BAYAR v. TURKEY
+[03:37:17] DEBUG    Failed: CASE OF AKIN v. TURKEY
+[03:37:18] DEBUG    Failed: CASE OF KABOĞLU AND ORAN v. TURKEY (No. 2)
+[03:37:18] INFO       [300/1005] ok=0  skip=156  short=0  fail=144
+[03:37:18] DEBUG    Failed: CASE OF İMREK v. TURKEY
+[03:37:18] DEBUG    Failed: CASE OF ADANA TAYAD v. TURKEY
+[03:37:18] DEBUG    Failed: CASE OF ATILLA TAŞ v. TURKEY
+[03:37:18] DEBUG    Failed: CASE OF AYDOĞAN AND DARA RADYO TELEVIZYON YAYINCILIK ANONIM ŞIRKETI v. TURKEY
+[03:37:18] DEBUG    Failed: CASE OF DICKINSON v. TURKEY
+[03:37:20] DEBUG    Failed: CASE OF RAMAZAN DEMİR v. TURKEY
+[03:37:23] DEBUG    Failed: CASE OF N.Ç. v. TURKEY
+[03:37:23] DEBUG    Failed: CASE OF SARAÇ AND OTHERS v. TURKEY
+[03:37:23] DEBUG    Failed: CASE OF KERESTECIOĞLU DEMIR v. TURKEY
+[03:37:23] DEBUG    Failed: CASE OF SEDAT DOĞAN v. TURKEY
+[03:37:23] DEBUG    Failed: CASE OF MURAT AKSOY v. TURKEY
+[03:37:23] DEBUG    Failed: CASE OF AKDENİZ AND OTHERS v. TURKEY
+[03:37:23] DEBUG    Failed: CASE OF NAKİ ET AMED SPORTİF FAALİYETLER KULÜBÜ DERNEĞİ v. TURKEY
+[03:37:25] DEBUG    Failed: CASE OF İBRAHİM TOKMAK v. TURKEY
+[03:37:29] DEBUG    Failed: CASE OF AKGÜN v. TURKEY
+[03:37:29] DEBUG    Failed: CASE OF KEMAL BAYRAM v. TURKEY
+[03:37:30] DEBUG    Failed: CASE OF TUNCER BAKIRHAN v. TURKEY
+[03:37:30] DEBUG    Failed: CASE OF BULAÇ v. TURKEY
+[03:37:30] DEBUG    Failed: CASE OF TERCAN v. TURKEY
+[03:37:30] DEBUG    Failed: CASE OF MELİKE v. TURKEY
+[03:37:30] DEBUG    Failed: CASE OF YEL AND OTHERS v. TURKEY
+[03:37:31] DEBUG    Failed: CASE OF YAVUZ ÖZDEN v. TURKEY
+[03:37:34] DEBUG    Failed: CASE OF VEDAT ŞORLİ v. TURKEY
+[03:37:34] DEBUG    Failed: CASE OF MEHMET ÇİFTCİ v. TURKEY
+[03:37:35] DEBUG    Failed: CASE OF AKPAZ SOCIÉTÉ À RESPONSABILITÉ LIMITÉE v. TURKEY
+[03:37:35] DEBUG    Failed: CASE OF İLKER DENİZ YÜCEL v. TURKEY
+[03:37:35] DEBUG    Failed: CASE OF MEHMET ÇİFTÇİ AND SUAT İNCEDERE v. TURKEY
+[03:37:35] DEBUG    Failed: CASE OF KOZAN v. TURKEY
+[03:37:35] DEBUG    Failed: CASE OF NUH UZUN AND OTHERS v. TURKEY
+[03:37:37] DEBUG    Failed: CASE OF SİLGİR v. TURKEY
+[03:37:40] DEBUG    Failed: CASE OF TANER KILIÇ  v. TURKEY (No. 2)
+[03:37:40] DEBUG    Failed: CASE OF YEŞİLLER VE SOL GELECEK PARTİSİ v. TURKEY
+[03:37:40] INFO       [350/1005] ok=0  skip=174  short=0  fail=176
+[03:37:41] DEBUG    Failed: CASE OF AKKAD v. TURKEY
+[03:37:41] DEBUG    Failed: CASE OF M.N. AND OTHERS v. TURKEY
+[03:37:41] DEBUG    Failed: CASE OF ETE v. TÜRKİYE
+[03:37:41] DEBUG    Failed: CASE OF DİMİCİ v. TURKEY
+[03:37:41] DEBUG    Failed: CASE OF İKİZTAŞ ELEKTRİK TAAHHÜT TİCARET VE SANAYİ LİMİTED ŞİRKETİ v. TÜRKİYE
+[03:37:42] DEBUG    Failed: CASE OF IŞGIN v. TÜRKİYE
+[03:37:45] DEBUG    Failed: CASE OF YÜKSEKDAĞ ŞENOĞLU AND OTHERS v. TÜRKİYE
+[03:37:46] DEBUG    Failed: CASE OF CHIEF RABBINATE OF THE JEWISH COMMUNITY OF İZMİR v. TÜRKİYE
+[03:37:47] DEBUG    Failed: CASE OF ABDULLAH KILIÇ v. TÜRKİYE
+[03:37:47] DEBUG    Failed: CASE OF ARNAVUTKÖY GREEK ORTHODOX TAKSIARHIS CHURCH FOUNDATION v. TÜRKİYE
+[03:37:47] DEBUG    Failed: CASE OF DEMİRAY v. TÜRKİYE
+[03:37:47] DEBUG    Failed: CASE OF ÇİÇEK AND OTHERS v. TÜRKİYE
+[03:37:47] DEBUG    Failed: CASE OF TELEK AND OTHERS v. TÜRKİYE
+[03:37:48] DEBUG    Failed: CASE OF DEMIRTAŞ AND YÜKSEKDAĞ ŞENOĞLU v. TÜRKİYE
+[03:37:51] DEBUG    Failed: CASE OF KAZAN v. TÜRKİYE
+[03:37:52] DEBUG    Failed: CASE OF SARISU PEHLİVAN v. TÜRKİYE
+[03:37:53] DEBUG    Failed: CASE OF A.A.K. v. TÜRKİYE
+[03:37:53] DEBUG    Failed: CASE OF KAYMAK AND OTHERS v. TÜRKİYE
+[03:37:53] DEBUG    Failed: CASE OF OSMAN AND ALTAY v. TÜRKİYE
+[03:37:53] DEBUG    Failed: CASE OF YAŞAROĞLU v. TÜRKİYE
+[03:37:53] INFO       [400/1005] ok=0  skip=204  short=0  fail=196
+[03:37:53] DEBUG    Failed: CASE OF DURUKAN AND BİROL v. TÜRKİYE
+[03:37:53] DEBUG    Failed: CASE OF U.Y. v. TÜRKIYE
+[03:37:56] DEBUG    Failed: CASE OF ERDAL MUHAMMET ARSLAN AND OTHERS v. TÜRKİYE
+[03:37:57] DEBUG    Failed: CASE OF DEDE v. TÜRKİYE
+[03:37:58] DEBUG    Failed: CASE OF ALPASLAN v. TÜRKİYE
+[03:37:59] DEBUG    Failed: CASE OF CEYHAN v. TÜRKİYE
+[03:37:59] INFO       [450/1005] ok=0  skip=248  short=0  fail=202
+[03:38:00] DEBUG    Failed: CASE OF SÖZEN v. TÜRKİYE
+[03:38:00] DEBUG    Failed: CASE OF SELÇUK v. TÜRKİYE
+[03:38:00] DEBUG    Failed: CASE OF KANATLI v. TÜRKİYE
+[03:38:00] INFO       [500/1005] ok=0  skip=295  short=0  fail=205
+[03:38:00] DEBUG    Failed: CASE OF YASAK v. TÜRKİYE
+[03:38:02] DEBUG    Failed: CASE OF SELAHATTİN DEMİRTAŞ v. TÜRKİYE (No. 4)
+[03:38:03] DEBUG    Failed: CASE OF İ.Ç. v. TÜRKİYE
+[03:38:04] DEBUG    Failed: CASE OF KANDEMİR v. TÜRKİYE
+[03:38:04] DEBUG    Failed: CASE OF EKINCI v. TURKEY
+[03:38:05] DEBUG    Failed: CASE OF BÜYÜKDAG v. TURKEY
+[03:38:05] DEBUG    Failed: CASE OF BERKTAY v. TURKEY
+[03:38:05] DEBUG    Failed: CASE OF IBRAHIM AKSOY v. TURKEY
+[03:38:05] DEBUG    Failed: CASE OF TANRIBILIR v. TURKEY
+[03:38:08] DEBUG    Failed: CASE OF ALTAY v. TURKEY
+[03:38:08] DEBUG    Failed: CASE OF KAMIL T. SÜREK v. TURKEY
+[03:38:09] DEBUG    Failed: CASE OF SARI v. TURKEY AND DENMARK
+[03:38:10] DEBUG    Failed: CASE OF E.K. v. TURKEY
+[03:38:10] INFO       [550/1005] ok=0  skip=332  short=0  fail=218
+[03:38:11] DEBUG    Failed: CASE OF ALI EROL v. TURKEY
+[03:38:11] DEBUG    Failed: CASE OF ERDOGAN v. TURKEY
+[03:38:11] DEBUG    Failed: CASE OF ABDURRAHMAN ORAK v. TURKEY
+[03:38:11] DEBUG    Failed: CASE OF YAGMURDERELI v. TURKEY
+[03:38:15] DEBUG    Failed: CASE OF SEHER KARATAS v. TURKEY
+[03:38:15] DEBUG    Failed: CASE OF SIDDIK YASA v. TURKEY
+[03:38:15] DEBUG    Failed: CASE OF AYSE ÖZTÜRK v. TURKEY
+[03:38:16] DEBUG    Failed: CASE OF ALGÜR v. TURKEY
+[03:38:16] DEBUG    Failed: CASE OF DALKILIC v. TURKEY
+[03:38:17] DEBUG    Failed: CASE OF KARAKOC AND OTHERS v. TURKEY
+[03:38:17] DEBUG    Failed: CASE OF YALÇIN KÜÇÜK v. TURKEY
+[03:38:17] DEBUG    Failed: CASE OF DICLE FOR THE DEMOCRATIC PARTY (DEP) OF TURKEY v. TURKEY
+[03:38:20] DEBUG    Failed: CASE OF ZEYNEP AVCI v. TURKEY
+[03:38:20] DEBUG    Failed: CASE OF YASAR KEMAL GÖKÇELİ v. TURKEY
+[03:38:20] DEBUG    Failed: CASE OF C.S.Y. v. TURKEY
+[03:38:21] DEBUG    Failed: CASE OF YILTAS YILDIZ TURISTIK TESISLERI A.S. v. TURKEY
+[03:38:21] DEBUG    Failed: CASE OF SEVGI ERDOGAN v. TURKEY
+[03:38:23] DEBUG    Failed: CASE OF ESEN v. TURKEY
+[03:38:23] DEBUG    Failed: CASE OF YAZ v. TURKEY
+[03:38:23] DEBUG    Failed: CASE OF AYSE TEPE v. TURKEY
+[03:38:25] DEBUG    Failed: CASE OF KARKIN v. TURKEY
+[03:38:26] DEBUG    Failed: CASE OF KIZILYAPRAK v. TURKEY
+[03:38:26] DEBUG    Failed: CASE OF SOCIALIST PARTY OF TURKEY (STP) AND OTHERS v. TURKEY
+[03:38:26] INFO       [600/1005] ok=0  skip=359  short=0  fail=241
+[03:38:27] DEBUG    Failed: CASE OF MEHDİ ZANA v. TURKEY (No. 2)
+[03:38:27] DEBUG    Failed: CASE OF ABDULLAH AYDIN v. TURKEY
+[03:38:28] DEBUG    Failed: CASE OF SADAK v. TURKEY
+[03:38:28] DEBUG    Failed: CASE OF SARIKAYA v. TURKEY
+[03:38:30] DEBUG    Failed: CASE OF MAMAC AND OTHERS v. TURKEY
+[03:38:32] DEBUG    Failed: CASE OF MEHMET SALIH AND ABDULSAMET CAKMAK v. TURKEY
+[03:38:32] DEBUG    Failed: CASE OF AYDIN AND YUNUS v. TURKEY
+[03:38:32] DEBUG    Failed: CASE OF YURTTAS v. TURKEY
+[03:38:32] DEBUG    Failed: CASE OF BAKBAK v. TURKEY
+[03:38:32] DEBUG    Failed: CASE OF ZARAKOLU AND BELGE ULUSLARARASI YAYINCILIK v. TURKEY
+[03:38:34] DEBUG    Failed: CASE OF ERKEK v. TURKEY
+[03:38:34] DEBUG    Failed: CASE OF K. v. TURKEY
+[03:38:35] DEBUG    Failed: CASE OF O. v. TURKEY
+[03:38:38] DEBUG    Failed: CASE OF HAYDAR YILDIRIM AND OTHERS v. TURKEY
+[03:38:38] DEBUG    Failed: CASE OF I.R.S. AND OTHERS v. TURKEY
+[03:38:38] DEBUG    Failed: CASE OF KÜRKÇÜ v. TURKEY
+[03:38:38] DEBUG    Failed: CASE OF A.A. AND OTHERS v. TURKEY
+[03:38:38] DEBUG    Failed: CASE OF OKUTAN v. TURKEY
+[03:38:39] DEBUG    Failed: CASE OF İPRAHIM ÜLGER v. TURKEY
+[03:38:39] DEBUG    Failed: CASE OF Y.B. AND OTHERS v. TURKEY
+[03:38:41] DEBUG    Failed: CASE OF ZENGİN v. TURKEY
+[03:38:43] DEBUG    Failed: CASE OF A.K. AND V.K. v. TURKEY
+[03:38:45] DEBUG    Failed: CASE OF BARAN v. TURKEY
+[03:38:45] DEBUG    Failed: CASE OF CANEVİ AND OTHERS v. TURKEY
+[03:38:45] INFO       [650/1005] ok=0  skip=385  short=0  fail=265
+[03:38:45] DEBUG    Failed: CASE OF SEYHAN v. TURKEY
+[03:38:45] DEBUG    Failed: CASE OF CEYHAN DEMİR AND OTHERS v. TURKEY
+[03:38:45] DEBUG    Failed: CASE OF SUNAL v. TURKEY
+[03:38:46] DEBUG    Failed: CASE OF ŞAHİN AND OTHERS v. TURKEY
+[03:38:46] DEBUG    Failed: CASE OF  BİYAN v. TURKEY
+[03:38:49] DEBUG    Failed: CASE OF PAKDEMİRLİ v. TURKEY
+[03:38:50] DEBUG    Failed: CASE OF AY v. TURKEY
+[03:38:50] DEBUG    Failed: CASE OF GÜNGÖR v. TURKEY
+[03:38:50] DEBUG    Failed: CASE OF POLAT v. TURKEY
+[03:38:50] DEBUG    Failed: CASE OF GEZİCİ v. TURKEY
+[03:38:50] DEBUG    Failed: CASE OF KİMRAN v. TURKEY
+[03:38:52] DEBUG    Failed: DEMOCRACY AND CHANGE PARTY AND OTHERS v. TURKEY
+[03:38:52] DEBUG    Failed: CASE OF MÜSLIM v. TURKEY
+[03:38:54] DEBUG    Failed: CASE OF TUNÇ  v. TURKEY
+[03:38:55] DEBUG    Failed: CASE OF ACUNBAY v. TURKEY
+[03:38:55] DEBUG    Failed: CASE OF DİNLER v. TURKEY
+[03:38:55] DEBUG    Failed: CASE OF EMEK PARTİSİ AND ŞENOL v. TURKEY
+[03:38:55] DEBUG    Failed: CASE OF GÜLTEKİN AND OTHERS v. TURKEY
+[03:38:56] DEBUG    Failed: CASE OF I.R.S. AND OTHERS  v. TURKEY
+[03:38:57] DEBUG    Failed: CASE OF DALAN v. TURKEY
+[03:38:57] DEBUG    Failed: CASE OF KILINÇ AND OTHERS v. TURKEY
+[03:39:01] DEBUG    Failed: CASE OF ÖNDER v. TURKEY
+[03:39:01] DEBUG    Failed: CASE OF HASAN KILIC v. TURKEY
+[03:39:01] DEBUG    Failed: CASE OF S.B. AND H.T. v. TURKEY
+[03:39:03] DEBUG    Failed: CASE OF FATMA KAÇAR v. TURKEY
+[03:39:03] DEBUG    Failed: CASE OF TEMEL AND TAŞKIN v. TURKEY
+[03:39:03] DEBUG    Failed: CASE OF GÜNERİ AND OTHERS v. TURKEY
+[03:39:03] INFO       [700/1005] ok=0  skip=408  short=0  fail=292
+[03:39:03] DEBUG    Failed: CASE OF İ.Ö. v. TURKEY
+[03:39:03] DEBUG    Failed: CASE OF KOLU v. TURKEY
+[03:39:07] DEBUG    Failed: CASE OF ERTAŞ AYDIN AND OTHERS v. TURKEY
+[03:39:07] DEBUG    Failed: CASE OF HAMIYET KAPLAN AND OTHERS v. TURKEY
+[03:39:07] DEBUG    Failed: CASE OF SADEGÜL ÖZDEMİR v. TURKEY
+[03:39:08] DEBUG    Failed: CASE OF ÇELİK AND YILDIZ v. TURKEY
+[03:39:08] DEBUG    Failed: CASE OF GULLU v. TURKEY
+[03:39:08] DEBUG    Failed: CASE OF UYAN v. TURKEY
+[03:39:08] DEBUG    Failed: CASE OF BULĞA AND OTHERS v. TURKEY
+[03:39:08] DEBUG    Failed: CASE OF GÜNAYDIN  v. TURKEY
+[03:39:12] DEBUG    Failed: CASE OF TEKİN YILDIZ v. TURKEY
+[03:39:14] DEBUG    Failed: CASE OF DOĞANAY v. TURKEY
+[03:39:14] DEBUG    Failed: CASE OF AYDIN EREN AND OTHERS v. TURKEY
+[03:39:15] DEBUG    Failed: CASE OF SİNAN EREN v. TURKEY
+[03:39:15] DEBUG    Failed: CASE OF GÜRBÜZ v. TURKEY
+[03:39:15] DEBUG    Failed: CASE OF BAYRAK AND OTHERS v. TURKEY
+[03:39:15] DEBUG    Failed: CASE OF KURUÇAY v. TURKEY
+[03:39:15] DEBUG    Failed: CASE OF BILEN v. TURKEY
+[03:39:18] DEBUG    Failed: CASE OF ODABAŞI AND KOÇAK v. TURKEY
+[03:39:19] DEBUG    Failed: CASE OF İZMİR SAVAŞ KARŞITLARI DERNEĞİ AND OTHERS v. TURKEY
+[03:39:19] DEBUG    Failed: CASE OF ADEM YILMAZ AND OTHERS v. TURKEY
+[03:39:20] DEBUG    Failed: CASE OF OZGUR RADYO-SES RADYO TELEVIZYON YAYIN YAPIM VE TANITIM AS. v. TURKEY (No. 1)
+[03:39:20] DEBUG    Failed: CASE OF AYDIN TATLAV v. TURKEY
+[03:39:20] DEBUG    Failed: CASE OF HALIT CELEBI v. TURKEY
+[03:39:20] DEBUG    Failed: CASE OF YILTAS YILDIZ TURISTIK TESISLERI A.S. v. TURKEY
+[03:39:20] DEBUG    Failed: CASE OF EBRU AND TAYFUN ENGİN ÇOLAK v. TURKEY
+[03:39:20] INFO       [750/1005] ok=0  skip=432  short=0  fail=318
+[03:39:23] DEBUG    Failed: CASE OF YAŞAROĞLU v. TURKEY
+[03:39:25] DEBUG    Failed: CASE OF GÖK AND OTHERS v. TURKEY
+[03:39:25] DEBUG    Failed: CASE OF D. AND OTHERS v. TURKEY
+[03:39:26] DEBUG    Failed: CASE OF GÖÇMEN v. TURKEY
+[03:39:26] DEBUG    Failed: CASE OF H.M. v. TURKEY
+[03:39:26] DEBUG    Failed: CASE OF SÖYLEMEZ v. TURKEY
+[03:39:26] DEBUG    Failed: CASE OF ARAC v. TURKEY
+[03:39:26] DEBUG    Failed: CASE OF SULTAN ÖNER AND OTHERS v. TURKEY
+[03:39:29] DEBUG    Failed: CASE OF KÖK v. TURKEY
+[03:39:31] DEBUG    Failed: CASE OF TANYAR AND KÜÇÜKERGİN v. TURKEY
+[03:39:31] DEBUG    Failed: CASE OF FAZIL AHMET TAMER v. TURKEY
+[03:39:31] DEBUG    Failed: CASE OF HUYLU v. TURKEY
+[03:39:32] DEBUG    Failed: CASE OF METİN TURAN v. TURKEY
+[03:39:32] DEBUG    Failed: CASE OF PAŞA AND ERKAN EROL v. TURKEY
+[03:39:32] DEBUG    Failed: CASE OF YAZICI v. TURKEY
+[03:39:32] DEBUG    Failed: CASE OF TÜRKMEN v. TURKEY
+[03:39:34] DEBUG    Failed: CASE OF GÖMİ AND OTHERS v. TURKEY
+[03:39:36] DEBUG    Failed: CASE OF N.A. AND OTHERS  v. TURKEY
+[03:39:36] DEBUG    Failed: CASE OF GULER AND CALISKAN v. TURKEY
+[03:39:37] DEBUG    Failed: CASE OF FALAKAOĞLU AND SAYGILI v. TURKEY
+[03:39:38] DEBUG    Failed: CASE OF EKİNCİ AND AKALIN v. TURKEY
+[03:39:38] DEBUG    Failed: CASE OF MENTEŞ v. TURKEY
+[03:39:38] DEBUG    Failed: CASE OF BENLI v. TURKEY
+[03:39:38] DEBUG    Failed: CASE OF SALGIN v. TURKEY
+[03:39:40] DEBUG    Failed: CASE OF ÜNSAL v. TURKEY
+[03:39:42] DEBUG    Failed: CASE OF ÇİLOĞLU AND OTHERS v. TURKEY
+[03:39:42] DEBUG    Failed: CASE OF ERKAN ORHAN v. TURKEY
+[03:39:42] DEBUG    Failed: CASE OF TALAT TUNÇ v. TURKEY
+[03:39:43] DEBUG    Failed: CASE OF SILAY v. TURKEY
+[03:39:43] DEBUG    Failed: CASE OF ILICAK v. TURKEY
+[03:39:43] INFO       [800/1005] ok=0  skip=452  short=0  fail=348
+[03:39:43] DEBUG    Failed: CASE OF KAVAKÇI v. TURKEY
+[03:39:45] DEBUG    Failed: CASE OF APOSTOLİDİ AND OTHERS v. TURKEY
+[03:39:47] DEBUG    Failed: CASE OF SOYSAL v. TURKEY
+[03:39:47] DEBUG    Failed: CASE OF USLU v. TURKEY
+[03:39:47] DEBUG    Failed: CASE OF HÜSEYİN YILDIRIM v. TURKEY
+[03:39:48] DEBUG    Failed: CASE OF ULUSOY AND OTHERS v. TURKEY
+[03:39:49] DEBUG    Failed: CASE OF BAKAN v. TURKEY
+[03:39:49] DEBUG    Failed: CASE OF KAMIL UZUN v. TURKEY
+[03:39:49] DEBUG    Failed: CASE OF LEMKE v. TURKEY
+[03:39:50] DEBUG    Failed: CASE OF EKREM v. TURKEY
+[03:39:53] DEBUG    Failed: CASE OF KOZACIOĞLU v. TURKEY
+[03:39:53] DEBUG    Failed: CASE OF KARATEPE v. TURKEY
+[03:39:53] DEBUG    Failed: CASE OF FAHRİYE ÇALIŞKAN v. TURKEY
+[03:39:53] DEBUG    Failed: CASE OF DÖLEK v. TURKEY
+[03:39:54] DEBUG    Failed: CASE OF ASAN v. TURKEY
+[03:39:54] DEBUG    Failed: CASE OF MERAL v. TURKEY
+[03:39:54] DEBUG    Failed: CASE OF NUR RADYO VE TELEVİZYON YAYINCILIĞI A.Ş. v. TURKEY
+[03:39:55] DEBUG    Failed: CASE OF ÖZGÜR RADYO-SES RADYO TELEVIZYON YAYIN YAPIM VE TANITIM A.Ş. v. TURKEY (No. 2)
+[03:40:00] DEBUG    Failed: CASE OF NACARYAN AND DERYAN v. TURKEY
+[03:40:00] DEBUG    Failed: CASE OF KARAKOYUN AND TURAN v. TURKEY
+[03:40:00] DEBUG    Failed: CASE OF SAYGILI AND OTHERS v. TURKEY
+[03:40:00] DEBUG    Failed: CASE OF KARAMAN v. TURKEY
+[03:40:00] DEBUG    Failed: CASE OF ABDULKADİR AKTAŞ v. TURKEY
+[03:40:00] DEBUG    Failed: CASE OF MANSUROĞLU v. TURKEY
+[03:40:01] DEBUG    Failed: ERDOGAN v. TURKEY
+[03:40:01] DEBUG    Failed: CASE OF TAŞTAN v. TURKEY
+[03:40:01] DEBUG    Failed: CASE OF MOSTAFA AND OTHERS v. TURKEY
+[03:40:01] INFO       [850/1005] ok=0  skip=475  short=0  fail=375
+[03:40:05] DEBUG    Failed: CASE OF HÜSEYİN TURAN v. TURKEY
+[03:40:05] DEBUG    Failed: CASE OF KUTLULAR v. TURKEY
+[03:40:05] DEBUG    Failed: CASE OF HÜSEYİN ŞİMŞEK v. TURKEY
+[03:40:05] DEBUG    Failed: CASE OF ABDULLAH YILMAZ  v. TURKEY
+[03:40:05] DEBUG    Failed: CASE OF KARADUMAN AND OTHERS v. TURKEY
+[03:40:06] DEBUG    Failed: CASE OF TÜM v. TURKEY
+[03:40:06] DEBUG    Failed: CASE OF ŞAHİN KARATAŞ v. TURKEY
+[03:40:07] DEBUG    Failed: CASE OF DOĞAN v. TURKEY
+[03:40:10] DEBUG    Failed: CASE OF FENER RUM PATRİKLİĞİ (ECUMENICAL PATRIARCHY) v. TURKEY
+[03:40:10] DEBUG    Failed: CASE OF YILMAZ AND KILIÇ v. TURKEY
+[03:40:11] DEBUG    Failed: CASE OF AKTAN v. TURKEY
+[03:40:11] DEBUG    Failed: CASE OF YÜREKLİ v. TURKEY
+[03:40:11] DEBUG    Failed: CASE OF KOKTEPE v. TURKEY
+[03:40:11] DEBUG    Failed: CASE OF IŞILDAK v. TURKEY
+[03:40:12] DEBUG    Failed: CASE OF MESUTOĞLU v. TURKEY
+[03:40:12] DEBUG    Failed: CASE OF SALİHOĞLU v. TURKEY
+[03:40:16] DEBUG    Failed: CASE OF UYAN v. TURKEY (No. 2)
+[03:40:16] DEBUG    Failed: CASE OF KAYASU v. TURKEY
+[03:40:17] DEBUG    Failed: CASE OF ÖMER AYDIN v. TURKEY
+[03:40:17] INFO       [900/1005] ok=0  skip=506  short=0  fail=394
+[03:40:17] DEBUG    Failed: CASE OF ANCEL v. TURKEY
+[03:40:17] DEBUG    Failed: CASE OF NEHYET GÜNAY AND OTHERS v. TURKEY
+[03:40:17] DEBUG    Failed: CASE OF KILAVUZ v. TURKEY
+[03:40:17] DEBUG    Failed: CASE OF GÜZEL ERDAGÖZ v. TURKEY
+[03:40:18] DEBUG    Failed: CASE OF BALCI v. TURKEY
+[03:40:22] DEBUG    Failed: CASE OF BOZCAADA KIMISIS TEODOKU RUM ORTODOKS KILISESI VAKFI  v. TURKEY
+[03:40:22] DEBUG    Failed: CASE OF HOROZ v. TURKEY
+[03:40:22] DEBUG    Failed: CASE OF TURNALI v. TURKEY
+[03:40:23] DEBUG    Failed: CASE OF ÜNAL AKPINAR İNŞAAT İMALAT SANAYİ VE TİCARET S.A. AND AKPINAR YAPI SANAYİ S.A. v. TURKEY
+[03:40:23] DEBUG    Failed: CASE OF MECAİL ÖZEL v. TURKEY
+[03:40:23] DEBUG    Failed: CASE OF SOYKAN v. TURKEY
+[03:40:23] DEBUG    Failed: CASE OF BAHÇECİ AND TURAN v. TURKEY
+[03:40:23] DEBUG    Failed: CASE OF GÜNAYDIN TURİZM VE İNŞAAT TİCARET ANONİM ŞİRKETİ v. TURKEY
+[03:40:27] DEBUG    Failed: CASE OF KESER AND KÖMÜRCÜ v. TURKEY
+[03:40:28] DEBUG    Failed: CASE OF DANESHPAYEH v. TURKEY
+[03:40:29] DEBUG    Failed: CASE OF ÖVÜS v. TURKEY
+[03:40:30] DEBUG    Failed: CASE OF OSMANAĞAOĞLU v. TURKEY
+[03:40:30] DEBUG    Failed: CASE OF ÖZBEK AND OTHERS v. TURKEY
+[03:40:30] DEBUG    Failed: CASE OF OKÇU v. TURKEY
+[03:40:30] DEBUG    Failed: CASE OF BOZCAADA KİMİSİS TEODOKU RUM ORTODOKS KİLİSESİ VAKFI  v. TURKEY (No. 2)
+[03:40:30] DEBUG    Failed: CASE OF KARA v. TURKEY
+[03:40:33] DEBUG    Failed: CASE OF AHMET AKMAN v. TURKEY
+[03:40:33] DEBUG    Failed: CASE OF SELİN ASLI ÖZTÜRK v. TURKEY
+[03:40:34] DEBUG    Failed: CASE OF TUNCE AND OTHERS v. TURKEY
+[03:40:35] DEBUG    Failed: CASE OF YUNUS AKTAŞ AND OTHERS v. TURKEY
+[03:40:35] DEBUG    Failed: CASE OF KOP v. TURKEY
+[03:40:35] DEBUG    Failed: CASE OF KÖKTEPE v. TURKEY
+[03:40:35] DEBUG    Failed: CASE OF DAVRAN v. TURKEY
+[03:40:35] DEBUG    Failed: CASE OF SERKAN YILMAZ AND OTHERS v. TURKEY
+[03:40:35] INFO       [950/1005] ok=0  skip=527  short=0  fail=423
+[03:40:38] DEBUG    Failed: CASE OF YUSUF GEZER v. TURKEY
+[03:40:39] DEBUG    Failed: CASE OF OSMAN YILMAZ v. TURKEY
+[03:40:40] DEBUG    Failed: CASE OF AYTAŞ AND OTHERS v. TURKEY
+[03:40:40] DEBUG    Failed: CASE OF SAVAS v. TURKEY
+[03:40:40] DEBUG    Failed: CASE OF TUNA v. TURKEY
+[03:40:40] DEBUG    Failed: CASE OF KALENDER v. TURKEY
+[03:40:41] DEBUG    Failed: CASE OF KEMAL TAŞKIN AND OTHERS v. TURKEY
+[03:40:41] DEBUG    Failed: CASE OF BURAK HUN v. TURKEY
+[03:40:44] DEBUG    Failed: CASE OF GÜVERCIN v. TURKEY
+[03:40:46] DEBUG    Failed: CASE OF YOLDAŞ v. TURKEY
+[03:40:46] DEBUG    Failed: CASE OF NURTEN DENIZ BULBUL v. TURKEY
+[03:40:46] DEBUG    Failed: CASE OF BÖLÜKBAS AND OTHERS v. TURKEY
+[03:40:47] DEBUG    Failed: CASE OF AKDAŞ v. TURKEY
+[03:40:47] DEBUG    Failed: CASE OF ALKES v. TURKEY
+[03:40:47] DEBUG    Failed: CASE OF ERKAN İNAN v. TURKEY
+[03:40:47] DEBUG    Failed: CASE OF AHMET ARSLAN AND OTHERS v. TURKEY
+[03:40:49] DEBUG    Failed: CASE OF EKSI AND OCAK v. TURKEY
+[03:40:51] DEBUG    Failed: CASE OF LÜTFI DEMİRCİ AND OTHERS v. TURKEY
+[03:40:51] DEBUG    Failed: CASE OF TURGUT AND OTHERS v. TURKEY
+[03:40:52] DEBUG    Failed: CASE OF AŞICI v. TURKEY
+[03:40:53] DEBUG    Failed: CASE OF GÖRKAN v. TURKEY
+[03:40:53] DEBUG    Failed: CASE OF ORHAN ÇAÇAN v. TURKEY
+[03:40:53] DEBUG    Failed: CASE OF YIGITDOGAN v. TURKEY
+[03:40:53] DEBUG    Failed: CASE OF PERİŞAN AND OTHERS v. TURKEY
+[03:40:55] DEBUG    Failed: CASE OF ÖZBEK v. TURKEY
+[03:40:57] DEBUG    Failed: CASE OF SARICA AND DİLAVER v. TURKEY
+[03:40:57] DEBUG    Failed: CASE OF NEJDET ŞAHİN AND PERİHAN ŞAHİN v. TURKEY
+[03:40:57] DEBUG    Failed: CASE OF POSLU AND OTHERS v. TURKEY
+[03:40:58] DEBUG    Failed: CASE OF GÖZEL AND ÖZER v. TURKEY
+[03:40:58] INFO       [1000/1005] ok=0  skip=548  short=0  fail=452
+[03:40:58] DEBUG    Failed: CASE OF AŞICI AND OTHERS v. TURKEY
+[03:40:58] DEBUG    Failed: CASE OF WOLF-SORG v. TURKEY
+[03:41:00] DEBUG    Failed: CASE OF SAPAN v. TURKEY
+[03:41:02] DEBUG    Failed: CASE OF YETİŞ AND OTHERS v. TURKEY
+[03:41:02] DEBUG    Failed: CASE OF KEÇECİOĞLU AND OTHERS v. TURKEY
+[03:41:02] INFO       [1005/1005] ok=0  skip=548  short=0  fail=457
+[03:41:02] INFO     
+[4/4] Done!
+[03:41:02] INFO       Downloaded: 0
+[03:41:02] INFO       Skipped:    548  (already existed)
+[03:41:02] INFO       Too short:  0  (< 0 chars)
+[03:41:02] INFO       Failed:     457
+[03:41:02] INFO       Files:      548
+[03:41:02] INFO       Size:       36.4 MB
+[03:41:02] INFO       Text sizes: p25=27KB  p50=50KB  p75=80KB
+[03:41:02] INFO       Directory:  C:\Users\anshu\PycharmProjects\seriousWork\echr_turkey_cases
+[03:41:02] INFO     
+  Tip: Re-run the same command to retry 457 failed downloads (existing files are skipped automatically).
+[03:41:02] INFO     
+────────────────────────────────────────────────────────────
+[03:41:02] INFO     To extract legal reasoning graphs from these cases:
+[03:41:02] INFO       python run_iltur.py \
+[03:41:02] INFO         --dataset echr \
+[03:41:02] INFO         --local_dir echr_turkey_cases \
+[03:41:02] INFO         --ontology echr_ontology_compiled_v3_1.json \
+[03:41:02] INFO         --jurisdiction echr \
+[03:41:02] INFO         --n 100 --concurrent 10
+[03:41:02] INFO     ────────────────────────────────────────────────────────────
