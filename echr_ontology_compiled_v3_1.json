@@ -1,0 +1,2137 @@
+{
+  "ontology_version": "echr_compiled_v3",
+  "compiled_at": "2026-02-19T14:19:25.188511+00:00",
+  "jurisdiction": "Council of Europe / European Court of Human Rights (Strasbourg)",
+  "primary_instrument": "European Convention on Human Rights (ECHR, 1950)",
+  "concepts": {
+    "DOCTRINE_MARGIN_OF_APPRECIATION": {
+      "label": "Margin of Appreciation",
+      "kind": "doctrine",
+      "type": "deference_principle",
+      "parent": "Subsidiarity principle (Preamble, Protocol 15)",
+      "establishing_cases": "Handyside v. UK (1976), Sunday Times v. UK (1979), Rasmussen v. Denmark (1984), Evans v. UK [GC] (2007), Hirst v. UK (No. 2) [GC] (2005), Animal Defenders International v. UK [GC] (2013)",
+      "requires": [
+        "[AND — width determined by three factors]",
+        "Nature of the right involved",
+        "Legitimate aim pursued by the restriction",
+        "Presence or absence of European consensus among Contracting States"
+      ],
+      "alternatives": [
+        "[OR — triggers for narrow margin]",
+        "Intimate aspects of private life at stake (Dudgeon v. UK, 1981)",
+        "Fundamental rights engaged",
+        "European consensus exists (Sunday Times v. UK, 1979)",
+        "Suspect grounds of discrimination (D.H. v. Czech Republic [GC], 2007)"
+      ],
+      "defeaters": [
+        "Margin is never unlimited — European supervision always accompanies it",
+        "Court retains final authority on necessity in a democratic society",
+        "Wide margin applies where: morals (Handyside), national security (Klass), no consensus (S.H. v. Austria [GC], 2011), democratic deliberation (Animal Defenders International)"
+      ],
+      "typical_edge_pattern": "(State_Interference) --[assessed via]--> (Margin_of_Appreciation) --[width determined by]--> (Consensus + Right_Nature + Aim) --[if exceeded]--> (Violation)",
+      "key_phrases": "\"margin of appreciation\", \"vital forces of their countries\", \"European supervision\", \"common ground among Contracting States\", \"wide margin\", \"narrow margin\""
+    },
+    "DOCTRINE_PROPORTIONALITY_NECESSARY_IN_DEMOCRATIC_SOCIETY": {
+      "label": "Proportionality / Necessary in a Democratic Society",
+      "kind": "doctrine",
+      "type": "interference_justification_test",
+      "parent": "Articles 8–11 qualified rights framework",
+      "establishing_cases": "Handyside v. UK (1976), Sunday Times v. UK (1979), Dudgeon v. UK (1981), Silver v. UK (1983), Olsson v. Sweden (No. 1) (1988)",
+      "requires": [
+        "[AND — three-part test]",
+        "Prescribed by law (accessible and foreseeable legal basis)",
+        "Legitimate aim (from exhaustive list in relevant article)",
+        "Necessary in a democratic society (pressing social need + proportionate + relevant and sufficient reasons)"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "No legal basis in domestic law",
+        "Aim not within exhaustive list",
+        "No pressing social need demonstrated",
+        "Reasons not relevant and sufficient",
+        "Disproportionate to aim pursued",
+        "'Necessary' does not mean useful, reasonable, or desirable (Handyside §48)"
+      ],
+      "typical_edge_pattern": "(State_Interference) --[three-part test]--> (Prescribed_by_Law + Legitimate_Aim + Necessary) --[if any fails]--> (Violation)",
+      "key_phrases": "\"pressing social need\", \"relevant and sufficient reasons\", \"proportionate to the legitimate aim\", \"necessary in a democratic society\", \"fair balance\", \"narrowly interpreted\""
+    },
+    "DOCTRINE_LIVING_INSTRUMENT": {
+      "label": "Living Instrument Doctrine",
+      "kind": "doctrine",
+      "type": "interpretation_canon",
+      "parent": "Evolutionary treaty interpretation",
+      "establishing_cases": "Tyrer v. UK (1978), Marckx v. Belgium (1979), Christine Goodwin v. UK [GC] (2002), Demir and Baykara v. Turkey [GC] (2008)",
+      "requires": [
+        "[OR — sources of evolving standards]",
+        "European consensus (survey of Contracting States' laws)",
+        "International instruments (treaties, resolutions, Council of Europe, UN, ILO)",
+        "Emerging trends or scientific developments",
+        "Comparative law analysis"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "No European consensus (margin remains wider)",
+        "Consensus is indicative, not dispositive"
+      ],
+      "typical_edge_pattern": "(Convention_Provision) --[interpreted via]--> (Living_Instrument) --[informed by]--> (Present_Day_Conditions + Consensus) --[may expand]--> (Scope_of_Right)",
+      "key_phrases": "\"living instrument\", \"present-day conditions\", \"practical and effective\", \"theoretical or illusory\", \"increasingly high standard\""
+    },
+    "DOCTRINE_AUTONOMOUS_CONCEPTS": {
+      "label": "Autonomous Concepts",
+      "kind": "doctrine",
+      "type": "interpretation_canon",
+      "parent": "Convention independence from domestic classification",
+      "establishing_cases": "Engel v. Netherlands (1976) — see also DOCTRINE_ENGEL_CRITERIA, Ringeisen v. Austria (1971), König v. Germany (1978), Öztürk v. Germany (1984), Chassagnou v. France (1999), Niemietz v. Germany (1992)",
+      "requires": [
+        "[AND]",
+        "Convention term at issue",
+        "Domestic classification is not decisive but no more than a starting point",
+        "Court examines substantive content and effects"
+      ],
+      "alternatives": [
+        "[OR — Engel criteria for 'criminal charge' are alternative, not cumulative]",
+        "Classification under national law (starting point only)",
+        "Nature of the offence (punitive/deterrent purpose)",
+        "Severity of the potential penalty"
+      ],
+      "defeaters": [
+        "Convention term has no independent European meaning (rare)",
+        "Domestic classification may be relevant as starting point"
+      ],
+      "typical_edge_pattern": "(Domestic_Classification) --[not decisive]--> (Autonomous_Concept_Test) --[substantive content and effects]--> (Convention_Applicability)",
+      "key_phrases": "\"autonomous concept\", \"substantive content and effects\", \"not decisive\", \"no more than a starting point\", \"Engel criteria\", \"civil rights and obligations\", \"criminal charge\""
+    },
+    "DOCTRINE_PRESCRIBED_BY_LAW": {
+      "label": "Prescribed by Law Test",
+      "kind": "standard",
+      "type": "legality_requirement",
+      "parent": "Three-part test for qualified rights (Articles 8–11)",
+      "establishing_cases": "Sunday Times v. UK (1979), Malone v. UK (1984), Kruslin v. France (1990), Hasan and Chaush v. Bulgaria [GC] (2000)",
+      "requires": [
+        "[AND — three requirements]",
+        "Legal basis in domestic law (substantive, not formal sense)",
+        "Accessibility (citizen can ascertain applicable rules)",
+        "Foreseeability (sufficient precision to regulate conduct)"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "No legal basis in domestic law",
+        "Law not accessible",
+        "Insufficiently precise for foreseeability",
+        "Unfettered executive discretion (Hasan and Chaush)",
+        "Secret power without safeguards (Malone)"
+      ],
+      "typical_edge_pattern": "(Interference) --[must be]--> (Prescribed_by_Law) --[requires]--> (Basis + Accessibility + Foreseeability) --[if fails]--> (Violation)",
+      "key_phrases": "\"prescribed by law\", \"in accordance with the law\", \"accessible and foreseeable\", \"quality of the law\", \"rule of law\", \"unfettered power\""
+    },
+    "DOCTRINE_POSITIVE_OBLIGATIONS": {
+      "label": "Positive Obligations Doctrine",
+      "kind": "doctrine",
+      "type": "state_duty_principle",
+      "parent": "Convention rights effectiveness (Airey v. Ireland principle)",
+      "establishing_cases": "Marckx v. Belgium (1979), Airey v. Ireland (1979), X and Y v. Netherlands (1985), Platform Ärzte für das Leben v. Austria (1988)",
+      "requires": [
+        "[AND]",
+        "Convention right engaged",
+        "State must take active measures to secure rights effectively",
+        "Fair balance between individual and community interests",
+        "Rights must be practical and effective, not theoretical and illusory",
+        "Obligation must not impose impossible or disproportionate burden (Osman §116)"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Would impose impossible or disproportionate burden",
+        "Fair balance favours community interest",
+        "State has margin of appreciation in choosing means"
+      ],
+      "typical_edge_pattern": "(Convention_Right) --[requires]--> (Positive_Obligation) --[balanced against]--> (Community_Interest) --[if State fails]--> (Violation)",
+      "key_phrases": "\"positive obligations inherent in\", \"practical and effective\", \"theoretical and illusory\", \"fair balance\", \"impossible or disproportionate burden\""
+    },
+    "DOCTRINE_OSMAN_TEST_ARTICLE_2": {
+      "label": "Osman Test (Article 2 Operational Duty)",
+      "kind": "standard",
+      "type": "positive_obligation_test",
+      "parent": "Positive Obligations / Article 2",
+      "establishing_cases": "Osman v. UK (1998), Keenan v. UK (2001), Öneryıldız v. Turkey [GC] (2004), Kurt v. Austria [GC] (2021)",
+      "requires": [
+        "[AND — five elements]",
+        "Authorities knew or ought to have known at the time",
+        "Of a real and immediate risk to the life",
+        "Of an identified individual or individuals",
+        "Arising from criminal acts of another",
+        "Failed to take measures within the scope of their powers which might have been expected to avoid that risk"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Not every claimed risk entails operational measures",
+        "Difficulties in policing modern societies",
+        "Unpredictability of human conduct",
+        "Operational choices in priorities and resources"
+      ],
+      "typical_edge_pattern": "(Risk_to_Life) --[known to authorities]--> (Osman_Duty) --[failure to act]--> (Art2_Violation)",
+      "key_phrases": "\"knew or ought to have known\", \"real and immediate risk to life\", \"identified individual\", \"within the scope of their powers\", \"risk assessment obligation\""
+    },
+    "DOCTRINE_ABSOLUTE_RIGHTS": {
+      "label": "Absolute Rights (Articles 3, 4§1, 7)",
+      "kind": "doctrine",
+      "type": "non_derogable_protection",
+      "parent": "Convention architecture — non-qualified rights",
+      "establishing_cases": "Chahal v. UK (1996), Saadi v. Italy [GC] (2008), Gäfgen v. Germany [GC] (2010)",
+      "requires": [
+        "[AND — three elements of absoluteness]",
+        "No qualifying paragraph permitting interference",
+        "Article 15§2 prohibits derogation",
+        "Protection unconditional irrespective of conduct of person concerned"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "None — absolute rights admit no exceptions, no derogation, no balancing"
+      ],
+      "typical_edge_pattern": "(State_Action) --[engages absolute right]--> (No_Balancing_Permitted) --[if threshold met]--> (Automatic_Violation)",
+      "key_phrases": "\"absolute\", \"no derogation\", \"irrespective of the conduct\", \"cannot be a material consideration\", \"non-refoulement\", \"real risk\""
+    },
+    "DOCTRINE_ESSENCE_OF_THE_RIGHT": {
+      "label": "Essence of the Right / Core Right Protection",
+      "kind": "doctrine",
+      "type": "limitation_boundary",
+      "parent": "Implied limitations on Convention rights",
+      "establishing_cases": "Ashingdane v. UK (1985), Belgian Linguistic Case (1968), Mathieu-Mohin v. Belgium (1987)",
+      "requires": [
+        "[AND — Ashingdane criteria]",
+        "Limitation must not restrict access to extent that essence is impaired",
+        "Must pursue a legitimate aim",
+        "Reasonable proportionality between means and aim"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Essence not impaired",
+        "Legitimate aim established",
+        "Proportionate means"
+      ],
+      "typical_edge_pattern": "(Implied_Limitation) --[Ashingdane test]--> (Essence_Preserved?) --[if impaired]--> (Violation)",
+      "key_phrases": "\"very essence of the right\", \"injure the substance\", \"Ashingdane criteria\", \"impair their very essence\""
+    },
+    "DOCTRINE_NON_DISCRIMINATION_ARTICLE_14": {
+      "label": "Non-Discrimination (Article 14)",
+      "kind": "doctrine",
+      "type": "equality_principle",
+      "parent": "Accessory to other Convention rights",
+      "establishing_cases": "Belgian Linguistic Case (1968), Abdulaziz v. UK (1985), Thlimmenos v. Greece [GC] (2000), D.H. v. Czech Republic [GC] (2007), Burden v. UK [GC] (2008)",
+      "requires": [
+        "[AND — four elements]",
+        "Ambit — facts within another Convention right",
+        "Differential treatment of persons in relevantly similar situations",
+        "Treatment on a prohibited ground (illustrative list including 'other status')",
+        "No objective and reasonable justification (legitimate aim + proportionate means)"
+      ],
+      "alternatives": [
+        "[OR — Thlimmenos principle extends Art 14]",
+        "Treating similar situations differently without justification",
+        "Failing to treat significantly different situations differently without justification (Thlimmenos)"
+      ],
+      "defeaters": [
+        "Facts not within ambit of another Convention right",
+        "Persons not in relevantly similar situations",
+        "Objective and reasonable justification exists",
+        "Proportionate means to legitimate aim"
+      ],
+      "typical_edge_pattern": "(Differential_Treatment) --[within ambit]--> (Art14_Test) --[prohibited ground + no justification]--> (Violation)",
+      "key_phrases": "\"relevantly similar situations\", \"very weighty reasons\", \"objective and reasonable justification\", \"indirect discrimination\", \"Thlimmenos principle\", \"disproportionately prejudicial effects\""
+    },
+    "DOCTRINE_SUBSTANTIVE_VS_PROCEDURAL_OBLIGATIONS": {
+      "label": "Substantive vs. Procedural Obligations (Articles 2 and 3)",
+      "kind": "doctrine",
+      "type": "obligation_structure",
+      "parent": "Articles 2 and 3 framework",
+      "establishing_cases": "McCann v. UK (1995), Jordan v. UK (2001), Assenov v. Bulgaria (1998), Šilih v. Slovenia [GC] (2009)",
+      "requires": [
+        "[AND — Jordan five requirements for effective investigation]",
+        "Independence of investigators",
+        "Adequacy — capable of identifying and punishing those responsible",
+        "Promptness and reasonable expedition",
+        "Public scrutiny",
+        "Involvement of next-of-kin"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Investigation met all five requirements",
+        "Genuine attempt despite obstacles"
+      ],
+      "typical_edge_pattern": "(Death_or_Ill_Treatment) --[triggers]--> (Substantive_Limb + Procedural_Limb) --[separate assessment]--> (Separate_Violations_Possible)",
+      "key_phrases": "\"separate and autonomous duty\", \"effective investigation\", \"of its own motion\", \"procedural obligation\", \"independence of investigators\""
+    },
+    "DOCTRINE_EXHAUSTION_DOMESTIC_REMEDIES": {
+      "label": "Exhaustion of Domestic Remedies (Article 35§1)",
+      "kind": "doctrine",
+      "type": "admissibility_requirement",
+      "parent": "Subsidiarity principle",
+      "establishing_cases": "Akdivar v. Turkey [GC] (1996), Vučković v. Serbia [GC] (2014)",
+      "requires": [
+        "[AND]",
+        "Remedies must be available (sufficiently certain in practice)",
+        "Remedies must be effective (capable of providing redress)",
+        "Remedies must be sufficient",
+        "Applied with flexibility and without excessive formalism (Akdivar §69)"
+      ],
+      "alternatives": [
+        "[OR — exceptions to exhaustion]",
+        "Remedies inadequate or ineffective",
+        "Special circumstances (climate of fear, official obstruction)",
+        "Administrative practice of repeated violations with official tolerance"
+      ],
+      "defeaters": [
+        "Government shows remedy was available and effective",
+        "Applicant fails to show exhaustion or special circumstances"
+      ],
+      "typical_edge_pattern": "(Application) --[admissibility]--> (Exhaustion_Test) --[if not exhausted]--> (Inadmissible)",
+      "key_phrases": "\"exhaust domestic remedies\", \"flexibility and without excessive formalism\", \"available and effective\", \"administrative practice\", \"official tolerance\""
+    },
+    "DOCTRINE_TIME_LIMIT_RULE": {
+      "label": "Four-Month Rule (formerly Six-Month)",
+      "kind": "doctrine",
+      "type": "admissibility_requirement",
+      "parent": "Article 35§1 / Protocol No. 15",
+      "establishing_cases": "Protocol No. 15 (effective 1 February 2022), Varnava v. Turkey [GC] (2009)",
+      "requires": [
+        "[AND]",
+        "Application within four months of final domestic decision",
+        "Where no remedy available: time runs from act or awareness",
+        "Non-retroactive: applies only where final decision from 1 Feb 2022 onwards"
+      ],
+      "alternatives": [
+        "[OR — continuing situation exception]",
+        "Ongoing state of affairs: time-limit starts afresh each day (Varnava §159)",
+        "Enforced disappearances, ongoing property deprivation, continuing legislative situations"
+      ],
+      "defeaters": [
+        "Time limit expired",
+        "No continuing situation established"
+      ],
+      "typical_edge_pattern": "(Final_Decision) --[four months]--> (Time_Limit) --[if expired]--> (Inadmissible)",
+      "key_phrases": "\"four-month rule\", \"final domestic decision\", \"continuing situation\", \"starts afresh each day\""
+    },
+    "DOCTRINE_FOURTH_INSTANCE": {
+      "label": "Fourth Instance Doctrine / Duty to Give Reasons",
+      "kind": "doctrine",
+      "type": "jurisdictional_restraint",
+      "parent": "Subsidiarity principle",
+      "establishing_cases": "García Ruiz v. Spain [GC] (1999), Ruiz Torija v. Spain (1994), Hiro Balani v. Spain (1994), Taxquet v. Belgium [GC] (2010), Moreira Ferreira v. Portugal (No. 2) [GC] (2017)",
+      "requires": [
+        "[AND — two interlinked principles]",
+        "Fourth instance bar: Court will not deal with errors of fact or law unless they infringe Convention rights (García Ruiz §26)",
+        "Duty to give reasons: courts must adequately state reasons on which decisions are based",
+        "Extent of duty varies according to the nature of the decision",
+        "Courts must address submissions that, if accepted, would be decisive for the outcome (Ruiz Torija)",
+        "No requirement for a detailed answer to every argument"
+      ],
+      "alternatives": [
+        "[OR — adequate reasoning forms]",
+        "Appellate court may simply endorse lower court's reasons",
+        "Jury verdicts: unreasoned general verdicts compatible with Art 6 if adequate safeguards exist (Taxquet [GC])",
+        "Precise questions + clear judicial directions + available appeal = sufficient for jury trials"
+      ],
+      "defeaters": [
+        "Findings not arbitrary or manifestly unreasonable",
+        "No Convention right infringed",
+        "Court addressed all decisive arguments",
+        "Reasoning adequate for the type and level of decision",
+        "Conclusions not grossly arbitrary or amounting to denial of justice"
+      ],
+      "typical_edge_pattern": "(Domestic_Decision) --[fourth instance bar]--> (Court_Defers) --[unless]--> (Arbitrary + Denial_of_Justice + Decisive_Argument_Ignored) --[then]--> (Court_Intervenes)",
+      "key_phrases": "\"fourth instance\", \"arbitrary or manifestly unreasonable\", \"errors of fact or law\", \"sufficiently reasoned\", \"adequately reasoned\", \"obligation to give reasons\", \"duty to give reasons\", \"reasoned judgment\", \"detailed answer to every argument\", \"decisive for the outcome\", \"proper administration of justice\", \"nature of the decision\""
+    },
+    "DOCTRINE_PILOT_JUDGMENT": {
+      "label": "Pilot Judgment Procedure",
+      "kind": "doctrine",
+      "type": "systemic_remedy",
+      "parent": "Rule 61 of the Rules of Court",
+      "establishing_cases": "Broniowski v. Poland [GC] (2004), Hutten-Czapska v. Poland [GC] (2006), Burdov v. Russia (No. 2) (2009)",
+      "requires": [
+        "[AND]",
+        "Systemic or structural problem generating similar applications",
+        "Court identifies the problem",
+        "Court specifies general measures required",
+        "May set time limits and freeze similar pending cases"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "No systemic problem established",
+        "Individual case only"
+      ],
+      "typical_edge_pattern": "(Systemic_Problem) --[pilot judgment]--> (Structural_Measures_Required + Cases_Frozen)",
+      "key_phrases": "\"systemic or structural problem\", \"pilot judgment\", \"general measures\", \"freeze similar cases\""
+    },
+    "DOCTRINE_EFFECTIVE_REMEDY_ARTICLE_13": {
+      "label": "Effective Remedy (Article 13)",
+      "kind": "doctrine",
+      "type": "procedural_guarantee",
+      "parent": "Article 13",
+      "establishing_cases": "Boyle and Rice v. UK (1988), Silver v. UK (1983), Kudła v. Poland [GC] (2000)",
+      "requires": [
+        "[AND]",
+        "Arguable complaint under another Convention provision",
+        "Remedy allows competent authority to deal with substance",
+        "Remedy grants appropriate relief",
+        "Aggregate of remedies may suffice (Silver; Kudła)"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "No arguable complaint",
+        "Aggregate of remedies provides effective relief"
+      ],
+      "typical_edge_pattern": "(Arguable_Complaint) --[Art 13]--> (Effective_Remedy_Required) --[if absent]--> (Art13_Violation)",
+      "key_phrases": "\"arguable complaint\", \"effective remedy\", \"appropriate relief\", \"aggregate of remedies\""
+    },
+    "DOCTRINE_LEGITIMATE_AIM": {
+      "label": "Legitimate Aim Analysis",
+      "kind": "doctrine",
+      "type": "interference_justification_step",
+      "parent": "Three-part test for qualified rights",
+      "establishing_cases": "Handyside v. UK (1976), Sunday Times v. UK (1979)",
+      "requires": [
+        "[AND]",
+        "Government identifies aim",
+        "Aim falls within exhaustive list of relevant article",
+        "Typically not contentious — most cases turn on necessity"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Aim not within exhaustive list",
+        "Pretext — real aim differs from stated aim"
+      ],
+      "typical_edge_pattern": "(Government_Justification) --[must fall within]--> (Exhaustive_List) --[if outside]--> (Fails)",
+      "key_phrases": "\"legitimate aim\", \"exhaustive list\", \"national security\", \"public safety\", \"economic well-being\", \"prevention of disorder or crime\", \"protection of health or morals\", \"rights and freedoms of others\""
+    },
+    "DOCTRINE_DEROGATION_ARTICLE_15": {
+      "label": "Derogation Under Article 15",
+      "kind": "doctrine",
+      "type": "emergency_powers",
+      "parent": "Article 15",
+      "establishing_cases": "Lawless v. Ireland (No. 3) (1961), Ireland v. UK (1978), A. and Others v. UK [GC] (2009)",
+      "requires": [
+        "[AND — three conditions]",
+        "War or other public emergency threatening the life of the nation",
+        "Measures strictly required by the exigencies of the situation",
+        "Consistency with other international law obligations"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Non-derogable rights: Articles 2 (except lawful acts of war), 3, 4§1, 7, P6-Art3, P7-Art4, P13-Art2",
+        "Measures disproportionate (A. v. UK [GC], 2009)",
+        "Failure to notify Secretary General (Art. 15§3)"
+      ],
+      "typical_edge_pattern": "(Emergency) --[Art 15]--> (Strictly_Required) --[if disproportionate or non-derogable]--> (Violation)",
+      "key_phrases": "\"public emergency threatening the life of the nation\", \"strictly required by the exigencies\", \"non-derogable\", \"exceptional situation of crisis\""
+    },
+    "DOCTRINE_LOSS_OF_VICTIM_STATUS": {
+      "label": "Loss of Victim Status",
+      "kind": "doctrine",
+      "type": "admissibility_requirement",
+      "parent": "Article 34",
+      "establishing_cases": "Eckle v. Germany (1982), Scordino v. Italy (No. 1) [GC] (2006)",
+      "requires": [
+        "[AND — both must be met]",
+        "National authorities acknowledged the breach (expressly or in substance)",
+        "Afforded adequate and appropriate redress"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Only acknowledgment without redress — status retained",
+        "Only redress without acknowledgment — status retained"
+      ],
+      "typical_edge_pattern": "(Applicant) --[victim status test]--> (Acknowledged + Redressed?) --[if both]--> (No_Longer_Victim)",
+      "key_phrases": "\"acknowledged the breach\", \"adequate and appropriate redress\", \"victim status\", \"directly affected\""
+    },
+    "DOCTRINE_CONTINUING_SITUATION": {
+      "label": "Continuing Situation Doctrine",
+      "kind": "doctrine",
+      "type": "temporal_jurisdiction",
+      "parent": "Article 35§1 / ratione temporis",
+      "establishing_cases": "Varnava v. Turkey [GC] (2009), Papamichalopoulos v. Greece (1993)",
+      "requires": [
+        "[AND]",
+        "Ongoing state of affairs constituting a breach",
+        "Each day the situation continues constitutes renewed breach"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Situation has ceased",
+        "Single instantaneous act, not continuing"
+      ],
+      "typical_edge_pattern": "(Ongoing_Situation) --[renews daily]--> (Time_Limit_Resets) --[until ceases]--> (Final_Period_Begins)",
+      "key_phrases": "\"continuing situation\", \"starts afresh each day\", \"ongoing state of affairs\", \"enforced disappearance\""
+    },
+    "ARTICLE_2_RIGHT_TO_LIFE": {
+      "label": "Article 2 — Right to Life",
+      "kind": "convention_article",
+      "type": "near_absolute",
+      "parent": "Non-derogable in peacetime",
+      "establishing_cases": "McCann v. UK (1995), Osman v. UK (1998), Öneryıldız v. Turkey [GC] (2004), Budayeva v. Russia (2008), Kurt v. Austria [GC] (2021)",
+      "requires": [
+        "[AND — stricter than necessity test]",
+        "Force must be no more than absolutely necessary",
+        "Three obligation types: substantive negative (refrain from killing), substantive positive (regulatory framework + Osman duty), procedural (effective investigation)"
+      ],
+      "alternatives": [
+        "[OR — Art 2§2 permitted exceptions to lethal force]",
+        "Defence from unlawful violence",
+        "Effecting lawful arrest",
+        "Quelling riot or insurrection"
+      ],
+      "defeaters": [
+        "Force was absolutely necessary under Art 2§2",
+        "Effective investigation was conducted"
+      ],
+      "typical_edge_pattern": "(Use_of_Force_or_Death) --[Art 2 test]--> (Absolutely_Necessary?) --[if excessive]--> (Violation)",
+      "key_phrases": "\"no more than absolutely necessary\", \"right to life\", \"effective investigation\", \"regulatory framework\", \"operational duty\""
+    },
+    "ARTICLE_3_PROHIBITION_OF_TORTURE": {
+      "label": "Article 3 — Prohibition of Torture",
+      "kind": "convention_article",
+      "type": "absolute",
+      "parent": "Non-derogable (Article 15§2)",
+      "establishing_cases": "Ireland v. UK (1978), Soering v. UK (1989), Chahal v. UK (1996), Selmouni v. France [GC] (1999), Saadi v. Italy [GC] (2008), M.S.S. v. Belgium and Greece [GC] (2011); for medical expulsion threshold see DOCTRINE_PAPOSHVILI_MEDICAL_EXPULSION",
+      "requires": [
+        "[AND]",
+        "Minimum level of severity threshold (relative: duration, effects, victim characteristics)",
+        "Classification: torture (deliberate, purposive) > inhuman treatment (intense suffering) > degrading treatment (humiliation)"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "None — absolute, no exceptions, no derogation, no balancing"
+      ],
+      "typical_edge_pattern": "(Treatment) --[minimum severity]--> (Torture/Inhuman/Degrading) --[if met]--> (Automatic_Violation)",
+      "key_phrases": "\"minimum level of severity\", \"absolute prohibition\", \"no derogation\", \"non-refoulement\", \"substantial grounds for believing\", \"real risk\", \"most fundamental values\""
+    },
+    "ARTICLE_4_PROHIBITION_SLAVERY": {
+      "label": "Article 4 — Prohibition of Slavery and Forced Labour",
+      "kind": "convention_article",
+      "type": "mixed",
+      "parent": "Art 4§1 absolute/non-derogable; Art 4§2 limited",
+      "establishing_cases": "Siliadin v. France (2005), Rantsev v. Cyprus and Russia (2010), Chowdury v. Greece (2017), S.M. v. Croatia [GC] (2020)",
+      "requires": [
+        "[OR — different thresholds]",
+        "Slavery: exercise of powers of ownership over a person (Siliadin)",
+        "Servitude: obligation to provide services under coercion, with no prospect of change",
+        "Forced labour: menace of penalty + involuntariness (ILO Convention No. 29)",
+        "Trafficking: recruitment/transport/transfer by threat/coercion for exploitation (Rantsev)"
+      ],
+      "alternatives": [
+        "[OR — Art 4§3 excluded activities]",
+        "Work during lawful detention",
+        "Military service",
+        "Emergency service",
+        "Normal civic obligations"
+      ],
+      "defeaters": [
+        "Activity falls within Art 4§3 exclusions",
+        "Voluntary consent (genuinely free)"
+      ],
+      "typical_edge_pattern": "(Exploitation) --[Art 4 test]--> (Slavery/Servitude/Forced_Labour/Trafficking?) --[if established]--> (Violation)",
+      "key_phrases": "\"powers of ownership\", \"menace of penalty\", \"involuntariness\", \"modern form of slave trade\", \"human trafficking\", \"forced labour\""
+    },
+    "ARTICLE_5_RIGHT_TO_LIBERTY": {
+      "label": "Article 5 — Right to Liberty and Security",
+      "kind": "convention_article",
+      "type": "limited_exhaustive",
+      "parent": "Exhaustive permitted grounds (no necessity test)",
+      "establishing_cases": "Winterwerp v. Netherlands (1979), Brogan v. UK (1988), Saadi v. UK [GC] (2008)",
+      "requires": [
+        "[AND — lawfulness test]",
+        "Detention falls within one of Art 5§1(a)–(f) exhaustive grounds",
+        "In accordance with a procedure prescribed by law",
+        "Lawful under domestic and Convention law",
+        "Not arbitrary"
+      ],
+      "alternatives": [
+        "[OR — exhaustive grounds Art 5§1]",
+        "(a) Conviction by competent court",
+        "(b) Non-compliance with court order",
+        "(c) Reasonable suspicion of offence",
+        "(d) Minor for educational supervision",
+        "(e) Unsound mind, alcoholics, vagrants, infectious diseases",
+        "(f) Immigration/deportation"
+      ],
+      "defeaters": [
+        "Detention falls within permitted ground",
+        "Lawful and not arbitrary",
+        "Procedural safeguards met (§§2-5: reasons, prompt judge, habeas corpus, compensation)"
+      ],
+      "typical_edge_pattern": "(Detention) --[Art 5 test]--> (Exhaustive_Ground + Lawful + Not_Arbitrary) --[if fails]--> (Violation)",
+      "key_phrases": "\"exhaustive list\", \"narrow interpretation\", \"prescribed by law\", \"reasonable suspicion\", \"promptly brought before judge\", \"habeas corpus\", \"arbitrary\""
+    },
+    "ARTICLE_6_RIGHT_TO_FAIR_TRIAL": {
+      "label": "Article 6 — Right to a Fair Trial",
+      "kind": "convention_article",
+      "type": "limited_procedural",
+      "parent": "Due process (civil and criminal limbs)",
+      "establishing_cases": "Golder v. UK (1975), König v. Germany (1978), Engel v. Netherlands (1976), Salduz v. Turkey [GC] (2008), Ibrahim v. UK [GC] (2016), Beuze v. Belgium [GC] (2018)",
+      "requires": [
+        "[AND — core guarantees §1]",
+        "Fair and public hearing",
+        "Independent and impartial tribunal established by law",
+        "Within reasonable time",
+        "Civil limb: 'civil rights and obligations' (autonomous — König)",
+        "Criminal limb: 'criminal charge' (Engel criteria)"
+      ],
+      "alternatives": [
+        "[OR — §3 minimum rights for accused]",
+        "Informed of charge in detail",
+        "Adequate time and facilities for defence",
+        "Legal representation (self or through counsel)",
+        "Examine witnesses",
+        "Free interpreter"
+      ],
+      "defeaters": [
+        "Fair trial overall despite individual imperfections",
+        "Limitation does not impair essence of right (Ashingdane)"
+      ],
+      "typical_edge_pattern": "(Proceedings) --[Art 6]--> (Fair_Hearing + Independent_Tribunal + Reasonable_Time) --[if fails]--> (Violation)",
+      "key_phrases": "\"fair trial\", \"independent and impartial tribunal\", \"reasonable time\", \"access to court\", \"presumption of innocence\", \"right to silence\", \"equality of arms\", \"no justification for interpreting restrictively\""
+    },
+    "ARTICLE_7_NULLUM_CRIMEN": {
+      "label": "Article 7 — No Punishment Without Law",
+      "kind": "convention_article",
+      "type": "absolute",
+      "parent": "Non-derogable (Article 15§2)",
+      "establishing_cases": "Kokkinakis v. Greece (1993), S.W. v. UK (1995), Scoppola v. Italy (No. 2) [GC] (2009), Del Río Prada v. Spain [GC] (2013)",
+      "requires": [
+        "[AND — four principles]",
+        "Only the law can define a crime (nullum crimen sine lege)",
+        "Only the law can prescribe a penalty (nulla poena sine lege)",
+        "No extensive construction by analogy to accused's disadvantage",
+        "Non-retroactivity of heavier criminal penalties"
+      ],
+      "alternatives": [
+        "[OR — permitted developments]",
+        "Judicial development following a perceptible line of case law (S.W. v. UK)",
+        "Retrospective application of more favourable law guaranteed (Scoppola [GC])"
+      ],
+      "defeaters": [
+        "Law was accessible and foreseeable at time of conduct",
+        "Development followed perceptible case-law line"
+      ],
+      "typical_edge_pattern": "(Criminal_Conviction) --[Art 7]--> (Law_Defined_Crime + Foreseeable + Non_Retroactive) --[if fails]--> (Violation)",
+      "key_phrases": "\"nullum crimen sine lege\", \"nulla poena sine lege\", \"accessible and foreseeable\", \"perceptible line of case law\", \"lex mitior\", \"non-retroactivity\""
+    },
+    "ARTICLE_8_PRIVATE_FAMILY_LIFE": {
+      "label": "Article 8 — Private and Family Life",
+      "kind": "convention_article",
+      "type": "qualified",
+      "parent": "Qualified right (Art 8§2 restrictions)",
+      "establishing_cases": "Dudgeon v. UK (1981), López Ostra v. Spain (1994), Von Hannover v. Germany (No. 2) [GC] (2012), S. and Marper v. UK (2008), Zakharov v. Russia (2015); for Art 8 vs Art 10 balancing see DOCTRINE_VON_HANNOVER_BEDAT_BALANCING",
+      "requires": [
+        "[AND — four-step interference test]",
+        "Interference with private life, family life, home, or correspondence",
+        "Prescribed by law (accessible + foreseeable)",
+        "Legitimate aim from Art 8§2 list",
+        "Necessary in a democratic society"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Interference prescribed by law",
+        "Pursued legitimate aim",
+        "Necessary and proportionate",
+        "State acted within margin of appreciation"
+      ],
+      "typical_edge_pattern": "(Interference_with_Art8_right) --[four-step test]--> (Prescribed + Aim + Necessary) --[if fails]--> (Violation)",
+      "key_phrases": "\"private life\", \"family life\", \"home\", \"correspondence\", \"personal data\", \"physical and psychological integrity\", \"environmental pollution\", \"surveillance safeguards\""
+    },
+    "ARTICLE_9_FREEDOM_RELIGION": {
+      "label": "Article 9 — Freedom of Thought, Conscience and Religion",
+      "kind": "convention_article",
+      "type": "mixed",
+      "parent": "Forum internum absolute; forum externum qualified",
+      "establishing_cases": "Kokkinakis v. Greece (1993), Leyla Şahin v. Turkey [GC] (2005), Lautsi v. Italy [GC] (2011), S.A.S. v. France (2014), Eweida v. UK (2013)",
+      "requires": [
+        "[AND — for manifestation restriction]",
+        "Manifestation intimately linked to belief (Eweida)",
+        "Belief shows cogency, seriousness, cohesion and importance",
+        "If restricted: prescribed by law + legitimate aim + necessary"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Forum internum: never justifiable to restrict",
+        "Forum externum: restriction meets three-part test",
+        "Wide margin for secularism arrangements (Şahin)"
+      ],
+      "typical_edge_pattern": "(Restriction_on_Manifestation) --[Art 9§2 test]--> (Prescribed + Aim + Necessary) --[if fails]--> (Violation)",
+      "key_phrases": "\"forum internum\", \"forum externum\", \"foundations of democratic society\", \"cogency seriousness cohesion importance\", \"intimately linked\", \"living together\""
+    },
+    "ARTICLE_10_FREEDOM_OF_EXPRESSION": {
+      "label": "Article 10 — Freedom of Expression",
+      "kind": "convention_article",
+      "type": "qualified",
+      "parent": "Qualified right (Art 10§2 restrictions)",
+      "establishing_cases": "Lingens v. Austria (1986), Jersild v. Denmark (1994), Goodwin v. UK (1996), Delfi AS v. Estonia [GC] (2015)",
+      "requires": [
+        "[AND — interference test]",
+        "Interference with expression (information, ideas — including those that offend, shock or disturb)",
+        "Prescribed by law",
+        "Legitimate aim from Art 10§2 list",
+        "Necessary in a democratic society"
+      ],
+      "alternatives": [
+        "[OR — hierarchy affects scrutiny level]",
+        "Political speech: highest protection",
+        "Press/journalism: high (public watchdog)",
+        "Artistic expression: medium",
+        "Commercial speech: lowest / widest margin"
+      ],
+      "defeaters": [
+        "Proportionate restriction",
+        "Duties and responsibilities (Art 10§2)",
+        "Facts vs value judgments distinction (Lingens)",
+        "Politicians must tolerate greater criticism"
+      ],
+      "typical_edge_pattern": "(Restriction_on_Expression) --[Art 10§2 test]--> (Prescribed + Aim + Necessary) --[chilling effect?]--> (Violation_or_Not)",
+      "key_phrases": "\"essential foundations of democratic society\", \"chilling effect\", \"public watchdog\", \"offend shock or disturb\", \"value judgments\", \"source protection\", \"duties and responsibilities\""
+    },
+    "ARTICLE_11_FREEDOM_ASSEMBLY_ASSOCIATION": {
+      "label": "Article 11 — Freedom of Assembly and Association",
+      "kind": "convention_article",
+      "type": "qualified",
+      "parent": "Qualified right (Art 11§2 restrictions)",
+      "establishing_cases": "United Communist Party v. Turkey (1998), Refah Partisi v. Turkey [GC] (2003), Demir and Baykara v. Turkey [GC] (2008), Kudrevičius v. Lithuania [GC] (2015)",
+      "requires": [
+        "[AND — interference test]",
+        "Interference with peaceful assembly or association (including trade unions, political parties)",
+        "Prescribed by law",
+        "Legitimate aim from Art 11§2 list",
+        "Necessary in a democratic society"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Assembly not peaceful",
+        "Proportionate restriction meeting three-part test",
+        "Political party dissolution: convincing evidence of concrete threat to democracy (Refah Partisi)"
+      ],
+      "typical_edge_pattern": "(Restriction_on_Assembly_or_Association) --[Art 11§2 test]--> (Prescribed + Aim + Necessary) --[if fails]--> (Violation)",
+      "key_phrases": "\"peaceful assembly\", \"freedom of association\", \"political parties essential to democracy\", \"degree of tolerance\", \"collective bargaining\", \"trade union\", \"dissolution\""
+    },
+    "ARTICLE_13_EFFECTIVE_REMEDY": {
+      "label": "Article 13 — Effective Remedy",
+      "kind": "convention_article",
+      "type": "procedural_accessory",
+      "parent": "Requires arguable complaint under another provision",
+      "establishing_cases": "Boyle and Rice v. UK (1988), Silver v. UK (1983), Kudła v. Poland [GC] (2000)",
+      "requires": [
+        "[AND]",
+        "Arguable complaint under another Convention provision",
+        "National authority competent to deal with substance",
+        "Remedy grants appropriate relief",
+        "Aggregate of remedies may suffice"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "No arguable complaint",
+        "Aggregate provides effective relief"
+      ],
+      "typical_edge_pattern": "(Arguable_Complaint) --[Art 13]--> (Effective_Remedy?) --[if absent]--> (Violation)",
+      "key_phrases": "\"arguable complaint\", \"effective remedy\", \"appropriate relief\", \"aggregate of remedies\", \"competent national authority\""
+    },
+    "ARTICLE_14_PROHIBITION_DISCRIMINATION": {
+      "label": "Article 14 — Prohibition of Discrimination",
+      "kind": "convention_article",
+      "type": "accessory",
+      "parent": "Accessory — must be invoked with another Convention right",
+      "establishing_cases": "Belgian Linguistic Case (1968), Abdulaziz v. UK (1985), Thlimmenos v. Greece [GC] (2000), D.H. v. Czech Republic [GC] (2007)",
+      "requires": [
+        "[AND — four elements]",
+        "Facts within ambit of another Convention right",
+        "Differential treatment of persons in relevantly similar situations",
+        "Treatment on prohibited ground (illustrative list including other status)",
+        "No objective and reasonable justification"
+      ],
+      "alternatives": [
+        "[OR — extended by Thlimmenos]",
+        "Treating similar differently without justification",
+        "Failing to treat different differently without justification"
+      ],
+      "defeaters": [
+        "Not within ambit",
+        "Not relevantly similar",
+        "Objective and reasonable justification (very weighty reasons for suspect grounds)"
+      ],
+      "typical_edge_pattern": "(Differential_Treatment) --[within ambit]--> (Art 14 test) --[no justification]--> (Violation)",
+      "key_phrases": "\"within the ambit\", \"relevantly similar situations\", \"very weighty reasons\", \"objective and reasonable justification\", \"other status\", \"indirect discrimination\""
+    },
+    "ARTICLES_34_35_ADMISSIBILITY": {
+      "label": "Articles 34–35 — Standing and Admissibility",
+      "kind": "convention_article",
+      "type": "procedural",
+      "parent": "Individual application system",
+      "establishing_cases": "Akdivar v. Turkey [GC] (1996), Vučković v. Serbia [GC] (2014)",
+      "requires": [
+        "[AND — Art 34 + Art 35 combined]",
+        "Victim: applicant directly affected (autonomous concept)",
+        "Exhaustion of domestic remedies",
+        "Four-month time limit",
+        "Not manifestly ill-founded",
+        "No significant disadvantage (de minimis)",
+        "Not same as previous application",
+        "Not anonymous",
+        "Compatible ratione materiae/temporis/personae/loci",
+        "No abuse of right of application"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Any admissibility criterion not met"
+      ],
+      "typical_edge_pattern": "(Application) --[admissibility gate]--> (All_Criteria_Met?) --[if any fails]--> (Inadmissible)",
+      "key_phrases": "\"victim\", \"directly affected\", \"manifestly ill-founded\", \"significant disadvantage\", \"ratione materiae\", \"ratione temporis\", \"ratione personae\", \"abuse of right\""
+    },
+    "PROTOCOL_1_ART_1_PROPERTY": {
+      "label": "Protocol 1, Article 1 — Protection of Property",
+      "kind": "convention_article",
+      "type": "qualified_limited",
+      "parent": "Three rules from Sporrong and Lönnroth (1982)",
+      "establishing_cases": "Sporrong and Lönnroth v. Sweden (1982), James v. UK (1986), Beyeler v. Italy [GC] (2000)",
+      "requires": [
+        "[AND — Sporrong three rules]",
+        "Rule 1 (general): peaceful enjoyment of possessions",
+        "Rule 2 (deprivation): no deprivation except in public interest and subject to law",
+        "Rule 3 (control of use): state may control use in general interest or for taxes",
+        "Rules 2 and 3 are particular instances of Rule 1"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Deprivation in public interest with lawful basis",
+        "Fair balance struck",
+        "Possessions include: economic interests, claims, legitimate expectations (Beyeler)"
+      ],
+      "typical_edge_pattern": "(Property_Interference) --[which rule?]--> (Deprivation or Control_of_Use) --[lawful + proportionate?]--> (Violation_or_Not)",
+      "key_phrases": "\"peaceful enjoyment of possessions\", \"public interest\", \"fair balance\", \"legitimate expectations\", \"control of use\", \"deprivation\""
+    },
+    "PROTOCOL_1_ART_2_EDUCATION": {
+      "label": "Protocol 1, Article 2 — Right to Education",
+      "kind": "convention_article",
+      "type": "limited",
+      "parent": "Negative formulation (no person shall be denied)",
+      "establishing_cases": "Belgian Linguistic Case (1968), Campbell and Cosans v. UK (1982)",
+      "requires": [
+        "[AND]",
+        "Access to existing educational institutions",
+        "Official recognition of studies completed",
+        "Parents' religious/philosophical convictions respected (second sentence)",
+        "Regulation must not injure substance of right"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Regulation does not injure substance",
+        "State has wide latitude in organizing education"
+      ],
+      "typical_edge_pattern": "(Denial_of_Education) --[substance test]--> (Substance_Injured?) --[if yes]--> (Violation)",
+      "key_phrases": "\"no person shall be denied\", \"substance of the right\", \"religious and philosophical convictions\", \"calls for regulation by the State\""
+    },
+    "PROTOCOL_1_ART_3_FREE_ELECTIONS": {
+      "label": "Protocol 1, Article 3 — Right to Free Elections",
+      "kind": "convention_article",
+      "type": "limited",
+      "parent": "Institutional guarantee with implied individual rights",
+      "establishing_cases": "Mathieu-Mohin v. Belgium (1987), Hirst v. UK (No. 2) [GC] (2005)",
+      "requires": [
+        "[AND]",
+        "Right to vote and to stand for election (Mathieu-Mohin)",
+        "Subject to implied limitations",
+        "Limitations must not impair very essence of right",
+        "Must serve legitimate aim with proportionate means"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Limitation does not impair essence",
+        "Legitimate aim with proportionate means"
+      ],
+      "typical_edge_pattern": "(Electoral_Restriction) --[essence test]--> (Essence_Impaired?) --[if yes]--> (Violation)",
+      "key_phrases": "\"free elections\", \"right to vote\", \"right to stand\", \"very essence\", \"general automatic and indiscriminate restriction\", \"outside any acceptable margin\""
+    },
+    "PROTOCOL_7_ART_4_NE_BIS_IN_IDEM": {
+      "label": "Protocol 7, Article 4 — Ne Bis In Idem",
+      "kind": "convention_article",
+      "type": "procedural",
+      "parent": "Double jeopardy protection",
+      "establishing_cases": "Sergey Zolotukhin v. Russia [GC] (2009), A and B v. Norway [GC] (2016)",
+      "requires": [
+        "[AND — idem factum approach; 'criminal' determined by Engel criteria (see DOCTRINE_ENGEL_CRITERIA)]",
+        "Offences arise from identical facts or facts substantially the same",
+        "Not based on legal classification",
+        "Dual-track exception: sufficiently close connection in substance and time forming integrated whole (A and B v. Norway)"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Offences arise from different facts",
+        "Dual proceedings have sufficiently close connection (A and B v. Norway)"
+      ],
+      "typical_edge_pattern": "(Second_Prosecution) --[same facts?]--> (Ne_Bis_In_Idem) --[unless dual-track exception]--> (Violation_or_Not)",
+      "key_phrases": "\"idem factum\", \"identical facts\", \"substantially the same\", \"sufficiently close connection in substance and time\", \"ne bis in idem\""
+    },
+    "PROTOCOL_12_ART_1_GENERAL_DISCRIMINATION": {
+      "label": "Protocol 12, Article 1 — General Prohibition of Discrimination",
+      "kind": "convention_article",
+      "type": "free_standing",
+      "parent": "Free-standing (unlike accessory Art 14)",
+      "establishing_cases": "Sejdić and Finci v. Bosnia and Herzegovina [GC] (2009)",
+      "requires": [
+        "[AND]",
+        "Discrimination in enjoyment of any right set forth by law (including domestic law)",
+        "Same substantive test as Art 14 (objective and reasonable justification)",
+        "Broader scope: not limited to Convention rights"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Objective and reasonable justification",
+        "Proportionate means to legitimate aim"
+      ],
+      "typical_edge_pattern": "(Discrimination_in_Any_Legal_Right) --[Protocol 12 test]--> (Justification?) --[if none]--> (Violation)",
+      "key_phrases": "\"any right set forth by law\", \"free-standing\", \"broader scope than Article 14\", \"objective and reasonable justification\""
+    },
+    "ARTICLE_1_JURISDICTION": {
+      "label": "Article 1 — Jurisdiction (Threshold Criterion)",
+      "kind": "convention_article",
+      "type": "jurisdictional_gateway",
+      "parent": "Threshold criterion for Convention applicability",
+      "establishing_cases": "Banković v. Belgium [GC] (2001, dec.), Loizidou v. Turkey (1995), Al-Skeini v. UK [GC] (2011), Catan v. Moldova and Russia [GC] (2012), Hassan v. UK [GC] (2014), Jaloud v. Netherlands [GC] (2014), M.N. v. Belgium [GC] (2020), Georgia v. Russia (II) [GC] (2021), Hanan v. Germany [GC] (2021)",
+      "requires": [
+        "[OR — three models of extraterritorial jurisdiction (plus territorial default)]",
+        "Territorial jurisdiction: primarily territorial, default model",
+        "Model 1 — Effective control of territory (spatial): State exercises effective overall control of an area outside national territory through military forces or subordinate local administration (Loizidou, Catan)",
+        "Model 2 — State agent authority and control (personal): State agents exercise physical power and control over an individual through use of force (Al-Skeini §§136-137); applies to custody, detention, checkpoints, interception at sea",
+        "Model 3 — Exercise of public powers (functional): State exercises all or some public powers normally exercised by the territorial government, through consent, invitation, or acquiescence (Al-Skeini §135)"
+      ],
+      "alternatives": [
+        "[OR — scope of obligation varies by model]",
+        "Effective control of territory: must secure entire range of substantive rights",
+        "State agent authority/control: only rights relevant to the situation of that individual",
+        "Rights may be divided and tailored (Al-Skeini §137, overruling Banković on this point)"
+      ],
+      "defeaters": [
+        "Primarily territorial principle: extraterritorial jurisdiction requires special justification",
+        "Active hostilities exclusion: during context of chaos of armed confrontation, neither model applies (Georgia v. Russia (II) §§137-138)",
+        "Embassy premises alone insufficient for jurisdiction (M.N. v. Belgium [GC])",
+        "No cause-and-effect jurisdiction",
+        "Attribution to international organization bars State responsibility (Behrami and Behrami v. France, 2007)",
+        "Espace juridique concept (substantially diminished post-Al-Skeini but not fully abandoned)"
+      ],
+      "typical_edge_pattern": "(Extraterritorial_Act) --[which model?]--> (Effective_Control / State_Agent / Public_Powers) --[jurisdiction established?]--> (Convention_Applies) --[or]--> (No_Jurisdiction)",
+      "key_phrases": "\"within their jurisdiction\", \"jurisdiction within the meaning of Article 1\", \"threshold criterion\", \"primarily territorial\", \"effective control\", \"effective overall control\", \"state agent authority\", \"authority and control\", \"physical power and control\", \"espace juridique\", \"legal space\", \"extraterritorial jurisdiction\", \"subordinate local administration\", \"public powers\", \"divided and tailored\", \"ratione loci\""
+    },
+    "ARTICLE_12_RIGHT_TO_MARRY": {
+      "label": "Article 12 — Right to Marry and Found a Family",
+      "kind": "convention_article",
+      "type": "qualified_national_law",
+      "parent": "Distinct from Article 8; express national law reference",
+      "establishing_cases": "F. v. Switzerland (1987), Goodwin v. UK [GC] (2002), Schalk and Kopf v. Austria (2010), Hämäläinen v. Finland [GC] (2014), Oliari v. Italy (2015)",
+      "requires": [
+        "[AND — elements for Article 12 claim]",
+        "Men and women of marriageable age (originally biological male-female; now includes post-operative transgender persons per Goodwin [GC])",
+        "Marriageable age as determined by national law",
+        "According to national laws governing the exercise of this right — wide margin of appreciation",
+        "Permissible restrictions: capacity, consent, prohibited degrees, monogamy, procedural rules"
+      ],
+      "alternatives": [
+        "[OR — distinct scope vs Article 8]",
+        "Article 12: formation of marital relationships only (no right to divorce: Johnston v. Ireland, 1986)",
+        "Article 8: broader sphere covering private/family life, relationships, gender identity, same-sex partnerships",
+        "Many complaints invoke both; Court frequently resolves under Article 8 alone"
+      ],
+      "defeaters": [
+        "Wide margin of appreciation, especially where European consensus is absent (same-sex marriage: Schalk and Kopf)",
+        "Express national law reference permits greater deference than other Convention rights",
+        "Very essence test sets the floor: states cannot impose blanket bars that entirely eliminate the right",
+        "No necessity/pressing social need test (unlike Articles 8-11)"
+      ],
+      "typical_edge_pattern": "(Marriage_Restriction) --[Art 12 test]--> (Arbitrary_or_Disproportionate?) --[very essence impaired?]--> (Violation) --[or margin applies]--> (No_Violation)",
+      "key_phrases": "\"right to marry\", \"right to marry and to found a family\", \"men and women of marriageable age\", \"national laws governing the exercise of this right\", \"very essence of the right to marry\", \"arbitrary or disproportionate\", \"living instrument\", \"European consensus\", \"biological criteria\", \"gender reassignment\", \"capacity to marry\", \"found a family\""
+    },
+    "PROTOCOL_4_ART_2_FREEDOM_OF_MOVEMENT": {
+      "label": "Protocol 4, Article 2 — Freedom of Movement",
+      "kind": "convention_article",
+      "type": "qualified",
+      "parent": "Three distinct rights; standard qualified-rights framework",
+      "establishing_cases": "De Tommaso v. Italy [GC] (2017), Battista v. Italy (2014), Stamose v. Bulgaria (2012), Timishev v. Russia [GC] (2005)",
+      "requires": [
+        "[AND — three distinct rights, each with conditions]",
+        "Right (a): liberty of movement within the territory — requires person 'lawfully within the territory'",
+        "Right (b): freedom to choose residence — requires person 'lawfully within the territory'",
+        "Right (c): freedom to leave any country including own — applies to everyone, no lawfulness precondition",
+        "Restrictions under §3: in accordance with law + legitimate aim + necessary in a democratic society"
+      ],
+      "alternatives": [
+        "[OR — permitted aims under §3]",
+        "National security",
+        "Public safety",
+        "Ordre public",
+        "Prevention of crime",
+        "Protection of health or morals",
+        "Protection of rights and freedoms of others"
+      ],
+      "defeaters": [
+        "Restriction meets quality of law standard: accessible, foreseeable, adequate safeguards (De Tommaso [GC])",
+        "Individualized assessment conducted (not blanket/automatic: Stamose)",
+        "Proportionate duration with regular review and judicial oversight",
+        "Geographically limited restrictions justified by public interest under §4"
+      ],
+      "typical_edge_pattern": "(Movement_Restriction) --[which right?]--> (Lawfulness_Precondition?) --[§3 test]--> (Law + Aim + Necessary) --[if fails]--> (Violation)",
+      "key_phrases": "\"freedom of movement\", \"liberty of movement\", \"leave any country\", \"lawfully within the territory\", \"in accordance with law\", \"necessary in a democratic society\", \"ordre public\", \"quality of law\", \"foreseeability\", \"particular areas\""
+    },
+    "PROTOCOL_4_ART_4_COLLECTIVE_EXPULSION": {
+      "label": "Protocol 4, Article 4 — Prohibition of Collective Expulsion",
+      "kind": "convention_article",
+      "type": "absolute_procedural",
+      "parent": "Expulsion safeguard requiring individual assessment",
+      "establishing_cases": "N.D. and N.T. v. Spain [GC] (2020), Hirsi Jamaa v. Italy [GC] (2012), Khlaifia v. Italy [GC] (2016), Georgia v. Russia (I) [GC] (2014), Čonka v. Belgium (2002)",
+      "requires": [
+        "[AND — core prohibition]",
+        "Any measure compelling aliens, as a group, to leave the country",
+        "Must be based on reasonable and objective examination of the particular case of each individual alien (Khlaifia [GC] §237)",
+        "Purpose: prevent removal without examining personal circumstances or enabling applicants to put forward arguments (Hirsi Jamaa §177)",
+        "Applies extraterritorially: interception and push-back on high seas constitutes exercise of jurisdiction (Hirsi Jamaa)"
+      ],
+      "alternatives": [
+        "[OR — N.D. and N.T. two-part exception test]",
+        "Condition 1: State provided genuine and effective access to means of legal entry (particularly border procedures)",
+        "Condition 2: Applicants chose not to use those means, instead crossing in unauthorized manner",
+        "If both conditions favor the State: responsibility for lack of individual assessment shifts to applicant (own culpable conduct)"
+      ],
+      "defeaters": [
+        "Individual assessment was conducted (even if procedurally imperfect: Khlaifia)",
+        "N.D. and N.T. exception: genuine access to legal entry existed + applicant's own culpable conduct",
+        "Individual decisions existed (but background to execution still matters: Čonka)"
+      ],
+      "typical_edge_pattern": "(Group_Removal) --[individual assessment?]--> (If_None) --[N.D.&N.T. exception?]--> (Legal_Entry_Available + Own_Conduct) --[if both]--> (No_Violation) --[else]--> (Violation)",
+      "key_phrases": "\"collective expulsion\", \"individual assessment\", \"reasonable and objective examination\", \"particular case of each individual alien\", \"genuine and effective access to means of legal entry\", \"own culpable conduct\", \"compelling aliens as a group to leave\", \"push-back\", \"coordinated policy\""
+    },
+    "PROTOCOL_6_13_DEATH_PENALTY_ABOLITION": {
+      "label": "Protocols 6 and 13 — Abolition of the Death Penalty",
+      "kind": "convention_article",
+      "type": "absolute",
+      "parent": "Non-derogable, no reservations; P6 wartime exception; P13 absolute in all circumstances",
+      "establishing_cases": "Soering v. UK (1989), Al-Saadoon and Mufdhi v. UK (2010), Öcalan v. Turkey [GC] (2005)",
+      "requires": [
+        "[AND — absolute prohibition]",
+        "Protocol 6 Art 1: death penalty abolished; no one shall be condemned or executed (wartime exception under Art 2)",
+        "Protocol 13 Art 1: death penalty abolished in all circumstances including wartime — no exceptions",
+        "Both prohibit derogation under Article 15 and reservations under Article 57",
+        "Non-refoulement dimension: States must obtain binding assurances that death penalty will not be imposed before extraditing (Al-Saadoon)"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "None for Protocol 13 — absolute in all circumstances",
+        "Protocol 6 Art 2: wartime exception only (acts prescribed by law in respect of acts committed in time of war or imminent threat of war)",
+        "Article 2 itself has been amended in effect: near-universal ratification means death penalty prohibited in all circumstances (Al-Saadoon)"
+      ],
+      "typical_edge_pattern": "(Death_Penalty_Risk) --[P6/P13]--> (Absolute_Bar) --[extradition context]--> (Binding_Assurances_Required) --[if absent]--> (Violation)",
+      "key_phrases": "\"death penalty shall be abolished\", \"no one shall be condemned to such penalty or executed\", \"abolition of the death penalty\", \"real risk of execution\", \"death row phenomenon\", \"zone free of capital punishment\", \"binding assurances\", \"non-refoulement\", \"intense psychological suffering\""
+    },
+    "PROTOCOL_7_ART_2_RIGHT_OF_APPEAL": {
+      "label": "Protocol 7, Article 2 — Right of Appeal in Criminal Matters",
+      "kind": "convention_article",
+      "type": "limited_procedural",
+      "parent": "Criminal procedural guarantee; linked to Engel criteria for scope",
+      "establishing_cases": "Gurepka v. Ukraine (2005), Galstyan v. Armenia (2007), Grosam v. Czech Republic [GC] (2023), Krombach v. France (2001)",
+      "requires": [
+        "[AND — scope conditions]",
+        "Criminal offence within the meaning of Engel criteria (autonomous — confirmed Grosam [GC])",
+        "Conviction or sentence (formal finding of guilt)",
+        "By a tribunal within the meaning of Article 6",
+        "Higher tribunal must have competence to examine at minimum points of law",
+        "Leave-to-appeal systems and appeal limited to points of law are permissible (Krombach)"
+      ],
+      "alternatives": [
+        "[OR — three exceptions under §2]",
+        "Offences of a minor character as prescribed by law",
+        "Trial at first instance by the highest tribunal",
+        "Conviction following an appeal against acquittal"
+      ],
+      "defeaters": [
+        "Offence is minor character exception",
+        "First instance was highest tribunal",
+        "Conviction followed appeal against acquittal",
+        "Appeal right exists even if limited to points of law"
+      ],
+      "typical_edge_pattern": "(Criminal_Conviction) --[Engel: criminal?]--> (P7A2_Applies) --[appeal available?]--> (If_None + No_Exception) --[then]--> (Violation)",
+      "key_phrases": "\"right of appeal in criminal matters\", \"convicted of a criminal offence\", \"reviewed by a higher tribunal\", \"conviction or sentence reviewed\", \"offences of a minor character\", \"highest tribunal\", \"appeal against acquittal\", \"full jurisdiction\", \"leave to appeal\""
+    },
+    "PROTOCOL_7_ART_5_EQUALITY_BETWEEN_SPOUSES": {
+      "label": "Protocol 7, Article 5 — Equality Between Spouses",
+      "kind": "convention_article",
+      "type": "self_standing_equality",
+      "parent": "Lex specialis for spousal equality in private law; relates to Art 14 + Art 8",
+      "establishing_cases": "Protocol 7, Article 5 text; standalone violations rare — typically examined under Article 14 + Article 8",
+      "requires": [
+        "[AND — scope conditions]",
+        "Spouses (married couples only — not unmarried cohabitants)",
+        "Rights and responsibilities of a private law character",
+        "Covers three temporal phases: entering marriage, during marriage, upon dissolution",
+        "Covers: matrimonial property, custody, maintenance, naming rights, parental authority"
+      ],
+      "alternatives": [
+        "[OR — lex specialis relationship]",
+        "Article 5 P7: narrow scope — only private law spousal equality",
+        "Article 14 + Article 8: broader scope — all family relationships, not just spouses",
+        "Court typically examines under Art 14 + Art 8 in practice"
+      ],
+      "defeaters": [
+        "Child welfare exception: differential treatment permitted where necessary in the interests of the children",
+        "Not applicable to unmarried partners",
+        "Scope limited to private law character"
+      ],
+      "typical_edge_pattern": "(Spousal_Inequality_in_Private_Law) --[P7A5]--> (Equality_Required) --[child welfare exception?]--> (Violation_or_Justified)",
+      "key_phrases": "\"equality between spouses\", \"equality of rights and responsibilities\", \"private law character\", \"as to marriage, during marriage and in the event of its dissolution\", \"in their relations with their children\", \"necessary in the interests of the children\""
+    },
+    "DOCTRINE_ENGEL_CRITERIA": {
+      "label": "Engel Criteria (Autonomous Criminal Charge Test)",
+      "kind": "doctrine",
+      "type": "autonomous_classification_test",
+      "parent": "Article 6 criminal limb gateway; feeds into P7A2, P7A4, Article 4 P7",
+      "establishing_cases": "Engel v. Netherlands (1976, Plenary), Öztürk v. Germany (1984), Jussila v. Finland [GC] (2006), A and B v. Norway [GC] (2016), Ezeh and Connors v. UK [GC] (2003)",
+      "requires": [
+        "[OR/CUMULATIVE — three criteria, alternative not cumulative]",
+        "Criterion 1 — Domestic classification: only a starting point of relative weight; if classified criminal domestically, that is decisive; if disciplinary/administrative, Court looks behind the label",
+        "Criterion 2 — Nature of the offence (the more important criterion per Jussila §38): generally binding character of rule, punitive and deterrent purpose, connection to finding of guilt, comparative classification in other CoE States",
+        "Criterion 3 — Severity of potential penalty: what matters is the penalty risked (maximum possible), not penalty actually imposed; deprivation of liberty as punishment is criminal except where not appreciably detrimental (Engel §85)",
+        "Criteria 2 and 3 are alternative: suffices that offence by nature is criminal OR penalty belongs to criminal sphere (Lutz v. Germany §55)",
+        "Cumulative approach may be adopted where separate analysis does not yield clear conclusion (Bendenoun §47)"
+      ],
+      "alternatives": [
+        "[OR — graduated approach per Jussila [GC]]",
+        "Hard core of criminal law: full Article 6 criminal guarantees with full stringency",
+        "Regulatory/administrative criminal charges (tax surcharges etc.): criminal-head guarantees apply but not necessarily with full stringency (Jussila §43)"
+      ],
+      "defeaters": [
+        "Hard core vs. regulatory distinction (Jussila): guarantees apply with reduced stringency outside traditional criminal law",
+        "Rules directed solely at specific professional groups may weigh against criminal classification",
+        "Disciplinary proceedings against judges classified under civil limb even where punitive (Ramos Nunes de Carvalho e Sá [GC], 2018)"
+      ],
+      "typical_edge_pattern": "(Domestic_Proceedings) --[Engel criteria]--> (Criterion_1 + Criterion_2 + Criterion_3) --[alternative or cumulative]--> (Criminal_Charge_Established) --[triggers]--> (Art6_Criminal_Guarantees)",
+      "key_phrases": "\"criminal charge\", \"autonomous meaning\", \"Engel criteria\", \"nature of the offence\", \"severity of the penalty\", \"domestic classification\", \"generally binding character\", \"punitive and deterrent\", \"hard core of criminal law\", \"cumulative approach\", \"alternative and not cumulative\", \"substantive reality of the procedure\""
+    },
+    "DOCTRINE_SALDUZ_IBRAHIM": {
+      "label": "Salduz Doctrine / Ibrahim Two-Stage Test (Right to Lawyer)",
+      "kind": "doctrine",
+      "type": "criminal_defence_guarantee",
+      "parent": "Articles 6(1) and 6(3)(c) — right of access to lawyer",
+      "establishing_cases": "Salduz v. Turkey [GC] (2008), Ibrahim v. UK [GC] (2016), Beuze v. Belgium [GC] (2018), Dvorski v. Croatia [GC] (2015)",
+      "requires": [
+        "[AND — Ibrahim two-stage test]",
+        "As a rule: access to a lawyer from the first interrogation of a suspect by police (Salduz §55)",
+        "Stage 1 — Were there compelling reasons for restriction? Must be: (i) exceptional circumstances, (ii) temporary, (iii) individual assessment, (iv) basis in domestic law (Ibrahim §258)",
+        "Stage 2 — Overall fairness assessment using Ibrahim §274 non-exhaustive factors",
+        "Content of right: (1) prior confidential consultation before interview; (2) physical presence during questioning (Beuze)",
+        "Right to lawyer of own choosing (Dvorski [GC])"
+      ],
+      "alternatives": [
+        "[OR — Ibrahim §274 fairness factors]",
+        "Vulnerability of applicant",
+        "Legal framework and domestic exclusionary rules",
+        "Ability to challenge evidence at trial",
+        "Quality and reliability of evidence",
+        "Unlawful conduct by investigating authorities",
+        "Nature and voluntariness of statement",
+        "Use of evidence and weight in conviction",
+        "Professional judges vs jury",
+        "Public interest in prosecution",
+        "Other domestic procedural safeguards"
+      ],
+      "defeaters": [
+        "Valid waiver: knowing and intelligent, unequivocal, with minimum safeguards",
+        "Compelling reasons existed for temporary restriction (Ibrahim Stage 1)",
+        "Overall fairness maintained even without compelling reasons under very strict scrutiny (Ibrahim §§264-265; Beuze evolution)",
+        "General statutory restriction cannot amount to compelling reasons — individual case-specific assessment always required (Beuze §§142-144)",
+        "Absence of compelling reasons does not lead in itself to violation (Ibrahim §262) but weighs heavily in the balance"
+      ],
+      "typical_edge_pattern": "(Police_Interrogation_Without_Lawyer) --[Ibrahim Stage 1]--> (Compelling_Reasons?) --[Stage 2]--> (Overall_Fairness_Assessment) --[very strict scrutiny if no compelling reasons]--> (Violation_or_Not)",
+      "key_phrases": "\"access to a lawyer\", \"first interrogation\", \"first police interrogation\", \"compelling reasons\", \"overall fairness\", \"irretrievably prejudiced\", \"rights of the defence\", \"practical and effective\", \"very strict scrutiny\", \"knowing and intelligent waiver\", \"incriminating statements\", \"counterweight to vulnerability\""
+    },
+    "DOCTRINE_BANKOVIC_JURISDICTION": {
+      "label": "Banković Jurisdictional Test (Extraterritorial Jurisdiction Evolution)",
+      "kind": "doctrine",
+      "type": "jurisdictional_evolution",
+      "parent": "Article 1 jurisdiction — doctrinal development from restrictive to expansive",
+      "establishing_cases": "Banković v. Belgium [GC] (2001, dec.), Al-Skeini v. UK [GC] (2011), Georgia v. Russia (II) [GC] (2021), Hanan v. Germany [GC] (2021), Ukraine and the Netherlands v. Russia (dec.) [GC] (2022)",
+      "requires": [
+        "[AND — evolving framework]",
+        "Banković (2001): most restrictive — jurisdiction essentially territorial, no cause-and-effect, espace juridique limits Convention to legal space of Contracting States, no divided and tailored rights",
+        "Al-Skeini (2011): expansion — validated effective control + state agent authority simultaneously, permitted divided and tailored rights (§137), directly contradicting Banković",
+        "Georgia v. Russia (II) (2021): partial Banković resurrection for active hostilities — context of chaos excludes state agent authority; but detention during active phase + post-ceasefire occupation restore jurisdiction",
+        "Ukraine and Netherlands v. Russia (2022): explicitly abandoned Banković's divided and tailored prohibition (§571)",
+        "Hanan (2021): jurisdiction over German-ordered airstrike in Afghanistan via spatial control of military camp + exercise of public powers"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "Active hostilities phase: context of chaos excludes both models (Georgia v. Russia (II))",
+        "Espace juridique: substantially diminished but not fully abandoned",
+        "Attribution to international organization (Behrami)",
+        "No pure cause-and-effect jurisdiction (Banković, still valid on this point)"
+      ],
+      "typical_edge_pattern": "(Extraterritorial_Situation) --[which era's approach?]--> (Banković_Restrictive / Al-Skeini_Expansive / Georgia_Active_Hostilities_Carveout) --[jurisdiction?]--> (Convention_Applies_or_Not)",
+      "key_phrases": "\"within their jurisdiction\", \"effective control\", \"state agent authority\", \"espace juridique\", \"primarily territorial\", \"exceptional circumstances\", \"public powers\", \"divided and tailored\", \"context of chaos\", \"active phase of hostilities\""
+    },
+    "DOCTRINE_PAPOSHVILI_MEDICAL_EXPULSION": {
+      "label": "N. v. UK to Paposhvili — Medical Expulsion Threshold",
+      "kind": "doctrine",
+      "type": "non_refoulement_medical",
+      "parent": "Article 3 absolute prohibition — expulsion of seriously ill persons",
+      "establishing_cases": "D. v. UK (1997), N. v. UK [GC] (2008), Paposhvili v. Belgium [GC] (2016), Savran v. Denmark [GC] (2021)",
+      "requires": [
+        "[AND — Paposhvili threshold (§183)]",
+        "Very exceptional circumstances (high threshold maintained)",
+        "Person need not be at imminent risk of dying (lowered from N. v. UK 'close to death')",
+        "Real risk of: (a) serious, rapid and irreversible decline in state of health resulting in intense suffering, OR (b) significant reduction in life expectancy",
+        "On account of absence of appropriate treatment in receiving country or lack of access to such treatment",
+        "Applies irrespective of the nature of illness — both physical and mental (Savran [GC])"
+      ],
+      "alternatives": [
+        "[OR — Paposhvili procedural obligations (§§186-191)]",
+        "Applicant must adduce evidence of substantial grounds for believing removal creates real risk",
+        "Burden then shifts to State to dispel doubts",
+        "State must verify care is sufficient and appropriate in practice in receiving country",
+        "State must consider whether individual will actually have access to care (cost, distance, social/family network)",
+        "If serious doubts persist: State must obtain individual and sufficient assurances from receiving State"
+      ],
+      "defeaters": [
+        "Threshold remains high — mere deterioration or reduction in quality of life insufficient",
+        "Diagnosis of serious mental illness alone not sufficient to engage Article 3 (Savran [GC])",
+        "Risk of relapse leading to aggressive behavior toward others insufficient — risk must be to applicant's own health (Savran)",
+        "Mental health cases may more readily engage Article 8 proportionality than Article 3 absolute threshold (Savran: violation of Art 8 but not Art 3)",
+        "State has verified actual access to adequate treatment in receiving country"
+      ],
+      "typical_edge_pattern": "(Medical_Expulsion) --[Paposhvili test]--> (Very_Exceptional_Circumstances?) --[serious rapid irreversible decline / reduced life expectancy?]--> (Procedural_Obligations_Met?) --[if not]--> (Violation)",
+      "key_phrases": "\"very exceptional circumstances\", \"close to death\", \"critically ill\", \"serious, rapid and irreversible decline\", \"intense suffering\", \"significant reduction in life expectancy\", \"absence of appropriate treatment\", \"lack of access to such treatment\", \"substantial grounds for believing\", \"dispel any doubts\", \"individual and sufficient assurances\", \"high threshold\", \"compelling humanitarian grounds\", \"seriously ill person\""
+    },
+    "DOCTRINE_VON_HANNOVER_BEDAT_BALANCING": {
+      "label": "Von Hannover / Bédat — Six-Criteria Privacy vs. Expression Balancing",
+      "kind": "doctrine",
+      "type": "balancing_test",
+      "parent": "Article 8 vs. Article 10 — equal value, equal respect",
+      "establishing_cases": "Von Hannover v. Germany (No. 1) (2004), Von Hannover v. Germany (No. 2) [GC] (2012), Axel Springer AG v. Germany [GC] (2012), Bédat v. Switzerland [GC] (2016), Satakunnan Markkinapörssi Oy v. Finland [GC] (2017)",
+      "requires": [
+        "[AND — six criteria for balancing (Von Hannover (No. 2) + Axel Springer)]",
+        "Criterion 1 — Contribution to a debate of general interest: initial and essential criterion; extends beyond politics; distinguishes public debate from satisfying curiosity of a particular readership",
+        "Criterion 2 — How well known is the person / subject: public figures vs. private individuals; scrutiny of official functions more permissible than intrusion into private activities",
+        "Criterion 3 — Prior conduct of the person concerned: whether person courted media attention or cooperated with press, reducing legitimate expectation of privacy",
+        "Criterion 4 — Content, form and consequences of publication: text vs photos; informational vs sensationalist; reach; consequences for the person; photographs convey very personal or intimate information",
+        "Criterion 5 — Circumstances in which information/photographs were obtained: surreptitiously, with consent, through breach of confidence, or harassment",
+        "Criterion 6 — Severity of the sanction imposed (Axel Springer addition): including potential chilling effect on freedom of expression"
+      ],
+      "alternatives": [
+        "[OR — additional factor for criminal proceedings context]",
+        "Influence on the criminal proceedings: protection of presumption of innocence and fair trial rights (Bédat [GC])"
+      ],
+      "defeaters": [
+        "Where domestic courts applied the Court's criteria: strong reasons required to substitute Court's own view (procedural margin of appreciation)",
+        "Both rights of equal value and equal respect — outcome should not depend on which Article is invoked (Von Hannover (No. 2) §106)",
+        "Same criteria apply from both Article 8 and Article 10 perspectives"
+      ],
+      "typical_edge_pattern": "(Privacy_vs_Expression_Conflict) --[six criteria]--> (General_Interest + Public_Figure + Prior_Conduct + Content_Form + Circumstances + Sanction) --[balanced]--> (Art8_Prevails_or_Art10_Prevails)",
+      "key_phrases": "\"debate of general interest\", \"contribution to a debate of public interest\", \"public figure\", \"prior conduct\", \"content, form and consequences\", \"circumstances in which the photographs were taken\", \"severity of the sanction\", \"equal respect\", \"equal value\", \"strong reasons\", \"chilling effect\", \"responsible journalism\", \"legitimate expectation of privacy\", \"balancing exercise\", \"competing interests\""
+    },
+    "PROCEDURE_FRIENDLY_SETTLEMENT": {
+      "label": "Friendly Settlement (Article 39)",
+      "kind": "procedural_mechanism",
+      "type": "resolution_mechanism",
+      "parent": "Article 39 ECHR; Rule 62 Rules of Court",
+      "establishing_cases": "Article 39 ECHR text; Rule 62; compulsory 12-week non-contentious phase since 2019",
+      "requires": [
+        "[AND — conditions for friendly settlement]",
+        "Court places itself at disposal of parties (Rule 62 §1, typically at communication stage)",
+        "Settlement must be on the basis of respect for human rights as defined in the Convention",
+        "Negotiations strictly confidential (Article 39 §2) — cannot be referred to in subsequent proceedings",
+        "Both parties confirm agreed terms",
+        "Court publishes decision/judgment recording facts and terms, then strikes case out"
+      ],
+      "alternatives": [
+        "[OR — procedural elements]",
+        "Registry may propose concrete terms in cases with established case law",
+        "Often includes ex gratia payment",
+        "Compulsory 12-week non-contentious phase precedes contentious proceedings (since 2019)",
+        "Committee of Ministers supervises execution of settlement terms"
+      ],
+      "defeaters": [
+        "Respect for human rights requires continued examination (human rights proviso)",
+        "Non-compliance with terms: Court may restore case to its list (Article 37 §2)",
+        "Settlement not on basis of respect for human rights"
+      ],
+      "typical_edge_pattern": "(Application) --[communication]--> (Non_Contentious_Phase) --[negotiations]--> (Settlement_Agreed) --[respect for human rights?]--> (Strike_Out + CM_Supervision)",
+      "key_phrases": "\"friendly settlement\", \"Article 39\", \"reached a settlement\", \"reached a friendly settlement\", \"terms of the settlement\", \"ex gratia\", \"strike the case out of its list\", \"brief statement of the facts and of the solution reached\", \"basis of respect for human rights\", \"Committee of Ministers\", \"non-contentious phase\", \"(friendly settlement)\""
+    },
+    "PROCEDURE_STRIKING_OUT": {
+      "label": "Striking Out (Article 37)",
+      "kind": "procedural_mechanism",
+      "type": "case_disposal",
+      "parent": "Article 37 ECHR; Rule 62A (unilateral declarations)",
+      "establishing_cases": "Akman v. Turkey (2001), Tahsin Acar v. Turkey [GC] (2003), De Tommaso v. Italy [GC] (2017)",
+      "requires": [
+        "[OR — three grounds under Article 37 §1]",
+        "Ground (a): applicant does not intend to pursue application (fails to respond, expressly withdraws, fails to pursue)",
+        "Ground (b): matter has been resolved — direct cause remedied and adequate redress provided domestically",
+        "Ground (c): catch-all — no longer justified to continue examination; most commonly for unilateral declarations",
+        "Human rights proviso: Court SHALL continue if respect for human rights so requires, even when striking-out criteria are met"
+      ],
+      "alternatives": [
+        "[OR — unilateral declaration procedure (Rule 62A)]",
+        "Government acknowledges violation and offers redress without applicant's consent",
+        "Assessed under Tahsin Acar [GC] principles: nature of complaints, adequacy of redress, whether well-established case law exists",
+        "Court may reject if case raises novel issue (De Tommaso [GC]) or redress is inadequate",
+        "If accepted: case struck out with Committee of Ministers supervision of execution"
+      ],
+      "defeaters": [
+        "Human rights proviso: novel issues, serious abuses, insufficient case law, inadequate remedial measures require continued examination",
+        "Unilateral declaration inadequate: novel issue, insufficient redress, no well-established case law",
+        "Non-compliance with unilateral declaration terms permits restoration to list (Article 37 §2)"
+      ],
+      "typical_edge_pattern": "(Striking_Out_Request) --[which ground?]--> (Non_Pursuit / Resolved / Catch_All) --[human rights proviso]--> (Continue_or_Strike_Out) --[CM supervision if struck out]",
+      "key_phrases": "\"strike out\", \"struck out of the list\", \"struck out of its list of cases\", \"Article 37\", \"does not intend to pursue\", \"matter has been resolved\", \"no longer justified to continue the examination\", \"respect for human rights\", \"unilateral declaration\", \"restore to the list\", \"Tahsin Acar\", \"(striking out)\""
+    },
+    "PROCEDURE_THIRD_PARTY_INTERVENTION": {
+      "label": "Third-Party Intervention (Article 36)",
+      "kind": "procedural_mechanism",
+      "type": "participation_mechanism",
+      "parent": "Article 36 ECHR; Rule 44 Rules of Court",
+      "establishing_cases": "Article 36 ECHR text; Rule 44; Protocol No. 14 (adding §3, in force 2010)",
+      "requires": [
+        "[OR — three pathways]",
+        "Article 36 §1 — National State of applicant (as of right): automatic right, no leave required; may submit written comments and participate in hearings (Rule 44 §1)",
+        "Article 36 §2 — By leave of the President: open to any other Contracting State or any person concerned (NGOs, academics, NHRIs, individuals); request must be duly reasoned, submitted within 12 weeks of notification; normally limited to written observations; oral participation only in exceptional circumstances",
+        "Article 36 §3 — Commissioner for Human Rights (ex officio): added by Protocol No. 14; no leave required; may intervene in any case before Chamber or Grand Chamber on own initiative"
+      ],
+      "alternatives": null,
+      "defeaters": [
+        "§2 intervention: request not duly reasoned or outside 12-week deadline",
+        "§2 intervention: not in the interest of the proper administration of justice",
+        "Intervention limited to written observations unless exceptional circumstances"
+      ],
+      "typical_edge_pattern": "(Case_Before_Court) --[Article 36]--> (National_State_§1 / Leave_§2 / Commissioner_§3) --[written observations + possible hearing]--> (Contribution_to_Proceedings)",
+      "key_phrases": "\"third-party intervention\", \"third party intervention\", \"Article 36\", \"leave to intervene\", \"granted leave to intervene\", \"written observations\", \"written comments\", \"in the interest of the proper administration of justice\", \"any person concerned\", \"Commissioner for Human Rights\", \"amicus curiae\", \"Rule 44\""
+    },
+    "PROCEDURE_RULE_39_INTERIM_MEASURES": {
+      "label": "Rule 39 Interim Measures",
+      "kind": "procedural_mechanism",
+      "type": "urgent_protection",
+      "parent": "Rule 39 Rules of Court; binding under Article 34 (Mamatkulov [GC])",
+      "establishing_cases": "Cruz Varas v. Sweden (1991, overruled), Mamatkulov and Askarov v. Turkey [GC] (2005), Paladi v. Moldova [GC] (2009)",
+      "requires": [
+        "[AND — conditions for indication]",
+        "Exceptional circumstances only",
+        "Imminent risk of irreparable harm to a Convention right",
+        "Harm of nature that would not be susceptible to reparation, restoration or adequate compensation",
+        "Necessary in the interests of the parties or the proper conduct of the proceedings",
+        "Binding character: non-compliance constitutes violation of Article 34 right of individual application (Mamatkulov [GC] §128, overruling Cruz Varas)"
+      ],
+      "alternatives": [
+        "[OR — typical contexts for indication]",
+        "Expulsion/deportation cases: risk under Articles 2 or 3 (vast majority)",
+        "Extradition: death penalty or torture risk",
+        "Medical treatment in detention (Paladi [GC])",
+        "Death penalty cases",
+        "Inter-State conflicts",
+        "Exceptionally under Article 8"
+      ],
+      "defeaters": [
+        "No imminent risk of irreparable harm",
+        "No exceptional circumstances",
+        "Non-compliance standard: Government must take all reasonable steps to comply (Paladi [GC]); intentions/reasons are irrelevant",
+        "Article 34 violation is separate finding regardless of whether substantive violation is found on merits (Mamatkulov itself: no Art 2/3/6 violation but Art 34 violated)"
+      ],
+      "typical_edge_pattern": "(Urgent_Risk) --[Rule 39]--> (Interim_Measure_Indicated) --[State compliance?]--> (If_Non_Compliance) --[Article 34 violation]--> (Separate_Finding)",
+      "key_phrases": "\"interim measure\", \"interim measures\", \"Rule 39\", \"Rule 39 of the Rules of Court\", \"indicated to the Government\", \"not to expel\", \"not to extradite\", \"not to deport\", \"not to remove\", \"binding character\", \"binding nature\", \"imminent risk of irreparable harm\", \"irreversible situations\", \"Article 34\", \"right of individual application\", \"failure to comply\", \"all reasonable steps\""
+    },
+    "PROCEDURE_SEPARATE_OPINIONS": {
+      "label": "Separate and Dissenting Opinions",
+      "kind": "procedural_mechanism",
+      "type": "judicial_expression",
+      "parent": "Article 45 §2 ECHR; Rule 74 §2 Rules of Court",
+      "establishing_cases": "Article 45 §2 ECHR text; Rule 74; Notable doctrinal impact: dissents in Rees (1986) and Cossey (1990) became majority in Christine Goodwin [GC] (2002)",
+      "requires": [
+        "[OR — types of separate opinion]",
+        "Concurring opinion: agrees with outcome but different/additional reasoning",
+        "Partly dissenting opinion: agrees on some findings, disagrees on others",
+        "Dissenting opinion: disagrees with judgment's conclusion entirely",
+        "Partly concurring, partly dissenting opinion: mixed agreement and disagreement",
+        "Joint opinion: co-authored by multiple judges (Rule 74 §4)",
+        "Bare statement of dissent: simple disagreement without reasoning (rarely used)"
+      ],
+      "alternatives": [
+        "[OR — structural patterns in judgment text]",
+        "Operative part states vote count: 'Holds, by X votes to Y...'",
+        "Then: 'In accordance with Article 45 § 2 of the Convention and Rule 74 § 2...'",
+        "Each opinion appears after main judgment with CAPS heading",
+        "Opinions individually signed"
+      ],
+      "defeaters": [
+        "Unanimous judgment: no separate opinions needed (though concurrences still possible)",
+        "Only 6% of judgments of little legal significance attract separate opinions vs. 56% of significant judgments"
+      ],
+      "typical_edge_pattern": "(Non_Unanimous_Judgment) --[Art 45§2]--> (Separate_Opinion_Annexed) --[type]--> (Concurring / Dissenting / Partly_Dissenting / Joint)",
+      "key_phrases": "\"I voted against\", \"I cannot agree\", \"I cannot agree with the majority\", \"I regret that I am unable to follow the majority\", \"To my regret, I am unable to share the view\", \"With great respect, I disagree\", \"I respectfully dissent\", \"In my view\", \"I find myself unable to subscribe to\", \"I reach a different conclusion\", \"In accordance with Article 45 § 2\""
+    }
+  },
+  "patterns": {
+    "doctrine_invocation": {
+      "signals": [
+        "The Court reiterates that",
+        "The Court recalls that",
+        "It is well-established in the Court's case-law that",
+        "As the Grand Chamber held in",
+        "The general principles have been summarised in",
+        "This brings into play the doctrine of",
+        "falls within the ambit of",
+        "engages the principle of"
+      ],
+      "creates_edge": {
+        "source_role": "Fact_Pattern",
+        "relation": "TRIGGERS",
+        "target_role": "ECHR_Doctrine"
+      },
+      "relation": "triggers",
+      "confidence": "high",
+      "example": "\"The Court reiterates that Article 3 enshrines one of the most fundamental values of democratic societies\" — Saadi v. Italy [GC] (2008)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "convention_right_engagement": {
+      "signals": [
+        "there has been an interference with",
+        "falls within the scope of Article",
+        "within the ambit of Article",
+        "engages the applicant's right under Article",
+        "constitutes an interference with",
+        "is a restriction on"
+      ],
+      "creates_edge": {
+        "source_role": "State_Action",
+        "relation": "ENGAGES",
+        "target_role": "Convention_Right"
+      },
+      "relation": "engages",
+      "confidence": "high",
+      "example": "\"The Court considers that the impugned measure constitutes an interference with the applicant's right to respect for his private life\" — S. and Marper v. UK (2008)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "requirement_failure": {
+      "signals": [
+        "does not satisfy",
+        "fails to meet",
+        "is not compatible with",
+        "cannot be regarded as",
+        "is not proportionate to",
+        "was not necessary in a democratic society",
+        "falls outside any acceptable margin",
+        "exceeds the margin of appreciation",
+        "cannot be justified",
+        "the reasons are not relevant and sufficient"
+      ],
+      "creates_edge": {
+        "source_role": "State_Action",
+        "relation": "FAILS",
+        "target_role": "Legal_Requirement"
+      },
+      "relation": "fails",
+      "confidence": "high",
+      "example": "\"The interference was not 'necessary in a democratic society'\" — Dudgeon v. UK (1981)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "three_part_test_application": {
+      "signals": [
+        "prescribed by law",
+        "in accordance with the law",
+        "pursued a legitimate aim",
+        "necessary in a democratic society",
+        "pressing social need",
+        "relevant and sufficient reasons",
+        "proportionate to the legitimate aim pursued"
+      ],
+      "creates_edge": {
+        "source_role": "Interference",
+        "relation": "TESTED_AGAINST",
+        "target_role": "Three_Part_Test"
+      },
+      "relation": "tested_against",
+      "confidence": "high",
+      "example": "\"The Court must determine whether the interference was 'prescribed by law', pursued a 'legitimate aim' and was 'necessary in a democratic society'\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "margin_width_determination": {
+      "signals": [
+        "wide margin of appreciation",
+        "narrow margin of appreciation",
+        "certain margin of appreciation",
+        "common ground between the laws",
+        "European consensus",
+        "no consensus within the member States",
+        "no common approach"
+      ],
+      "creates_edge": {
+        "source_role": "Margin_Factor",
+        "relation": "DETERMINES_WIDTH",
+        "target_role": "Margin_of_Appreciation"
+      },
+      "relation": "determines_width",
+      "confidence": "high",
+      "example": "\"Where there is no consensus within the member States of the Council of Europe... the margin of appreciation will be wider\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "absolute_right_identification": {
+      "signals": [
+        "absolute prohibition",
+        "no derogation",
+        "irrespective of the conduct",
+        "cannot be a material consideration",
+        "no balancing",
+        "most fundamental values of democratic societies",
+        "even in the most difficult circumstances"
+      ],
+      "creates_edge": {
+        "source_role": "Right",
+        "relation": "IS_ABSOLUTE",
+        "target_role": "No_Balancing"
+      },
+      "relation": "is_absolute",
+      "confidence": "high",
+      "example": "\"The prohibition is absolute. No derogation from it is permissible under Article 15§2 even in the event of a public emergency threatening the life of the nation\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "positive_obligation_identification": {
+      "signals": [
+        "positive obligations inherent in",
+        "practical and effective, not theoretical and illusory",
+        "the State has an obligation to",
+        "duty to take reasonable steps",
+        "failed to take measures within the scope of their powers",
+        "of its own motion"
+      ],
+      "creates_edge": {
+        "source_role": "Convention_Right",
+        "relation": "REQUIRES",
+        "target_role": "Positive_State_Action"
+      },
+      "relation": "requires_positive_action",
+      "confidence": "high",
+      "example": "\"There may be positive obligations inherent in an effective 'respect' for family life\" — Marckx v. Belgium (1979)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "violation_finding": {
+      "signals": [
+        "there has been a violation of Article",
+        "there has been no violation of Article",
+        "FOR THESE REASONS, THE COURT",
+        "Holds, unanimously",
+        "Holds, by"
+      ],
+      "creates_edge": {
+        "source_role": "Court",
+        "relation": "HOLDS",
+        "target_role": "Violation_or_Non_Violation"
+      },
+      "relation": "holds",
+      "confidence": "high",
+      "example": "\"Holds, unanimously, that there has been a violation of Article 8 of the Convention\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "precedent_following": {
+      "signals": [
+        "The Court reiterates",
+        "The Court recalls",
+        "as established in",
+        "The general principles concerning",
+        "have been summarised in",
+        "As the Grand Chamber held in",
+        "in accordance with its settled case-law"
+      ],
+      "creates_edge": {
+        "source_role": "Current_Case",
+        "relation": "FOLLOWS",
+        "target_role": "Precedent"
+      },
+      "relation": "follows",
+      "confidence": "high",
+      "example": "\"The general principles concerning Article 10 have been summarised in Bédat v. Switzerland [GC]\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "precedent_distinguishing": {
+      "signals": [
+        "The present case differs from",
+        "Unlike in",
+        "In contrast to",
+        "is to be distinguished from",
+        "does not apply in the present case"
+      ],
+      "creates_edge": {
+        "source_role": "Current_Case",
+        "relation": "DISTINGUISHES",
+        "target_role": "Precedent"
+      },
+      "relation": "distinguishes",
+      "confidence": "high",
+      "example": "\"The present case differs from [case name] in that...\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "precedent_developing": {
+      "signals": [
+        "clarifies",
+        "develops its case-law",
+        "dynamic and evolutive approach",
+        "in the light of present-day conditions",
+        "no longer considers",
+        "departs from"
+      ],
+      "creates_edge": {
+        "source_role": "Current_Case",
+        "relation": "DEVELOPS",
+        "target_role": "Prior_Doctrine"
+      },
+      "relation": "develops",
+      "confidence": "high",
+      "example": "\"Case-law development is not, in itself, contrary to the proper administration of justice\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "admissibility_assessment": {
+      "signals": [
+        "manifestly ill-founded",
+        "exhaustion of domestic remedies",
+        "ratione materiae",
+        "ratione temporis",
+        "ratione personae",
+        "significant disadvantage",
+        "abuse of the right of application",
+        "victim status",
+        "four-month time-limit"
+      ],
+      "creates_edge": {
+        "source_role": "Application",
+        "relation": "ASSESSED_FOR",
+        "target_role": "Admissibility"
+      },
+      "relation": "assessed_for_admissibility",
+      "confidence": "high",
+      "example": "\"Declares the application inadmissible as being manifestly ill-founded\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "non_refoulement_assessment": {
+      "signals": [
+        "real risk",
+        "substantial grounds for believing",
+        "if deported",
+        "non-refoulement",
+        "removal to",
+        "expulsion would expose"
+      ],
+      "creates_edge": {
+        "source_role": "Removal_Decision",
+        "relation": "ASSESSED_AGAINST",
+        "target_role": "Article_3_Bar"
+      },
+      "relation": "assessed_against_art3",
+      "confidence": "high",
+      "example": "\"Substantial grounds have been shown for believing that the applicant would face a real risk of being subjected to treatment contrary to Article 3\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "autonomous_concept_application": {
+      "signals": [
+        "autonomous meaning",
+        "autonomous concept",
+        "substantive content and effects",
+        "not decisive",
+        "no more than a starting point",
+        "Engel criteria",
+        "regardless of its classification in domestic law"
+      ],
+      "creates_edge": {
+        "source_role": "Convention_Term",
+        "relation": "HAS_AUTONOMOUS_MEANING",
+        "target_role": "European_Definition"
+      },
+      "relation": "has_autonomous_meaning",
+      "confidence": "high",
+      "example": "\"Whether or not a right is to be regarded as civil must be determined by reference to the substantive content and effects\" — König v. Germany (1978)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "living_instrument_application": {
+      "signals": [
+        "living instrument",
+        "present-day conditions",
+        "evolving standards",
+        "developments in international law",
+        "increasingly high standard",
+        "practical and effective"
+      ],
+      "creates_edge": {
+        "source_role": "Convention_Provision",
+        "relation": "INTERPRETED_EVOLUTIVELY",
+        "target_role": "Updated_Scope"
+      },
+      "relation": "interpreted_evolutively",
+      "confidence": "high",
+      "example": "\"The Convention is a living instrument which must be interpreted in the light of present-day conditions\" — Tyrer v. UK (1978)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "pilot_judgment_identification": {
+      "signals": [
+        "systemic problem",
+        "structural problem",
+        "pilot judgment",
+        "general measures",
+        "similar pending cases",
+        "adjourned"
+      ],
+      "creates_edge": {
+        "source_role": "Systemic_Deficiency",
+        "relation": "ADDRESSED_VIA",
+        "target_role": "Pilot_Judgment"
+      },
+      "relation": "addressed_via_pilot",
+      "confidence": "high",
+      "example": "\"The Court identifies a systemic problem and indicates general measures\" — Broniowski v. Poland [GC] (2004)",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "just_satisfaction_award": {
+      "signals": [
+        "on an equitable basis",
+        "awards the applicant",
+        "just satisfaction",
+        "finding of a violation constitutes in itself sufficient",
+        "actually and necessarily incurred",
+        "reasonable as to quantum",
+        "marginal lending rate of the European Central Bank"
+      ],
+      "creates_edge": {
+        "source_role": "Violation",
+        "relation": "REMEDIED_BY",
+        "target_role": "Just_Satisfaction"
+      },
+      "relation": "remedied_by",
+      "confidence": "high",
+      "example": "\"Making its assessment on an equitable basis, the Court awards the applicant EUR [X]\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "engel_criteria_application": {
+      "signals": [
+        "criminal charge",
+        "autonomous meaning",
+        "Engel criteria",
+        "nature of the offence",
+        "severity of the penalty",
+        "generally binding character",
+        "punitive and deterrent",
+        "hard core of criminal law"
+      ],
+      "creates_edge": {
+        "source_role": "Domestic_Proceedings",
+        "relation": "CLASSIFIED_VIA",
+        "target_role": "Engel_Criteria"
+      },
+      "relation": "classified_via_engel",
+      "confidence": "high",
+      "example": "\"The Court must first ascertain whether or not the proceedings were 'criminal' within the autonomous meaning of Article 6\" — Jussila v. Finland [GC]",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "salduz_ibrahim_application": {
+      "signals": [
+        "access to a lawyer",
+        "first interrogation",
+        "compelling reasons",
+        "irretrievably prejudiced",
+        "rights of the defence",
+        "very strict scrutiny",
+        "overall fairness"
+      ],
+      "creates_edge": {
+        "source_role": "Police_Interrogation",
+        "relation": "ASSESSED_UNDER",
+        "target_role": "Salduz_Ibrahim_Test"
+      },
+      "relation": "assessed_under_salduz",
+      "confidence": "high",
+      "example": "\"Access to a lawyer should be provided as from the first interrogation of a suspect by the police, unless there are compelling reasons\" — Salduz v. Turkey [GC] §55",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "extraterritorial_jurisdiction_assessment": {
+      "signals": [
+        "within their jurisdiction",
+        "effective control",
+        "effective overall control",
+        "state agent authority",
+        "authority and control",
+        "espace juridique",
+        "extraterritorial jurisdiction",
+        "public powers",
+        "divided and tailored"
+      ],
+      "creates_edge": {
+        "source_role": "Extraterritorial_Act",
+        "relation": "ASSESSED_FOR",
+        "target_role": "Article_1_Jurisdiction"
+      },
+      "relation": "assessed_for_jurisdiction",
+      "confidence": "high",
+      "example": "\"The Court must establish whether the applicants fell within the jurisdiction of the respondent State within the meaning of Article 1\" — Al-Skeini v. UK [GC]",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "medical_expulsion_assessment": {
+      "signals": [
+        "very exceptional circumstances",
+        "close to death",
+        "seriously ill person",
+        "serious, rapid and irreversible decline",
+        "intense suffering",
+        "significant reduction in life expectancy",
+        "absence of appropriate treatment",
+        "compelling humanitarian grounds"
+      ],
+      "creates_edge": {
+        "source_role": "Medical_Expulsion_Case",
+        "relation": "ASSESSED_UNDER",
+        "target_role": "Paposhvili_Test"
+      },
+      "relation": "assessed_under_paposhvili",
+      "confidence": "high",
+      "example": "\"Other very exceptional cases should be understood to also refer to situations involving the removal of a seriously ill person\" — Paposhvili v. Belgium [GC] §183",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "privacy_expression_balancing": {
+      "signals": [
+        "debate of general interest",
+        "contribution to a debate",
+        "public figure",
+        "prior conduct",
+        "content, form and consequences",
+        "severity of the sanction",
+        "legitimate expectation of privacy",
+        "balancing exercise",
+        "competing interests",
+        "equal respect",
+        "equal value"
+      ],
+      "creates_edge": {
+        "source_role": "Art8_vs_Art10_Conflict",
+        "relation": "BALANCED_USING",
+        "target_role": "Von_Hannover_Criteria"
+      },
+      "relation": "balanced_using_von_hannover",
+      "confidence": "high",
+      "example": "\"The Court must verify whether the domestic authorities struck a fair balance when protecting the competing interests at stake\" — Von Hannover v. Germany (No. 2) [GC]",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "collective_expulsion_assessment": {
+      "signals": [
+        "collective expulsion",
+        "individual assessment",
+        "particular case of each individual alien",
+        "genuine and effective access",
+        "own culpable conduct",
+        "compelling aliens as a group",
+        "push-back"
+      ],
+      "creates_edge": {
+        "source_role": "Group_Removal",
+        "relation": "ASSESSED_UNDER",
+        "target_role": "Article_4_P4_Test"
+      },
+      "relation": "assessed_under_collective_expulsion",
+      "confidence": "high",
+      "example": "\"Any measure compelling aliens, as a group, to leave the country, except where such a measure is taken on the basis of a reasonable and objective examination\" — Khlaifia v. Italy [GC] §237",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "interim_measure_compliance": {
+      "signals": [
+        "interim measure",
+        "Rule 39",
+        "indicated to the Government",
+        "not to expel",
+        "not to extradite",
+        "not to deport",
+        "not to remove",
+        "binding character",
+        "imminent risk of irreparable harm",
+        "failure to comply"
+      ],
+      "creates_edge": {
+        "source_role": "Interim_Measure",
+        "relation": "COMPLIANCE_ASSESSED",
+        "target_role": "Article_34_Obligation"
+      },
+      "relation": "compliance_assessed_rule39",
+      "confidence": "high",
+      "example": "\"Interim measures play a vital role in avoiding irreversible situations that would prevent the Court from properly examining the application\" — Mamatkulov and Askarov v. Turkey [GC] §128",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "friendly_settlement_identification": {
+      "signals": [
+        "friendly settlement",
+        "Article 39",
+        "reached a settlement",
+        "terms of the settlement",
+        "ex gratia",
+        "non-contentious phase"
+      ],
+      "creates_edge": {
+        "source_role": "Case",
+        "relation": "RESOLVED_VIA",
+        "target_role": "Friendly_Settlement"
+      },
+      "relation": "resolved_via_settlement",
+      "confidence": "high",
+      "example": "\"The Court takes note of the friendly settlement reached by the parties\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "striking_out_identification": {
+      "signals": [
+        "strike out",
+        "struck out of the list",
+        "struck out of its list of cases",
+        "Article 37",
+        "does not intend to pursue",
+        "unilateral declaration",
+        "no longer justified to continue"
+      ],
+      "creates_edge": {
+        "source_role": "Case",
+        "relation": "DISPOSED_VIA",
+        "target_role": "Striking_Out"
+      },
+      "relation": "disposed_via_striking_out",
+      "confidence": "high",
+      "example": "\"Decides to strike the application out of its list of cases in accordance with Article 37 §1(c)\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "third_party_intervention_identification": {
+      "signals": [
+        "third-party intervention",
+        "third party intervention",
+        "Article 36",
+        "leave to intervene",
+        "granted leave to intervene",
+        "written observations",
+        "Commissioner for Human Rights",
+        "amicus curiae"
+      ],
+      "creates_edge": {
+        "source_role": "Third_Party",
+        "relation": "INTERVENES_IN",
+        "target_role": "Case"
+      },
+      "relation": "intervenes_in",
+      "confidence": "high",
+      "example": "\"The President granted leave to intervene to [NGO/State] in accordance with Article 36 §2\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "separate_opinion_identification": {
+      "signals": [
+        "CONCURRING OPINION",
+        "DISSENTING OPINION",
+        "PARTLY DISSENTING OPINION",
+        "JOINT DISSENTING OPINION",
+        "In accordance with Article 45",
+        "I voted against",
+        "I cannot agree with the majority",
+        "I respectfully dissent"
+      ],
+      "creates_edge": {
+        "source_role": "Judge",
+        "relation": "DELIVERS",
+        "target_role": "Separate_Opinion"
+      },
+      "relation": "delivers_separate_opinion",
+      "confidence": "high",
+      "example": "\"In accordance with Article 45 § 2 of the Convention and Rule 74 § 2 of the Rules of Court, the dissenting opinion of Judge [NAME] is annexed to this judgment\"",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    },
+    "death_penalty_assessment": {
+      "signals": [
+        "death penalty",
+        "abolition of the death penalty",
+        "real risk of execution",
+        "death row phenomenon",
+        "zone free of capital punishment",
+        "binding assurances",
+        "condemned to such penalty"
+      ],
+      "creates_edge": {
+        "source_role": "Extradition_or_Expulsion",
+        "relation": "ASSESSED_AGAINST",
+        "target_role": "Protocol_6_13_Bar"
+      },
+      "relation": "assessed_against_death_penalty_bar",
+      "confidence": "high",
+      "example": "\"The territory of the member States of the Council of Europe is a zone free of capital punishment\" — Öcalan v. Turkey [GC]",
+      "resolution_logic": null,
+      "graph_implication": null,
+      "strength": null
+    }
+  },
+  "stats": {
+    "total_concept_count": 55,
+    "by_kind": {
+      "doctrine": 23,
+      "standard": 2,
+      "convention_article": 25,
+      "procedural_mechanism": 5
+    },
+    "pattern_count": 29,
+    "all_concepts_have_key_phrases": true,
+    "all_concepts_have_requires": true,
+    "all_concepts_have_defeaters": true,
+    "all_concepts_have_edge_pattern": true,
+    "all_patterns_have_signals": true,
+    "all_patterns_have_creates_edge": true,
+    "schema_match": "Matches Indian ontology (ontology_compiled.json) concept and pattern schema",
+    "v3_additions": {
+      "new_concepts_added": 17,
+      "existing_concepts_enriched": [
+        "DOCTRINE_FOURTH_INSTANCE",
+        "ARTICLE_6_RIGHT_TO_FAIR_TRIAL",
+        "PROTOCOL_7_ART_4_NE_BIS_IN_IDEM",
+        "ARTICLE_8_PRIVATE_FAMILY_LIFE",
+        "ARTICLE_3_PROHIBITION_OF_TORTURE",
+        "DOCTRINE_AUTONOMOUS_CONCEPTS"
+      ],
+      "new_patterns_added": 12,
+      "source_document": "ECHR doctrines, tests, and procedural concepts comprehensive reference (18 concepts)"
+    }
+  },
+  "verification": {
+    "verified_against": [
+      "Convention text: echr.coe.int/documents/d/echr/convention_ENG",
+      "Rules of Court: echr.coe.int/documents/d/echr/rules_court_eng",
+      "HUDOC FAQ: echr.coe.int/documents/d/echr/hudoc_faq_eng",
+      "Court Note on Citation: echr.coe.int/documents/d/echr/note_citation_eng",
+      "ECHR-KS: echr.coe.int/knowledge-sharing"
+    ],
+    "last_verified": "2026-02-19",
+    "corrections_applied": [
+      "Art 30/Rule 72: may/shall split",
+      "Committee: 'points of principle'",
+      "ECHR-KS: weekly platform vs six-month guides",
+      "HUDOC importance: Key cases + Levels 1/2/3",
+      "Four-month rule: non-retroactivity",
+      "v3: Added 16 new concepts from doctrines/tests/procedural reference",
+      "v3: Enriched DOCTRINE_FOURTH_INSTANCE with duty to give reasons (Ruiz Torija, Taxquet, Moreira Ferreira)",
+      "v3: Cross-referenced Engel criteria in Art 6, P7A4, and Autonomous Concepts entries",
+      "v3: Cross-referenced Paposhvili in Art 3 entry",
+      "v3: Cross-referenced Von Hannover balancing in Art 8 entry",
+      "v3: Consolidated Banković/Article 1 into two entries: ARTICLE_1_JURISDICTION (article) + DOCTRINE_BANKOVIC_JURISDICTION (doctrinal evolution)",
+      "v3: Added procedural_mechanism kind for friendly settlement, striking out, third-party intervention, Rule 39, separate opinions",
+      "v3: Added 12 new NLP signal patterns for new concepts"
+    ]
+  },
+  "case_law_hierarchy": {
+    "formal_stare_decisis": false,
+    "description": "No formal stare decisis. Grand Chamber judgments carry highest authority; Committee judgments should not be cited as authority on points of principle.",
+    "authority_levels": {
+      "grand_chamber": {
+        "composition": "17 judges",
+        "authority": "Highest — functions as binding on Chambers",
+        "designation": "[GC]"
+      },
+      "chamber": {
+        "composition": "7 judges",
+        "authority": "Standard — follows Grand Chamber case-law"
+      },
+      "committee": {
+        "composition": "3 judges",
+        "authority": "Applies well-established case-law only; should not be cited as authority on points of principle"
+      }
+    },
+    "relinquishment_art30": {
+      "convention_text": "Article 30: Chamber 'may' relinquish (discretionary)",
+      "rule_72_para1": "MAY relinquish for serious interpretive question",
+      "rule_72_para2": "SHALL relinquish where resolution might be inconsistent with prior case-law",
+      "note": "Protocol No. 15 removed party veto"
+    },
+    "referral_art43": {
+      "timing": "Within three months post-judgment",
+      "criteria": "Serious question of interpretation/application or serious issue of general importance",
+      "decision": "Panel of five GC judges (no reasons for refusal)"
+    },
+    "departing_from_precedent": {
+      "approach": "Court 'clarifies' or 'develops' — rarely says 'overrule'. GC is primary vehicle.",
+      "notable": [
+        "Christine Goodwin v. UK [GC] (2002) — reversing Sheffield and Horsham on transgender rights",
+        "Bayatyan v. Armenia [GC] (2011) — departing on conscientious objection",
+        "Lautsi v. Italy [GC] (2011) — GC reversing Chamber on crucifixes",
+        "Al-Skeini v. UK [GC] (2011) — departing from Banković on extraterritorial jurisdiction"
+      ]
+    },
+    "hudoc_importance": {
+      "key_cases": "Highest — significant contribution to development/clarification/modification of case-law",
+      "level_1": "High importance",
+      "level_2": "Medium importance",
+      "level_3": "Low importance",
+      "legacy_note": "'Case Reports' is historical terminology from older reporting practice"
+    }
+  },
+  "editorial_conventions": {
+    "absolutist_language": "must/never/always in 'requires'/'defeaters' fields = Court's own categorical holdings. Narrative uses softer language unless truly categorical.",
+    "primary_vs_secondary": "All concept source_type is primary (judgments). Guides/factsheets are secondary (not binding)."
+  },
+  "case_identifier_convention": {
+    "format": "Name v. State [formation] (date)",
+    "example": {
+      "name": "Osman v. United Kingdom",
+      "formation": "Chamber",
+      "app_no": "23452/94",
+      "date": "1998-10-28",
+      "paragraphs": "§§115-116",
+      "hudoc_importance": "Key case"
+    }
+  },
+  "source_files": [
+    "compass_artifact_wf-994b80f0-995b-4fbc-9f57-34164fd2b716_text_markdown.md",
+    "echr_doctrines_tests_procedural_concepts_v2.md"
+  ]
+}

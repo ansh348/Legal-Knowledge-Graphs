@@ -114,10 +114,36 @@ _STOPWORDS = {
 
 # Extra legal stopwords that appear very frequently but add no discriminating power
 _LEGAL_NOISE = {
+    # Indian courts
     "appellant", "respondent", "petitioner", "complainant", "accused",
     "prosecution", "defence", "trial", "appeal", "judgment", "decree",
     "lower", "high", "supreme", "bench", "division", "civil", "criminal",
     "writ", "petition", "application", "revision", "reference",
+    # ECHR
+    "applicant", "applicants", "government", "convention", "chamber",
+    "committee", "grand", "strasbourg", "council", "europe", "european",
+    "commission", "contracting", "parties", "party", "state", "states",
+    "margin", "appreciation", "proportionality", "proportionate",
+    "interference", "necessary", "democratic", "society", "legitimate",
+    "prescribed", "accordance", "violation", "violated", "violating",
+    "inadmissible", "admissible", "admissibility", "manifestly",
+    "ill-founded", "exhaustion", "remedies", "remedy", "domestic",
+    "complaint", "complaints", "alleged", "alleging", "allegation",
+    "observations", "submissions", "submitted", "submit", "contends",
+    "reiterates", "reiterated", "maintains", "maintained", "asserts",
+    "asserted", "claims", "claimed", "considers", "considered",
+    "satisfied", "concludes", "concluded", "declares", "declared",
+    "holds", "unanimously", "accordingly", "therefore", "moreover",
+    "furthermore", "however", "nevertheless", "particular", "present",
+    "rights", "right", "freedom", "freedoms", "protection", "respect",
+    "tribunal", "judgment", "judgments", "protocol", "protocols",
+    "pecuniary", "non-pecuniary", "damage", "damages", "award",
+    "compensation", "satisfaction", "costs", "expenses", "euros",
+    "reasonable", "unreasonable", "justification", "justified",
+    "measure", "measures", "national", "authorities", "authority",
+    "impugned", "contested", "proceedings", "procedure", "procedural",
+    # Turkish-specific ECHR terms
+    "turkey", "turkish", "ankara", "istanbul",
 }
 
 ALL_STOPS = _STOPWORDS | _LEGAL_NOISE
