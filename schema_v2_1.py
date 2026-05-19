@@ -35,6 +35,16 @@ import hashlib
 SCHEMA_VERSION = "2.1.2"
 
 
+def _opt_enum(enum_cls, val):
+    """Safely coerce a string to an enum, returning None if val is falsy."""
+    if val is None:
+        return None
+    try:
+        return enum_cls(val)
+    except (ValueError, KeyError):
+        return None
+
+
 # =============================================================================
 # ENUMS - Constrained vocabularies for consistency
 # =============================================================================
@@ -230,6 +240,20 @@ class Anchor:
             "surface_text": self.surface_text
         }
 
+    @classmethod
+    def from_dict(cls, d: Dict) -> "Anchor":
+        if d is None:
+            return None
+        return cls(
+            doc_id=d.get("doc_id", ""),
+            start_char=d.get("start_char", 0),
+            end_char=d.get("end_char", 0),
+            text_hash=d.get("text_hash"),
+            display_location=d.get("display_location"),
+            secondary_spans=[tuple(s) for s in (d.get("secondary_spans") or [])],
+            surface_text=d.get("surface_text"),
+        )
+
 
 # =============================================================================
 # PROVENANCE
@@ -254,6 +278,19 @@ class Provenance:
             "temperature": self.temperature,
             "timestamp": self.timestamp
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict) -> "Provenance":
+        if d is None:
+            return None
+        return cls(
+            extraction_method=ExtractionMethod(d["extraction_method"]) if d.get("extraction_method") else ExtractionMethod.LLM,
+            model_id=d.get("model_id"),
+            prompt_id=d.get("prompt_id"),
+            run_id=d.get("run_id"),
+            temperature=d.get("temperature"),
+            timestamp=d.get("timestamp"),
+        )
 
 
 # =============================================================================
@@ -282,6 +319,18 @@ class JustificationSetNode:
             "confidence": self.confidence.value,
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict) -> "JustificationSetNode":
+        return cls(
+            id=d["id"],
+            target_id=d["target_id"],
+            logic=JustificationLogic(d.get("logic", "and")),
+            label=d.get("label"),
+            is_primary=d.get("is_primary", False),
+            confidence=Confidence(d.get("confidence", "high")),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
 
 
 # =============================================================================
@@ -319,6 +368,22 @@ class FactNode:
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
 
+    @classmethod
+    def from_dict(cls, d: Dict) -> "FactNode":
+        return cls(
+            id=d["id"],
+            text=d.get("text", ""),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            fact_type=FactType(d.get("fact_type", "material")),
+            actor_source=_opt_enum(ActorType, d.get("actor_source")),
+            date=d.get("date"),
+            date_approximate=d.get("date_approximate", False),
+            disputed_by=_opt_enum(ActorType, d.get("disputed_by")),
+            court_finding=d.get("court_finding"),
+            confidence=Confidence(d.get("confidence", "high")),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
+
 
 @dataclass
 class ConceptNode:
@@ -351,6 +416,22 @@ class ConceptNode:
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
 
+    @classmethod
+    def from_dict(cls, d: Dict) -> "ConceptNode":
+        return cls(
+            id=d["id"],
+            concept_id=d.get("concept_id", ""),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            relevance=Relevance(d.get("relevance", "supporting")),
+            kind=_opt_enum(ConceptKind, d.get("kind")),
+            interpretation=d.get("interpretation"),
+            interpretation_anchor=Anchor.from_dict(d.get("interpretation_anchor")),
+            unlisted_label=d.get("unlisted_label"),
+            unlisted_description=d.get("unlisted_description"),
+            confidence=Confidence(d.get("confidence", "high")),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
+
 
 @dataclass
 class IssueNode:
@@ -378,6 +459,20 @@ class IssueNode:
             "confidence": self.confidence.value,
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict) -> "IssueNode":
+        return cls(
+            id=d["id"],
+            text=d.get("text", ""),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            issue_number=d.get("issue_number"),
+            framed_by=ActorType(d.get("framed_by", "court")),
+            primary_concepts=d.get("primary_concepts") or [],
+            answer=d.get("answer"),
+            confidence=Confidence(d.get("confidence", "high")),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
 
 
 @dataclass
@@ -411,6 +506,29 @@ class ArgumentNode:
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
 
+    @classmethod
+    def from_dict(cls, d: Dict) -> "ArgumentNode":
+        schemes_raw = d.get("schemes") or []
+        schemes = []
+        for s in schemes_raw:
+            try:
+                schemes.append(ArgumentScheme(s))
+            except (ValueError, KeyError):
+                schemes.append(ArgumentScheme.OTHER)
+        return cls(
+            id=d["id"],
+            claim=d.get("claim", ""),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            actor=ActorType(d.get("actor", "court")),
+            schemes=schemes,
+            qualifiers=d.get("qualifiers"),
+            court_response=d.get("court_response"),
+            court_response_anchor=Anchor.from_dict(d.get("court_response_anchor")),
+            court_reasoning=d.get("court_reasoning"),
+            confidence=Confidence(d.get("confidence", "high")),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
+
 
 @dataclass
 class HoldingNode:
@@ -440,6 +558,28 @@ class HoldingNode:
             "confidence": self.confidence.value,
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict) -> "HoldingNode":
+        schemes_raw = d.get("schemes") or []
+        schemes = []
+        for s in schemes_raw:
+            try:
+                schemes.append(ArgumentScheme(s))
+            except (ValueError, KeyError):
+                schemes.append(ArgumentScheme.OTHER)
+        return cls(
+            id=d["id"],
+            text=d.get("text", ""),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            resolves_issue=d.get("resolves_issue"),
+            is_ratio=d.get("is_ratio", True),
+            novel=d.get("novel", False),
+            reasoning_summary=d.get("reasoning_summary"),
+            schemes=schemes,
+            confidence=Confidence(d.get("confidence", "high")),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
 
 
 @dataclass
@@ -475,6 +615,23 @@ class PrecedentNode:
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
 
+    @classmethod
+    def from_dict(cls, d: Dict) -> "PrecedentNode":
+        return cls(
+            id=d["id"],
+            citation=d.get("citation", ""),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            case_name=d.get("case_name"),
+            case_year=d.get("case_year"),
+            cited_case_id=d.get("cited_case_id"),
+            cited_proposition=d.get("cited_proposition"),
+            cited_holding=d.get("cited_holding"),
+            treatment=_opt_enum(PrecedentTreatment, d.get("treatment")),
+            relevance=Relevance(d.get("relevance", "supporting")),
+            confidence=Confidence(d.get("confidence", "high")),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
+
 
 @dataclass
 class OutcomeNode:
@@ -500,6 +657,19 @@ class OutcomeNode:
             "directions": self.directions,
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict) -> "OutcomeNode":
+        return cls(
+            id=d.get("id", "outcome"),
+            disposition=Disposition(d.get("disposition", "dismissed")),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            binary=d.get("binary", "rejected"),
+            relief_summary=d.get("relief_summary"),
+            costs=d.get("costs"),
+            directions=d.get("directions") or [],
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
 
 
 # =============================================================================
@@ -547,6 +717,22 @@ class Edge:
             "provenance": self.provenance.to_dict() if self.provenance else None
         }
 
+    @classmethod
+    def from_dict(cls, d: Dict) -> "Edge":
+        return cls(
+            id=d["id"],
+            source=d["source"],
+            target=d["target"],
+            relation=EdgeRelation(d["relation"]),
+            anchor=Anchor.from_dict(d.get("anchor")),
+            explanation=d.get("explanation"),
+            confidence=Confidence(d.get("confidence", "high")),
+            strength=d.get("strength", "strong"),
+            support_group_ids=d.get("support_group_ids") or [],
+            is_critical=d.get("is_critical", False),
+            provenance=Provenance.from_dict(d.get("provenance")),
+        )
+
 
 # =============================================================================
 # REASONING CHAIN
@@ -579,6 +765,21 @@ class ReasoningChain:
             "critical_nodes": self.critical_nodes,
             "narrative": self.narrative
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict) -> "ReasoningChain":
+        return cls(
+            id=d["id"],
+            issue_id=d.get("issue_id"),
+            fact_ids=d.get("fact_ids") or [],
+            concept_ids=d.get("concept_ids") or [],
+            argument_ids=d.get("argument_ids") or [],
+            holding_id=d.get("holding_id"),
+            edge_ids=d.get("edge_ids") or [],
+            justification_set_id=d.get("justification_set_id"),
+            critical_nodes=d.get("critical_nodes") or [],
+            narrative=d.get("narrative"),
+        )
 
 
 # =============================================================================
@@ -734,6 +935,39 @@ class LegalReasoningGraph:
 
     def to_json(self, indent: int = 2) -> str:
         return json.dumps(self.to_dict(), indent=indent, ensure_ascii=False)
+
+    @classmethod
+    def from_dict(cls, d: Dict) -> "LegalReasoningGraph":
+        meta = d.get("_meta") or {}
+        graph = cls(
+            case_id=d.get("case_id", ""),
+            case_name=d.get("case_name"),
+            case_year=d.get("case_year"),
+            court=d.get("court"),
+            judges=d.get("judges") or [],
+            facts=[FactNode.from_dict(f) for f in (d.get("facts") or [])],
+            concepts=[ConceptNode.from_dict(c) for c in (d.get("concepts") or [])],
+            issues=[IssueNode.from_dict(i) for i in (d.get("issues") or [])],
+            arguments=[ArgumentNode.from_dict(a) for a in (d.get("arguments") or [])],
+            holdings=[HoldingNode.from_dict(h) for h in (d.get("holdings") or [])],
+            precedents=[PrecedentNode.from_dict(p) for p in (d.get("precedents") or [])],
+            justification_sets=[JustificationSetNode.from_dict(js) for js in (d.get("justification_sets") or [])],
+            outcome=OutcomeNode.from_dict(d["outcome"]) if d.get("outcome") else None,
+            edges=[Edge.from_dict(e) for e in (d.get("edges") or [])],
+            reasoning_chains=[ReasoningChain.from_dict(rc) for rc in (d.get("reasoning_chains") or [])],
+            quality_tier=meta.get("quality_tier", "bronze"),
+            extraction_model=meta.get("extraction_model"),
+            extraction_timestamp=meta.get("extraction_timestamp"),
+            retry_attempts=meta.get("retry_attempts", 0),
+            validation_warnings=meta.get("validation_warnings") or [],
+            cluster_membership=meta.get("cluster_membership") or {},
+            cluster_summary=meta.get("cluster_summary") or {},
+        )
+        return graph
+
+    @classmethod
+    def from_json(cls, json_str: str) -> "LegalReasoningGraph":
+        return cls.from_dict(json.loads(json_str))
 
     def get_node(self, node_id: str) -> Optional[Union[
         FactNode, ConceptNode, IssueNode, ArgumentNode, HoldingNode, PrecedentNode, JustificationSetNode, OutcomeNode]]:

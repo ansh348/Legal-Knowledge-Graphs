@@ -1882,7 +1882,7 @@ class GrokClient(LLMClient):
         self.base_url = "https://api.x.ai/v1"
         self._http = httpx.AsyncClient(
             timeout=180.0,
-            limits=httpx.Limits(max_connections=30, max_keepalive_connections=20),
+            limits=httpx.Limits(max_connections=200, max_keepalive_connections=100),
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
