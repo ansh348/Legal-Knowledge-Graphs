@@ -1,0 +1,69 @@
+Loading case graphs...
+  Loaded 2449 cases
+
+Selecting query concepts from graph annotations...
+
+Loading raw IL-TUR texts...
+  Loading raw IL-TUR texts from HuggingFace...
+  Loaded 2449/2449 raw texts
+
+[QRELS] Regex-matched in raw text (independent ground truth)
+  166/200 queries have ≥3 matching cases
+  20521 total case-concept matches
+  Avg matches/query: 102.6
+
+  Per-query regex matches (top 10 + bottom 5):
+    UNLISTED_MISA_S3                             1193 cases
+    EVIDENCE_S3                                  1193 cases
+    UNLISTED_IT_ACT_S3                           1193 cases
+    UNLISTED_LAA_S4                               919 cases
+    UNLISTED_WRIT_PROHIBITION                     913 cases
+    UNLISTED_WRIT_MANDAMUS                        782 cases
+    UNLISTED_WRIT_CERTIORARI                      778 cases
+    UNLISTED_WRIT_HABEAS_CORPUS                   771 cases
+    UNLISTED_IDA_S10                              587 cases
+    UNLISTED_IT_ACT_S10                           587 cases
+    ...                                        
+    UNLISTED_SUBSTANTIAL_COMPLIANCE                 0 cases  SKIP
+    UNLISTED_IT_ACT_S66A2                           0 cases  SKIP
+    UNLISTED_REASON_TO_BELIEVE                      0 cases  SKIP
+    UNLISTED_RULE_OF_LAW                            0 cases  SKIP
+    UNLISTED_RETROSPECTIVITY                        0 cases  SKIP
+
+  Filtering: 200 -> 163 queries (3 ≤ df ≤ 979)
+    Dropped 34 queries with <3 matches
+    Dropped 3 queries with >979 matches (too broad)
+
+Qrel source: Regex-matched (independent)
+Queries: 163 concepts (df range: 4-919, median df: 38)
+Corpus: 2449 cases
+Avg relevant docs/query: 103.9
+
+[1/?] BM25 (Raw IL-TUR)...
+  nDCG@10=0.717  MAP=0.440  P@10=0.670
+
+[last] ConceptSet (graph annotations)...
+  nDCG@10=0.841  MAP=0.470  P@10=0.810
+
+Statistical significance (ConceptSet vs each baseline):
+  ConceptSet vs BM25        : t=  7.011, p=0.0000 **
+
+==============================================================================
+CONCEPT RETRIEVAL EVALUATION
+  Qrel source:  Regex-matched (independent)
+  Text source:  Raw IL-TUR
+  Queries:      163 concepts (df 4-919, median 38)
+  Corpus:       2449 cases
+  Avg rel/query: 103.9
+==============================================================================
+Method            Type           nDCG@10      MAP     P@10     sig
+----------------------------------------------------------------------
+BM25              Sparse           0.717    0.440    0.670      **
+ConceptSet        Structured       0.841    0.470    0.810      --
+----------------------------------------------------------------------
+
+  Note: Relevance judged by regex-matching concept identifiers
+  in raw IL-TUR text (independent of extraction pipeline).
+  BM25 and dense baselines search raw text; ConceptSet matches
+  graph annotations. †p<0.05 *p<0.05 **p<0.01 (paired t-test vs ConceptSet)
+

@@ -1,0 +1,196 @@
+{
+  "config": {
+    "graph_dir": "graphs_enriched_v2",
+    "n_cases": 2446,
+    "n_accepted": 853,
+    "n_rejected": 1593
+  },
+  "signatures": {
+    "total_unique": 2445,
+    "with_5_plus_cases": 0,
+    "with_10_plus_cases": 0,
+    "mean_consistency_5": null,
+    "median_consistency_5": null,
+    "pct_above_90": null,
+    "pct_above_80": null,
+    "pct_above_70": null,
+    "top_15_signatures": [],
+    "top_5_inconsistent": []
+  },
+  "pairwise_jaccard": {
+    "high_sim_pairs": 10,
+    "high_sim_same_outcome_rate": 0.5,
+    "random_pairs": 10000,
+    "random_same_outcome_rate": 0.5501,
+    "lift": 0.9089
+  },
+  "per_concept": {
+    "concepts_with_20_plus": 61,
+    "mean_skew": 0.6528,
+    "median_skew": 0.6476,
+    "top_10_predictive": [
+      {
+        "concept": "DOCTRINE_REASONABLE_CLASSIFICATION_ARTICLE_14_TWIN_TEST",
+        "total": 140,
+        "accepted": 24,
+        "rejected": 116,
+        "majority": "rejected",
+        "skew": 0.8286
+      },
+      {
+        "concept": "CONST_ART133",
+        "total": 36,
+        "accepted": 8,
+        "rejected": 28,
+        "majority": "rejected",
+        "skew": 0.7778
+      },
+      {
+        "concept": "CONST_ART14",
+        "total": 232,
+        "accepted": 52,
+        "rejected": 180,
+        "majority": "rejected",
+        "skew": 0.7759
+      },
+      {
+        "concept": "CONST_ART32",
+        "total": 246,
+        "accepted": 60,
+        "rejected": 186,
+        "majority": "rejected",
+        "skew": 0.7561
+      },
+      {
+        "concept": "CONCEPT_ELECTRONIC_EVIDENCE",
+        "total": 173,
+        "accepted": 45,
+        "rejected": 128,
+        "majority": "rejected",
+        "skew": 0.7399
+      },
+      {
+        "concept": "CONST_ART19",
+        "total": 206,
+        "accepted": 56,
+        "rejected": 150,
+        "majority": "rejected",
+        "skew": 0.7282
+      },
+      {
+        "concept": "DOCTRINE_READING_DOWN",
+        "total": 87,
+        "accepted": 25,
+        "rejected": 62,
+        "majority": "rejected",
+        "skew": 0.7126
+      },
+      {
+        "concept": "CONCEPT_DYING_DECLARATION",
+        "total": 613,
+        "accepted": 181,
+        "rejected": 432,
+        "majority": "rejected",
+        "skew": 0.7047
+      },
+      {
+        "concept": "CONCEPT_CULPABLE_HOMICIDE",
+        "total": 156,
+        "accepted": 47,
+        "rejected": 109,
+        "majority": "rejected",
+        "skew": 0.6987
+      },
+      {
+        "concept": "CONCEPT_CONFESSION_POLICE",
+        "total": 103,
+        "accepted": 32,
+        "rejected": 71,
+        "majority": "rejected",
+        "skew": 0.6893
+      }
+    ],
+    "top_10_balanced": [
+      {
+        "concept": "CONCEPT_CRIMINAL_INTIMIDATION",
+        "total": 79,
+        "accepted": 35,
+        "rejected": 44,
+        "majority": "rejected",
+        "skew": 0.557
+      },
+      {
+        "concept": "DOCTRINE_NATURAL_JUSTICE_AUDI_ALTERAM_PARTEM",
+        "total": 368,
+        "accepted": 163,
+        "rejected": 205,
+        "majority": "rejected",
+        "skew": 0.5571
+      },
+      {
+        "concept": "DOCTRINE_MANIFEST_ARBITRARINESS",
+        "total": 28,
+        "accepted": 12,
+        "rejected": 16,
+        "majority": "rejected",
+        "skew": 0.5714
+      },
+      {
+        "concept": "CONCEPT_ATTEMPT",
+        "total": 21,
+        "accepted": 9,
+        "rejected": 12,
+        "majority": "rejected",
+        "skew": 0.5714
+      },
+      {
+        "concept": "CONCEPT_DISCOVERY_CONFESSION",
+        "total": 139,
+        "accepted": 58,
+        "rejected": 81,
+        "majority": "rejected",
+        "skew": 0.5827
+      },
+      {
+        "concept": "DOCTRINE_PROPORTIONALITY_TEST",
+        "total": 53,
+        "accepted": 22,
+        "rejected": 31,
+        "majority": "rejected",
+        "skew": 0.5849
+      },
+      {
+        "concept": "DOCTRINE_LEGITIMATE_EXPECTATION",
+        "total": 54,
+        "accepted": 22,
+        "rejected": 32,
+        "majority": "rejected",
+        "skew": 0.5926
+      },
+      {
+        "concept": "CONCEPT_ACCUSED_EXAMINATION",
+        "total": 182,
+        "accepted": 73,
+        "rejected": 109,
+        "majority": "rejected",
+        "skew": 0.5989
+      },
+      {
+        "concept": "CONCEPT_THEFT",
+        "total": 214,
+        "accepted": 84,
+        "rejected": 130,
+        "majority": "rejected",
+        "skew": 0.6075
+      },
+      {
+        "concept": "CONST_ART226",
+        "total": 555,
+        "accepted": 216,
+        "rejected": 339,
+        "majority": "rejected",
+        "skew": 0.6108
+      }
+    ]
+  }
+}

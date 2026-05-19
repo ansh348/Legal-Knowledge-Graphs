@@ -38,6 +38,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+import sys
+if sys.stdout.encoding and sys.stdout.encoding.lower().startswith("cp"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 
 # =============================================================================
 # DATA LOADING

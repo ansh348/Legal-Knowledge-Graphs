@@ -50,6 +50,10 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 import numpy as np
 import torch
 
+if sys.stdout.encoding and sys.stdout.encoding.lower().startswith("cp"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 # ---------------------------------------------------------------------------
 # Reused helpers
 # ---------------------------------------------------------------------------
