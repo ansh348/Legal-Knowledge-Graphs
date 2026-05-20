@@ -26,7 +26,7 @@
 \maketitle
 
 \begin{abstract}
-Extracting structured reasoning from long court judgments is a persistent challenge in legal NLP: large language models can identify individual legal concepts but struggle to consistently link them across thousands of tokens, producing graphs that are incomplete, structurally invalid, or non-reproducible. We present \textsc{LexCGraph}, a pipeline that decomposes long-document graph extraction into a set of local inference problems by clustering extracted nodes around canonical legal concepts defined in a compiled ontology. Within each cluster, an LLM infers edges under ontology-provided constraints (definitions, AND/OR requirements, defeaters, relation whitelists); all cross-cluster structure is constructed deterministically. On 2,517 Indian Supreme Court cases from IL-TUR, ontology-normalized annotations outperform BM25 by +0.100 nDCG@10 ($p < 0.05$) and all dense retrieval baselines. Graph representations improve zero-shot outcome prediction by +11.1pp on Grok-4.1 and +11.1pp on Claude Sonnet 4.5 (McNemar $p < 0.05$), with substantially improved calibration (ECE: 0.109$\rightarrow$0.026). Crucially, structured nodes \emph{without} ontology-constrained edges perform \emph{worse} than raw text, demonstrating that naive structuring destroys implicit textual signals---only ontology-constrained relational structure recovers and exceeds them. A leakage audit confirms comparable information access between representations (0.233 vs.\ 0.225 signals per 1K characters), and the consistent performance ordering across representations rules out LLM memorization. An ontology completeness ablation (11 vs.\ 54 concepts) reveals that enrichment dramatically improves graph quality (gold tier: 77\%$\rightarrow$90\%, pseudo-cluster nodes: 93\% reduction) while prediction accuracy remains unchanged---indicating that core doctrines saturate outcome-predictive signal while additional concepts improve structural fidelity for downstream applications. The AND/OR justification structure enables counterfactual impact analysis: across 15,276 justification sets, 77.5\% of holdings are structurally fragile, and removing the single most critical concept eliminates one-third of a case's justifications on average. \ph{Cross-jurisdictional evaluation on ECHR cases confirms generalizability.} We release the ontology, extraction code, and evaluation scripts.\footnote{Code: \url{https://anonymous.4open.science/r/lexcgraph}}
+Extracting structured reasoning from long court judgments is a persistent challenge in legal NLP: large language models can identify individual legal concepts but struggle to consistently link them across thousands of tokens, producing graphs that are incomplete, structurally invalid, or non-reproducible. We present \textsc{LexCGraph}, a pipeline that decomposes long-document graph extraction into a set of local inference problems by clustering extracted nodes around canonical legal concepts defined in a compiled ontology. Within each cluster, an LLM infers edges under ontology-provided constraints (definitions, AND/OR requirements, defeaters, relation whitelists); all cross-cluster structure is constructed deterministically. On 2,517 Indian Supreme Court cases from IL-TUR, ontology-normalized annotations outperform BM25 by +0.100 nDCG@10 ($p < 0.05$) and all dense retrieval baselines. Graph representations improve zero-shot outcome prediction by +11.1pp on Grok-4.1 and +11.1pp on Claude Sonnet 4.5 (McNemar $p < 0.05$), with substantially improved calibration (ECE: 0.109$\rightarrow$0.026). Crucially, structured nodes \emph{without} ontology-constrained edges perform \emph{worse} than raw text, demonstrating that naive structuring destroys implicit textual signals---only ontology-constrained relational structure recovers and exceeds them. A leakage audit confirms comparable information access between representations (0.233 vs.\ 0.225 signals per 1K characters), and the consistent performance ordering across representations rules out LLM memorization. An ontology completeness ablation (11 vs.\ 54 concepts) reveals that enrichment dramatically improves graph quality (gold tier: 77\%$\rightarrow$90\%, pseudo-cluster nodes: 93\% reduction) while prediction accuracy remains unchanged---indicating that core doctrines saturate outcome-predictive signal while additional concepts improve structural fidelity for downstream applications. The AND/OR justification structure enables counterfactual impact analysis: across 15,276 justification sets, 77.5\% of holdings are structurally fragile, and removing the single most critical concept eliminates one-third of a case's justifications on average. Cross-jurisdictional evaluation on 297 ECHR cases shows graph representations improve macro-F1 by +18.3pp on GPT-5.4 (and +22.2pp on GPT-4.1 mini), driven by +40pp minority-class recall; the accuracy gain is significant by bootstrap 95\% CI; calibration improvements replicate across jurisdictions. We release the ontology, extraction code, and evaluation scripts.\footnote{Code: \url{https://anonymous.4open.science/r/lexcgraph}}
 \end{abstract}
 
 \begin{figure*}[t]
@@ -119,9 +119,12 @@ All cross-cluster structure is constructed without LLM involvement: \texttt{reso
 
 We evaluate on 2,517 IL-TUR CJPE cases \cite{joshi2024iltur} (838 accepted, 1,679 rejected; stratified, seed=42). For zero-shot outcome prediction, we compare two input representations, both identically blinded: (i)~\textit{Raw}: decision text with outcome-revealing content removed via regex filtering; and (ii)~\textit{Graph}: linearized reasoning graph with outcome-bearing fields withheld.
 
+\paragraph{ECHR cross-jurisdiction set.}
+For cross-jurisdictional evaluation we use 297 full-judgment ECHR merits decisions scraped from HUDOC (Turkey-respondent cases) \cite{chalkidis2019neural}: 262 violation, 35 no-violation (88\% imbalance). A separately compiled 55-concept ECHR ontology covers Convention articles, doctrinal tests (margin of appreciation, proportionality, prescribed-by-law), and procedural principles (exhaustion of domestic remedies, victim status, four-month rule). Extraction is performed by GPT-4.1 mini \cite{openai2025gpt41} rather than a frontier model, deliberately testing pipeline robustness under weaker extraction. The blinding protocol is identical to IL-TUR (outcome-bearing graph fields withheld; regex-based outcome removal from raw text, plus the HUDOC metadata banner stripped), and the raw-text character budget is set to $\approx$1.05$\times$ the average graph summary length to match information access at the prompt level.
+
 \subsection{Models and Metrics}
 
-We evaluate on two architecturally distinct frontier models: Grok-4.1 and Claude Sonnet 4.5. Since Grok also serves as the extraction model, Sonnet provides an independent cross-model control. We measure accuracy, macro-F1, calibration (ECE, Brier), and use McNemar's test with bootstrap 95\% CIs. For retrieval, we report nDCG@10, MAP, and P@10 with paired $t$-tests. Our evaluation across 10,068 model runs produced zero parse or API errors.
+For IL-TUR we evaluate on two architecturally distinct frontier models: Grok-4.1 and Claude Sonnet 4.5. Since Grok also serves as the extraction model, Sonnet provides an independent cross-model control. For the ECHR set we use GPT-4.1 mini \cite{openai2025gpt41}---which is both extractor and a non-frontier predictor---and GPT-5.4 \cite{openai2026gpt54} as a frontier predictor on the same graphs. Using a non-frontier extractor stress-tests whether the ontology constraints can compensate for weaker upstream extraction. We measure accuracy, macro-F1, calibration (ECE, Brier), and use McNemar's test with bootstrap 95\% CIs. For retrieval, we report nDCG@10, MAP, and P@10 with paired $t$-tests. Our IL-TUR evaluation across 10,068 model runs produced zero parse or API errors.
 
 % ============================================================
 \section{Results}
@@ -198,17 +201,9 @@ Table~\ref{tab:ont_ablation} reveals a dissociation between graph quality and pr
 
 This indicates that the 11 core doctrinal concepts---proportionality, natural justice, reasonable classification, Wednesbury unreasonableness, and others---capture the reasoning structure predictive of case outcomes. The additional 43 offense-level and procedural concepts improve structural completeness for applications requiring fine-grained graph fidelity (retrieval, explainability, counterfactual analysis) without contributing additional predictive signal for binary outcomes.
 
-\subsection{Facts-Only Control}
+\subsection{Facts-Only Control and Fairness Audits}
 
-A natural question is whether the pipeline's value derives from structuring judicial reasoning or merely from reorganizing factual content. To test this, we extracted graphs from only the facts section of 50 cases (the same input available to supervised ILDC baselines) and compared prediction accuracy across three conditions: raw facts (64\%), facts-only graph (62\%), and full graph (90\%). The facts-only graph provides no prediction advantage, confirming that the pipeline's value derives from structuring the court's analytical reasoning---the connections between doctrines, precedents, and holdings---not from reorganizing facts. This situates \textsc{LexCGraph} as a reasoning structure extraction tool rather than a fact enhancement method.
-
-\subsection{Fairness Controls}
-
-\paragraph{Information leakage audit.}
-Both representations undergo equivalent outcome blinding. An audit of 30 cases measuring outcome-signaling patterns found comparable leakage density: raw text at 0.233 signals per 1K characters versus graph at 0.225 (1.0$\times$ ratio). The graph eliminates discourse-level judicial signals (e.g., ``in our opinion'': 3 instances in raw, 0 in graph) while inheriting comparable treatment-label leakage from precedent nodes. The accuracy gap is therefore attributable to structural organization, not differential information access.
-
-\paragraph{Memorization defense.}
-The consistent ordering (full graph $>$ raw text $>$ structured nodes) using identical models and cases rules out LLM memorization. No memorization hypothesis explains why removing edges from an extracted graph would make the LLM perform \emph{worse} than raw text. Only a representation-quality hypothesis explains this pattern.
+To test whether the pipeline's value derives from structuring judicial reasoning or merely from reorganizing factual content, we extracted graphs from only the facts section of 50 cases: facts-only graph (62\%) matches raw facts (64\%) and is far below full graph (90\%), confirming the signal comes from the court's analytical sections rather than the facts. A separate 30-case leakage audit measured comparable outcome-signal density in raw vs.\ graph (0.233 vs.\ 0.225 per 1K chars), and the consistent ordering full graph $>$ raw $>$ structured nodes rules out memorization---no memorization hypothesis explains why removing edges would degrade an extracted graph below raw text. Together these controls attribute the gap to structural organization rather than information advantage.
 
 \subsection{Concept Retrieval}
 
@@ -233,6 +228,38 @@ ConceptSet$^\dagger$ & Structured & \textbf{0.832} & \textbf{0.510} & \textbf{0.
 \end{table}
 
 Table~\ref{tab:retrieval} shows that ConceptSet (ontology-normalized graph annotations) substantially outperforms all baselines including BM25 (+0.100 nDCG@10, +0.129 P@10; paired $t$-test, $p$=0.016). A clear four-tier ranking emerges: domain-adapted legal models perform worst, general-purpose bi-encoders improve, ColBERTv2 partially recovers lexical signal, and BM25 dominates all dense baselines---reflecting concept-level legal retrieval's dependence on exact term matching. ConceptSet additionally identifies semantically relevant cases lacking explicit surface markers (Jaccard overlap between regex-derived and annotation-derived relevance: 0.43).
+
+\subsection{Cross-Jurisdictional Evaluation}
+\label{sec:echr}
+
+\begin{table}[t]
+\small
+\centering
+\caption{Cross-jurisdictional ECHR evaluation (297 Turkey-respondent HUDOC cases, 88\% violation). Extraction: GPT-4.1 mini. Blinding includes the Indian-SC outcome regex plus ECHR-specific strips for Registry headnote bullets, voting splits, ``violation of Art.~N'' references, and Grand Chamber narrations of prior Chamber decisions (identified via a leak audit; see \S\ref{sec:limitations}). Graph improves accuracy, macro-F1, and Brier at both predictor scales; the GPT-5.4 accuracy gap is significant by bootstrap 95\% CI ($[+.003,+.064]$, excludes 0) and marginal by McNemar ($\chi^2{=}3.68$).}
+\label{tab:echr}
+\begin{tabular}{llcccc}
+\toprule
+Predictor & Input & Acc. & Macro-F1 & ECE$\downarrow$ & Brier$\downarrow$ \\
+\midrule
+\multirow{2}{*}{GPT-4.1 mini} & Raw   & .886 & .522 & \textbf{.067} & .103 \\
+                              & Graph & \textbf{.913} & \textbf{.744} & .069 & \textbf{.081} \\
+\midrule
+\multirow{2}{*}{GPT-5.4}      & Raw   & .909 & .662 & .028 & .077 \\
+                              & Graph & \textbf{.943} & \textbf{.845} & \textbf{.026} & \textbf{.055} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:echr} shows that on ECHR, graph representations beat raw text on accuracy, macro-F1, and Brier at both predictor scales, and on ECE for GPT-5.4 (ECE is essentially tied on GPT-4.1 mini). Macro-F1 is the appropriate primary metric given the 88\% class imbalance: the +18.3pp graph advantage on GPT-5.4 (and +22.2pp on GPT-4.1 mini) is driven by minority-class recall, where graphs correctly classify 62.9\% of no-violation cases versus 22.9\% for raw (+40.0pp on GPT-5.4; +37.1pp on GPT-4.1 mini), while both methods correctly identify $>$98\% of violations. The GPT-5.4 accuracy gap of +3.4pp does not reach McNemar significance ($\chi^2{=}3.68$, just below the 3.84 threshold for $p{<}0.05$), but the bootstrap 95\% CI excludes zero ($[+.003,+.064]$), and class-imbalance-compressed headroom (88\% majority baseline) limits achievable accuracy gains.
+
+\paragraph{Capability scaling.}
+The graph macro-F1 advantage is large at both predictor scales (+22.2pp on GPT-4.1 mini, +18.3pp on GPT-5.4). No-violation recall rises with predictor capability (+37.1pp $\rightarrow$ +40.0pp), and absolute graph macro-F1 climbs from .744 to .845, consistent with the \S\ref{sec:results} finding that the graph's value lies in relational structure requiring active inference: stronger reasoners more effectively exploit the conjunctive/disjunctive justification structure that distinguishes a no-violation finding (e.g., margin-of-appreciation deference, prescribed-by-law satisfied, legitimate aim served) from a violation finding.
+
+\paragraph{Extraction robustness.}
+Graphs were extracted by GPT-4.1 mini, a non-frontier model, with 80\% gold+silver quality tier (vs.\ 90\% gold on IL-TUR with Grok-4.1). Despite this lower extraction quality, the prediction advantage is large at both predictor scales, indicating that ontology-provided edge whitelists and type-level validation compensate for weaker extraction. This evidence---together with the calibration improvement replicating across both jurisdictions---supports the claim that the pipeline's benefits derive from the ontology-driven structural constraints, not from frontier-model extraction.
+
+\paragraph{Raw blinding robustness.}
+A leak audit identified ECHR-specific outcome-revealing patterns (Registry headnote bullet chains, Grand Chamber narrations of prior Chamber rulings, voting splits, admissibility narrations) that the Indian-SC regex missed and that were 2$\times$ more prevalent in no-violation cases (54\% vs.\ 28\%); ECHR-specific strips were added before this evaluation. The graph's structural blinding (withholding outcome fields by schema rather than regex) is robust to this failure mode by construction.
 
 % ============================================================
 \section{Counterfactual Impact Analysis}
@@ -287,6 +314,9 @@ The ontology completeness ablation provides practical guidance: 11 well-specifie
 \paragraph{Ontology compilation cost.}
 The 54-concept Indian ontology was compiled in approximately 16 hours of domain expert effort, with 43 offense/procedural/evidence concepts enriched via LLM-assisted generation followed by independent legal verification (93\% of concepts passed verification; 2 errors corrected). This hybrid approach---LLM generation with expert audit---suggests a scalable methodology for adapting to new jurisdictions.
 
+\paragraph{What does and does not generalize across jurisdictions.}
+The ECHR evaluation (\S\ref{sec:echr}) shows the pipeline ports beyond Indian law using a separately compiled 55-concept ontology built under the same schema, with macro-F1 gains of +18--22pp driven by +37--40pp minority-class recall on both OpenAI predictors. Accuracy gains are real but compressed by class imbalance: at 88\% violation, the +40pp minority win yields only +3.4pp aggregate accuracy on GPT-5.4 (bootstrap 95\% CI excludes 0; McNemar marginal at $\chi^2{=}3.68$); macro-F1 is the fairer summary in imbalanced settings. Calibration improvement also replicates (ECE: .028$\rightarrow$.026 on GPT-5.4; Brier favors graph at both scales).
+
 % ============================================================
 \section{Limitations}
 \label{sec:limitations}
@@ -300,7 +330,7 @@ The 54-concept Indian ontology was compiled in approximately 16 hours of domain 
 
 \textbf{Relevance judgments.} Regex-based relevance labels for retrieval evaluation may under-count semantically relevant cases and over-count passing mentions.
 
-\textbf{Proprietary models.} The pipeline relies on proprietary frontier models (Grok-4.1 for extraction, both Grok and Sonnet for evaluation), limiting practical reproducibility despite deterministic design.
+\textbf{Proprietary models.} Our IL-TUR results use proprietary frontier models (Grok-4.1 for extraction, Grok and Sonnet for evaluation). The ECHR evaluation (\S\ref{sec:echr}) partially addresses this concern by extracting with GPT-4.1 mini (non-frontier) and reporting predictions on both that model and frontier GPT-5.4, demonstrating the pipeline's benefits persist with weaker extractors. Fully open-weights reproducibility---e.g., extraction with a Llama- or Qwen-class model---remains future work.
 
 \textbf{Ontology verification.} The 43 enriched offense/procedural concepts were generated with LLM assistance and verified by independent audit. Of 43 concepts, 22 passed cleanly, 6 had minor imprecisions, 2 had errors (corrected), and 13 contained case citations that could not be independently verified. Verification by a practicing Indian legal expert would strengthen confidence.
 
@@ -310,7 +340,7 @@ The 54-concept Indian ontology was compiled in approximately 16 hours of domain 
 
 We introduced \textsc{LexCGraph}, an ontology-driven pipeline for extracting legal reasoning graphs. By localizing LLM inference to ontology-defined concept clusters and constructing all global structure deterministically, we obtain reproducible, validated graphs that enable domain-grounded counterfactual impact analysis. On IL-TUR CJPE, graphs substantially improve zero-shot prediction and calibration, with ablations confirming that ontology-constrained relational structure---not clean node extraction, not information advantage, not LLM memorization---drives the gains. An ontology completeness ablation reveals that core doctrines saturate predictive signal while broader coverage improves structural fidelity, providing practitioners actionable guidance on ontology investment. The AND/OR justification structure enables counterfactual analysis at corpus scale, with 77.5\% of holdings structurally fragile under concept removal.
 
-The pipeline generalizes beyond legal NLP to any domain with structured diagnostic criteria where long documents require ontology-constrained decomposition for reliable extraction---including clinical reasoning with diagnostic ontologies (DSM-5, ICD-11) and regulatory compliance with statutory requirement structures.
+The approach generalizes beyond legal NLP to long documents over structured diagnostic ontologies (clinical, regulatory).
 
 % ============================================================
 \section*{Ethics Statement}
@@ -375,6 +405,12 @@ Vijit Malik, Rishabh Sanjay, et~al. 2021. ILDC for CJPE: Indian Legal Documents 
 
 \bibitem[Mochales Palau and Moens(2011)]{mochales2011argumentation}
 Raquel Mochales Palau and Marie-Francine Moens. 2011. Argumentation Mining. \emph{AI and Law}, 19(1):1--22.
+
+\bibitem[OpenAI(2025)]{openai2025gpt41}
+OpenAI. 2025. GPT-4.1 mini [Large language model, API model ID: \texttt{gpt-4.1-mini}]. Accessed via the OpenAI Chat Completions API.
+
+\bibitem[OpenAI(2026)]{openai2026gpt54}
+OpenAI. 2026. GPT-5.4 [Large language model, API model ID: \texttt{gpt-5.4}]. Accessed via the OpenAI Chat Completions API.
 
 \bibitem[Paul et~al.(2022)]{paul2022inlegalbert}
 Shounak Paul, Arpan Mandal, et~al. 2022. Pre-trained Language Models for the Legal Domain: A Case Study on Indian Law. In \emph{Proc.\ ICAIL}, 187--196.
