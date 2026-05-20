@@ -1,0 +1,224 @@
+{
+  "case_id": "CASE_OF_BALLIKTA_B_NG_LL_v._TURKEY_001-210755",
+  "case_name": "Ballıktaş Bingöllü v. Turkey",
+  "case_year": 2021,
+  "court": "The European Court of Human Rights (Second Section)",
+  "judges": [
+    "Jon Fridrik Kjølbro",
+    "Carlo Ranzoni",
+    "Aleš Pejchal",
+    "Egidijus Kūris",
+    "Branko Lubarda",
+    "Marko Bošnjak",
+    "Saadet Yüksel"
+  ],
+  "facts": [],
+  "concepts": [],
+  "issues": [],
+  "arguments": [],
+  "holdings": [
+    {
+      "id": "h1",
+      "type": "holding",
+      "text": "Declares the complaint concerning access to a court under Article 6 of the Convention admissible and the remainder of the application inadmissible",
+      "anchor": {
+        "doc_id": "sha256:4198aa8d5fa0",
+        "start_char": 31349,
+        "end_char": 31430,
+        "text_hash": "49fdc208c7c78bd5",
+        "display_location": "126",
+        "secondary_spans": [],
+        "surface_text": "FOR THESE REASONS, THE COURT, UNANIMOUSLY,\n\nDeclares the complaint concerning access to a court under Article 6 of the Convention admissible and the remainder of the application inadmissible;"
+      },
+      "resolves_issue": null,
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "The Court found the complaint under Article 6 admissible but declared the remainder of the application inadmissible after examining admissibility criteria.",
+      "schemes": [
+        "other"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "gpt-4.1-mini",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-05-19T16:41:07.418416"
+      }
+    },
+    {
+      "id": "h2",
+      "type": "holding",
+      "text": "Holds that there has been no violation of Article 6 of the Convention",
+      "anchor": {
+        "doc_id": "sha256:4198aa8d5fa0",
+        "start_char": 31431,
+        "end_char": 31481,
+        "text_hash": "f246c092f3a5280c",
+        "display_location": "126:5",
+        "secondary_spans": [],
+        "surface_text": "Holds that there has been no violation of Article 6 of the Convention;"
+      },
+      "resolves_issue": "i1",
+      "is_ratio": true,
+      "novel": false,
+      "reasoning_summary": "The Court concluded that the domestic courts' decisions were not arbitrary or manifestly unreasonable and that the applicant had a fair hearing under Article 6 § 1.",
+      "schemes": [
+        "rule_application"
+      ],
+      "confidence": "high",
+      "provenance": {
+        "extraction_method": "llm",
+        "model_id": "gpt-4.1-mini",
+        "prompt_id": null,
+        "run_id": null,
+        "temperature": 0.1,
+        "timestamp": "2026-05-19T16:41:07.418416"
+      }
+    }
+  ],
+  "precedents": [],
+  "justification_sets": [],
+  "outcome": {
+    "id": "outcome",
+    "type": "outcome",
+    "disposition": "dismissed",
+    "anchor": {
+      "doc_id": "sha256:4198aa8d5fa0",
+      "start_char": 10041,
+      "end_char": 10145,
+      "text_hash": "3c49e4d0d1ac2d2e",
+      "display_location": "44:6",
+      "secondary_spans": [],
+      "surface_text": "Holds that there has been no violation of Article 6 of the Convention;\n\nDone in English, and notified in writing on 22 June 2021, pursuant to Rule 77 §§ 2 and 3 of the Rules of Court."
+    },
+    "binary": "rejected",
+    "relief_summary": "The Court held that there has been no violation of Article 6 of the Convention and declared the complaint dismissed.",
+    "costs": null,
+    "directions": [],
+    "provenance": {
+      "extraction_method": "llm",
+      "model_id": "gpt-4.1-mini",
+      "prompt_id": null,
+      "run_id": null,
+      "temperature": 0.1,
+      "timestamp": "2026-05-19T16:44:11.229923"
+    }
+  },
+  "edges": [
+    {
+      "id": "e_h1_determines_outcome",
+      "source": "h1",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:4198aa8d5fa0",
+        "start_char": 10041,
+        "end_char": 10145,
+        "text_hash": "3c49e4d0d1ac2d2e",
+        "display_location": "44:6",
+        "secondary_spans": [],
+        "surface_text": "Holds that there has been no violation of Article 6 of the Convention;\n\nDone in English, and notified in writing on 22 June 2021, pursuant to Rule 77 §§ 2 and 3 of the Rules of Court."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    },
+    {
+      "id": "e_h2_resolves_i1",
+      "source": "h2",
+      "target": "i1",
+      "relation": "resolves",
+      "anchor": {
+        "doc_id": "sha256:4198aa8d5fa0",
+        "start_char": 31431,
+        "end_char": 31481,
+        "text_hash": "f246c092f3a5280c",
+        "display_location": "126:5",
+        "secondary_spans": [],
+        "surface_text": "Holds that there has been no violation of Article 6 of the Convention;"
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": false,
+      "provenance": null
+    },
+    {
+      "id": "e_h2_determines_outcome",
+      "source": "h2",
+      "target": "outcome",
+      "relation": "determines",
+      "anchor": {
+        "doc_id": "sha256:4198aa8d5fa0",
+        "start_char": 10041,
+        "end_char": 10145,
+        "text_hash": "3c49e4d0d1ac2d2e",
+        "display_location": "44:6",
+        "secondary_spans": [],
+        "surface_text": "Holds that there has been no violation of Article 6 of the Convention;\n\nDone in English, and notified in writing on 22 June 2021, pursuant to Rule 77 §§ 2 and 3 of the Rules of Court."
+      },
+      "explanation": null,
+      "confidence": "high",
+      "strength": "strong",
+      "support_group_ids": [],
+      "is_critical": true,
+      "provenance": null
+    }
+  ],
+  "reasoning_chains": [],
+  "_meta": {
+    "schema_version": "2.1.2",
+    "quality_tier": "reject",
+    "extraction_model": "gpt-4.1-mini",
+    "extraction_timestamp": "2026-05-19T16:01:10.567471",
+    "retry_attempts": 0,
+    "validation_warnings": [
+      "Exception: [Errno 11001] getaddrinfo failed",
+      "Exception: [Errno 11001] getaddrinfo failed",
+      "Exception: [Errno 11001] getaddrinfo failed",
+      "Exception: [Errno 11001] getaddrinfo failed",
+      "JSON parse error: Unterminated string starting at: line 1 column 15134 (char 15133)",
+      "Edge e_h2_resolves_i1: target 'i1' not found"
+    ],
+    "cluster_membership": {
+      "h1": [
+        "DOCTRINE_EFFECTIVE_REMEDY_ARTICLE_13"
+      ],
+      "h2": [
+        "PROCEDURE_RULE_39_INTERIM_MEASURES"
+      ]
+    },
+    "cluster_summary": {
+      "DOCTRINE_EFFECTIVE_REMEDY_ARTICLE_13": {
+        "label": "Effective Remedy (Article 13)",
+        "logic": "and",
+        "facts": [],
+        "concepts": [],
+        "issues": [],
+        "arguments": [],
+        "holdings": [
+          "h1"
+        ],
+        "precedents": []
+      },
+      "PROCEDURE_RULE_39_INTERIM_MEASURES": {
+        "label": "Rule 39 Interim Measures",
+        "logic": "and",
+        "facts": [],
+        "concepts": [],
+        "issues": [],
+        "arguments": [],
+        "holdings": [
+          "h2"
+        ],
+        "precedents": []
+      }
+    }
+  }
+}

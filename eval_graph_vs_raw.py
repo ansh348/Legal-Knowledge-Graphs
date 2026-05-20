@@ -78,6 +78,145 @@ def load_raw_texts_hf(name="Exploration-Lab/IL-TUR", config="cjpe", split="singl
     return {str(ex["id"]): ex["text"] for ex in load_dataset(name, config)[split]}
 
 
+def _sanitize_case_id_for_match(case_id: str) -> str:
+    """Reproduce run_iltur._sanitize_case_id so loader keys match graph case_ids.
+
+    The extractor sanitizes filenames (Turkish letters İ/Ş etc. → "_") when
+    producing the graph JSON name. Labels and raw_texts loaded here must use
+    the SAME sanitized stem so iter_graphs() finds matches.
+    """
+    s = str(case_id or "").strip()
+    if not s:
+        return "case"
+    s = s.replace("/", "_").replace("\\", "_")
+    s = re.sub(r"[^0-9A-Za-z._-]+", "_", s)
+    s = re.sub(r"_+", "_", s).strip("_")
+    return s or "case"
+
+
+def load_echr_turkey_labels(local_dir: str = "echr_turkey_cases") -> Dict[str, int]:
+    """Mirror of run_iltur.load_echr_turkey_labels for the eval side.
+
+    Reads echr_turkey_cases/metadata.csv and returns {sanitized_stem: 0|1}
+    keyed by the same sanitized case_ids the extractor uses for graph filenames.
+    Cases that are admissibility-only / struck out / friendly-settled get
+    skipped (no merits finding).
+    """
+    import csv
+    from pathlib import Path as _Path
+    p = _Path(local_dir)
+    csv_path = p / "metadata.csv"
+    if not csv_path.exists():
+        return {}
+    itemid_to_conclusion: Dict[str, str] = {}
+    with open(csv_path, "r", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            iid = (row.get("itemid") or "").strip()
+            if iid:
+                itemid_to_conclusion[iid] = (row.get("conclusion") or "").strip()
+
+    def _derive(conclusion: str):
+        if not conclusion:
+            return None
+        has_v = has_nv = False
+        for finding in conclusion.split(";"):
+            fl = finding.strip().lower()
+            if fl.startswith("no violation of"):
+                has_nv = True
+            elif fl.startswith("violation of") or fl.startswith("violations of"):
+                has_v = True
+        if has_v:
+            return 1
+        if has_nv:
+            return 0
+        return None
+
+    out: Dict[str, int] = {}
+    for tf in p.glob("*.txt"):
+        stem = tf.stem
+        if "__" not in stem:
+            continue
+        iid = stem.rsplit("__", 1)[1]
+        lab = _derive(itemid_to_conclusion.get(iid, ""))
+        if lab in (0, 1):
+            out[_sanitize_case_id_for_match(stem)] = lab
+    return out
+
+
+_HUDOC_HEADER_RE = re.compile(
+    r"^={5,}\s*\n.*?\n={5,}\s*\n+",
+    re.DOTALL,
+)
+
+
+def _strip_hudoc_metadata_header(text: str) -> str:
+    """Remove the metadata banner written by scrape_turkey_echr.py.
+
+    The scraper injects a banner containing CASE/CONCLUSION/LABEL/HUDOC fields
+    at the top of every .txt file, bracketed by lines of '=' characters. Those
+    fields contain the literal outcome label, so they must be removed before
+    any blinding — otherwise the raw-text baseline trivially copies the answer.
+    """
+    return _HUDOC_HEADER_RE.sub("", text, count=1)
+
+
+def load_echr_turkey_raw_texts(local_dir: str = "echr_turkey_cases") -> Dict[str, str]:
+    """Read full HUDOC text for each Turkey ECHR case keyed by sanitized stem
+    (matches extractor's graph filenames).
+
+    Strips the HUDOC metadata banner (CASE/CONCLUSION/LABEL/HUDOC etc.) before
+    returning so the raw baseline doesn't get the answer key for free.
+    """
+    from pathlib import Path as _Path
+    out: Dict[str, str] = {}
+    for tf in _Path(local_dir).glob("*.txt"):
+        try:
+            txt = tf.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            txt = tf.read_text(encoding="latin-1")
+        out[_sanitize_case_id_for_match(tf.stem)] = _strip_hudoc_metadata_header(txt)
+    return out
+
+
+def load_echr_labels(name="lex_glue", config="ecthr_b", split="train"):
+    """Load ECHR binary violation labels keyed by case ID.
+
+    Case IDs follow the convention used by run_iltur.py's _adapt_case for the
+    lex_glue/ecthr_b dataset (which has no explicit ID field): "echr_{idx}".
+    Labels are multi-hot vectors of violated articles; we collapse to binary:
+    any violation → 1, empty list → 0. Matches _adapt_case's logic exactly so
+    case IDs and labels stay in sync between extraction and eval.
+    """
+    from datasets import load_dataset
+    ds = load_dataset(name, config)[split]
+    out = {}
+    for i, ex in enumerate(ds):
+        labels = ex.get("labels") or []
+        label = 1 if len(labels) > 0 else 0
+        out[f"echr_{i}"] = label
+    return out
+
+
+def load_echr_raw_texts(name="lex_glue", config="ecthr_b", split="train"):
+    """Load ECHR raw text keyed by case ID (matches _adapt_case in run_iltur.py).
+
+    lex_glue/ecthr_b stores text as a list of paragraphs under the "text" key;
+    we join with newlines to reconstruct the document, identical to how the
+    extractor's _adapt_case sees the input.
+    """
+    from datasets import load_dataset
+    ds = load_dataset(name, config)[split]
+    out = {}
+    for i, ex in enumerate(ds):
+        text = ex.get("text")
+        if isinstance(text, list):
+            text = "\n".join(str(x) for x in text if x is not None)
+        elif text is None:
+            text = ""
+        out[f"echr_{i}"] = str(text)
+    return out
+
+
 # =============================================================================
 # CHECKPOINTING
 # =============================================================================
@@ -89,6 +228,8 @@ def _model_slug(model: str) -> str:
     if "opus" in m: return "opus"
     if "haiku" in m: return "haiku"
     if "grok" in m: return m.split("/")[-1].replace(" ", "-")
+    if "gpt" in m or m.startswith(("o1", "o3")):
+        return m.replace("/", "-").replace(" ", "-").replace(".", "-")[:30]
     return m.replace("/", "-").replace(" ", "-")[:30]
 
 
@@ -180,6 +321,42 @@ _OUTCOME_PATTERNS = [
 
     # Headnote summary phrases
     r"(?:held\s*[-:–]|per\s+curiam\s*[-:–]|the\s+court\s+held\s+that)",
+
+    # ECHR-specific dispositions (gate-free; these patterns simply don't match
+    # Indian SC text, so adding them is safe across both jurisdictions).
+    # Generalized from a leak audit on Turkey HUDOC: prior patterns missed
+    # past-tense GC narrations of Chamber rulings, standalone "violation of
+    # Art N" references, and naked voting splits.
+
+    # 1. Any "(no) violation of Article/Art. N" — catches headnote chains,
+    #    GC referral narrations, dispositive paragraphs, anywhere it appears.
+    r"\b(?:no\s+)?violation\s+of\s+(?:Article|Art\.?)\s*\d+",
+
+    # 2. "there had/has/was been (no) violation" — past and present tense
+    r"\bthere\s+(?:had\s+been|has\s+been|was)\s+(?:a\s+|no\s+)?violation\b",
+
+    # 3. Naked voting splits — strongest signal that an outcome is being narrated
+    r"\bby\s+(?:a\s+majority\s+of\s+)?\w+\s+votes?\s+to\s+\w+\b",
+
+    # 4. Unanimous / vote-split finding verbs (both tenses)
+    r"(?:the\s+court\s+)?(?:unanimously|by\s+\d+\s+votes?\s+to\s+\d+)\s+"
+    r"(?:holds|finds|declares|decides|rules|held|found|declared|decided|ruled)",
+
+    # 5. Operative clause marker
+    r"FOR\s+THESE\s+REASONS,?\s+THE\s+COURT",
+
+    # 6. Admissibility rulings (both tenses, plus passive)
+    r"(?:declares|holds|rules|declared|held|ruled)\s+(?:that\s+)?the\s+(?:application|complaint|request|"
+    r"applicant'?s?\s+claim)\s+(?:admissible|inadmissible|manifestly\s+ill[\s-]?founded|"
+    r"incompatible|premature)",
+    r"(?:application|complaint|claim|remainder).{0,60}(?:was|were|is|has\s+been|have\s+been)\s+"
+    r"declared\s+(?:partly\s+)?(?:in)?admissible",
+
+    # 7. Strike-out
+    r"(?:strikes?|struck)\s+(?:the\s+(?:application|case)\s+)?out\s+of\s+(?:its\s+)?list",
+
+    # 8. Article 41 just satisfaction (signals merits decided with award)
+    r"(?:just\s+satisfaction|article\s+41)\s*[-:–]?",
 ]
 
 _OUTCOME_RE = re.compile("|".join(_OUTCOME_PATTERNS), re.IGNORECASE)
@@ -192,12 +369,26 @@ _DISPOSITIVE_SENTENCE_WORDS = {
     "sentence reduced", "sentence modified", "appeal fails",
     "appeal succeeds", "petition granted", "writ issued",
     "decreed", "negatived",
+    # ECHR-specific (additive across jurisdictions):
+    "violation found", "no violation", "violation of article",
+    "no violation of article", "inadmissible", "struck out",
+    "manifestly ill-founded", "manifestly ill founded",
 }
 
 # Headnote markers in Indian SC judgments
 _HEADNOTE_RE = re.compile(
     r"^[\s\S]*?(?:HEAD\s*NOTE|HEADNOTE)\s*[-:–\n]",
     re.IGNORECASE
+)
+
+# ECHR Registry-style headnote bullet chains. Modern HUDOC judgments (since ~2018)
+# start with lines like:
+#   "Art 3 (procedural) • Positive obligation • Ineffective investigation into..."
+# These literally narrate the doctrine + outcome and must be stripped before
+# sentence-level filtering (they're not sentence-shaped, so _OUTCOME_RE misses them).
+_ECHR_BULLET_HEADNOTE_RE = re.compile(
+    r"(?:^|\n)[ \t]*Art\s*\d+(?:\s*§\s*\d+)?\s*(?:\([^)]+\))?\s*•[^\n]*(?:\n[ \t]*•[^\n]*)*",
+    re.MULTILINE | re.IGNORECASE,
 )
 
 # Court reasoning phrases that can appear even in early text
@@ -233,6 +424,11 @@ def blind_raw_text(text: str, max_chars: int = 4000) -> str:
     headnote_match = _HEADNOTE_RE.search(text[:2000])
     if headnote_match:
         text = text[headnote_match.end():]
+
+    # Step 0b: Strip ECHR Registry bullet-headnote chains anywhere in the text.
+    # These "Art X • doctrine • outcome cue" lines appear right after JUDGMENT
+    # in modern HUDOC judgments and literally narrate the disposition.
+    text = _ECHR_BULLET_HEADNOTE_RE.sub("\n", text)
 
     # Step 1: Handle short judgments
     # If the full text is less than 1.5x our budget, taking max_chars gets almost
@@ -465,11 +661,29 @@ Respond with ONLY this JSON (no markdown, no explanation outside the JSON):
 You MUST respond with valid JSON only. No markdown, no ```json blocks."""
 
 
-def build_graph_prompt(graph: dict, no_scrub: bool = False) -> str:
+_JURISDICTION_LABELS = {
+    "iltur":    "Indian Supreme Court case",
+    "echr":     "European Court of Human Rights case",
+    "echr_hf":  "European Court of Human Rights case",
+}
+# For ECHR the prediction is "violation found" vs "no violation". For IL-TUR
+# it's "appeal accepted" vs "rejected". The 0/1 binary semantics are identical
+# but a small label-explanation helps mini distinguish.
+_PREDICTION_LABEL_HINTS = {
+    "iltur":    "1 = appeal accepted, 0 = appeal rejected",
+    "echr":     "1 = violation found, 0 = no violation",
+    "echr_hf":  "1 = violation found, 0 = no violation",
+}
+
+
+def build_graph_prompt(graph: dict, no_scrub: bool = False,
+                       jurisdiction_label: str = "Indian Supreme Court case",
+                       prediction_hint: str = "1 = appeal accepted, 0 = appeal rejected") -> str:
     """Prompt for graph-structured zero-shot prediction."""
     summary = build_blinded_graph_summary(graph, no_scrub=no_scrub)
     return (
-        "Predict the outcome of this Indian Supreme Court case.\n"
+        f"Predict the outcome of this {jurisdiction_label}.\n"
+        f"({prediction_hint})\n"
         "The case has been analyzed into structured components below.\n"
         "Court responses to arguments are NOT shown — predict from the facts, "
         "legal framework, and party arguments alone.\n\n"
@@ -478,10 +692,13 @@ def build_graph_prompt(graph: dict, no_scrub: bool = False) -> str:
     )
 
 
-def build_raw_prompt(text: str) -> str:
+def build_raw_prompt(text: str,
+                     jurisdiction_label: str = "Indian Supreme Court case",
+                     prediction_hint: str = "1 = appeal accepted, 0 = appeal rejected") -> str:
     """Prompt for raw-text zero-shot prediction."""
     return (
-        "Predict the outcome of this Indian Supreme Court case.\n"
+        f"Predict the outcome of this {jurisdiction_label}.\n"
+        f"({prediction_hint})\n"
         "Below is an excerpt from the judgment covering the facts, background, and "
         "party arguments. The court's decision and reasoning have been removed.\n"
         "Predict from the facts and arguments alone.\n\n"
@@ -627,6 +844,104 @@ def _is_anthropic_model(model: str) -> bool:
     return any(tag in model.lower() for tag in ("claude", "sonnet", "haiku", "opus"))
 
 
+def _is_openai_model(model: str) -> bool:
+    """Check if the model string refers to an OpenAI model (gpt-*, o1, o3, etc.)."""
+    m = model.lower()
+    return any(tag in m for tag in ("gpt-", "gpt4", "openai", "o1", "o3", "o4"))
+
+
+def _is_openai_reasoning_model(model: str) -> bool:
+    """Reasoning-tier OpenAI models (o1, o3, o4-mini, gpt-5*) require
+    max_completion_tokens instead of max_tokens. They also produce internal
+    reasoning tokens that count against output billing.
+    """
+    m = model.lower()
+    if m.startswith("o1") or m.startswith("o3") or m.startswith("o4"):
+        return True
+    # gpt-5 and onward (gpt-5, gpt-5.1, ..., gpt-5.4, etc.) are reasoning-tier.
+    return bool(re.match(r"^gpt-[5-9](?:\.\d+)?", m))
+
+
+async def llm_predict_openai(api_key: str, system: str, prompt: str,
+                              model: str = "gpt-4.1-mini",
+                              temperature: float = 0.1,
+                              max_output_tokens: int = 1024) -> dict:
+    """Call OpenAI chat/completions API and parse JSON response.
+
+    Uses response_format=json_object for server-side JSON enforcement, which
+    dramatically reduces parse failures on smaller models like gpt-4.1-mini.
+
+    For reasoning-tier models (o1, o3, o4-mini, gpt-5*) uses max_completion_tokens
+    instead of max_tokens. Those models also produce hidden reasoning tokens
+    that count against output billing — pass a generous max_output_tokens.
+    """
+    import httpx
+
+    is_reasoning = _is_openai_reasoning_model(model)
+    last_error = None
+    for attempt in range(_MAX_RETRIES):
+        try:
+            async with httpx.AsyncClient(timeout=300.0) as client:
+                payload = {
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": system},
+                        {"role": "user", "content": prompt}
+                    ],
+                    "temperature": temperature,
+                    "response_format": {"type": "json_object"},
+                }
+                if is_reasoning:
+                    payload["max_completion_tokens"] = max_output_tokens
+                else:
+                    payload["max_tokens"] = max_output_tokens
+                response = await client.post(
+                    "https://api.openai.com/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {api_key}",
+                        "Content-Type": "application/json"
+                    },
+                    json=payload,
+                )
+
+                # Retry on transient HTTP errors
+                if response.status_code in _RETRYABLE_STATUS_CODES:
+                    last_error = f"HTTP {response.status_code}"
+                    delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                    print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                          f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
+
+                response.raise_for_status()
+                data = response.json()
+                content = data["choices"][0]["message"]["content"]
+                result = _extract_prediction_json(content)
+
+                # Retry on parse failures (rare with response_format=json_object)
+                if result["prediction"] == -1 and attempt < _MAX_RETRIES - 1:
+                    last_error = f"Parse failure: {result['reasoning'][:80]}"
+                    delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                    print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                          f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
+
+                return result
+
+        except Exception as e:
+            last_error = str(e)[:150]
+            if attempt < _MAX_RETRIES - 1:
+                delay = _RETRY_BASE_DELAY * (2 ** attempt)
+                print(f"    ⚠ {last_error}, retrying in {delay:.0f}s "
+                      f"(attempt {attempt + 1}/{_MAX_RETRIES})")
+                await asyncio.sleep(delay)
+            continue
+
+    return {"prediction": -1, "confidence": 0.0,
+            "reasoning": f"Failed after {_MAX_RETRIES} attempts: {last_error}"}
+
+
 async def llm_predict_anthropic(api_key: str, system: str, prompt: str,
                                 model: str = "claude-sonnet-4-5-20250929",
                                 temperature: float = 0.1) -> dict:
@@ -711,32 +1026,63 @@ async def run_comparison(
     concurrent: int = 10,
     seed: int = 42,
     no_scrub: bool = False,
+    dataset: str = "iltur",
+    echr_local_dir: str = "echr_turkey_cases",
 ):
-    api_key = os.getenv("XAI_API_KEY")
-    anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+    # Three-way API selection: Grok (xAI), OpenAI (gpt/o1/o3), or Anthropic (Claude).
     use_anthropic = _is_anthropic_model(model)
+    use_openai = _is_openai_model(model)
 
     if use_anthropic:
-        if not anthropic_key:
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+        if not api_key:
             print("Error: ANTHROPIC_API_KEY not set in .env (needed for Claude models)")
             return None
-        api_key = anthropic_key
         print(f"  Using Anthropic API (model={model})")
+    elif use_openai:
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            print("Error: OPENAI_API_KEY not set in .env (needed for OpenAI/GPT models)")
+            return None
+        print(f"  Using OpenAI API (model={model})")
     else:
+        api_key = os.getenv("XAI_API_KEY")
         if not api_key:
             print("Error: XAI_API_KEY not set in .env")
             return None
+        print(f"  Using xAI Grok API (model={model})")
 
     # Load data
     print("Loading graphs...")
     graphs = iter_graphs(Path(graph_dir))
     print(f"  Loaded {len(graphs)} graphs")
 
-    print("Loading labels from IL-TUR...")
-    labels = load_labels_hf()
+    if dataset == "echr":
+        # Default ECHR path: local Turkey HUDOC corpus (full judgments + parsed labels).
+        print(f"Loading labels from local Turkey ECHR metadata: {echr_local_dir}/metadata.csv ...")
+        labels = load_echr_turkey_labels(echr_local_dir)
+        print(f"  {len(labels)} merits cases with binary labels "
+              f"(viol={sum(1 for v in labels.values() if v==1)}, "
+              f"noviol={sum(1 for v in labels.values() if v==0)})")
+        print(f"Loading raw judgment text from: {echr_local_dir}/*.txt "
+              f"(stripping HUDOC metadata banner) ...")
+        raw_texts = load_echr_turkey_raw_texts(echr_local_dir)
+        print(f"  {len(raw_texts)} text files loaded")
+    elif dataset == "echr_hf":
+        print("Loading labels from lex_glue/ecthr_b (HF)...")
+        labels = load_echr_labels()
+        print("Loading raw texts from lex_glue/ecthr_b (HF)...")
+        raw_texts = load_echr_raw_texts()
+    else:
+        print("Loading labels from IL-TUR...")
+        labels = load_labels_hf()
+        print("Loading raw texts from IL-TUR...")
+        raw_texts = load_raw_texts_hf()
 
-    print("Loading raw texts from IL-TUR...")
-    raw_texts = load_raw_texts_hf()
+    jurisdiction_label = _JURISDICTION_LABELS.get(dataset, "court case")
+    prediction_hint = _PREDICTION_LABEL_HINTS.get(dataset, "1 = accepted, 0 = rejected")
+    print(f"Prompt jurisdiction label: {jurisdiction_label!r}")
+    print(f"Prediction label hint:     {prediction_hint!r}")
 
     # Filter to cases with both graph + label + raw text
     corpus = []
@@ -784,9 +1130,13 @@ async def run_comparison(
         case_id, graph, label, raw_text = corpus[idx]
         label_str = "ACC" if label == 1 else "REJ"
 
-        graph_prompt = build_graph_prompt(graph, no_scrub=no_scrub)
+        graph_prompt = build_graph_prompt(graph, no_scrub=no_scrub,
+                                          jurisdiction_label=jurisdiction_label,
+                                          prediction_hint=prediction_hint)
         blinded_raw = blind_raw_text(raw_text, max_chars=max_raw_chars)
-        raw_prompt = build_raw_prompt(blinded_raw)
+        raw_prompt = build_raw_prompt(blinded_raw,
+                                      jurisdiction_label=jurisdiction_label,
+                                      prediction_hint=prediction_hint)
 
         # Sanity check both blinded outputs
         graph_summary = build_blinded_graph_summary(graph, no_scrub=no_scrub)
@@ -855,12 +1205,22 @@ async def run_comparison(
 
     async def predict_pair(case: dict, case_num: int):
         """Run both graph and raw prediction for one case."""
-        predict_fn = llm_predict_anthropic if use_anthropic else llm_predict
+        # Reasoning-tier OpenAI models burn internal reasoning tokens that count
+        # against the output budget — bump for those so the JSON answer fits.
+        extra_kwargs = {}
+        if use_openai and _is_openai_reasoning_model(model):
+            extra_kwargs["max_output_tokens"] = 4096
+        if use_anthropic:
+            predict_fn = llm_predict_anthropic
+        elif use_openai:
+            predict_fn = llm_predict_openai
+        else:
+            predict_fn = llm_predict
         async with semaphore:
             graph_result = await predict_fn(api_key, _SYSTEM_PROMPT,
-                                             case["graph_prompt"], model=model)
+                                             case["graph_prompt"], model=model, **extra_kwargs)
             raw_result = await predict_fn(api_key, _SYSTEM_PROMPT,
-                                           case["raw_prompt"], model=model)
+                                           case["raw_prompt"], model=model, **extra_kwargs)
 
         gp = graph_result.get("prediction", -1)
         rp = raw_result.get("prediction", -1)
@@ -1232,6 +1592,13 @@ def main():
     p.add_argument("--no_scrub", action="store_true",
                    help="Minimal blinding: strip holdings/outcome/court_response only. "
                         "No regex scrubbing of fact text or concept fields.")
+    p.add_argument("--dataset", choices=["iltur", "echr", "echr_hf"], default="iltur",
+                   help="Which dataset's labels and raw texts to load. "
+                        "'iltur' (default) → Exploration-Lab/IL-TUR cjpe. "
+                        "'echr' → local Turkey HUDOC corpus (full judgments). "
+                        "'echr_hf' → lex_glue ecthr_b (facts-only).")
+    p.add_argument("--echr_local_dir", default="echr_turkey_cases",
+                   help="Path to local Turkey HUDOC directory (for --dataset echr).")
 
     args = p.parse_args()
 
@@ -1243,6 +1610,8 @@ def main():
         concurrent=args.concurrent,
         seed=args.seed,
         no_scrub=args.no_scrub,
+        dataset=args.dataset,
+        echr_local_dir=args.echr_local_dir,
     ))
 
 

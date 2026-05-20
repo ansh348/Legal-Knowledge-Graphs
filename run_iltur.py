@@ -38,6 +38,7 @@ Environment:
 
 import os
 import re
+import sys
 import json
 import asyncio
 import argparse
@@ -45,6 +46,12 @@ import tempfile
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Set, Optional, Tuple, Any, List
+
+# Windows default cp1252 stdout can't encode emoji/non-Latin chars in our progress
+# prints (and the logger uses the same stream). Force UTF-8 if we're on a cp* codec.
+if sys.stdout.encoding and sys.stdout.encoding.lower().startswith("cp"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
 
 try:
     from datasets import load_dataset
@@ -56,9 +63,46 @@ from dotenv import load_dotenv
 # Import from extractor
 from extractor import (
     GrokClient,
+    OpenAIClient,
+    AnthropicClient,
     ExtractionConfig,
     LegalReasoningExtractor,
 )
+
+# Per-API defaults and env var names. Centralized so the factory below stays compact.
+_API_DEFAULTS: Dict[str, Dict[str, str]] = {
+    "grok":      {"env": "XAI_API_KEY",       "model": "grok-4-1-fast-reasoning"},
+    "openai":    {"env": "OPENAI_API_KEY",    "model": "gpt-4.1-mini"},
+    "anthropic": {"env": "ANTHROPIC_API_KEY", "model": "claude-sonnet-4-20250514"},
+}
+
+
+def _build_llm_client(api: str, model_override: Optional[str] = None):
+    """Return (client, model_id) for the chosen API.
+
+    Raises RuntimeError with a clear message if the env var is missing so the caller
+    can print it and exit cleanly.
+    """
+    if api not in _API_DEFAULTS:
+        raise ValueError(f"Unknown --api '{api}'. Choose one of: {list(_API_DEFAULTS)}")
+
+    cfg = _API_DEFAULTS[api]
+    api_key = os.getenv(cfg["env"])
+    if not api_key:
+        raise RuntimeError(f"{cfg['env']} not set in .env (required for --api {api})")
+
+    model_id = model_override or cfg["model"]
+
+    if api == "grok":
+        client = GrokClient(api_key, model_id=model_id)
+    elif api == "openai":
+        client = OpenAIClient(api_key, model_id=model_id)
+    elif api == "anthropic":
+        client = AnthropicClient(api_key, model_id=model_id)
+    else:
+        raise ValueError(f"Unknown --api '{api}'")  # unreachable, kept for clarity
+
+    return client, model_id
 
 # Citation pre-processing (optional but recommended)
 try:
@@ -93,8 +137,7 @@ DATASET_PRESETS: Dict[str, Dict[str, Any]] = {
         "split_preference": ["train", "validation", "test"],
         "jurisdiction": "echr",
         "ontology_candidates": [
-            "echr_ontology_compiled.cleaned.json",
-            "echr_ontology_compiled_cleaned.json",
+            "echr_ontology_compiled_v3_1.json",
         ],
         "language_instruction": None,
     },
@@ -574,6 +617,105 @@ def _adapt_case(raw: Dict[str, Any], idx: int, jurisdiction: str) -> Tuple[str, 
     return cid, text, label
 
 
+def load_echr_turkey_labels(local_dir: Path) -> Dict[str, int]:
+    """Parse ECHR Turkey metadata.csv into {file_stem: 0|1} binary violation labels.
+
+    HUDOC conclusions are semicolon-separated findings. We classify a case as:
+      - 1 (violation) if any finding starts with "Violation of"
+      - 0 (no violation) if any finding starts with "No violation of" AND no violation finding exists
+      - None (skipped) if only admissibility/struck-out/friendly-settlement findings
+        (these don't decide the merits)
+
+    The .txt files are named `<CASE_NAME>__<itemid>.txt`; we join on itemid.
+    """
+    import csv
+    csv_path = local_dir / "metadata.csv"
+    if not csv_path.exists():
+        return {}
+
+    itemid_to_conclusion: Dict[str, str] = {}
+    with open(csv_path, "r", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            itemid = (row.get("itemid") or "").strip()
+            if itemid:
+                itemid_to_conclusion[itemid] = (row.get("conclusion") or "").strip()
+
+    def _derive(conclusion: str) -> Optional[int]:
+        if not conclusion:
+            return None
+        has_v = False
+        has_nv = False
+        for finding in conclusion.split(";"):
+            fl = finding.strip().lower()
+            if fl.startswith("no violation of"):
+                has_nv = True
+            elif fl.startswith("violation of") or fl.startswith("violations of"):
+                has_v = True
+        if has_v:
+            return 1
+        if has_nv:
+            return 0
+        return None
+
+    labels: Dict[str, int] = {}
+    for txt in local_dir.glob("*.txt"):
+        stem = txt.stem
+        if "__" not in stem:
+            continue
+        itemid = stem.rsplit("__", 1)[1]
+        conclusion = itemid_to_conclusion.get(itemid, "")
+        lab = _derive(conclusion)
+        if lab in (0, 1):
+            labels[stem] = lab
+    return labels
+
+
+def _stratified_sample_indices(
+    all_cases_list: List[Dict[str, Any]],
+    n_total: int,
+    jurisdiction: str,
+    seed: int,
+) -> Tuple[List[int], Dict[Any, int]]:
+    """Stratified-sample case indices on the binary outcome label (0 vs 1).
+
+    Returns (sorted_indices, count_per_label). Falls back to first n_total
+    cases if no labels can be inferred from the dataset.
+    """
+    import random as _random
+    rng = _random.Random(seed)
+
+    pos_indices: List[int] = []
+    neg_indices: List[int] = []
+    for i, raw in enumerate(all_cases_list):
+        _cid, _text, label = _adapt_case(raw, i, jurisdiction)
+        if label == 1:
+            pos_indices.append(i)
+        elif label == 0:
+            neg_indices.append(i)
+
+    if not pos_indices and not neg_indices:
+        selected = list(range(min(n_total, len(all_cases_list))))
+        return sorted(selected), {None: len(selected)}
+
+    # Split n_total evenly across both classes; oversample smaller class size cap.
+    half = n_total // 2
+    other = n_total - half
+    n_pos = min(half, len(pos_indices))
+    n_neg = min(other, len(neg_indices))
+    # If one class is short, top up from the other to keep total close to n_total.
+    deficit = n_total - (n_pos + n_neg)
+    if deficit > 0:
+        if len(pos_indices) > n_pos:
+            n_pos = min(len(pos_indices), n_pos + deficit)
+        elif len(neg_indices) > n_neg:
+            n_neg = min(len(neg_indices), n_neg + deficit)
+
+    rng.shuffle(pos_indices)
+    rng.shuffle(neg_indices)
+    selected = sorted(pos_indices[:n_pos] + neg_indices[:n_neg])
+    return selected, {1: n_pos, 0: n_neg}
+
+
 # =============================================================================
 # CHECKPOINT MANAGEMENT
 # =============================================================================
@@ -817,6 +959,9 @@ async def run_batch(
     local_dir: Optional[str] = None,
     violations_only: bool = False,
     min_text_length: int = 0,
+    api: str = "grok",
+    model_id_override: Optional[str] = None,
+    seed: int = 42,
 ):
     """Run extraction on a chosen dataset preset (or a fully custom HF dataset).
 
@@ -827,10 +972,13 @@ async def run_batch(
     preset = DATASET_PRESETS.get(dataset_preset, DATASET_PRESETS["iltur"])
     jurisdiction = (jurisdiction or preset.get("jurisdiction") or "in").lower().strip()
 
-    # Check API key
-    api_key = os.getenv("XAI_API_KEY")
-    if not api_key:
-        print("Error: XAI_API_KEY not set in .env")
+    # Verify API env var is present BEFORE doing any expensive data loading.
+    # (The client itself is built later, where it was originally built.)
+    if api not in _API_DEFAULTS:
+        print(f"Error: unknown --api '{api}'. Choose one of: {list(_API_DEFAULTS)}")
+        return
+    if not os.getenv(_API_DEFAULTS[api]["env"]):
+        print(f"Error: {_API_DEFAULTS[api]['env']} not set in .env (required for --api {api})")
         return
 
     # -----------------------------------------------------------------
@@ -862,6 +1010,17 @@ async def run_batch(
 
         print(f"\nLoading local files from: {local_dir} ({len(txt_files)} .txt files)")
 
+        # For local ECHR (HUDOC Turkey scraped corpus), derive binary violation
+        # labels from metadata.csv. Cases without a merits finding (admissibility-
+        # only, struck out, friendly settlement) get label=None and will be skipped
+        # by the stratified sampler.
+        local_labels: Dict[str, int] = {}
+        if dataset_preset == "echr":
+            local_labels = load_echr_turkey_labels(local_path)
+            print(f"Loaded {len(local_labels)} binary labels from metadata.csv "
+                  f"(viol={sum(1 for v in local_labels.values() if v==1)}, "
+                  f"noviol={sum(1 for v in local_labels.values() if v==0)})")
+
         # Build a list-of-dicts that _adapt_case can consume
         all_cases_list: List[Dict[str, Any]] = []
         for tf in txt_files:
@@ -870,9 +1029,9 @@ async def run_batch(
             except UnicodeDecodeError:
                 text = tf.read_text(encoding="latin-1")
             all_cases_list.append({
-                "id": tf.stem,           # filename without .txt
+                "id": tf.stem,
                 "text": text,
-                "label": None,           # no ground truth for scraped data
+                "label": local_labels.get(tf.stem),  # None if not a merits decision
             })
 
         total_cases = len(all_cases_list)
@@ -977,12 +1136,42 @@ async def run_batch(
     completed, stats = load_checkpoint(out_dir, checkpoint_file)
     print(f"Already completed: {len(completed)}")
 
-    # Select cases to process (lazy indexing)
-    end_idx = min(start_idx + n_cases, total_cases)
+    # Stratified ECHR sampling: when --dataset echr (HF mode OR local-file Turkey),
+    # sample on the binary violation label before slicing. The sampler takes all
+    # minority-class cases and fills the remainder with random majority cases,
+    # so the natural distribution is preserved when one class is small.
+    # Writes a manifest so the eval script (eval_graph_vs_raw.py) can load the
+    # exact same case set.
+    selected_indices: Optional[List[int]] = None
+    if dataset_preset == "echr":
+        selected_indices, label_counts = _stratified_sample_indices(
+            all_cases_list, n_cases, jurisdiction, seed
+        )
+        print(f"Stratified sample (seed={seed}): "
+              f"{label_counts.get(1, 0)} violations + {label_counts.get(0, 0)} no-violation "
+              f"(out of {total_cases} total)")
+        manifest_entries = []
+        for i in selected_indices:
+            cid, _txt, lab = _adapt_case(all_cases_list[i], i, jurisdiction)
+            manifest_entries.append({"index": i, "case_id": cid, "label": lab})
+        with open(out_dir / "selected_case_ids.json", "w", encoding="utf-8") as f:
+            json.dump(
+                {"seed": seed, "dataset": dataset_preset, "n": len(manifest_entries),
+                 "cases": manifest_entries},
+                f, indent=2, ensure_ascii=False,
+            )
+
+    # Select cases to process — either the stratified subset or a contiguous range.
+    if selected_indices is not None:
+        iter_indices: List[int] = selected_indices
+    else:
+        end_idx = min(start_idx + n_cases, total_cases)
+        iter_indices = list(range(start_idx, end_idx))
+
     cases_to_process: List[Tuple[int, str, str, Optional[int]]] = []
     skipped = 0
 
-    for i in range(start_idx, end_idx):
+    for i in iter_indices:
         raw = all_cases_list[i]
         cid, text, label = _adapt_case(raw, i, jurisdiction)
         if cid in completed:
@@ -1025,9 +1214,14 @@ async def run_batch(
     prompt_context = DEFAULT_PROMPT_CONTEXT.get(jurisdiction, {})
     actor_aliases = DEFAULT_ACTOR_ALIASES.get(jurisdiction, {})
 
-    # Create client and extractor
-    model_id = "grok-4-1-fast-reasoning"
-    client = GrokClient(api_key, model_id=model_id)
+    # Create client and extractor via the API factory (grok / openai / anthropic).
+    # model_id is also threaded into ExtractionConfig below so output _meta records
+    # the actual model used (not a stale hardcoded string).
+    try:
+        client, model_id = _build_llm_client(api, model_id_override)
+    except (RuntimeError, ValueError) as e:
+        print(f"Error: {e}")
+        return
 
     section_headers = DEFAULT_SECTION_HEADERS.get(jurisdiction, [])
 
@@ -1234,6 +1428,24 @@ def main():
         default=0,
         help="Skip cases with text shorter than this (chars). Recommended: 5000 for AYM.",
     )
+    parser.add_argument(
+        "--api",
+        choices=list(_API_DEFAULTS.keys()),
+        default="grok",
+        help="LLM provider for extraction: grok (xAI, default), openai (gpt-4.1-mini), anthropic (Claude).",
+    )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=None,
+        help="Override the model ID for the chosen --api (default depends on provider).",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+        help="Random seed for any stratified sampling (default: 42).",
+    )
 
     args = parser.parse_args()
 
@@ -1253,6 +1465,9 @@ def main():
             local_dir=args.local_dir,
             violations_only=args.violations_only,
             min_text_length=args.min_text_length,
+            api=args.api,
+            model_id_override=args.model,
+            seed=args.seed,
         )
     )
 

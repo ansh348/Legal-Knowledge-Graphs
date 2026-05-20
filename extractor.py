@@ -969,7 +969,7 @@ class ExtractionConfig:
             return self.ontology_data
 
         if self.ontology_path and Path(self.ontology_path).exists():
-            with open(self.ontology_path, 'r') as f:
+            with open(self.ontology_path, 'r', encoding='utf-8') as f:
                 self.ontology_data = json.load(f)
                 logger.info(f"Loaded ontology with {len(self.ontology_data.get('concepts', {}))} concepts")
                 return self.ontology_data
@@ -1821,6 +1821,11 @@ class AnthropicClient(LLMClient):
         self.api_key = api_key
         self.model_id = model_id
         self._client = None
+        # Token usage tracking (same field names as GrokClient/OpenAIClient so the
+        # run_iltur.py token-summary print works uniformly across all three clients).
+        self.total_prompt_tokens = 0
+        self.total_completion_tokens = 0
+        self.total_requests = 0
 
     async def close(self):
         """Close the async HTTP client to prevent connection leaks."""
@@ -1853,6 +1858,13 @@ class AnthropicClient(LLMClient):
             system=system,
             messages=[{"role": "user", "content": prompt}]
         )
+
+        # Anthropic exposes input_tokens/output_tokens (not prompt/completion); normalize.
+        usage = getattr(response, "usage", None)
+        if usage is not None:
+            self.total_prompt_tokens += getattr(usage, "input_tokens", 0) or 0
+            self.total_completion_tokens += getattr(usage, "output_tokens", 0) or 0
+        self.total_requests += 1
 
         return response.content[0].text
 
@@ -1949,6 +1961,118 @@ class GrokClient(LLMClient):
                     self.total_completion_tokens += usage.get("completion_tokens", 0)
                 self.total_requests += 1
 
+                return _strip_think_blocks(data["choices"][0]["message"]["content"])
+
+            except httpx.TimeoutException:
+                if backoff_attempt < max_backoff_retries - 1:
+                    import random
+                    delay = min(2 ** backoff_attempt + random.uniform(0, 1), 60)
+                    logger.warning(
+                        f"Timeout, retrying in {delay:.1f}s "
+                        f"(attempt {backoff_attempt + 1}/{max_backoff_retries})"
+                    )
+                    await asyncio.sleep(delay)
+                    continue
+                raise
+
+        raise RuntimeError("Exhausted all backoff retries")
+
+
+class OpenAIClient(LLMClient):
+    """OpenAI client implementation (chat/completions, OpenAI-compatible).
+
+    Mirrors GrokClient's pattern (raw httpx, token tracking, exponential backoff).
+    Differences from GrokClient:
+      - base_url = https://api.openai.com/v1
+      - default model = gpt-4.1-mini
+      - When json_mode is True, sets response_format={"type": "json_object"} for
+        server-side JSON enforcement, which dramatically reduces parse failures
+        on smaller models like gpt-4.1-mini.
+    """
+
+    def __init__(self, api_key: str, model_id: str = "gpt-4.1-mini"):
+        import httpx
+
+        self.api_key = api_key
+        self.model_id = model_id
+        self.base_url = "https://api.openai.com/v1"
+        self._http = httpx.AsyncClient(
+            timeout=180.0,
+            limits=httpx.Limits(max_connections=200, max_keepalive_connections=100),
+            headers={
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+            },
+        )
+        # Token usage tracking (same field names as GrokClient so run_iltur.py works uniformly)
+        self.total_prompt_tokens = 0
+        self.total_completion_tokens = 0
+        self.total_requests = 0
+
+    async def close(self):
+        """Close the persistent HTTP client."""
+        await self._http.aclose()
+
+    async def complete(
+            self,
+            prompt: str,
+            system: str,
+            temperature: float = 0.1,
+            max_tokens: int = 4096,
+            json_mode: bool = True
+    ) -> str:
+        import httpx
+
+        if json_mode:
+            # OpenAI's response_format=json_object requires the word "JSON" in the
+            # prompt/system; this suffix satisfies that and matches GrokClient's pattern.
+            system = system + "\n\nYou MUST respond with valid JSON only. No markdown, no explanation."
+
+        payload = {
+            "model": self.model_id,
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+        }
+        if json_mode:
+            payload["response_format"] = {"type": "json_object"}
+
+        max_backoff_retries = 5
+        for backoff_attempt in range(max_backoff_retries):
+            try:
+                response = await self._http.post(
+                    f"{self.base_url}/chat/completions",
+                    json=payload,
+                )
+
+                # Retry on 429 / 5xx with exponential backoff
+                if response.status_code == 429 or response.status_code >= 500:
+                    if backoff_attempt < max_backoff_retries - 1:
+                        import random
+                        delay = min(2 ** backoff_attempt + random.uniform(0, 1), 60)
+                        logger.warning(
+                            f"HTTP {response.status_code}, retrying in {delay:.1f}s "
+                            f"(attempt {backoff_attempt + 1}/{max_backoff_retries})"
+                        )
+                        await asyncio.sleep(delay)
+                        continue
+                    response.raise_for_status()
+
+                response.raise_for_status()
+                data = response.json()
+
+                # Track token usage (OpenAI uses prompt_tokens/completion_tokens, same as xAI)
+                usage = data.get("usage")
+                if usage:
+                    self.total_prompt_tokens += usage.get("prompt_tokens", 0)
+                    self.total_completion_tokens += usage.get("completion_tokens", 0)
+                self.total_requests += 1
+
+                # gpt-4.1-mini is not a reasoning model; _strip_think_blocks is a no-op
+                # safety net in case we ever switch to o1/o3.
                 return _strip_think_blocks(data["choices"][0]["message"]["content"])
 
             except httpx.TimeoutException:
@@ -2898,7 +3022,11 @@ class FactsExtractionPass(ExtractionPass):
             min_facts=self.config.min_facts,
             max_facts=self.config.max_facts
         )
-        return await self.extract_with_retry(prompt, context)
+        # Bumped from default 4096: long ECHR judgments produce verbose facts JSON
+        # that exceeded the cap on smaller models, causing "Unterminated string"
+        # parse errors. 8000 matches LinkDiscoveryPass and is well within OpenAI/
+        # Grok/Anthropic output limits for any current frontier model.
+        return await self.extract_with_retry(prompt, context, max_tokens=8000)
 
     def validate(self, data: Any, context: Dict = None) -> Tuple[bool, List[str], List[str]]:
         errors = []
@@ -4887,10 +5015,11 @@ async def main():
     import os
 
     if len(sys.argv) < 2:
-        print("Usage: python extractor_v3.py <judgment.txt> [case_id] [--api anthropic|grok]")
+        print("Usage: python extractor_v3.py <judgment.txt> [case_id] [--api anthropic|grok|openai]")
         print("\nEnvironment variables:")
         print("  ANTHROPIC_API_KEY - for Anthropic Claude")
         print("  XAI_API_KEY - for X.AI Grok")
+        print("  OPENAI_API_KEY - for OpenAI (gpt-4.1-mini)")
         return
 
     filepath = sys.argv[1]
@@ -4911,6 +5040,13 @@ async def main():
             return
         model_id = "grok-4-1-fast-reasoning"
         client = GrokClient(api_key, model_id=model_id)
+    elif api == "openai":
+        api_key = os.environ.get("OPENAI_API_KEY")
+        if not api_key:
+            print("Error: OPENAI_API_KEY not set")
+            return
+        model_id = "gpt-4.1-mini"
+        client = OpenAIClient(api_key, model_id=model_id)
     else:
         api_key = os.environ.get("ANTHROPIC_API_KEY")
         if not api_key:
@@ -4920,7 +5056,7 @@ async def main():
         client = AnthropicClient(api_key, model_id=model_id)
 
     # Load document
-    with open(filepath, 'r') as f:
+    with open(filepath, 'r', encoding='utf-8') as f:
         text = f.read()
 
     # Extract
@@ -4939,7 +5075,7 @@ async def main():
 
     # Save output
     output_path = filepath.replace(".txt", "_graph_v3.json")
-    with open(output_path, 'w') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write(graph.to_json())
 
     print(f"\n✅ Graph saved to: {output_path}")
